@@ -1,0 +1,35 @@
+# --- OpenBot OS -----------------------------------------------------------------
+.openbot/runs/
+.openbot/state/pnl.json
+.openbot/state/*.db
+.openbot/state/*.db-journal
+services/**/data/
+apps/console/dist/
+*.sqlite
+*.sqlite3
+
+# --- python ---------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+dist/
+build/
+*.egg-info/
+
+# --- node (upstream repos) ------------------------------------------------------
+node_modules/
+
+# --- secrets (never) ------------------------------------------------------------
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# --- editor / OS ----------------------------------------------------------------
+.DS_Store
+.idea/
+.vscode/
+*.swp

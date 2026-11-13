@@ -1,0 +1,6 @@
+{
+  "OpenBot":   {"repo": "CopilotKit/OpenBot", "pin": "main @ 2026-11-09 (tarball)", "role": "substrate"},
+  "rakazo":    {"repo": "elie222/rakazo",     "pin": "main @ 2026-11-09 (tarball)", "role": "feature donor"},
+  "OpenDots":  {"repo": "CopilotKit/OpenDots", "pin": "main @ 2026-11-09 (tarball)", "role": "review-gate donor"},
+  "muse":      {"install": "~/.local/bin/muse", "version": "1.4.14 (1.4.14-R7309.1)", "role": "coding labour"}
+}

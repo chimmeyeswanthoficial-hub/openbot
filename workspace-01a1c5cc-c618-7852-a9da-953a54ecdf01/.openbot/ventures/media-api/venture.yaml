@@ -1,0 +1,34 @@
+slug: media-api
+name: "Media API"
+owner_agent: ceo
+status: discovery
+thesis: >
+  Small teams and agencies need one HTTP call to split, convert and compress media, and will
+  pay a small monthly fee instead of operating ffmpeg and a queue. We sell reliability and a
+  predictable bill, not features.
+icp: "indie SaaS and 1-20 person agencies that already pay for at least one API"
+wedge: "one endpoint, one price, no dashboard required to start"
+pricing:
+  model: metered_subscription
+  plans:
+    - {name: starter, usd_month: 19, included_units: 5000, overage_usd: 0.004}
+    - {name: growth, usd_month: 79, included_units: 40000, overage_usd: 0.003}
+unit_economics:
+  cogs_per_1k_units_usd: 0.12        # measured from the first 100 calls, then corrected
+  target_gross_margin: 0.80
+  cac_target_usd: 40
+  payback_months_target: 3
+channels: [seo_long_tail, github_readme, cold_email_gated]
+budgets:
+  day_usd: 3.00
+  month_usd: 60.00
+  auto_spend_usd: 0.00               # pre-revenue: a person approves every charge
+guardrails:
+  egress_mode: allowlist_only
+  data_class: public
+  hitl: [always_money, always_outbound_message]
+kill_criteria:
+  - "no paying customer within 45 days of launch"
+  - "gross margin below 55% for two consecutive months"
+  - "cogs above 40% of revenue for a week"
+ledger_account: acct_media_api

@@ -1,0 +1,60 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt ruff
+
+      - name: Lint
+        run: ruff check services packages scripts
+
+      - name: Tests (all suites)
+        run: python -m pytest services packages scripts/tests -q
+
+      - name: Rust/JS suites are not required by CI
+        run: echo "worker/ledger/sentinel are Python; the substrate lives in repos/ and is pinned, not built here"
+
+      - name: Contract + drift + boundary checks
+        run: bash scripts/verify.sh
+
+      - name: Smoke (throwaway DB)
+        run: bash scripts/smoke.sh
+
+  fresh-clone:
+    # The repository's real promise is that a stranger can clone it and run it. Prove that on every
+    # push: copy only what a public clone would contain, install requirements into a bare venv,
+    # and run the suite. Guarded runs must never touch network, keys, or Docker.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install from requirements.txt only
+        run: python -m pip install -r requirements.txt
+      - name: Run the suite with no cache and no env
+        env:
+          PYTHONDONTWRITEBYTECODE: "1"
+        run: python -m pytest services packages scripts/tests
+      - name: Boot the control plane and read /healthz
+        run: |
+          python -m uvicorn app:app --app-dir services/sentinel --port 8091 &
+          for i in $(seq 1 30); do curl -fsS localhost:8091/healthz && break; sleep 1; done
+          curl -fsS localhost:8091/healthz | tee /dev/stderr | grep -q '"ok"'

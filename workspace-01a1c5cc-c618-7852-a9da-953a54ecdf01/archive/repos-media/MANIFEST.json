@@ -1,0 +1,392 @@
+{
+ "note": "Large media moved out of repos/ to keep the workspace snapshot under budget. Restore with scripts/restore-media.sh, or re-fetch with git (these files are unmodified upstream).",
+ "count": 77,
+ "bytes": 32887207,
+ "files": [
+  {
+   "path": "rakazo/docs/screenshots/demo.mp4",
+   "bytes": 4414968,
+   "sha256": "b13dc43c65b648c8"
+  },
+  {
+   "path": "rakazo/apps/desktop/assets/icon-macos.png",
+   "bytes": 2505096,
+   "sha256": "a24e7ba9a6aff696"
+  },
+  {
+   "path": "OpenDots/docs/demos/computer-chat.gif",
+   "bytes": 1980487,
+   "sha256": "f17711873920bc03"
+  },
+  {
+   "path": "OpenBot/desktop/src-tauri/icons/icon.icns",
+   "bytes": 1437080,
+   "sha256": "45926bd67fc5deab"
+  },
+  {
+   "path": "rakazo/apps/desktop/assets/icon.png",
+   "bytes": 1408793,
+   "sha256": "99c3a0e9d34abce5"
+  },
+  {
+   "path": "rakazo/packages/ui-tokens/assets/Rakazo.icon/Assets/orange-bot.png",
+   "bytes": 1343542,
+   "sha256": "06048b034dcabf6b"
+  },
+  {
+   "path": "OpenDots/docs/demos/voice-call.gif",
+   "bytes": 1261344,
+   "sha256": "32a9ad7ebbe497a4"
+  },
+  {
+   "path": "OpenDots/docs/demos/chat-to-space.gif",
+   "bytes": 1253955,
+   "sha256": "3befaa8107993ecd"
+  },
+  {
+   "path": "rakazo/apps/mobile/assets/icon.png",
+   "bytes": 1011286,
+   "sha256": "6f9d10a24bf6c24e"
+  },
+  {
+   "path": "rakazo/apps/www/public/brand/kit/rakazo-icon.png",
+   "bytes": 982216,
+   "sha256": "13e69111474008ef"
+  },
+  {
+   "path": "OpenDots/docs/demos/spaces-page-chat.gif",
+   "bytes": 928998,
+   "sha256": "b0b09882c795d5ba"
+  },
+  {
+   "path": "rakazo/apps/mobile/assets/adaptive-icon.png",
+   "bytes": 881036,
+   "sha256": "4a18b9f19ba337c2"
+  },
+  {
+   "path": "OpenBot/desktop/src-tauri/icons/icon.png",
+   "bytes": 863263,
+   "sha256": "455392ca6a53edda"
+  },
+  {
+   "path": "OpenDots/docs/demos/computer-chat.mp4",
+   "bytes": 842880,
+   "sha256": "041faca798d398d0"
+  },
+  {
+   "path": "rakazo/apps/www/public/og-image.png",
+   "bytes": 841530,
+   "sha256": "530f68f0ce19490d"
+  },
+  {
+   "path": "rakazo/docs/readme-hero.png",
+   "bytes": 724797,
+   "sha256": "b73c5a62d664a6be"
+  },
+  {
+   "path": "rakazo/apps/desktop/assets/background@2x.png",
+   "bytes": 600586,
+   "sha256": "7d734b70d1a2a80d"
+  },
+  {
+   "path": "OpenDots/docs/demos/chat-to-space.mp4",
+   "bytes": 587734,
+   "sha256": "eea8f34838ac8463"
+  },
+  {
+   "path": "rakazo/apps/mobile/assets/splash-icon.png",
+   "bytes": 547120,
+   "sha256": "0b8e6cc5462ac57d"
+  },
+  {
+   "path": "OpenDots/docs/demos/specialist-chat.gif",
+   "bytes": 487711,
+   "sha256": "df432ba636cf8725"
+  },
+  {
+   "path": "OpenDots/docs/demos/spaces-page-chat.mp4",
+   "bytes": 458568,
+   "sha256": "d34d266070add38b"
+  },
+  {
+   "path": "OpenDots/public/dots/blue.png",
+   "bytes": 415250,
+   "sha256": "bf8ef19c7b7d753c"
+  },
+  {
+   "path": "rakazo/apps/www/public/brand/kit/rakazo-logo.png",
+   "bytes": 382677,
+   "sha256": "0a4535f2eb33d517"
+  },
+  {
+   "path": "OpenDots/public/dots/purple.png",
+   "bytes": 380879,
+   "sha256": "9fb3e53fc90b4fe8"
+  },
+  {
+   "path": "rakazo/apps/www/public/brand/kit/rakazo-mascot.png",
+   "bytes": 374149,
+   "sha256": "e4fbd77785d8a82c"
+  },
+  {
+   "path": "rakazo/docs/screenshots/readme/computer.png",
+   "bytes": 363289,
+   "sha256": "e51330888f8d81e4"
+  },
+  {
+   "path": "rakazo/apps/web/public/icon-512.png",
+   "bytes": 347705,
+   "sha256": "dfa002d2990a6270"
+  },
+  {
+   "path": "rakazo/apps/www/public/icon-512.png",
+   "bytes": 347705,
+   "sha256": "dfa002d2990a6270"
+  },
+  {
+   "path": "OpenDots/public/dots/orange.png",
+   "bytes": 343513,
+   "sha256": "bf9a2f9f6859c293"
+  },
+  {
+   "path": "OpenDots/public/dots/mint.png",
+   "bytes": 320726,
+   "sha256": "aebbd4a27e346b7a"
+  },
+  {
+   "path": "OpenDots/docs/demos/voice-call.mp4",
+   "bytes": 279271,
+   "sha256": "d21c169d55f828ed"
+  },
+  {
+   "path": "rakazo/docs/screenshots/readme/routines.png",
+   "bytes": 266481,
+   "sha256": "548f0d4ab015de06"
+  },
+  {
+   "path": "OpenDots/docs/demos/specialist-chat.mp4",
+   "bytes": 223972,
+   "sha256": "6dbb1f3ccf2e0621"
+  },
+  {
+   "path": "rakazo/docs/screenshots/readme/groups.png",
+   "bytes": 212232,
+   "sha256": "a7e1bfa9cb6e9451"
+  },
+  {
+   "path": "rakazo/docs/screenshots/readme/mobile.png",
+   "bytes": 203308,
+   "sha256": "cbf20b69b902b9d5"
+  },
+  {
+   "path": "rakazo/apps/desktop/assets/background.png",
+   "bytes": 175168,
+   "sha256": "261205d5bd766e84"
+  },
+  {
+   "path": "rakazo/apps/www/public/graphics/grok/alts/hermes.webp",
+   "bytes": 156250,
+   "sha256": "95ee18b663574b3b"
+  },
+  {
+   "path": "rakazo/docs/screenshots/readme/integrations.png",
+   "bytes": 153078,
+   "sha256": "3140aa9ab785e897"
+  },
+  {
+   "path": "rakazo/docs/media/artifacts-tab/filters-open.png",
+   "bytes": 144514,
+   "sha256": "1b0b06c920f56ac3"
+  },
+  {
+   "path": "rakazo/apps/www/public/graphics/desktop-wallpaper.webp",
+   "bytes": 138276,
+   "sha256": "60aa6239d37c26f4"
+  },
+  {
+   "path": "rakazo/docs/screenshots/readme/pages.png",
+   "bytes": 136355,
+   "sha256": "f79d90bdbee56f4c"
+  },
+  {
+   "path": "rakazo/docs/media/artifacts-tab/list-view.png",
+   "bytes": 131675,
+   "sha256": "785329487ff81f57"
+  },
+  {
+   "path": "rakazo/docs/screenshots/web-computer.png",
+   "bytes": 122812,
+   "sha256": "0a1943539c8d30e7"
+  },
+  {
+   "path": "rakazo/apps/www/public/brand/rakazo-mark.png",
+   "bytes": 88661,
+   "sha256": "0840cb3bcad2d6d2"
+  },
+  {
+   "path": "OpenDots/docs/images/spaces-workspace.png",
+   "bytes": 87494,
+   "sha256": "4008e644bd48224b"
+  },
+  {
+   "path": "rakazo/apps/mobile/assets/monochrome-icon.png",
+   "bytes": 75066,
+   "sha256": "3baf6d1595eb4dfd"
+  },
+  {
+   "path": "rakazo/apps/www/public/graphics/voice-providers/self-hosted.webp",
+   "bytes": 74678,
+   "sha256": "686c709d24e9a22c"
+  },
+  {
+   "path": "OpenDots/docs/images/spaces-library.png",
+   "bytes": 71693,
+   "sha256": "d3340a04d668fbc1"
+  },
+  {
+   "path": "rakazo/apps/www/public/graphics/sandboxes/boat.webp",
+   "bytes": 69910,
+   "sha256": "00201ab437b96481"
+  },
+  {
+   "path": "OpenDots/docs/images/chat-layout.png",
+   "bytes": 69206,
+   "sha256": "0a1b1b11c957ecd5"
+  },
+  {
+   "path": "OpenDots/docs/demos/chat-to-space-poster.jpg",
+   "bytes": 67965,
+   "sha256": "7353d318b5836fb4"
+  },
+  {
+   "path": "OpenBot/desktop/src-tauri/icons/128x128@2x.png",
+   "bytes": 64232,
+   "sha256": "046319324c303eef"
+  },
+  {
+   "path": "rakazo/apps/www/public/graphics/grok/alts/openclaw.webp",
+   "bytes": 63852,
+   "sha256": "fe9d4be8dcc5b22a"
+  },
+  {
+   "path": "rakazo/apps/www/public/graphics/sandboxes/wuying.webp",
+   "bytes": 61916,
+   "sha256": "97821cd1fa6fd10a"
+  },
+  {
+   "path": "rakazo/apps/www/public/graphics/grok/alts/hermes.avif",
+   "bytes": 61431,
+   "sha256": "3113557109cfe283"
+  },
+  {
+   "path": "rakazo/apps/www/public/graphics/voice-providers/openai.webp",
+   "bytes": 60488,
+   "sha256": "ce48bd0f3e02a895"
+  },
+  {
+   "path": "OpenDots/docs/demos/computer-chat-poster.jpg",
+   "bytes": 59482,
+   "sha256": "6e668ae7c72a0e47"
+  },
+  {
+   "path": "rakazo/docs/media/artifacts-tab/bots-view.png",
+   "bytes": 57241,
+   "sha256": "107f03e92d63fd35"
+  },
+  {
+   "path": "rakazo/apps/www/public/graphics/integration-platforms/mcp.webp",
+   "bytes": 53116,
+   "sha256": "4c6f5e88077a8cb3"
+  },
+  {
+   "path": "rakazo/apps/web/public/icon-192.png",
+   "bytes": 51774,
+   "sha256": "8976b42a0e879647"
+  },
+  {
+   "path": "rakazo/apps/www/public/icon-192.png",
+   "bytes": 51774,
+   "sha256": "8976b42a0e879647"
+  },
+  {
+   "path": "rakazo/apps/www/public/graphics/voice-providers/self-hosted.avif",
+   "bytes": 50956,
+   "sha256": "96e6979a778ac24f"
+  },
+  {
+   "path": "rakazo/apps/www/public/graphics/grok/alts/muse.webp",
+   "bytes": 50022,
+   "sha256": "51a9b882799e3552"
+  },
+  {
+   "path": "rakazo/apps/www/public/graphics/sandboxes/e2b.webp",
+   "bytes": 48190,
+   "sha256": "323623fa75d09bc5"
+  },
+  {
+   "path": "rakazo/apps/www/public/graphics/sandboxes/docker.webp",
+   "bytes": 47526,
+   "sha256": "56acbc5f499c8554"
+  },
+  {
+   "path": "rakazo/apps/www/public/graphics/integration-platforms/composio.webp",
+   "bytes": 45924,
+   "sha256": "05612a849631fc11"
+  },
+  {
+   "path": "rakazo/apps/www/public/graphics/chat/model.png",
+   "bytes": 45820,
+   "sha256": "8d8c4950e9662c9b"
+  },
+  {
+   "path": "rakazo/apps/web/public/apple-touch-icon.png",
+   "bytes": 45563,
+   "sha256": "f4fbcb645fe13aae"
+  },
+  {
+   "path": "rakazo/apps/www/public/apple-touch-icon.png",
+   "bytes": 45563,
+   "sha256": "f4fbcb645fe13aae"
+  },
+  {
+   "path": "rakazo/apps/www/public/graphics/voice-providers/fish-audio.webp",
+   "bytes": 45280,
+   "sha256": "b66049cf0e3273db"
+  },
+  {
+   "path": "rakazo/apps/www/public/graphics/sandboxes/railway.webp",
+   "bytes": 44470,
+   "sha256": "68b54835d72cb83c"
+  },
+  {
+   "path": "rakazo/apps/www/public/graphics/sandboxes/wuying.avif",
+   "bytes": 42096,
+   "sha256": "7420d3de39b4d779"
+  },
+  {
+   "path": "rakazo/apps/www/public/og/sandbox-daytona.png",
+   "bytes": 41274,
+   "sha256": "b2c79ec4c1825b71"
+  },
+  {
+   "path": "rakazo/apps/www/public/graphics/voice-providers/openai.avif",
+   "bytes": 41009,
+   "sha256": "53cf8c3fdfbcab05"
+  },
+  {
+   "path": "rakazo/apps/www/public/og/voice-provider-cartesia.png",
+   "bytes": 40926,
+   "sha256": "1c9efc2a72c4d630"
+  },
+  {
+   "path": "rakazo/apps/www/public/graphics/grok/alts/claude-duet.webp",
+   "bytes": 40294,
+   "sha256": "fc9c85b4e2ca901f"
+  },
+  {
+   "path": "rakazo/apps/www/public/graphics/integration-platforms/pipedream.webp",
+   "bytes": 40040,
+   "sha256": "5e36e48d7e503165"
+  }
+ ]
+}

@@ -1,0 +1,6 @@
+{
+  "schema_version": 1,
+  "tui": {
+    "foreign_context_notice_shown": true
+  }
+}

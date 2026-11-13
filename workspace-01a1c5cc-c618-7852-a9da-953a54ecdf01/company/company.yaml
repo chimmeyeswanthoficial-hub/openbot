@@ -1,0 +1,159 @@
+# OpenBot OS — the company
+#
+# One file that describes who works here, what they may do, and what stops them.
+# `services/sentinel/company.py` validates this at boot and `scripts/verify.sh` enforces it.
+# If a role is not here, it does not exist. If a duty is not here, nobody does it.
+#
+# Vocabulary: a *role* is a durable job (Rakazo/OpenBot "coworker"), an *agent* implementation is
+# one of OpenBot's `agent-*` providers behind AG-UI, a *venture* is a business in
+# .openbot/ventures/, and a *human* is the only actor that can sign, pay, or promise.
+
+company:
+  legal_name: null              # BLOCKER: a human must form the entity. Until then we are a project.
+  trading_name: "OpenBot OS"
+  formation: human_required      # never automated (see plan.md §7.2)
+  jurisdiction: null
+  bank_account: null
+  started: 2026-11-10
+  timezone: Asia/Kolkata
+  operating_hours: "24/7"        # agents run always; humans are paged only on sev1/approval
+  fiscal_year_start: "04-01"     # India FY; change if the entity is formed elsewhere
+
+# ---------------------------------------------------------------------------
+# Roles. `reports_to` builds the hierarchy; exactly one role has reports_to: null.
+# `may` / `may_not` are the role's own boundary — the Sentinel policy is the authority, this is
+# the readable summary that a human reviews. Capability keys are shared with sentinel/policy.py.
+# ---------------------------------------------------------------------------
+roles:
+  - id: owner
+    kind: human
+    title: "Owner"
+    reports_to: null
+    mandate: >
+      Holds the entity, the money, and the liability. Approves prices, legal text, spend above
+      budget, refunds above threshold, and every hire (new venture). Reads the monthly review.
+    may: [approve_price, approve_legal, approve_spend, approve_refund, form_entity, sign_contract,
+          pause_all, kill_venture, promote_skill]
+    may_not: [impersonate_agent_in_audit, disable_safety_rules]
+    kpi: ["manual interventions per week ↓", "review read within 48h"]
+    human_hours_per_week: 3
+
+  - id: ceo
+    kind: agent
+    title: "Chief Executive"
+    reports_to: owner
+    agent_impl: agent-bot             # OpenBot's built-in AG-UI bot
+    mandate: >
+      Decide what to build next from the scout feed, write venture briefs, set priorities, and
+      hold each venture to its kill criteria. Never builds, never sells without a gate.
+    may: [read_all_ventures, write_venture_brief, propose_venture, request_budget, open_issue]
+    may_not: [spend_money, contact_customer, change_price, edit_production, delete_files]
+    tools: [routines, goals, web_research, pages]
+    kpi: ["ventures reaching first payment", "days from brief to launch", "portfolio gross margin"]
+    cost_ceiling_usd_month: 30
+
+  - id: cto
+    kind: agent
+    title: "Chief Technology"
+    reports_to: ceo
+    agent_impl: agent-langgraph       # a real graph, because build/review loops are branchy
+    mandate: >
+      Turn an approved venture brief into a running service: repo, tests, deploy request,
+      rollback plan. Owns the post-mortem ledger and the prevention rules.
+    may: [write_code, run_tests, open_pr, request_deploy, write_postmortem, add_policy_rule]
+    may_not: [deploy_without_gate, edit_sentinel_policy_alone, read_other_venture_secrets,
+              spend_money, change_price]
+    tools: [computers, shell, git, mise, claude_code]
+    kpi: ["tests green on first deploy request", "post-mortems without a rule (must be 0)",
+          "mean time to rollback"]
+    cost_ceiling_usd_month: 120
+
+  - id: auditor
+    kind: agent
+    title: "System Auditor"
+    reports_to: owner                # deliberately not under the CTO: it audits the CTO
+    agent_impl: agent-computer        # needs a real browser+shell to reproduce failures
+    mandate: >
+      Watch every run's logs and audit rows. File incidents, prove the root cause, force a
+      prevention rule of kind test/policy/type/lint, and verify the rule fails on the old code.
+      May pause a venture on its own authority (sev1 only).
+    may: [read_all_logs, read_all_audit, write_postmortem, pause_venture_sev1, open_issue,
+          request_model_escalation]
+    may_not: [write_feature_code, approve_own_incident, delete_audit_rows, resume_venture]
+    tools: [computers, shell, sentinel_audit]
+    kpi: ["detection before customer report (≥90%)", "incident → rule enforced (hours)"]
+    cost_ceiling_usd_month: 60
+
+  - id: growth
+    kind: agent
+    title: "Growth & Support"
+    reports_to: ceo
+    agent_impl: agent-bot
+    mandate: >
+      Own the funnel and the inbox: draft content, draft replies, run the SEO/GitHub channels,
+      triage support, and hand anything that leaves the building to a human gate.
+    may: [draft_content, draft_reply, research_market, update_status_page, request_send]
+    may_not: [send_anything, publish_anything, change_price, issue_refund, promise_roadmap]
+    tools: [web_research, composio, pages, email_draft]
+    kpi: ["qualified conversations/week", "CAC payback", "support first-response time"]
+    cost_ceiling_usd_month: 60
+
+  - id: ops
+    kind: agent
+    title: "Operations (finance + delivery)"
+    reports_to: ceo
+    agent_impl: agent-mastra          # deterministic workflows, weak models, no creativity needed
+    mandate: >
+      Keep the books and the deliveries: post ledger rows from provider webhooks, compute MRR and
+      COGS, reconcile to the provider, run the monthly close, chase failed deliveries, and keep
+      every routine's destination alive.
+    may: [write_ledger_row_from_webhook, compute_pnl, reconcile, raise_alert, update_runbook]
+    may_not: [move_money, refund, change_subscription, edit_invoices, mark_invoice_paid_manually]
+    tools: [ledger, routines, pages]
+    kpi: ["reconciliation drift (must be $0)", "close completed by day 3", "missed deliveries"]
+    cost_ceiling_usd_month: 30
+
+# ---------------------------------------------------------------------------
+# Standing duties — the calendar the company lives by. Each must map to a routine file.
+# ---------------------------------------------------------------------------
+duties:
+  - id: market-scan
+    role: ceo
+    routine: .openbot/routines/scout-daily.md
+    cadence: "0 6 * * *"
+  - id: incident-watch
+    role: auditor
+    routine: .openbot/routines/incident-watch.md
+    cadence: "*/15 * * * *"
+  - id: health-sweep
+    role: cto
+    routine: .openbot/routines/health-sweep.md
+    cadence: "*/15 * * * *"
+  - id: support-triage
+    role: growth
+    routine: .openbot/routines/support-triage.md
+    cadence: "0 * * * *"
+  - id: ledger-sync
+    role: ops
+    routine: .openbot/routines/ledger-sync.md
+    cadence: "*/30 * * * *"
+  - id: weekly-review
+    role: ceo
+    routine: .openbot/routines/weekly-review.md
+    cadence: "0 8 * * 1"
+
+# ---------------------------------------------------------------------------
+# What no role may ever do, whoever asks, however the request is phrased.
+# Enforced in services/sentinel/policy.py; listed here so a human can read it in one screen.
+# ---------------------------------------------------------------------------
+prohibitions:
+  - move money without a human approval row
+  - sign a contract, accept terms as the company, or make a legal representation
+  - create or accept an employment, tax, or regulatory filing on the entity's behalf
+  - impersonate a human in any outbound message or audit row
+  - read another venture's credentials, data, or ledger
+  - disable a safety rule, edit the policy engine, or delete an audit row
+  - publish a claim about a customer, a metric, or a certification without a human-signed source
+  - give medical, legal, or investment advice as the company
+  - operate outside its declared egress mode
+  - continue running after a sev1 pause

@@ -1,0 +1,9 @@
+{
+  "date": "2026-11-10",
+  "company_day_cap_usd": 20.00,
+  "company_month_cap_usd": 300.00,
+  "spent_today_usd": 0.00,
+  "spent_month_usd": 0.00,
+  "auto_spend_usd": 0.00,
+  "note": "Raised only by a human, in a PR, with the reason. Agents read this; they never write it."
+}

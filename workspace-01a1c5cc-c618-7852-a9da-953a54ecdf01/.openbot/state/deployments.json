@@ -1,0 +1,36 @@
+{
+  "current_sha": "0.2.2",
+  "previous_sha": "0.2.3",
+  "migration_id": "mig_1794496389",
+  "deployed_at": "2026-11-12T15:13:09Z",
+  "history": [
+    {
+      "sha": "0.2.1",
+      "previous_sha": "0.2.0",
+      "migration_id": "0001_initial_sqlite",
+      "deployed_at": "2026-11-10T11:00:00Z",
+      "status": "success"
+    },
+    {
+      "sha": "0.2.2",
+      "previous_sha": "0.2.1",
+      "migration_id": "0002_postgres_support",
+      "deployed_at": "2026-11-11T20:00:00Z",
+      "status": "success"
+    },
+    {
+      "sha": "0.2.3",
+      "previous_sha": "0.2.2",
+      "migration_id": "mig_1794496389",
+      "deployed_at": "2026-11-12T15:13:09Z",
+      "status": "success"
+    },
+    {
+      "sha": "0.2.2",
+      "previous_sha": "0.2.3",
+      "migration_id": "rollback_from_0.2.3",
+      "deployed_at": "2026-11-12T15:13:09Z",
+      "status": "rolled_back"
+    }
+  ]
+}

@@ -1,9 +1,10 @@
 """Regression tests for tools/windows-debug-trace.py.
 
 All tests use a fake Win32 backend (pure Python); no Windows API calls,
-no target process and no native execution.  The fake backend patches the
-ctypes.windll.kernel32 interface so the recorder logic can be exercised
-on any platform.
+no target process and no native execution. The fake backend replaces the
+module's API binder and its local OS reference, without changing global os.name
+or pathlib's platform selection. This exercises recorder logic on any platform,
+not Windows ABI correctness. T16–T31 cover the independent v2 failure findings.
 
 Coverage targets (per Arena review daac285):
   T01  entry_point_reached is null and entry_point_measured is False
@@ -21,10 +22,9 @@ Coverage targets (per Arena review daac285):
   T07  image file handle from CREATE_PROCESS is closed after path resolution.
   T08  DLL file handle from LOAD_DLL is closed after path resolution.
   T09  ContinueDebugEvent failure appends a CONTINUE_DEBUG_EVENT_FAILED record.
-  T10  PROCESS_INFORMATION handles (hProcess, hThread) are always closed in
-       the finally block, even when CreateProcessW succeeds and an exception
-       is raised during the loop.
-  T11  schema is openbot.windows-debug-trace/2; harness_version is 2.
+  T10  PROCESS_INFORMATION handles are closed when a loop exception is
+       recorded as collection_status=collector_exception.
+  T11  schema is openbot.windows-debug-trace/3; harness_version is 3.
   T12  collection_status == "complete" after EXIT_PROCESS; exit code is captured.
   T13  loaded_modules_before_termination lists only notified modules.
   T14  non-Windows platform raises RuntimeError (not a Windows API call).
@@ -35,12 +35,11 @@ from __future__ import annotations
 
 import ctypes
 import importlib.util
-import os
 import sys
 import types
 import unittest
 from pathlib import Path
-from unittest.mock import MagicMock, call, patch
+from unittest.mock import MagicMock, patch
 
 # ---------------------------------------------------------------------------
 # Import the module under test
@@ -64,6 +63,7 @@ EXIT_THREAD_DEBUG_EVENT = _MOD.EXIT_THREAD_DEBUG_EVENT
 # ---------------------------------------------------------------------------
 # Fake Win32 backend helpers
 # ---------------------------------------------------------------------------
+
 
 def _make_fake_k32(event_sequence):
     """Return a mock kernel32 that feeds *event_sequence* through WaitForDebugEvent.
@@ -92,7 +92,7 @@ def _make_fake_k32(event_sequence):
         ev = p[0]
 
         if not sequence:
-            k32.GetLastError.return_value = 258  # WAIT_TIMEOUT
+            k32.GetLastError.return_value = 121  # ERROR_SEM_TIMEOUT from WaitForDebugEvent
             return 0
         item = sequence.pop(0)
         code = item["code"]
@@ -102,7 +102,7 @@ def _make_fake_k32(event_sequence):
 
         if code == CREATE_PROCESS_DEBUG_EVENT:
             ev.u.CreateProcessInfo.lpBaseOfImage = 0x140000000
-            ev.u.CreateProcessInfo.lpStartAddress = 0x1400013d0
+            ev.u.CreateProcessInfo.lpStartAddress = 0x1400013D0
             ev.u.CreateProcessInfo.hFile = item.get("hFile", 0)
             ev.u.CreateProcessInfo.hProcess = 0
             ev.u.CreateProcessInfo.hThread = 0
@@ -137,7 +137,9 @@ def _pi_with(h_process=11, h_thread=12, pid=1234, tid=5678):
     return pi
 
 
-def _run_trace(event_seq, *, create_ok=True, h_process=11, h_thread=12, timeout_ms=5000, max_events=500):
+def _run_trace(
+    event_seq, *, create_ok=True, h_process=11, h_thread=12, timeout_ms=5000, max_events=500
+):
     """Run trace_native_launch with a fake Win32 backend."""
     k32 = _make_fake_k32(event_seq)
 
@@ -160,7 +162,7 @@ def _run_trace(event_seq, *, create_ok=True, h_process=11, h_thread=12, timeout_
 
     with (
         patch.object(_MOD, "_declare_win32_apis", return_value=k32),
-        patch("os.name", "nt"),
+        patch.object(_MOD, "os", types.SimpleNamespace(name="nt", environ={})),
     ):
         result = trace_native_launch("fake.exe", timeout_ms=timeout_ms, max_events=max_events)
 
@@ -171,8 +173,8 @@ def _run_trace(event_seq, *, create_ok=True, h_process=11, h_thread=12, timeout_
 # Tests
 # ---------------------------------------------------------------------------
 
-class TestDebugTraceHarness(unittest.TestCase):
 
+class TestDebugTraceHarness(unittest.TestCase):
     # T01 — entry_point_reached is always null; entry_point_measured always False
     def test_T01_entry_point_never_set_to_true_healthy_exit(self):
         seq = [
@@ -181,10 +183,10 @@ class TestDebugTraceHarness(unittest.TestCase):
             {"code": EXIT_PROCESS_DEBUG_EVENT, "exit_code": 0},
         ]
         result, _ = _run_trace(seq)
-        self.assertIs(result["entry_point_reached"], None,
-                      "entry_point_reached must be null (not measured)")
-        self.assertIs(result["entry_point_measured"], False,
-                      "entry_point_measured must be False")
+        self.assertIs(
+            result["entry_point_reached"], None, "entry_point_reached must be null (not measured)"
+        )
+        self.assertIs(result["entry_point_measured"], False, "entry_point_measured must be False")
 
     def test_T01b_entry_point_null_on_failure_exit(self):
         seq = [
@@ -205,11 +207,13 @@ class TestDebugTraceHarness(unittest.TestCase):
         ]
         result, k32 = _run_trace(seq)
         # Find the ContinueDebugEvent call that corresponds to the breakpoint event.
-        exc_event = next(
-            e for e in result["events"] if e["event_name"] == "EXCEPTION_DEBUG_EVENT"
+        exc_event = next(e for e in result["events"] if e["event_name"] == "EXCEPTION_DEBUG_EVENT")
+        self.assertIn(
+            "DBG_CONTINUE",
+            exc_event.get("exception_disposition", ""),
+            "Initial breakpoint must be continued with DBG_CONTINUE",
         )
-        self.assertIn("DBG_CONTINUE", exc_event.get("exception_disposition", ""),
-                      "Initial breakpoint must be continued with DBG_CONTINUE")
+        self.assertEqual(k32.ContinueDebugEvent.call_args_list[1].args[2], DBG_CONTINUE)
 
     # T03 — genuine exception forwarded with DBG_EXCEPTION_NOT_HANDLED
     def test_T03_genuine_exception_not_handled(self):
@@ -219,11 +223,15 @@ class TestDebugTraceHarness(unittest.TestCase):
             {"code": EXIT_PROCESS_DEBUG_EVENT, "exit_code": 0xC0000005},
         ]
         result, k32 = _run_trace(seq)
-        exc_event = next(
-            e for e in result["events"] if e["event_name"] == "EXCEPTION_DEBUG_EVENT"
+        exc_event = next(e for e in result["events"] if e["event_name"] == "EXCEPTION_DEBUG_EVENT")
+        self.assertIn(
+            "DBG_EXCEPTION_NOT_HANDLED",
+            exc_event.get("exception_disposition", ""),
+            "Genuine exception must be forwarded with DBG_EXCEPTION_NOT_HANDLED",
         )
-        self.assertIn("DBG_EXCEPTION_NOT_HANDLED", exc_event.get("exception_disposition", ""),
-                      "Genuine exception must be forwarded with DBG_EXCEPTION_NOT_HANDLED")
+        self.assertEqual(
+            k32.ContinueDebugEvent.call_args_list[1].args[2], DBG_EXCEPTION_NOT_HANDLED
+        )
 
     # T04 — CreateProcessW failure
     def test_T04_create_process_failure(self):
@@ -256,8 +264,9 @@ class TestDebugTraceHarness(unittest.TestCase):
         ]
         _, k32 = _run_trace(seq)
         closed_handles = [c.args[0] for c in k32.CloseHandle.call_args_list]
-        self.assertIn(h_image, closed_handles,
-                      "Image file handle from CREATE_PROCESS must be closed")
+        self.assertIn(
+            h_image, closed_handles, "Image file handle from CREATE_PROCESS must be closed"
+        )
 
     # T08 — LOAD_DLL file handle closed after path resolution
     def test_T08_load_dll_handle_closed(self):
@@ -269,26 +278,30 @@ class TestDebugTraceHarness(unittest.TestCase):
         ]
         _, k32 = _run_trace(seq)
         closed_handles = [c.args[0] for c in k32.CloseHandle.call_args_list]
-        self.assertIn(h_dll, closed_handles,
-                      "DLL file handle from LOAD_DLL must be closed")
+        self.assertIn(h_dll, closed_handles, "DLL file handle from LOAD_DLL must be closed")
 
     # T09 — ContinueDebugEvent failure appends CONTINUE_DEBUG_EVENT_FAILED record
     def test_T09_continue_debug_event_failure_recorded(self):
-        k32 = _make_fake_k32([
-            {"code": CREATE_PROCESS_DEBUG_EVENT},
-            {"code": EXIT_PROCESS_DEBUG_EVENT, "exit_code": 0},
-        ])
+        k32 = _make_fake_k32(
+            [
+                {"code": CREATE_PROCESS_DEBUG_EVENT},
+                {"code": EXIT_PROCESS_DEBUG_EVENT, "exit_code": 0},
+            ]
+        )
         # Make ContinueDebugEvent fail on the EXIT_PROCESS call.
         call_count = [0]
+
         def _cont(pid, tid, status):
             call_count[0] += 1
             if call_count[0] >= 2:
                 k32.GetLastError.return_value = 5  # ERROR_ACCESS_DENIED
                 return 0
             return 1
+
         k32.ContinueDebugEvent.side_effect = _cont
 
         pi_obj = _pi_with()
+
         def _create(*args, **kwargs):
             p = args[9]
             p._obj.hProcess = pi_obj.hProcess
@@ -296,17 +309,21 @@ class TestDebugTraceHarness(unittest.TestCase):
             p._obj.dwProcessId = pi_obj.dwProcessId
             p._obj.dwThreadId = pi_obj.dwThreadId
             return 1
+
         k32.CreateProcessW.side_effect = _create
 
         with (
             patch.object(_MOD, "_declare_win32_apis", return_value=k32),
-            patch("os.name", "nt"),
+            patch.object(_MOD, "os", types.SimpleNamespace(name="nt", environ={})),
         ):
             result = trace_native_launch("fake.exe")
 
         names = [e["event_name"] for e in result["events"]]
-        self.assertIn("CONTINUE_DEBUG_EVENT_FAILED", names,
-                      "ContinueDebugEvent failure must be recorded")
+        self.assertIn(
+            "CONTINUE_DEBUG_EVENT_FAILED", names, "ContinueDebugEvent failure must be recorded"
+        )
+        self.assertEqual(result["collection_status"], "continue_failed")
+        k32.DebugActiveProcessStop.assert_called_once_with(1234)
 
     # T10 — PROCESS_INFORMATION handles closed in finally even when loop raises
     def test_T10_pi_handles_closed_on_exception(self):
@@ -315,6 +332,7 @@ class TestDebugTraceHarness(unittest.TestCase):
         k32.WaitForDebugEvent.side_effect = RuntimeError("simulated loop error")
 
         pi_obj = _pi_with(h_process=h_proc, h_thread=h_thr)
+
         def _create(*args, **kwargs):
             p = args[9]
             p._obj.hProcess = pi_obj.hProcess
@@ -322,15 +340,15 @@ class TestDebugTraceHarness(unittest.TestCase):
             p._obj.dwProcessId = pi_obj.dwProcessId
             p._obj.dwThreadId = pi_obj.dwThreadId
             return 1
+
         k32.CreateProcessW.side_effect = _create
 
         with (
             patch.object(_MOD, "_declare_win32_apis", return_value=k32),
-            patch("os.name", "nt"),
+            patch.object(_MOD, "os", types.SimpleNamespace(name="nt", environ={})),
         ):
-            with self.assertRaises(RuntimeError):
-                trace_native_launch("fake.exe")
-
+            result = trace_native_launch("fake.exe")
+        self.assertEqual(result["collection_status"], "collector_exception")
         closed = [c.args[0] for c in k32.CloseHandle.call_args_list]
         self.assertIn(h_proc, closed, "hProcess must be closed in finally")
         self.assertIn(h_thr, closed, "hThread must be closed in finally")
@@ -342,8 +360,8 @@ class TestDebugTraceHarness(unittest.TestCase):
             {"code": EXIT_PROCESS_DEBUG_EVENT, "exit_code": 0},
         ]
         result, _ = _run_trace(seq)
-        self.assertEqual(result["schema"], "openbot.windows-debug-trace/2")
-        self.assertEqual(result["harness_version"], 2)
+        self.assertEqual(result["schema"], "openbot.windows-debug-trace/3")
+        self.assertEqual(result["harness_version"], 3)
 
     # T12 — complete collection captures exit code
     def test_T12_complete_collection_exit_code(self):
@@ -370,25 +388,229 @@ class TestDebugTraceHarness(unittest.TestCase):
 
     # T14 — non-Windows raises RuntimeError
     def test_T14_non_windows_raises(self):
-        with patch("os.name", "posix"):
-            with self.assertRaises(RuntimeError):
-                trace_native_launch("fake.exe")
+        with (
+            patch.object(_MOD, "os", types.SimpleNamespace(name="posix", environ={})),
+            self.assertRaises(RuntimeError),
+        ):
+            trace_native_launch("fake.exe")
 
     # T15 — CLI exit code 2 when collection_status != "complete"
     def test_T15_cli_exit_code_on_timeout(self):
         result_stub = {
-            "schema": "openbot.windows-debug-trace/2",
+            "schema": "openbot.windows-debug-trace/3",
             "collection_status": "timeout",
         }
         with patch.object(_MOD, "trace_native_launch", return_value=result_stub):
             # Simulate main() with --output suppressed (print only)
             import io
             from contextlib import redirect_stdout
-            with patch("sys.argv", ["windows-debug-trace.py", "fake.exe"]):
-                with redirect_stdout(io.StringIO()):
-                    exit_code = _MOD.main()
-        self.assertEqual(exit_code, 2,
-                         "CLI must exit 2 when collection is incomplete (timeout)")
+
+            with (
+                patch("sys.argv", ["windows-debug-trace.py", "fake.exe"]),
+                redirect_stdout(io.StringIO()),
+            ):
+                exit_code = _MOD.main()
+        self.assertEqual(exit_code, 2, "CLI must exit 2 when collection is incomplete (timeout)")
+
+
+class TestRecorderFailureContracts(unittest.TestCase):
+    """Counter-tests for reproduced v2 false-success paths; no native execution."""
+
+    def run_case(self, sequence, *, configure=None, clock=None, **kwargs):
+        from contextlib import ExitStack
+
+        k32 = _make_fake_k32(sequence)
+
+        def create(*args):
+            pi = args[9]._obj
+            pi.hProcess, pi.hThread = 11, 12
+            pi.dwProcessId, pi.dwThreadId = 1234, 5678
+            return 1
+
+        k32.CreateProcessW.side_effect = create
+        if configure:
+            configure(k32)
+        with ExitStack() as stack:
+            stack.enter_context(patch.object(_MOD, "_declare_win32_apis", return_value=k32))
+            stack.enter_context(
+                patch.object(_MOD, "os", types.SimpleNamespace(name="nt", environ={}))
+            )
+            if clock is not None:
+                values = iter(clock)
+                stack.enter_context(
+                    patch.object(
+                        _MOD, "time", types.SimpleNamespace(monotonic=lambda: next(values))
+                    )
+                )
+            result = _MOD.trace_native_launch("fake.exe", **kwargs)
+        return result, k32
+
+    def cli_status(self, result):
+        import io
+        from contextlib import redirect_stdout
+
+        with (
+            patch.object(_MOD, "trace_native_launch", return_value=result),
+            patch.object(sys, "argv", ["trace", "fake.exe"]),
+            redirect_stdout(io.StringIO()),
+        ):
+            return _MOD.main()
+
+    def test_T16_failed_exit_continue_is_incomplete_and_cli_nonzero(self):
+        def configure(k):
+            k.ContinueDebugEvent.side_effect = [1, 0]
+            k.GetLastError.return_value = 5
+
+        result, k = self.run_case([{"code": 3}, {"code": 5, "exit_code": 0}], configure=configure)
+        self.assertEqual(result["collection_status"], "continue_failed")
+        self.assertEqual(self.cli_status(result), 2)
+        k.DebugActiveProcessStop.assert_called_once_with(1234)
+
+    def test_T17_failed_nonexit_continue_stops_collection_immediately(self):
+        def configure(k):
+            k.ContinueDebugEvent.return_value = 0
+
+        result, k = self.run_case([{"code": 3}, {"code": 5, "exit_code": 0}], configure=configure)
+        self.assertEqual(result["collection_status"], "continue_failed")
+        self.assertEqual(k.WaitForDebugEvent.call_count, 1)
+        self.assertIsNone(result["process_exit_code"])
+        self.assertEqual(self.cli_status(result), 2)
+
+    def test_T18_detach_failure_is_recorded_not_claimed_success(self):
+        def configure(k):
+            k.DebugActiveProcessStop.return_value = 0
+
+        result, _ = self.run_case([], configure=configure)
+        self.assertEqual(result["collection_status"], "timeout")
+        self.assertEqual(result["cleanup_status"], "failed")
+        self.assertFalse(result["debugger_detached"])
+        self.assertFalse(result["target_may_continue_after_detach"])
+        self.assertIn("DebugActiveProcessStop", [e["operation"] for e in result["cleanup_errors"]])
+        self.assertEqual(self.cli_status(result), 2)
+
+    def test_T19_close_failure_cannot_return_complete_or_cli_zero(self):
+        def configure(k):
+            k.CloseHandle.side_effect = [0, 1]
+            k.GetLastError.return_value = 6
+
+        result, k = self.run_case([{"code": 3}, {"code": 5, "exit_code": 0}], configure=configure)
+        self.assertEqual(result["event_collection_status"], "complete")
+        self.assertEqual(result["collection_status"], "cleanup_failed")
+        self.assertEqual(k.CloseHandle.call_count, 2)
+        self.assertEqual(self.cli_status(result), 2)
+
+    def test_T20_subsequent_application_breakpoint_is_forwarded(self):
+        result, k = self.run_case([{"code": 3}, {"code": 1}, {"code": 1}, {"code": 5}])
+        statuses = [c.args[2] for c in k.ContinueDebugEvent.call_args_list]
+        self.assertEqual(statuses[1], DBG_CONTINUE)
+        self.assertEqual(statuses[2], DBG_EXCEPTION_NOT_HANDLED)
+        self.assertEqual(result["collection_status"], "complete")
+
+    def test_T21_second_chance_breakpoint_is_not_swallowed(self):
+        _, k = self.run_case([{"code": 3}, {"code": 1, "first_chance": False}, {"code": 5}])
+        self.assertEqual(k.ContinueDebugEvent.call_args_list[1].args[2], DBG_EXCEPTION_NOT_HANDLED)
+
+    def test_T22_deadline_bounds_a_continuing_event_stream(self):
+        result, k = self.run_case([{"code": 6}] * 5, clock=[0.0, 0.0, 2.0], session_timeout_ms=1000)
+        self.assertEqual(result["collection_status"], "deadline")
+        self.assertEqual(k.WaitForDebugEvent.call_count, 1)
+        self.assertLessEqual(k.WaitForDebugEvent.call_args.args[1], 1000)
+        k.DebugActiveProcessStop.assert_called_once_with(1234)
+        self.assertTrue(result["target_may_continue_after_detach"])
+        self.assertEqual(self.cli_status(result), 2)
+
+    def test_T23_invalid_bounds_refused_before_process_creation(self):
+        for key, bad_values in {
+            "timeout_ms": [0, -1, 60001, True, 1.5],
+            "max_events": [0, -1, 10001, True],
+            "session_timeout_ms": [0, -1, 120001, True],
+        }.items():
+            for value in bad_values:
+                with (
+                    self.subTest(argument=key, value=value),
+                    patch.object(_MOD, "os", types.SimpleNamespace(name="nt", environ={})),
+                    patch.object(_MOD, "_declare_win32_apis") as native,
+                ):
+                    with self.assertRaises(ValueError):
+                        _MOD.trace_native_launch("fake.exe", **{key: value})
+                    native.assert_not_called()
+
+    def test_T24_wait_api_error_is_not_labelled_timeout(self):
+        def configure(k):
+            k.WaitForDebugEvent.side_effect = None
+            k.WaitForDebugEvent.return_value = 0
+            k.GetLastError.return_value = 5
+
+        result, _ = self.run_case([], configure=configure)
+        self.assertEqual(result["collection_status"], "wait_failed")
+        self.assertEqual(self.cli_status(result), 2)
+
+    def test_T25_exception_capture_does_not_claim_no_exceptions(self):
+        result, _ = self.run_case([{"code": 3}, {"code": 1, "exc_code": 0xC0000005}, {"code": 5}])
+        self.assertNotIn("three-event run-2", result["diagnostic_limitations"])
+        self.assertTrue(any(e.get("exception_code") == "0xc0000005" for e in result["events"]))
+        self.assertIsNone(result["entry_point_reached"])
+        self.assertFalse(result["entry_point_measured"])
+
+    def test_T26_existing_output_refused_before_launch(self):
+        import io
+        import tempfile
+        from contextlib import redirect_stderr
+
+        with tempfile.TemporaryDirectory() as folder:
+            target = Path(folder) / "old-trace.json"
+            target.write_bytes(b"original evidence")
+            with (
+                patch.object(_MOD, "trace_native_launch") as launch,
+                patch.object(sys, "argv", ["trace", "fake.exe", "--output", str(target)]),
+                redirect_stderr(io.StringIO()),
+                self.assertRaises(SystemExit) as error,
+            ):
+                _MOD.main()
+            self.assertEqual(error.exception.code, 2)
+            launch.assert_not_called()
+            self.assertEqual(target.read_bytes(), b"original evidence")
+
+    def test_T27_native_failure_can_be_successfully_collected_not_accepted(self):
+        result, _ = self.run_case([{"code": 3}, {"code": 5, "exit_code": 0xC000007B}])
+        self.assertEqual(self.cli_status(result), 0)
+        self.assertEqual(result["process_exit_code"], "0xc000007b")
+        self.assertEqual(result["cleanup_status"], "ok")
+        self.assertIsNone(result["entry_point_reached"])
+
+    def test_T28_abi_guard_rejects_non_64bit_before_binding(self):
+        proxy = types.SimpleNamespace(sizeof=lambda _: 4, c_void_p=ctypes.c_void_p)
+        with (
+            patch.object(_MOD, "os", types.SimpleNamespace(name="nt")),
+            patch.object(_MOD, "ctypes", proxy),
+            self.assertRaisesRegex(RuntimeError, "64-bit"),
+        ):
+            _MOD._declare_win32_apis()
+
+    def test_T29_path_resolution_exception_still_closes_queued_image(self):
+        with patch.object(
+            _MOD, "_get_path_from_handle", side_effect=RuntimeError("synthetic path error")
+        ):
+            result, k = self.run_case([{"code": 3, "hFile": 99}])
+        self.assertEqual(result["collection_status"], "collector_exception")
+        self.assertIn(99, [c.args[0] for c in k.CloseHandle.call_args_list])
+        self.assertEqual(self.cli_status(result), 2)
+
+    def test_T30_cleanup_exception_does_not_skip_other_handles_or_detach(self):
+        def configure(k):
+            k.CloseHandle.side_effect = [RuntimeError("synthetic close error"), 1, 1]
+
+        result, k = self.run_case([{"code": 3, "hFile": 99}], configure=configure)
+        self.assertEqual(result["cleanup_status"], "failed")
+        self.assertEqual([c.args[0] for c in k.CloseHandle.call_args_list], [99, 12, 11])
+        k.DebugActiveProcessStop.assert_called_once_with(1234)
+        self.assertEqual(self.cli_status(result), 2)
+
+    def test_T31_wait_timeout_at_total_deadline_is_incomplete(self):
+        result, k = self.run_case([], clock=[0.0, 0.0, 1.0], session_timeout_ms=1000)
+        self.assertEqual(result["collection_status"], "deadline")
+        self.assertEqual(k.WaitForDebugEvent.call_args.args[1], 1000)
+        self.assertEqual(self.cli_status(result), 2)
 
 
 if __name__ == "__main__":

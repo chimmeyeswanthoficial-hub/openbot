@@ -35,6 +35,11 @@
       "mode": 420,
       "sha256": "1170829f8a17aa64e78601eab1171621873df6d2f5910efc327bc505687ee83d"
     },
+    "COLLECTOR_REPAIR.md": {
+      "bytes": 9873,
+      "mode": 420,
+      "sha256": "1eeb4a32d56585a7b8ff67b20ec0a3fc4d9763d01cd537d5bb7b0d73c57bf049"
+    },
     "DESIGN_REFERENCE.md": {
       "bytes": 4254,
       "mode": 420,
@@ -1621,9 +1626,9 @@
       "sha256": "7c5774a075846364e9cad24933aa3828f582c3a131ec05779629a5d88c8e3d38"
     },
     "tools/tests/test_windows_debug_trace.py": {
-      "bytes": 16947,
+      "bytes": 27190,
       "mode": 420,
-      "sha256": "8c4ccdf53af83534d5cce0bc7610fc6e0f1dff6998352b832b72ecc491686fd8"
+      "sha256": "8bfee057c85e80e4c4b39b810f687f88300dbdd631a2554a2b3f712faa3c7b08"
     },
     "tools/verify-git-source.py": {
       "bytes": 9724,
@@ -1636,9 +1641,9 @@
       "sha256": "377c7efed1b25505afe170aec814e77c2dbd02dcde9be4f76b9f376bed2a7f14"
     },
     "tools/windows-debug-trace.py": {
-      "bytes": 20995,
+      "bytes": 24775,
       "mode": 420,
-      "sha256": "dc264578814af081c06c1127702c3ab483bd33b3c387ec99dc10413caab5cb73"
+      "sha256": "6ec06816538a42037510de5ac7d7fd99345958dd30f4a121def1bca6ed2d5876"
     },
     "work/.claude/skills/README.md": {
       "bytes": 3815,
@@ -22387,7 +22392,7 @@
     }
   },
   "files_metadata_hash_encoding": "UTF-8 json.dumps(files, sort_keys=True, separators=(',', ':'), ensure_ascii=True), no trailing newline.",
-  "files_metadata_sha256": "9a2f75a3acbaf9cb3e8dc62123884ba2e8a0aa99ecae014217857b2d4d9513ad",
+  "files_metadata_sha256": "cee6a7255a8cbd2f958ad4a1595f5c18f41f06548d6aed5683ae9b21e8c2ea43",
   "git_identity_verifier": "tools/verify-git-source.py",
   "github_write_status": "Arena authenticated push unavailable. Ordinary local commit supplied for Antigravity to publish; no remote write claimed.",
   "historical_reconstruction_provenance": "evidence/repair-review/SOURCE_PROVENANCE.json",

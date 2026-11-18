@@ -1,0 +1,9 @@
+{
+  "query": "Get-WinEvent -FilterHashtable @{LogName='Microsoft-Windows-CodeIntegrity/Operational'} -MaxEvents 5",
+  "timestamp_queried": "2026-11-18T18:49:15+05:30",
+  "host": "Windows 11 Build 26300.9974",
+  "target_process": "OpenBot-Control-Local-x64.exe",
+  "blocking_events_count": 0,
+  "events_for_target_process": [],
+  "note": "No CodeIntegrity blocked image or policy enforcement failure logged for the executable."
+}

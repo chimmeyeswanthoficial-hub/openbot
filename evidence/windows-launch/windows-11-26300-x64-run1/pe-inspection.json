@@ -1,0 +1,17 @@
+{
+  "file": "OpenBot-Control-Local-x64.exe",
+  "bytes": 448512,
+  "sha256": "ebcf4927302840f5b73f85e674590538569a0150703f55393d850f149be7bcdc",
+  "machine": "0x8664",
+  "magic": "0x20b",
+  "entry_point": "0x13d0",
+  "image_base": "0x140000000",
+  "section_alignment": "0x1000",
+  "file_alignment": "0x200",
+  "major_os_version": 10,
+  "minor_os_version": 0,
+  "major_subsystem_version": 10,
+  "minor_subsystem_version": 0,
+  "subsystem": 2,
+  "dll_characteristics": "0x160"
+}

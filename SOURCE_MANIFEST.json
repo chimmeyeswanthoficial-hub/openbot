@@ -1355,6 +1355,36 @@
       "mode": 420,
       "sha256": "5d6de02b3e81021af36ce4e46c54e5c590f4ae9bbd2854b47f6063719b6c46ac"
     },
+    "evidence/windows-launch/windows-11-26300-x64-run1/desktop-context.png": {
+      "bytes": 555227,
+      "mode": 420,
+      "sha256": "0cfeca375488f24304113c496c164aacaf2faeb5adc323a9a4284ca2334ff1ed"
+    },
+    "evidence/windows-launch/windows-11-26300-x64-run1/error.png": {
+      "bytes": 32857,
+      "mode": 420,
+      "sha256": "1e0f8b95e1fa324d41e6a3acd3275db71e3cda97d80b0f4d856ff03e58c65577"
+    },
+    "evidence/windows-launch/windows-11-26300-x64-run1/event-log-application.json": {
+      "bytes": 491,
+      "mode": 420,
+      "sha256": "233caa2ad9ff744cdf317955aad1306b6260aeca7c424d436f0dad609a802c2b"
+    },
+    "evidence/windows-launch/windows-11-26300-x64-run1/event-log-codeintegrity.json": {
+      "bytes": 429,
+      "mode": 420,
+      "sha256": "09da18774d85dd3e34a885c5b95f1409050804de7e76f237e1f3c33c0955a9aa"
+    },
+    "evidence/windows-launch/windows-11-26300-x64-run1/pe-inspection.json": {
+      "bytes": 476,
+      "mode": 420,
+      "sha256": "08122240557e8a644d09f7ba99ce7bae33265358e56de71132b40d24944ce260"
+    },
+    "evidence/windows-launch/windows-11-26300-x64-run1/report.md": {
+      "bytes": 5076,
+      "mode": 420,
+      "sha256": "194e557111dc57218a4e63edaaf989a83e8546c961798acc6ce922fdd97894f4"
+    },
     "result.md": {
       "bytes": 3993,
       "mode": 420,
@@ -22332,7 +22362,7 @@
     }
   },
   "files_metadata_hash_encoding": "UTF-8 json.dumps(files, sort_keys=True, separators=(',', ':'), ensure_ascii=True), no trailing newline.",
-  "files_metadata_sha256": "5733324e7e861c1304264a3d41424b78029f53a3d6aabca563a7a212b79cf97f",
+  "files_metadata_sha256": "f9d12a09d8a3e006b04b81f3493b4fd4ad0cab82022c2746faafcd9bda7856dd",
   "git_identity_verifier": "tools/verify-git-source.py",
   "github_write_status": "Arena authenticated push unavailable. Ordinary local commit supplied for Antigravity to publish; no remote write claimed.",
   "historical_reconstruction_provenance": "evidence/repair-review/SOURCE_PROVENANCE.json",

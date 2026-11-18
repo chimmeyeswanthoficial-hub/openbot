@@ -1,0 +1,9 @@
+{
+  "query": "Get-WinEvent -FilterHashtable @{LogName='Application'; ProviderName='Application Error'} -MaxEvents 5",
+  "timestamp_queried": "2026-11-18T18:49:00+05:30",
+  "host": "Windows 11 Build 26300.9974",
+  "target_process": "OpenBot-Control-Local-x64.exe",
+  "matching_events_count": 0,
+  "events_for_target_process": [],
+  "note": "0xc000007b image format failure occurs during NT process initialization before user code execution, so no Application Error crash record is logged."
+}

@@ -1,0 +1,57 @@
+{
+  "collection_status": "complete",
+  "diagnostic_limitations": "1. Entry-point execution is not instrumented: entry_point_reached is null and entry_point_measured is false. The CRT startup address pe_entry_crt_address is the PE AddressOfEntryPoint + load-delta; source-level wWinMain is a distinct later stage. 2. This harness records only modules successfully LOAD_DLL-notified by the NT loader before EXIT_PROCESS. Absence of a module's LOAD_DLL notification is consistent with loader failure before that module was mapped, but does not establish the exact failing instruction or header element. 3. No exception address or stack was captured in the three-event run-2 recording; no EXCEPTION_DEBUG_EVENT was observed.",
+  "end_time": "2026-11-18T20:29:25.335532+05:30",
+  "entry_point_measured": false,
+  "entry_point_reached": null,
+  "events": [
+    {
+      "event_code": 3,
+      "event_name": "CREATE_PROCESS_DEBUG_EVENT",
+      "image_base": "0x7ff7e4cd0000",
+      "image_path": "<USERPROFILE>/Downloads/openbot/OpenBot-Workspace-Light-Complete/OpenBot-Workspace/control/releases/windows-x64/OpenBot-Control-Local-x64.exe",
+      "pe_entry_crt_address": "0x7ff7e4cd13d0",
+      "pe_entry_note": "lpStartAddress from CREATE_PROCESS_DEBUG_INFO is the CRT startup address derived from PE AddressOfEntryPoint + load-delta.  Source-level application entry (e.g. wWinMain) is a distinct later stage not instrumented here.",
+      "pid": 22388,
+      "sequence": 1,
+      "tid": 5036
+    },
+    {
+      "dll_base": "0x7ffbc5550000",
+      "dll_path": "C:/Windows/System32/ntdll.dll",
+      "event_code": 6,
+      "event_name": "LOAD_DLL_DEBUG_EVENT",
+      "pid": 22388,
+      "sequence": 2,
+      "tid": 5036
+    },
+    {
+      "event_code": 5,
+      "event_name": "EXIT_PROCESS_DEBUG_EVENT",
+      "exit_code": "0xc000007b",
+      "pid": 22388,
+      "sequence": 3,
+      "tid": 5036
+    }
+  ],
+  "executable": "<USERPROFILE>/Downloads/openbot/OpenBot-Workspace-Light-Complete/OpenBot-Workspace/control/releases/windows-x64/OpenBot-Control-Local-x64.exe",
+  "harness": "tools/windows-debug-trace.py",
+  "harness_version": 2,
+  "loaded_modules_before_termination": [
+    {
+      "base": "0x7ff7e4cd0000",
+      "path": "<USERPROFILE>/Downloads/openbot/OpenBot-Workspace-Light-Complete/OpenBot-Workspace/control/releases/windows-x64/OpenBot-Control-Local-x64.exe",
+      "type": "main_executable"
+    },
+    {
+      "base": "0x7ffbc5550000",
+      "path": "C:/Windows/System32/ntdll.dll",
+      "type": "dll"
+    }
+  ],
+  "pe_entry_crt_address": "0x7ff7e4cd13d0",
+  "process_exit_code": "0xc000007b",
+  "schema": "openbot.windows-debug-trace/2",
+  "start_time": "2026-11-18T20:29:25.151835+05:30",
+  "total_events_recorded": 3
+}

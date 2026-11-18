@@ -47,6 +47,7 @@
     }
   ],
   "process_exit_code": "0xc000007b",
+  "recorder_limitation_note": "entry_point_reached=false in this recording is a static constant, not a measured result. The harness version 1 schema did not instrument entry-point arrival. See run-2 (windows-11-26300-x64-run2/debug-trace.json) for the corrected schema openbot.windows-debug-trace/2 with entry_point_reached=null and entry_point_measured=false.",
   "schema": "openbot.windows-debug-trace/1",
   "start_time": "2026-11-18T19:43:12.738790+05:30",
   "total_events_recorded": 3

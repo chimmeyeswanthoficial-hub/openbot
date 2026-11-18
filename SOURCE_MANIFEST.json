@@ -1356,9 +1356,9 @@
       "sha256": "5d6de02b3e81021af36ce4e46c54e5c590f4ae9bbd2854b47f6063719b6c46ac"
     },
     "evidence/windows-launch/windows-11-26300-x64-run1/debug-trace.json": {
-      "bytes": 2035,
+      "bytes": 2398,
       "mode": 420,
-      "sha256": "f16dd8a34d75fe86643b543a9225e1d39efc609c0e848108cfc0e41b323e2cc7"
+      "sha256": "abfa7e14057c649ee858800f64200ef108e1628bd83620ed3d01b442c9935d80"
     },
     "evidence/windows-launch/windows-11-26300-x64-run1/desktop-context.png": {
       "bytes": 555227,
@@ -1390,10 +1390,20 @@
       "mode": 420,
       "sha256": "791bd1ba40c45193df6caea3bd7addb51e2d2065d9b7f6c977ce7e460783bb93"
     },
-    "result.md": {
-      "bytes": 5121,
+    "evidence/windows-launch/windows-11-26300-x64-run2/debug-trace.json": {
+      "bytes": 2731,
       "mode": 420,
-      "sha256": "2f4bc562034057f933d46c4a77be5c0894956e5294b8ca83db1307132d9e1acd"
+      "sha256": "f1e77f950f2512a2b34df016860685e936e2d04433ae51dd3622bbb1097f019e"
+    },
+    "evidence/windows-launch/windows-11-26300-x64-run2/report.md": {
+      "bytes": 6149,
+      "mode": 420,
+      "sha256": "8a3474cce2938277439887e8e986eb1b0726c0052d1f35d39d715439c00277e5"
+    },
+    "result.md": {
+      "bytes": 5369,
+      "mode": 420,
+      "sha256": "ea32dd1c87abaad4d47d48cbc7ff708ea6fb88576707450233f9b7b7f903b2da"
     },
     "studio/.gitignore": {
       "bytes": 99,
@@ -1610,6 +1620,11 @@
       "mode": 420,
       "sha256": "7c5774a075846364e9cad24933aa3828f582c3a131ec05779629a5d88c8e3d38"
     },
+    "tools/tests/test_windows_debug_trace.py": {
+      "bytes": 16947,
+      "mode": 420,
+      "sha256": "8c4ccdf53af83534d5cce0bc7610fc6e0f1dff6998352b832b72ecc491686fd8"
+    },
     "tools/verify-git-source.py": {
       "bytes": 9724,
       "mode": 420,
@@ -1621,9 +1636,9 @@
       "sha256": "377c7efed1b25505afe170aec814e77c2dbd02dcde9be4f76b9f376bed2a7f14"
     },
     "tools/windows-debug-trace.py": {
-      "bytes": 12143,
+      "bytes": 20995,
       "mode": 420,
-      "sha256": "28df77ce5ab4bc3f2e46aee1d407b4f219d841cabee8d0329adcb8951ebd6a5d"
+      "sha256": "dc264578814af081c06c1127702c3ab483bd33b3c387ec99dc10413caab5cb73"
     },
     "work/.claude/skills/README.md": {
       "bytes": 3815,
@@ -22372,7 +22387,7 @@
     }
   },
   "files_metadata_hash_encoding": "UTF-8 json.dumps(files, sort_keys=True, separators=(',', ':'), ensure_ascii=True), no trailing newline.",
-  "files_metadata_sha256": "eb26d5605505686a6c3e8b3ed53063d94382a14ee268cd9038544d9a7ae795a6",
+  "files_metadata_sha256": "9a2f75a3acbaf9cb3e8dc62123884ba2e8a0aa99ecae014217857b2d4d9513ad",
   "git_identity_verifier": "tools/verify-git-source.py",
   "github_write_status": "Arena authenticated push unavailable. Ordinary local commit supplied for Antigravity to publish; no remote write claimed.",
   "historical_reconstruction_provenance": "evidence/repair-review/SOURCE_PROVENANCE.json",

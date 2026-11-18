@@ -64,8 +64,8 @@ Public release false; accepted genuinely observed pilot days **0**.
 ### Follow-up diagnostic update (Windows 11 host)
 
 - **Screenshots Delivered & Verified:** `error.png` and `desktop-context.png` are present in `evidence/windows-launch/windows-11-26300-x64-run1/` confirming the physical modal dialog `OpenBot-Control-Local-x64.exe - Application Error` with `0xc000007b`.
-- **Committed Debugger Trace:** Win32 debugger harness `tools/windows-debug-trace.py` was executed and committed alongside raw trace `debug-trace.json`. The trace confirms process creation at base `0x7ff6c6d50000`, `ntdll.dll` mapping at `0x7ffbc5550000`, and immediate exit code `0xc000007b` before `kernel32.dll` maps or `PE AddressOfEntryPoint RVA 0x13d0` is reached.
-- **Root Cause & Failing Module:** Unverified/unproved. The debugger trace establishes that failure occurs in early NT loader initialization, but does not identify the specific rejected module or header defect.
-- **Pull Request #1:** Pull Request #1 into `main` is created and open at `https://github.com/chimmeyeswanthoficial-hub/openbot/pull/1`.
-- **Release Status:** Retained strictly fail-closed: public release `false`; accepted pilot days `0`.
+- **Committed Debugger Trace (run-2 / harness v2 / schema `openbot.windows-debug-trace/2`):** Corrected harness `tools/windows-debug-trace.py` (16 regression tests, all pass on Windows 11). Raw trace at `evidence/windows-launch/windows-11-26300-x64-run2/debug-trace.json`. Three-event recording: CREATE_PROCESS → ntdll.dll LOAD_DLL → EXIT_PROCESS 0xc000007b. `entry_point_reached=null`, `entry_point_measured=false` (not instrumented). No kernel32.dll notification; no EXCEPTION_DEBUG_EVENT. Consistent with early initialization failure; failing module and header element remain unidentified. Run-1 trace annotated with recorder limitation note and preserved unmodified.
+- **Root Cause & Failing Module:** Unverified/unproved. The three-event recording is consistent with early loader initialization failure but does not identify the specific rejected module or header element.
+- **Pull Request #1:** Open at `https://github.com/chimmeyeswanthoficial-hub/openbot/pull/1`.
+- **Release Status:** Strictly fail-closed: public release `false`; accepted pilot days `0`.
 

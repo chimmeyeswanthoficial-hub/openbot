@@ -1,0 +1,390 @@
+{
+  "cleanup_errors": [],
+  "cleanup_status": "ok",
+  "collection_budget_ms": 30000,
+  "collection_status": "complete",
+  "debugger_detached": null,
+  "diagnostic_limitations": "Entry execution is unmeasured; reported start address is not execution proof. Only observed debug notifications are recorded, not every mapping attempt or a stack. Unresolved module paths cannot prove a named module's absence. Exception fields are recorded only when an exception notification arrives; no stack is captured. The first first-chance breakpoint is assumed to be debugger startup, not address-validated. The collection deadline bounds waits/event-loop checks, not arbitrary native API blocking. Target ISA is not independently checked; native validation is limited to the intended x64 workflow. A successful detach can leave this target running; detach is not a workload stop/reap guarantee. Collection exit zero means successful collection/cleanup, not successful native application launch.",
+  "end_time": "2026-11-18T22:12:38.329894+05:30",
+  "entry_point_measured": false,
+  "entry_point_reached": null,
+  "event_collection_status": "complete",
+  "events": [
+    {
+      "event_code": 3,
+      "event_name": "CREATE_PROCESS_DEBUG_EVENT",
+      "image_base": "0x7ff7f58b0000",
+      "image_path": "C:/Windows/System32/whoami.exe",
+      "pe_entry_crt_address": "0x7ff7f58b1cb0",
+      "pe_entry_note": "Reported thread start address, not a measurement of execution; source-level wWinMain is distinct.",
+      "pid": 15872,
+      "sequence": 1,
+      "tid": 4352
+    },
+    {
+      "dll_base": "0x7ffbc5550000",
+      "dll_path": "C:/Windows/System32/ntdll.dll",
+      "event_code": 6,
+      "event_name": "LOAD_DLL_DEBUG_EVENT",
+      "pid": 15872,
+      "sequence": 2,
+      "tid": 4352
+    },
+    {
+      "dll_base": "0x7ffbc44d0000",
+      "dll_path": "C:/Windows/System32/kernel32.dll",
+      "event_code": 6,
+      "event_name": "LOAD_DLL_DEBUG_EVENT",
+      "pid": 15872,
+      "sequence": 3,
+      "tid": 4352
+    },
+    {
+      "dll_base": "0x7ffbc2e00000",
+      "dll_path": "C:/Windows/System32/KernelBase.dll",
+      "event_code": 6,
+      "event_name": "LOAD_DLL_DEBUG_EVENT",
+      "pid": 15872,
+      "sequence": 4,
+      "tid": 4352
+    },
+    {
+      "dll_base": "0x7ffbc45a0000",
+      "dll_path": "C:/Windows/System32/advapi32.dll",
+      "event_code": 6,
+      "event_name": "LOAD_DLL_DEBUG_EVENT",
+      "pid": 15872,
+      "sequence": 5,
+      "tid": 4352
+    },
+    {
+      "dll_base": "0x7ffbc32c0000",
+      "dll_path": "C:/Windows/System32/msvcrt.dll",
+      "event_code": 6,
+      "event_name": "LOAD_DLL_DEBUG_EVENT",
+      "pid": 15872,
+      "sequence": 6,
+      "tid": 4352
+    },
+    {
+      "event_code": 2,
+      "event_name": "CREATE_THREAD_DEBUG_EVENT",
+      "pid": 15872,
+      "sequence": 7,
+      "start_address": "0x7ffbc5574990",
+      "tid": 15492
+    },
+    {
+      "dll_base": "0x7ffbc3210000",
+      "dll_path": "C:/Windows/System32/sechost.dll",
+      "event_code": 6,
+      "event_name": "LOAD_DLL_DEBUG_EVENT",
+      "pid": 15872,
+      "sequence": 8,
+      "tid": 4352
+    },
+    {
+      "dll_base": "0x7ffbc5300000",
+      "dll_path": "C:/Windows/System32/rpcrt4.dll",
+      "event_code": 6,
+      "event_name": "LOAD_DLL_DEBUG_EVENT",
+      "pid": 15872,
+      "sequence": 9,
+      "tid": 4352
+    },
+    {
+      "event_code": 2,
+      "event_name": "CREATE_THREAD_DEBUG_EVENT",
+      "pid": 15872,
+      "sequence": 10,
+      "start_address": "0x7ffbc5574990",
+      "tid": 20504
+    },
+    {
+      "dll_base": "0x7ffbc4eb0000",
+      "dll_path": "C:/Windows/System32/user32.dll",
+      "event_code": 6,
+      "event_name": "LOAD_DLL_DEBUG_EVENT",
+      "pid": 15872,
+      "sequence": 11,
+      "tid": 4352
+    },
+    {
+      "dll_base": "0x7ffbc2c50000",
+      "dll_path": "C:/Windows/System32/win32u.dll",
+      "event_code": 6,
+      "event_name": "LOAD_DLL_DEBUG_EVENT",
+      "pid": 15872,
+      "sequence": 12,
+      "tid": 4352
+    },
+    {
+      "dll_base": "0x7ffbc5490000",
+      "dll_path": "C:/Windows/System32/gdi32.dll",
+      "event_code": 6,
+      "event_name": "LOAD_DLL_DEBUG_EVENT",
+      "pid": 15872,
+      "sequence": 13,
+      "tid": 4352
+    },
+    {
+      "dll_base": "0x7ffbc2880000",
+      "dll_path": "C:/Windows/System32/gdi32full.dll",
+      "event_code": 6,
+      "event_name": "LOAD_DLL_DEBUG_EVENT",
+      "pid": 15872,
+      "sequence": 14,
+      "tid": 4352
+    },
+    {
+      "dll_base": "0x7ffbc2ba0000",
+      "dll_path": "C:/Windows/System32/msvcp_win.dll",
+      "event_code": 6,
+      "event_name": "LOAD_DLL_DEBUG_EVENT",
+      "pid": 15872,
+      "sequence": 15,
+      "tid": 4352
+    },
+    {
+      "dll_base": "0x7ffbc29b0000",
+      "dll_path": "C:/Windows/System32/ucrtbase.dll",
+      "event_code": 6,
+      "event_name": "LOAD_DLL_DEBUG_EVENT",
+      "pid": 15872,
+      "sequence": 16,
+      "tid": 4352
+    },
+    {
+      "event_code": 2,
+      "event_name": "CREATE_THREAD_DEBUG_EVENT",
+      "pid": 15872,
+      "sequence": 17,
+      "start_address": "0x7ffbc5574990",
+      "tid": 11496
+    },
+    {
+      "dll_base": "0x7ffbc51e0000",
+      "dll_path": "C:/Windows/System32/ws2_32.dll",
+      "event_code": 6,
+      "event_name": "LOAD_DLL_DEBUG_EVENT",
+      "pid": 15872,
+      "sequence": 18,
+      "tid": 4352
+    },
+    {
+      "dll_base": "0x7ffbb7e20000",
+      "dll_path": "C:/Windows/System32/wkscli.dll",
+      "event_code": 6,
+      "event_name": "LOAD_DLL_DEBUG_EVENT",
+      "pid": 15872,
+      "sequence": 19,
+      "tid": 4352
+    },
+    {
+      "dll_base": "0x7ffbc0f30000",
+      "dll_path": "C:/Windows/System32/authz.dll",
+      "event_code": 6,
+      "event_name": "LOAD_DLL_DEBUG_EVENT",
+      "pid": 15872,
+      "sequence": 20,
+      "tid": 11496
+    },
+    {
+      "dll_base": "0x7ffbbb2d0000",
+      "dll_path": "C:/Windows/System32/version.dll",
+      "event_code": 6,
+      "event_name": "LOAD_DLL_DEBUG_EVENT",
+      "pid": 15872,
+      "sequence": 21,
+      "tid": 15492
+    },
+    {
+      "dll_base": "0x7ffbc1650000",
+      "dll_path": "C:/Windows/System32/sspicli.dll",
+      "event_code": 6,
+      "event_name": "LOAD_DLL_DEBUG_EVENT",
+      "pid": 15872,
+      "sequence": 22,
+      "tid": 20504
+    },
+    {
+      "dll_base": "0x7ffbc0d20000",
+      "dll_path": "C:/Windows/System32/netutils.dll",
+      "event_code": 6,
+      "event_name": "LOAD_DLL_DEBUG_EVENT",
+      "pid": 15872,
+      "sequence": 23,
+      "tid": 20504
+    },
+    {
+      "event_code": 1,
+      "event_name": "EXCEPTION_DEBUG_EVENT",
+      "exception_address": "0x7ffbc5675245",
+      "exception_code": "0x80000003",
+      "exception_disposition": "DBG_CONTINUE (first breakpoint assumed to be debugger startup)",
+      "first_chance": true,
+      "pid": 15872,
+      "sequence": 24,
+      "tid": 4352
+    },
+    {
+      "dll_base": "0x7ffbc51a0000",
+      "dll_path": "C:/Windows/System32/imm32.dll",
+      "event_code": 6,
+      "event_name": "LOAD_DLL_DEBUG_EVENT",
+      "pid": 15872,
+      "sequence": 25,
+      "tid": 4352
+    },
+    {
+      "event_code": 4,
+      "event_name": "EXIT_THREAD_DEBUG_EVENT",
+      "exit_code": "0x0",
+      "pid": 15872,
+      "sequence": 26,
+      "tid": 11496
+    },
+    {
+      "event_code": 4,
+      "event_name": "EXIT_THREAD_DEBUG_EVENT",
+      "exit_code": "0x0",
+      "pid": 15872,
+      "sequence": 27,
+      "tid": 15492
+    },
+    {
+      "event_code": 4,
+      "event_name": "EXIT_THREAD_DEBUG_EVENT",
+      "exit_code": "0x0",
+      "pid": 15872,
+      "sequence": 28,
+      "tid": 20504
+    },
+    {
+      "event_code": 5,
+      "event_name": "EXIT_PROCESS_DEBUG_EVENT",
+      "exit_code": "0x0",
+      "pid": 15872,
+      "sequence": 29,
+      "tid": 4352
+    }
+  ],
+  "executable": "C:/Windows/System32/whoami.exe",
+  "harness": "tools/windows-debug-trace.py",
+  "harness_version": 3,
+  "loaded_modules_before_termination": [
+    {
+      "base": "0x7ff7f58b0000",
+      "path": "C:/Windows/System32/whoami.exe",
+      "type": "main_executable"
+    },
+    {
+      "base": "0x7ffbc5550000",
+      "path": "C:/Windows/System32/ntdll.dll",
+      "type": "dll"
+    },
+    {
+      "base": "0x7ffbc44d0000",
+      "path": "C:/Windows/System32/kernel32.dll",
+      "type": "dll"
+    },
+    {
+      "base": "0x7ffbc2e00000",
+      "path": "C:/Windows/System32/KernelBase.dll",
+      "type": "dll"
+    },
+    {
+      "base": "0x7ffbc45a0000",
+      "path": "C:/Windows/System32/advapi32.dll",
+      "type": "dll"
+    },
+    {
+      "base": "0x7ffbc32c0000",
+      "path": "C:/Windows/System32/msvcrt.dll",
+      "type": "dll"
+    },
+    {
+      "base": "0x7ffbc3210000",
+      "path": "C:/Windows/System32/sechost.dll",
+      "type": "dll"
+    },
+    {
+      "base": "0x7ffbc5300000",
+      "path": "C:/Windows/System32/rpcrt4.dll",
+      "type": "dll"
+    },
+    {
+      "base": "0x7ffbc4eb0000",
+      "path": "C:/Windows/System32/user32.dll",
+      "type": "dll"
+    },
+    {
+      "base": "0x7ffbc2c50000",
+      "path": "C:/Windows/System32/win32u.dll",
+      "type": "dll"
+    },
+    {
+      "base": "0x7ffbc5490000",
+      "path": "C:/Windows/System32/gdi32.dll",
+      "type": "dll"
+    },
+    {
+      "base": "0x7ffbc2880000",
+      "path": "C:/Windows/System32/gdi32full.dll",
+      "type": "dll"
+    },
+    {
+      "base": "0x7ffbc2ba0000",
+      "path": "C:/Windows/System32/msvcp_win.dll",
+      "type": "dll"
+    },
+    {
+      "base": "0x7ffbc29b0000",
+      "path": "C:/Windows/System32/ucrtbase.dll",
+      "type": "dll"
+    },
+    {
+      "base": "0x7ffbc51e0000",
+      "path": "C:/Windows/System32/ws2_32.dll",
+      "type": "dll"
+    },
+    {
+      "base": "0x7ffbb7e20000",
+      "path": "C:/Windows/System32/wkscli.dll",
+      "type": "dll"
+    },
+    {
+      "base": "0x7ffbc0f30000",
+      "path": "C:/Windows/System32/authz.dll",
+      "type": "dll"
+    },
+    {
+      "base": "0x7ffbbb2d0000",
+      "path": "C:/Windows/System32/version.dll",
+      "type": "dll"
+    },
+    {
+      "base": "0x7ffbc1650000",
+      "path": "C:/Windows/System32/sspicli.dll",
+      "type": "dll"
+    },
+    {
+      "base": "0x7ffbc0d20000",
+      "path": "C:/Windows/System32/netutils.dll",
+      "type": "dll"
+    },
+    {
+      "base": "0x7ffbc51a0000",
+      "path": "C:/Windows/System32/imm32.dll",
+      "type": "dll"
+    }
+  ],
+  "module_paths_resolved": true,
+  "pe_entry_crt_address": "0x7ff7f58b1cb0",
+  "process_exit_code": "0x0",
+  "schema": "openbot.windows-debug-trace/3",
+  "start_time": "2026-11-18T22:12:38.281726+05:30",
+  "target_may_continue_after_detach": false,
+  "target_pid": 15872,
+  "total_events_recorded": 29
+}

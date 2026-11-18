@@ -1360,6 +1360,11 @@
       "mode": 420,
       "sha256": "5d6de02b3e81021af36ce4e46c54e5c590f4ae9bbd2854b47f6063719b6c46ac"
     },
+    "evidence/windows-launch/control-whoami-x64/debug-trace.json": {
+      "bytes": 10599,
+      "mode": 420,
+      "sha256": "dce75ce71c62a389c21c79749a726c6a237440d411ae7ae5acd951c042e83a12"
+    },
     "evidence/windows-launch/windows-11-26300-x64-run1/debug-trace.json": {
       "bytes": 2398,
       "mode": 420,
@@ -1405,10 +1410,20 @@
       "mode": 420,
       "sha256": "8a3474cce2938277439887e8e986eb1b0726c0052d1f35d39d715439c00277e5"
     },
-    "result.md": {
-      "bytes": 5369,
+    "evidence/windows-launch/windows-11-26300-x64-run3/debug-trace.json": {
+      "bytes": 3011,
       "mode": 420,
-      "sha256": "ea32dd1c87abaad4d47d48cbc7ff708ea6fb88576707450233f9b7b7f903b2da"
+      "sha256": "ceca3409631222877d1fc677b585f06ed6f0cdbdfb7c3cb3ff1aafc999d0845f"
+    },
+    "evidence/windows-launch/windows-11-26300-x64-run3/report.md": {
+      "bytes": 5947,
+      "mode": 420,
+      "sha256": "19aff54b037008b228dcd955263aec80f2268ddce618f7968a345debd2ebd453"
+    },
+    "result.md": {
+      "bytes": 5909,
+      "mode": 420,
+      "sha256": "31c9a487690d3aa169890b849165100cb84f109e62d95bd4b5c56cbe527fb411"
     },
     "studio/.gitignore": {
       "bytes": 99,
@@ -22392,7 +22407,7 @@
     }
   },
   "files_metadata_hash_encoding": "UTF-8 json.dumps(files, sort_keys=True, separators=(',', ':'), ensure_ascii=True), no trailing newline.",
-  "files_metadata_sha256": "cee6a7255a8cbd2f958ad4a1595f5c18f41f06548d6aed5683ae9b21e8c2ea43",
+  "files_metadata_sha256": "f81cb5a84bc3cdbae11347db31da65c0431da9336d8ff176dc5756473a58c269",
   "git_identity_verifier": "tools/verify-git-source.py",
   "github_write_status": "Arena authenticated push unavailable. Ordinary local commit supplied for Antigravity to publish; no remote write claimed.",
   "historical_reconstruction_provenance": "evidence/repair-review/SOURCE_PROVENANCE.json",

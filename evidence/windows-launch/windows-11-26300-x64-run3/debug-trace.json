@@ -1,0 +1,65 @@
+{
+  "cleanup_errors": [],
+  "cleanup_status": "ok",
+  "collection_budget_ms": 30000,
+  "collection_status": "complete",
+  "debugger_detached": null,
+  "diagnostic_limitations": "Entry execution is unmeasured; reported start address is not execution proof. Only observed debug notifications are recorded, not every mapping attempt or a stack. Unresolved module paths cannot prove a named module's absence. Exception fields are recorded only when an exception notification arrives; no stack is captured. The first first-chance breakpoint is assumed to be debugger startup, not address-validated. The collection deadline bounds waits/event-loop checks, not arbitrary native API blocking. Target ISA is not independently checked; native validation is limited to the intended x64 workflow. A successful detach can leave this target running; detach is not a workload stop/reap guarantee. Collection exit zero means successful collection/cleanup, not successful native application launch.",
+  "end_time": "2026-11-18T22:13:06.097717+05:30",
+  "entry_point_measured": false,
+  "entry_point_reached": null,
+  "event_collection_status": "complete",
+  "events": [
+    {
+      "event_code": 3,
+      "event_name": "CREATE_PROCESS_DEBUG_EVENT",
+      "image_base": "0x7ff688b90000",
+      "image_path": "<USERPROFILE>/Downloads/openbot/OpenBot-Workspace-Light-Complete/OpenBot-Workspace/control/releases/windows-x64/OpenBot-Control-Local-x64.exe",
+      "pe_entry_crt_address": "0x7ff688b913d0",
+      "pe_entry_note": "Reported thread start address, not a measurement of execution; source-level wWinMain is distinct.",
+      "pid": 6024,
+      "sequence": 1,
+      "tid": 11396
+    },
+    {
+      "dll_base": "0x7ffbc5550000",
+      "dll_path": "C:/Windows/System32/ntdll.dll",
+      "event_code": 6,
+      "event_name": "LOAD_DLL_DEBUG_EVENT",
+      "pid": 6024,
+      "sequence": 2,
+      "tid": 11396
+    },
+    {
+      "event_code": 5,
+      "event_name": "EXIT_PROCESS_DEBUG_EVENT",
+      "exit_code": "0xc000007b",
+      "pid": 6024,
+      "sequence": 3,
+      "tid": 11396
+    }
+  ],
+  "executable": "<USERPROFILE>/Downloads/openbot/OpenBot-Workspace-Light-Complete/OpenBot-Workspace/control/releases/windows-x64/OpenBot-Control-Local-x64.exe",
+  "harness": "tools/windows-debug-trace.py",
+  "harness_version": 3,
+  "loaded_modules_before_termination": [
+    {
+      "base": "0x7ff688b90000",
+      "path": "<USERPROFILE>/Downloads/openbot/OpenBot-Workspace-Light-Complete/OpenBot-Workspace/control/releases/windows-x64/OpenBot-Control-Local-x64.exe",
+      "type": "main_executable"
+    },
+    {
+      "base": "0x7ffbc5550000",
+      "path": "C:/Windows/System32/ntdll.dll",
+      "type": "dll"
+    }
+  ],
+  "module_paths_resolved": true,
+  "pe_entry_crt_address": "0x7ff688b913d0",
+  "process_exit_code": "0xc000007b",
+  "schema": "openbot.windows-debug-trace/3",
+  "start_time": "2026-11-18T22:13:05.915151+05:30",
+  "target_may_continue_after_detach": false,
+  "target_pid": 6024,
+  "total_events_recorded": 3
+}

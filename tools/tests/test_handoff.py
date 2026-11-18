@@ -71,6 +71,34 @@ class HandoffTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             VERIFY.check(self.root)
 
+    def test_present_manifest_metadata_digest_must_match_canonical_file_map(self):
+        encoded = json.dumps(self.manifest["files"], sort_keys=True, separators=(",", ":")).encode(
+            "utf-8"
+        )
+        self.manifest["files_metadata_sha256"] = hashlib.sha256(encoded).hexdigest()
+        path = self.root / "SOURCE_MANIFEST.json"
+        path.write_text(json.dumps(self.manifest), encoding="utf-8")
+        self.assertEqual(VERIFY.check(self.root)["verified_files"], 1)
+        self.manifest["files_metadata_sha256"] = "0" * 64
+        path.write_text(json.dumps(self.manifest), encoding="utf-8")
+        with self.assertRaisesRegex(ValueError, "metadata digest"):
+            VERIFY.check(self.root)
+
+    def test_manifest_archive_mode_is_canonical_independent_of_local_mode(self):
+        path = self.root / "SOURCE_MANIFEST.json"
+        one, two = self.base / "mode-one.zip", self.base / "mode-two.zip"
+        path.chmod(0o644)
+        self.package(one)
+        path.chmod(0o600)
+        self.package(two)
+        self.assertEqual(one.read_bytes(), two.read_bytes())
+        with zipfile.ZipFile(one) as archive:
+            self.assertEqual(
+                (archive.getinfo("OpenBot-Workspace/SOURCE_MANIFEST.json").external_attr >> 16)
+                & 0o777,
+                0o644,
+            )
+
     def test_manifest_cannot_reference_parent_or_absolute_paths(self):
         for name in ["../outside", "/etc/passwd", "x/../../outside", "a\\b", "a//b"]:
             with self.subTest(name=name), self.assertRaises(ValueError):
@@ -87,15 +115,30 @@ class HandoffTests(unittest.TestCase):
         except PermissionError:
             (self.root / "hard.md").write_text("hard link simulation")
             from unittest.mock import patch
+
             orig_stat = Path.stat
+
             def fake_stat(self, *args, **kwargs):
                 res = orig_stat(self, *args, **kwargs)
                 if self.name == "hard.md":
-                    return os.stat_result((res.st_mode, res.st_ino, res.st_dev, 2, res.st_uid, res.st_gid, res.st_size, res.st_atime, res.st_mtime, res.st_ctime))
+                    return os.stat_result(
+                        (
+                            res.st_mode,
+                            res.st_ino,
+                            res.st_dev,
+                            2,
+                            res.st_uid,
+                            res.st_gid,
+                            res.st_size,
+                            res.st_atime,
+                            res.st_mtime,
+                            res.st_ctime,
+                        )
+                    )
                 return res
-            with patch.object(Path, "stat", fake_stat):
-                with self.assertRaises(ValueError):
-                    VERIFY.safe_file(self.root, "hard.md")
+
+            with patch.object(Path, "stat", fake_stat), self.assertRaises(ValueError):
+                VERIFY.safe_file(self.root, "hard.md")
 
     def test_manifest_only_export_excludes_unlisted_private_state(self):
         (self.root / ".env").write_text("PRIVATE_FIXTURE=not-source")

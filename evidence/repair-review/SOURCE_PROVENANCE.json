@@ -1,0 +1,22 @@
+{
+  "accepted_real_observed_pilot_days": 0,
+  "all_4418_parent_manifest_files_verified_against_pinned_git_blobs": true,
+  "branch": "repair/restore-manifest-files",
+  "github_repo": "https://github.com/chimmeyeswanthoficial-hub/openbot",
+  "github_writes_performed": 0,
+  "independent_current_metadata_hash_issue": "Parent summary digest did not match its declared canonical encoding. Current verifier now rejects a supplied stale digest; exact file hashes were valid.",
+  "original_assistant_zip_sha256": "8c1945df33b19cc19f598c59bf9d054b5490c8328d709898b42a065999587b54",
+  "original_laptop_zip_uploaded_or_received": false,
+  "parent_manifest_sha256": "1f69d0967636c173ba7eed13b9a39899d8229623f51941e8b1ae6da67560c8dd",
+  "pinned_commit": "f40421329adc87e49698a752103a78d8d3aea507",
+  "public_release": false,
+  "raw_antigravity_report": "result.md",
+  "reconstructed_parent_archive_bytes": 20285225,
+  "reconstructed_parent_archive_sha256": "1c704f194ea06a139e72e4922c42be5056338d42be38ff4f5bb9e9ceaeb9b1cf",
+  "reconstructed_parent_matches_antigravity_reported_sha256": true,
+  "reported_windows_extraction_root_cause": "Antigravity attribution only; not independently established by Arena.",
+  "schema": "openbot.repair-source-provenance/1",
+  "source_acquisition": "Verified original complete ZIP plus six reviewed pinned public Git blob changes and pinned manifest; header mode 0666 reproduces the reported Windows archive byte-for-byte. Current exporter makes manifest mode 0644 canonical.",
+  "upload_blocked_for_zip_mime_type": true,
+  "windows_native_launch_status": "Antigravity-reported process start/respond/stop only; no raw native UI screenshots/logs received; not independent native acceptance."
+}

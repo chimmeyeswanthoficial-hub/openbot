@@ -1,0 +1,41 @@
+{
+  "all_4418_parent_manifest_files_retained": true,
+  "all_original_saved_bytes_modes_hashes_unchanged": true,
+  "github_writes": 0,
+  "immediate_parent_git_commit": "f40421329adc87e49698a752103a78d8d3aea507",
+  "missing_parent_files": 0,
+  "modified_parent_files": [
+    "ANTIGRAVITY_NEXT.md",
+    "CHECKPOINT.json",
+    "PUBLIC_RELEASE_ROADMAP.md",
+    "README.md",
+    "START_HERE.md",
+    "VERIFICATION.md",
+    "YOUR_NEXT_STEPS.md",
+    "control/OS_MATRIX.md",
+    "control/README.md",
+    "control/RELEASE_STATUS.md",
+    "studio/tests/test_studio_core.py",
+    "tools/KERNEL_TEST_PROFILE.md",
+    "tools/export-source.py",
+    "tools/tests/test_handoff.py",
+    "tools/verify-source.py"
+  ],
+  "original_light_zip_unchanged": true,
+  "original_saved_bytes_rechecked": 127999912,
+  "original_saved_files_rechecked": 4212,
+  "originals_deleted_or_repacked": false,
+  "private_runtime_backup": false,
+  "schema": "openbot.repair-preservation/1",
+  "unchanged_native_and_shared_payload_files": [
+    "control/releases/windows-x64/OpenBot-Control-Local-x64.exe",
+    "control/releases/windows-x64/WebView2Loader.dll",
+    "control/releases/OpenBot-Control-Local-android.apk",
+    "studio/web/index.html",
+    "control/web/index.html",
+    "control/native/ios/OpenBotControl/index.html"
+  ],
+  "unchanged_optional_upstream_files": 3475,
+  "unchanged_parent_files": 4403,
+  "unchanged_work_files": 4149
+}

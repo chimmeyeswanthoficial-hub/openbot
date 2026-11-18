@@ -1,0 +1,132 @@
+{
+  "accepted_real_observed_pilot_days": 0,
+  "all_3475_optional_upstream_files_retained": true,
+  "excluded_cache_bytes": 145865,
+  "excluded_cache_file_count": 10,
+  "excluded_cache_roots": [
+    ".cache",
+    ".pytest_cache",
+    ".ruff_cache",
+    ".venv",
+    "__pycache__",
+    "node_modules"
+  ],
+  "excluded_items": [
+    {
+      "bytes": 17602,
+      "file": "studio/src/__pycache__/studio.cpython-313.pyc"
+    },
+    {
+      "bytes": 32576,
+      "file": "studio/src/__pycache__/studio_core.cpython-313.pyc"
+    },
+    {
+      "bytes": 5686,
+      "file": "studio/tests/__pycache__/test_finance_source.cpython-313.pyc"
+    },
+    {
+      "bytes": 9633,
+      "file": "studio/tests/__pycache__/test_shared_source.cpython-313.pyc"
+    },
+    {
+      "bytes": 32628,
+      "file": "studio/tests/__pycache__/test_studio_core.cpython-313.pyc"
+    },
+    {
+      "bytes": 14191,
+      "file": "studio/tests/__pycache__/test_studio_http.cpython-313.pyc"
+    },
+    {
+      "bytes": 5645,
+      "file": "tools/__pycache__/export-source.cpython-313.pyc"
+    },
+    {
+      "bytes": 4273,
+      "file": "tools/__pycache__/prepare-test-state.cpython-313.pyc"
+    },
+    {
+      "bytes": 6940,
+      "file": "tools/__pycache__/verify-source.cpython-313.pyc"
+    },
+    {
+      "bytes": 16691,
+      "file": "tools/tests/__pycache__/test_handoff.cpython-313.pyc"
+    }
+  ],
+  "limit": "Narrow heuristic audit, not independent comprehensive secret/supply-chain clearance. No credentials validated against external services.",
+  "parent_archive_reconstructed_not_uploaded": true,
+  "private_sdk_fixture_signing_caches_included": false,
+  "public_release": false,
+  "schema": "openbot.verified-repair-export-audit/1",
+  "selection": "All regular single-link files in this combined tree except manifest itself and explicit generated/dependency/tool caches; this audit included in final map.",
+  "sensitive_filename_findings": [],
+  "source_report_and_root_git_files_included": true,
+  "unchanged_previously_reviewed_upstream_test_literal_matches": [
+    {
+      "file": "work/repos/OpenBot/desktop/src-tauri/src/main.rs",
+      "match_sha256": "8311c46062d14440944fc2ba36a4ed8e1d00d3fb46b7db5c8fa6bd65f9ea34e2",
+      "pattern": "populated token field"
+    },
+    {
+      "file": "work/repos/OpenBot/desktop/src-tauri/src/plan.rs",
+      "match_sha256": "ac9f21e6879d9a9b135ed8aca664cbd8e6adbe0d2a1464c26e3d1b66ded4860e",
+      "pattern": "populated token field"
+    },
+    {
+      "file": "work/repos/OpenBot/desktop/src-tauri/src/plan.rs",
+      "match_sha256": "30481ba431fe904caacacf81a59a77a00174b87e2b54de0c6c16b114ab107e9b",
+      "pattern": "populated token field"
+    },
+    {
+      "file": "work/repos/OpenBot/desktop/src-tauri/src/provider_oauth.rs",
+      "match_sha256": "8311c46062d14440944fc2ba36a4ed8e1d00d3fb46b7db5c8fa6bd65f9ea34e2",
+      "pattern": "populated token field"
+    },
+    {
+      "file": "work/repos/OpenBot/desktop/src-tauri/src/provider_oauth.rs",
+      "match_sha256": "8311c46062d14440944fc2ba36a4ed8e1d00d3fb46b7db5c8fa6bd65f9ea34e2",
+      "pattern": "populated token field"
+    },
+    {
+      "file": "work/repos/OpenBot/desktop/src-tauri/src/provider_oauth.rs",
+      "match_sha256": "8311c46062d14440944fc2ba36a4ed8e1d00d3fb46b7db5c8fa6bd65f9ea34e2",
+      "pattern": "populated token field"
+    },
+    {
+      "file": "work/repos/OpenBot/desktop/src-tauri/src/provider_oauth.rs",
+      "match_sha256": "8311c46062d14440944fc2ba36a4ed8e1d00d3fb46b7db5c8fa6bd65f9ea34e2",
+      "pattern": "populated token field"
+    },
+    {
+      "file": "work/repos/OpenBot/desktop/src-tauri/src/provider_oauth.rs",
+      "match_sha256": "8311c46062d14440944fc2ba36a4ed8e1d00d3fb46b7db5c8fa6bd65f9ea34e2",
+      "pattern": "populated token field"
+    },
+    {
+      "file": "work/repos/OpenBot/desktop/src-tauri/src/provider_oauth.rs",
+      "match_sha256": "8311c46062d14440944fc2ba36a4ed8e1d00d3fb46b7db5c8fa6bd65f9ea34e2",
+      "pattern": "populated token field"
+    },
+    {
+      "file": "work/repos/OpenBot/server/tests/composio-connections.test.ts",
+      "match_sha256": "746e07fc14f7afc45e7122f5597f034c01536b2080ea268544a93be9eca23543",
+      "pattern": "provider-shaped literal"
+    },
+    {
+      "file": "work/repos/OpenBot/server/tests/enterprise-controls.test.ts",
+      "match_sha256": "3193831645bd691450f50c575c8f3019bcd83b9be8448321f223ef36671e03c5",
+      "pattern": "provider-shaped literal"
+    },
+    {
+      "file": "work/repos/OpenBot/server/tests/model-availability-check.test.ts",
+      "match_sha256": "cf8032a2b34ec8f603df897d1c8738dee931ef8f0e9e2e67f3c98138a04251af",
+      "pattern": "provider-shaped literal"
+    },
+    {
+      "file": "work/repos/OpenBot/server/tests/model-catalogue.test.ts",
+      "match_sha256": "cf8032a2b34ec8f603df897d1c8738dee931ef8f0e9e2e67f3c98138a04251af",
+      "pattern": "provider-shaped literal"
+    }
+  ],
+  "unresolved_pattern_findings": []
+}

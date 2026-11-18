@@ -1,0 +1,44 @@
+SIM117 [*] Use a single `with` statement with multiple contexts instead of nested `with` statements
+   --> studio/tests/test_studio_core.py:396:13
+    |
+394 |                   )
+395 |
+396 | /             with patch("os.fstat", fake_fstat):
+397 | |                 with self.assertRaises(PlanError):
+    | |__________________________________________________^
+398 |                       clean_export(self.source, ["hard.py"], self.root / "hard.zip")
+    |
+help: Combine `with` statements
+    |
+395 |
+    -             with patch("os.fstat", fake_fstat):
+    -                 with self.assertRaises(PlanError):
+    -                     clean_export(self.source, ["hard.py"], self.root / "hard.zip")
+396 +             with patch("os.fstat", fake_fstat), self.assertRaises(PlanError):
+397 +                 clean_export(self.source, ["hard.py"], self.root / "hard.zip")
+398 |
+    |
+
+SIM117 [*] Use a single `with` statement with multiple contexts instead of nested `with` statements
+   --> tools/tests/test_handoff.py:140:13
+    |
+138 |                   return res
+139 |
+140 | /             with patch.object(Path, "stat", fake_stat):
+141 | |                 with self.assertRaises(ValueError):
+    | |___________________________________________________^
+142 |                       VERIFY.safe_file(self.root, "hard.md")
+    |
+help: Combine `with` statements
+    |
+139 |
+    -             with patch.object(Path, "stat", fake_stat):
+    -                 with self.assertRaises(ValueError):
+    -                     VERIFY.safe_file(self.root, "hard.md")
+140 +             with patch.object(Path, "stat", fake_stat), self.assertRaises(ValueError):
+141 +                 VERIFY.safe_file(self.root, "hard.md")
+142 |
+    |
+
+Found 2 errors.
+[*] 2 fixable with `--fix`.

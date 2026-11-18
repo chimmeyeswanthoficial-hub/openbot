@@ -1,8 +1,15 @@
 # Your next steps
 
+## Current note — no upload workaround needed
+
+The chat does not accept ZIP uploads. You do not need to rename the archive, use an
+unknown file host, delete another folder, or force-push. Arena reconstructed the
+reported archive from the verified public repair commit and finalized this successor.
+Keep your earlier downloads as backups. Read `REPAIR_REVIEW.md`.
+
 ## First: save one complete download
 
-Download the new **OpenBot-Workspace-Light-Complete.zip** from the conversation's
+Download the new **OpenBot-Workspace-Verified-Complete.zip** from the conversation's
 file card. This ZIP is the current complete handoff; it does **not** need the old
 patches or earlier ZIPs applied. Save a second copy outside Arena, then extract into
 a new folder. Keep your earlier downloaded workspace as a backup until you verify

@@ -1,5 +1,6 @@
 {
-  "checkpoint": "light-reference-1",
+  "archive_manifest_mode": "0644 canonical on every host",
+  "checkpoint": "light-repair-verified-1",
   "contains_labeled_local_test_builds": true,
   "content_scope": "Complete selected engineering workspace: kernel/configuration/tests/retained donor source/shared UI/native source/labeled local test binaries/evidence/notices; not private runtime backup or accepted public release.",
   "declarative_source_exceptions": [
@@ -12,17 +13,27 @@
     ".openbot/ventures/media-api/venture.yaml"
   ],
   "durability": "Download this complete ZIP and save outside Arena. Session cache and live preview are not durable backups. Previous ZIPs and unique original source/history/private state remain preserved.",
-  "exclusions": "evidence/reference-interface/EXPORT_AUDIT.json; original historical archives/uploads/private operating state excluded from original export remain outside this tree, not deleted.",
+  "exclusions": "evidence/repair-review/EXPORT_AUDIT.json; historical original private state/uploads/recovery archives remain outside this export, not deleted.",
   "files": {
-    "ANTIGRAVITY_NEXT.md": {
-      "bytes": 11342,
+    ".gitattributes": {
+      "bytes": 278,
       "mode": 420,
-      "sha256": "20779b32c323e0f4a6d480d1627da9544d9f2d9b7b02dd46d5a15585c32b5301"
+      "sha256": "2b31666a2beeb66305101b47d111172be09108c87da785f1dad027e7698f27e9"
+    },
+    ".gitignore": {
+      "bytes": 362,
+      "mode": 420,
+      "sha256": "cd8687b16b032287a644702b56312d0d7560905229dabc298e3e7e5796e07180"
+    },
+    "ANTIGRAVITY_NEXT.md": {
+      "bytes": 13436,
+      "mode": 420,
+      "sha256": "8659ff0d92d73db16c305d4266c4d19b06eecc6e9c4a6d77862d8cec7c4abb9b"
     },
     "CHECKPOINT.json": {
-      "bytes": 1969,
+      "bytes": 2530,
       "mode": 420,
-      "sha256": "f5e5540b315b80445c1a4309d597782de12bab18d5cad554796c21d3351c190e"
+      "sha256": "c58ec81a9809f9f3d79d06a8b7ed497afd21cc069672e01f71eff20db088c4c6"
     },
     "DESIGN_REFERENCE.md": {
       "bytes": 4254,
@@ -35,29 +46,34 @@
       "sha256": "2603817874cec36ca385a70e610db574386b156e5c4d2dc7f34bd1ee6900bfaf"
     },
     "PUBLIC_RELEASE_ROADMAP.md": {
-      "bytes": 25938,
+      "bytes": 26151,
       "mode": 420,
-      "sha256": "35e4c7d93ecff5aaeafbd5ebd397fd2d3319ce89079781b171440c2c58658008"
+      "sha256": "5657ca8f83c5ad1677cf8d10aaafa4930c260eb337cc4d56068a1ffac37d4424"
     },
     "README.md": {
-      "bytes": 2562,
+      "bytes": 2785,
       "mode": 420,
-      "sha256": "5e9b445956bfa535122580c42ee145965fdb3d048758e2b560ff6c65d62c3cfe"
+      "sha256": "33b3e6f37ebbfeecd294bb38b21e5df015ec98be08cb210c0a084f7d508b8f1e"
+    },
+    "REPAIR_REVIEW.md": {
+      "bytes": 4130,
+      "mode": 420,
+      "sha256": "1e42dbecf35990658e331cd4df0dcbc11db8a53f234308d552f407f113d16df8"
     },
     "START_HERE.md": {
-      "bytes": 6691,
+      "bytes": 7671,
       "mode": 420,
-      "sha256": "558ce5018e3a5822a49aad2f5153a0222409597df5584ce966018c0a8d0387ec"
+      "sha256": "2488285f5e0a1a54f77c6087be716ffeb7ac12d42f72a8bf7f7876703ff60ae3"
     },
     "VERIFICATION.md": {
-      "bytes": 11309,
+      "bytes": 15661,
       "mode": 420,
-      "sha256": "801123e8060de191e95ccecd663a2c53beca8296e4c37b873d5d558e4332fa63"
+      "sha256": "a918c2e96afb0fd8b59888ef1b95cec54d5b48f19f75475fc8d9cd70c0ddb071"
     },
     "YOUR_NEXT_STEPS.md": {
-      "bytes": 5326,
+      "bytes": 5695,
       "mode": 420,
-      "sha256": "b40f3d208288475491a0c896c640d4657ada4f1e2e55688e87fbf0d7ffc9d596"
+      "sha256": "fa17d745cb9eeaf53837e1c374239aed24d4426f4784d2f08b790a55d43704fa"
     },
     "control/LICENSE": {
       "bytes": 1314,
@@ -65,9 +81,9 @@
       "sha256": "32cc10119059c0782a73295d362595957867b9e331974aea7198f515ec29e09b"
     },
     "control/OS_MATRIX.md": {
-      "bytes": 3065,
+      "bytes": 3315,
       "mode": 420,
-      "sha256": "8b15245a59ff93dcdb1d0952ac325e10d138f2a61902e431ac00b9ccaf4d7452"
+      "sha256": "742e8d84f75ba22169b91ca5089ff33ecc392312e9e6ad0d506939dc062deadf"
     },
     "control/PRIVACY_DRAFT.md": {
       "bytes": 4369,
@@ -75,14 +91,14 @@
       "sha256": "f4efd5e894e24fb9b492255e7e500d10203e522b267c2a6d2b94b7808b69a71b"
     },
     "control/README.md": {
-      "bytes": 6577,
+      "bytes": 6827,
       "mode": 420,
-      "sha256": "0480b411e4a99227021679b1922a4bed72b5e94f94d23a82ee8ce98b77883270"
+      "sha256": "df325d598e65556456baab1e24b500c3eea8e519e00cb2d5a726ff05edcb5e31"
     },
     "control/RELEASE_STATUS.md": {
-      "bytes": 2254,
+      "bytes": 2504,
       "mode": 420,
-      "sha256": "fe5734902dd9db14e9ff2dfcf2bba4d0b59be8ad48a3ae55ff7410dd6a9dcb51"
+      "sha256": "8708da429e2c99a9bec779d9c912e4450cec1d38e218a515d3d8ba17c9dcad26"
     },
     "control/THIRD_PARTY.md": {
       "bytes": 2168,
@@ -1119,6 +1135,76 @@
       "mode": 420,
       "sha256": "1bd78e0e77829af549c27f4f9f4591363b676bb49b276628dfe91e91cd53ad03"
     },
+    "evidence/repair-review/EXPORT_AUDIT.json": {
+      "bytes": 4929,
+      "mode": 420,
+      "sha256": "3ec6bcde8f3c2225becdee9fd4fb84db6410782156c81eb6076c7cf96e74aecf"
+    },
+    "evidence/repair-review/INDEX.md": {
+      "bytes": 1553,
+      "mode": 420,
+      "sha256": "fb9253e2fb393a6df9a444e20c43c01dc82649154cb1459b4f01434deb6a4473"
+    },
+    "evidence/repair-review/PRESERVATION.json": {
+      "bytes": 1406,
+      "mode": 420,
+      "sha256": "cfdd9625bb14020163b409719be3915c9c72dc6c74db146d002e86b4d554ef47"
+    },
+    "evidence/repair-review/SOURCE_PROVENANCE.json": {
+      "bytes": 1716,
+      "mode": 420,
+      "sha256": "384ec8d1912cfb14d504860bd93399444eaf09988fd08b97bc5dc698417fcf82"
+    },
+    "evidence/repair-review/handoff-python.log": {
+      "bytes": 1591,
+      "mode": 420,
+      "sha256": "d101f3976dab74b19e366ab03e46b23411b285d4d227f842443e462a5d437caa"
+    },
+    "evidence/repair-review/hardlink-fallback-simulation.log": {
+      "bytes": 437,
+      "mode": 420,
+      "sha256": "611434fa331401cb1aeae1bc929799c6a5bb9e2d453d1694614cbfcf7d6ee5b5"
+    },
+    "evidence/repair-review/native-packages.json": {
+      "bytes": 10264,
+      "mode": 420,
+      "sha256": "0925af3601cb3604df310f31ae7f7703f175176847617f5d8a25c05f60eee028"
+    },
+    "evidence/repair-review/native-packages.log": {
+      "bytes": 82,
+      "mode": 420,
+      "sha256": "8c1b43c26bb07c57b4a44d47dc3a512a205f5d468eb1753ae4897ebb8a5288b2"
+    },
+    "evidence/repair-review/parent-review.json": {
+      "bytes": 1469,
+      "mode": 420,
+      "sha256": "51477e6ea5b341c9be4f21ddbf356d0d4b18fe714c88e66755da7d6fe43cd081"
+    },
+    "evidence/repair-review/retained-node.log": {
+      "bytes": 3624,
+      "mode": 420,
+      "sha256": "d0cd5e2fbaa0227400fcb9467003dca94fad7d18c09999798f6e5881bb0075a9"
+    },
+    "evidence/repair-review/ruff-final.log": {
+      "bytes": 46,
+      "mode": 420,
+      "sha256": "14bd1ce2e814bc6480530ed3631a301c6295834ba98784e2bc9fad0d1a358f2e"
+    },
+    "evidence/repair-review/ruff-initial.log": {
+      "bytes": 1768,
+      "mode": 420,
+      "sha256": "94cf99e201e37fb8d9d4bf1f7e5fa6f98a382be941fd647be9cd343c7dde3270"
+    },
+    "evidence/repair-review/studio-node.log": {
+      "bytes": 8662,
+      "mode": 420,
+      "sha256": "9d424e94b8375b1fc09123b803d9cf6eaadbf40e220703e662a6e9cb55d4ee2d"
+    },
+    "evidence/repair-review/studio-python.log": {
+      "bytes": 8245,
+      "mode": 420,
+      "sha256": "0cc6a18b15c7c3e8625c515c43a377849d9934d84e93da18bf6b4bf407fdba2f"
+    },
     "evidence/retained-reuse-node.log": {
       "bytes": 3624,
       "mode": 420,
@@ -1143,6 +1229,11 @@
       "bytes": 6342,
       "mode": 420,
       "sha256": "5d6de02b3e81021af36ce4e46c54e5c590f4ae9bbd2854b47f6063719b6c46ac"
+    },
+    "result.md": {
+      "bytes": 7314,
+      "mode": 420,
+      "sha256": "78ddfb26b5698d15050961f4fc943c5d41b26b6bceed0f397df10d9588272f2f"
     },
     "studio/.gitignore": {
       "bytes": 99,
@@ -1250,9 +1341,9 @@
       "sha256": "5efc9e1989490b569a8c7cff41f9364a4bbc41e9ecdf9fb66bf4b6bf470871ac"
     },
     "studio/tests/test_studio_core.py": {
-      "bytes": 17344,
+      "bytes": 17715,
       "mode": 420,
-      "sha256": "031a4f1b111e0377c7e1787c849a3c601a467f6ad912f8f1bdabf7aa3a1141f0"
+      "sha256": "210e874625f5c40c0fdc6cd505cbc10d8f1381d699e274a9fe6d17260d79e2d5"
     },
     "studio/tests/test_studio_http.py": {
       "bytes": 8470,
@@ -1325,14 +1416,14 @@
       "sha256": "53c5b40885deba0a6f1176dd75fd12fb08a6a65c1e2071e89a33c3a3be8dd955"
     },
     "tools/KERNEL_TEST_PROFILE.md": {
-      "bytes": 3565,
+      "bytes": 3575,
       "mode": 420,
-      "sha256": "cb99b1e3c070fd5f056b85baa454f2c090fec841e8afe995fe226e99c8678ce9"
+      "sha256": "24b485c82a4e0d8b7fa3ddeec22c4213403814c455594472ef7076f5e88ef785"
     },
     "tools/export-source.py": {
-      "bytes": 3207,
+      "bytes": 3315,
       "mode": 420,
-      "sha256": "ecab055de570af240bd0780fec9d4b1f163f66377cace32b63650814f7d0c687"
+      "sha256": "ba723668874075b22e6a94e8ca987bfb17c8a4178a68effa1917a8563fd59b98"
     },
     "tools/kernel-test-state/active_ventures.yaml": {
       "bytes": 170,
@@ -1350,14 +1441,14 @@
       "sha256": "7b77447722cb2c5be2ded6b20c4a02dcc821da18cbeee0d56d1e68a512f3812c"
     },
     "tools/tests/test_handoff.py": {
-      "bytes": 6426,
+      "bytes": 8082,
       "mode": 420,
-      "sha256": "8391f49bbf67b8290f18a4c68135f555683f143a7ef68027f3ee968accc0ebf7"
+      "sha256": "7c5774a075846364e9cad24933aa3828f582c3a131ec05779629a5d88c8e3d38"
     },
     "tools/verify-source.py": {
-      "bytes": 3387,
+      "bytes": 3877,
       "mode": 420,
-      "sha256": "c1c3c7404ca208a70f9d49195084a818a81c4a59640bfadb434951b6f16f844c"
+      "sha256": "377c7efed1b25505afe170aec814e77c2dbd02dcde9be4f76b9f376bed2a7f14"
     },
     "work/.claude/skills/README.md": {
       "bytes": 3815,
@@ -22105,8 +22196,8 @@
       "sha256": "b58a204ca384f1b968f78e799a7875ee2a8f843ab945bc7c34262c2906e5c7b7"
     }
   },
-  "files_metadata_hash_encoding": "UTF-8 JSON of files object, sorted keys, separators comma/colon, no trailing newline.",
-  "files_metadata_sha256": "0f95074e8e4022214a9d5aac3c4985c36d81d0ed047e8b3755baac84787297d0",
+  "files_metadata_hash_encoding": "UTF-8 json.dumps(files, sort_keys=True, separators=(',', ':'), ensure_ascii=True), no trailing newline.",
+  "files_metadata_sha256": "1a954430f1036f38a5ab2f7ceae26f7adc02f1654fba3a06422cd59cbc45b0f5",
   "inherited_original_export_omission_counts": {
     "generated_or_dependency_cache": 265,
     "historical_archive_or_owner_upload": 14,
@@ -22127,24 +22218,28 @@
   },
   "optional_upstream_files_retained": 3475,
   "originals_deleted_or_repacked": false,
-  "parent_manifest_sha256": "25377f470035ba5ab3e90bed6c0af591bdfff461d2fa518af1377d67c4849cbc",
-  "parent_source_zip_sha256": "657c89aec18c3410cdb9ef7972ba53713337ca307391ce057dfe97b53024c9d6",
+  "parent_archive_reconstructed_from_verified_git_not_uploaded": true,
+  "parent_git_commit": "f40421329adc87e49698a752103a78d8d3aea507",
+  "parent_manifest_sha256": "1f69d0967636c173ba7eed13b9a39899d8229623f51941e8b1ae6da67560c8dd",
+  "parent_source_zip_sha256": "1c704f194ea06a139e72e4922c42be5056338d42be38ff4f5bb9e9ceaeb9b1cf",
   "private_or_generated_state_excluded": true,
   "release_status": {
     "accepted_real_observed_pilot_days": 0,
     "android": "demo-v3 local test build; not device-launched",
     "direct_antigravity_message_sent": false,
     "ios": "source only; no Mac/Xcode/app/IPA",
+    "native_devices_independently_accepted": false,
     "public_release": false,
     "real_per_bot_pcs": 0,
     "real_provider_connections": 0,
     "studio_kernel_connected": true,
     "studio_kernel_connection_scope": "Actual disposable local HTTPS fixed-owned QA fixtures only; not staging/production or arbitrary AI/PC/social execution.",
-    "windows": "unsigned local test build; not native-launched"
+    "windows": "Antigravity-reported process start/respond/stop only; raw native UI/device evidence not received or independently accepted"
   },
   "schema": "openbot.workspace-source/1",
   "scope_note": "Manifest identifies this selected source, not signer identity, account permissions, provider/VM readiness, policy compliance, secret clearance, pilot acceptance or release authority.",
   "signed_release": false,
   "source_only": false,
+  "source_provenance": "evidence/repair-review/SOURCE_PROVENANCE.json",
   "timestamp_policy": "Original donor/intake/runner timestamp observations retained, not a latest-branch assertion or elapsed pilot time."
 }

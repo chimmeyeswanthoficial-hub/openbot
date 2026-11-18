@@ -37,7 +37,9 @@ def package(output):
             source, observed = VERIFY.safe_file(ROOT, name)
             item = zipfile.ZipInfo("OpenBot-Workspace/" + name, date_time=(2026, 1, 1, 0, 0, 0))
             item.create_system = 3
-            mode = manifest["files"][name].get("mode", 0o644) if (os.name != "posix" and name in manifest["files"]) else (observed.st_mode & 0o777)
+            # Approved source modes were verified above. The manifest itself has
+            # one canonical public-file mode on every host, including Windows.
+            mode = 0o644 if name == "SOURCE_MANIFEST.json" else manifest["files"][name]["mode"]
             item.external_attr = (0o100000 | mode) << 16
             item.compress_type = zipfile.ZIP_DEFLATED
             observed_hash = hashlib.sha256()

@@ -51,6 +51,14 @@ def check(root=ROOT, *, strict=False):
         or not 1 <= len(manifest["files"]) <= 10000
     ):
         raise ValueError("bounded source manifest required")
+    # Legacy small fixture manifests may omit this optional summary. If supplied,
+    # it must describe the actual file map, not an obsolete or differently encoded one.
+    if "files_metadata_sha256" in manifest:
+        encoded = json.dumps(manifest["files"], sort_keys=True, separators=(",", ":")).encode(
+            "utf-8"
+        )
+        if hashlib.sha256(encoded).hexdigest() != manifest["files_metadata_sha256"]:
+            raise ValueError("manifest metadata digest mismatch")
     for name, meta in manifest["files"].items():
         path, observed = safe_file(root, name)
         if observed.st_size != meta["bytes"] or digest(path) != meta["sha256"]:

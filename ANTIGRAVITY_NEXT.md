@@ -5,6 +5,35 @@ in this session; no IDE/session/account was connected and no collaborator receiv
 this file. The user should open this complete workspace in Antigravity and supply
 this document. Do not claim work happened after this active session ended.
 
+## Current repair successor — do this next, not another restoration
+
+Current checkpoint `light-repair-verified-1`: the 258 missing source files are
+restored. Arena independently reproduced your reported archive hash from pinned
+commit `f40421329adc87e49698a752103a78d8d3aea507`; no laptop ZIP was received.
+Read `REPAIR_REVIEW.md`. The aggregate digest is corrected and checked; archive
+manifest mode is canonical 0644; root report/ignore/attributes are now manifest-listed.
+
+1. Preserve your current workspace, uncommitted changes and backup refs. Review this
+   complete successor on the existing repair branch; ordinary commit/PR only. No
+   reset/clean/folder deletion/force push. Never stage private state or SDK/signing caches.
+2. Verify the complete extraction. Strict now covers `.gitignore`, `.gitattributes`
+   and `result.md`. POSIX Git checkouts lose 0600 modes: restore reviewed manifest
+   modes in a clean test copy or extract the ZIP with a mode-preserving tool.
+3. Current Linux units: Studio **49 pass / 1 Windows-only skip of 50**, handoff **10**,
+   Studio Node **45**, retained Node **25**; native binary/static **27**. Recheck on
+   Windows and report real skips/raw output; never relabel simulated link checks actual.
+4. Your reported process launch is useful but not complete Task B. Collect actual
+   Windows rendered light-UI screenshots and manual list/chat/search/resize/keyboard/
+   DPI/offline/resume/close outcomes, OS/runtime and raw logs. Do not bypass device
+   policy. A responding process/error dialog alone does not prove intended rendering.
+5. Next Android device/emulator acceptance and real Mac/Xcode/iOS work require their
+   actual devices/tools. No IPA, signing or complete R01-R13 acceptance is implied.
+
+The unchanged HTML/kernel retain the scoped earlier Linux receipts; do not demand
+another identical full Linux run instead of collecting missing Windows evidence.
+Source changes still require their relevant regressions and one full verified ZIP.
+No direct IDE message or GitHub write was sent by Arena.
+
 ## Read first / do not undo
 
 1. `START_HERE.md`, `VERIFICATION.md`, `PUBLIC_RELEASE_ROADMAP.md`, `DESIGN_REFERENCE.md`.
@@ -44,7 +73,8 @@ PREVIEW_URL=http://127.0.0.1:4183 TEST_ENGINE=webkit EVIDENCE_DIR=.cache/check-f
 CONTROL_UI_EVIDENCE=.cache/check-offline-NEW node control/scripts/test-ui.cjs
 ```
 
-Expected current local cases: 48 Studio Python, 8 handoff Python, 45 Studio Node,
+Expected current local cases: 50 Studio Python (Linux 49 pass / 1 Windows-only skip),
+10 handoff Python, 45 Studio Node,
 25 retained Node; 35 UI and 21 finance **per browser**, 78 offline viewer checks.
 Counts overlap and are not a product-completion score. Preserve initial red logs.
 Fix the actual defect/prerequisite; never remove a security assertion to make green.

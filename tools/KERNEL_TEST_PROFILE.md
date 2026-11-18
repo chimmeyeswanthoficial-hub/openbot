@@ -1,6 +1,6 @@
 # Source-only does not mean tool-free kernel tests
 
-The shared Studio's 48 standard-library tests do not need these prerequisites. The
+The shared Studio's 50 collected standard-library cases do not need these prerequisites. The
 preserved kernel regression suite also exercises real namespace/media code and
 worker preflight. Removing runtime state and tools is deliberately fail-closed;
 a bare `pytest` can fail, not merely skip, when those mandatory fixtures are absent.

@@ -1,5 +1,9 @@
 # Native target matrix — engineering targets, not certified support
 
+**Repair note:** `../REPAIR_REVIEW.md` records Antigravity-reported Windows process
+start/respond/stop. No raw native UI/screenshots/interactive acceptance was supplied;
+this is not independent supported-platform acceptance. Binaries are unchanged.
+
 All current native content comes from the same light shared HTML (0.3.0-local test
 shells; API v1 / wire client 0.2.0). Exact embedded/bundled asset identity and light
 source/chrome are checked. Native controls and OS bars differ from the reference;

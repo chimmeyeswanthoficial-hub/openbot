@@ -1,0 +1,8 @@
+SIMULATION ONLY: forced os.link PermissionError on Linux; not actual Windows link evidence.
+test_export_rejects_symlink_and_hardlink_sources (test_studio_core.ExportTests.test_export_rejects_symlink_and_hardlink_sources) ... ok
+test_links_are_not_accepted_as_source (test_handoff.HandoffTests.test_links_are_not_accepted_as_source) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.002s
+
+OK

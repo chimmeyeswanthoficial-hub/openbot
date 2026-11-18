@@ -1,0 +1,15 @@
+# Canonical source checkouts on Windows and POSIX; private/runtime data stay excluded.
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.exe binary
+*.dll binary
+*.apk binary
+*.zip binary
+*.pdf binary
+*.mp4 binary
+*.webm binary

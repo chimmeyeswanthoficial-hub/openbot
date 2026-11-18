@@ -1,5 +1,9 @@
 # OpenBot native control · 0.3.0-local light UI
 
+**Repair note:** `../REPAIR_REVIEW.md` records Antigravity-reported Windows process
+start/respond/stop. No raw native UI/screenshots/interactive acceptance was supplied;
+this is not independent supported-platform acceptance. Binaries are unchanged.
+
 Windows, Android and iOS are **clients**, not agent/PC hosts. The new light reference
 interface is generated from `../studio/web/`, shared byte-for-byte with the gateway
 and iOS source, and embedded in the fresh Windows/Android **local test builds**.

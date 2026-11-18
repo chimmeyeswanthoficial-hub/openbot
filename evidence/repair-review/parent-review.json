@@ -1,0 +1,36 @@
+{
+  "actual_laptop_zip_received": false,
+  "all_manifest_file_bytes_verified_against_public_git_blobs": true,
+  "calculated_metadata_digest_using_declared_encoding": "fca8be1768403cc4ee7eaba57bbbba5bfa36e88a1c0ee3af063e7ed53d1a3d8a",
+  "commit": "f40421329adc87e49698a752103a78d8d3aea507",
+  "declared_metadata_digest": "0f95074e8e4022214a9d5aac3c4985c36d81d0ed047e8b3755baac84787297d0",
+  "github_writes": 0,
+  "linux_recheck": {
+    "errors": 0,
+    "failures": 0,
+    "handoff_python_passed": 8,
+    "retained_node_passed": 25,
+    "studio_node_passed": 45,
+    "studio_python_passed": 49,
+    "studio_python_skipped_windows_only": 1
+  },
+  "manifest_files": 4418,
+  "manifest_header_modes_producing_reported_zip_digest": [
+    "0o666"
+  ],
+  "metadata_digest_matches": false,
+  "missing_manifest_files": 0,
+  "native_artifacts_unchanged": true,
+  "original_ui_payload_unchanged": true,
+  "remote_extra_files": [
+    ".gitignore",
+    "result.md"
+  ],
+  "reported_zip_reconstructible_from_public_source_and_manifest_header_mode": true,
+  "reported_zip_sha256": "1c704f194ea06a139e72e4922c42be5056338d42be38ff4f5bb9e9ceaeb9b1cf",
+  "reviewed_local_copy_excludes_only_these_unlisted_remote_extras": true,
+  "schema": "openbot.repaired-branch-review/1",
+  "source_review_is_not_received_laptop_zip_verification": true,
+  "windows_process_launch_is_reported_not_independently_device_tested": true,
+  "windows_ui_screenshots_or_raw_native_runtime_logs_received": false
+}

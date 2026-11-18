@@ -5,6 +5,25 @@ Do not apply old patches or overlay an operating company directory. The kernel,
 shared light interface, native source, explicit local test binaries, licenses,
 tests, evidence and next instructions are together here.
 
+## Current repair note
+
+This is `OpenBot-Workspace-Verified-Complete.zip`, one full successor, not a patch.
+The 258 missing Git files are restored; no repetition of that repair is needed.
+Read `REPAIR_REVIEW.md`. Arena reconstructed the pinned public source; your laptop
+ZIP was not uploaded. `result.md` is an attributed report, not independent acceptance.
+
+On Windows, extract into a **new** directory. If Explorer fails/skips entries, use
+Python's ZIP tools and require success; do not disable antivirus/device policy:
+
+```powershell
+python -m zipfile -t .\OpenBot-Workspace-Verified-Complete.zip
+python -m zipfile -e .\OpenBot-Workspace-Verified-Complete.zip .\OpenBot-Verified-New
+```
+
+Then run the strict verifier inside `OpenBot-Verified-New\OpenBot-Workspace`.
+On POSIX use a mode-preserving extractor such as `unzip` (Python zipfile extraction
+alone does not restore original modes). Keep old files/backups; do not overlay data.
+
 ## 1. Try the light interface
 
 From this root with Python 3.11+:
@@ -67,7 +86,8 @@ node --test studio/tests/*.test.cjs
 ```
 
 The read-only manifest verifier does not install or contact anything. There are
-48 Studio Python tests, 8 handoff tests, 19 finance and 26 gateway Node unit tests.
+50 Studio Python cases (Linux 49 passed / 1 Windows-only skip), 10 handoff tests,
+19 finance and 26 gateway Node unit tests.
 Browser and native package checks have separate prerequisites and evidence. The
 configured kernel run has **1,251 passed, 173 PostgreSQL skips, zero failures/errors**;
 that is not a claim that unconfigured `pytest` passes or that skipped tests ran.

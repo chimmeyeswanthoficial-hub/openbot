@@ -1,0 +1,135 @@
+TAP version 13
+# Subtest: same bot executes one turn at a time, preserving order
+ok 1 - same bot executes one turn at a time, preserving order
+  ---
+  duration_ms: 2.008478
+  ...
+# Subtest: different bots do not wait for one another
+ok 2 - different bots do not wait for one another
+  ---
+  duration_ms: 0.25025
+  ...
+# Subtest: failure reaches caller but does not poison subsequent turns
+ok 3 - failure reaches caller but does not poison subsequent turns
+  ---
+  duration_ms: 0.579408
+  ...
+# Subtest: closing refuses new work but drains existing work without claiming cancellation
+ok 4 - closing refuses new work but drains existing work without claiming cancellation
+  ---
+  duration_ms: 1.268846
+  ...
+# Subtest: invalid bot identity and callback are rejected
+ok 5 - invalid bot identity and callback are rejected
+  ---
+  duration_ms: 0.237837
+  ...
+# Subtest: default research does not read gh auth or send inherited tokens
+ok 6 - default research does not read gh auth or send inherited tokens
+  ---
+  duration_ms: 68.137216
+  ...
+# Subtest: environment auth requires explicit opt-in and still does not invoke gh
+ok 7 - environment auth requires explicit opt-in and still does not invoke gh
+  ---
+  duration_ms: 61.864723
+  ...
+# Subtest: authenticated responses are not written to shared public cache
+ok 8 - authenticated responses are not written to shared public cache
+  ---
+  duration_ms: 65.349674
+  ...
+# Subtest: init cannot mutate project instructions by default
+ok 9 - init cannot mutate project instructions by default
+  ---
+  duration_ms: 42.51864
+  ...
+# Subtest: extractKeywords strips filler words
+ok 10 - extractKeywords strips filler words
+  ---
+  duration_ms: 1.986767
+  ...
+# Subtest: stem matches word variants
+ok 11 - stem matches word variants
+  ---
+  duration_ms: 0.29072
+  ...
+# Subtest: active, licensed, relevant repo scores high
+ok 12 - active, licensed, relevant repo scores high
+  ---
+  duration_ms: 0.561978
+  ...
+# Subtest: archived and stale repos are penalised
+ok 13 - archived and stale repos are penalised
+  ---
+  duration_ms: 1.163529
+  ...
+# Subtest: off-topic mega repo does not beat on-topic repo
+ok 14 - off-topic mega repo does not beat on-topic repo
+  ---
+  duration_ms: 0.302688
+  ...
+# Subtest: awesome lists are detected and demoted
+ok 15 - awesome lists are detected and demoted
+  ---
+  duration_ms: 0.316696
+  ...
+# Subtest: explain produces warnings
+ok 16 - explain produces warnings
+  ---
+  duration_ms: 0.329075
+  ...
+# Subtest: buildRepoQueries applies filters
+ok 17 - buildRepoQueries applies filters
+  ---
+  duration_ms: 0.599186
+  ...
+# Subtest: mergeAndRank dedupes and sorts
+ok 18 - mergeAndRank dedupes and sorts
+  ---
+  duration_ms: 0.736096
+  ...
+# Subtest: isSkillRepo
+ok 19 - isSkillRepo
+  ---
+  duration_ms: 0.693319
+  ...
+# Subtest: parseArgs
+ok 20 - parseArgs
+  ---
+  duration_ms: 0.310926
+  ...
+# Subtest: isAwesomeList rejects keyword-stuffed repos
+ok 21 - isAwesomeList rejects keyword-stuffed repos
+  ---
+  duration_ms: 0.360619
+  ...
+# Subtest: auto-mode block is idempotent and removable
+ok 22 - auto-mode block is idempotent and removable
+  ---
+  duration_ms: 0.400645
+  ...
+# Subtest: detectStack reads manifests
+ok 23 - detectStack reads manifests
+  ---
+  duration_ms: 2.522587
+  ...
+# Subtest: multi-language filter and momentum
+ok 24 - multi-language filter and momentum
+  ---
+  duration_ms: 0.34122
+  ...
+# Subtest: short keywords match whole words only
+ok 25 - short keywords match whole words only
+  ---
+  duration_ms: 0.389226
+  ...
+1..25
+# tests 25
+# suites 0
+# pass 25
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 453.307428

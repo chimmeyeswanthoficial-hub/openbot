@@ -1,0 +1,235 @@
+TAP version 13
+# Subtest: actual adoption produces an explicitly unreconciled read-only source-currency report
+ok 1 - actual adoption produces an explicitly unreconciled read-only source-currency report
+  ---
+  duration_ms: 2.32207
+  ...
+# Subtest: currency and positive-expense sign convention require explicit correctly typed confirmation
+ok 2 - currency and positive-expense sign convention require explicit correctly typed confirmation
+  ---
+  duration_ms: 0.682239
+  ...
+# Subtest: money parsing is integer-only and exact at every supported decimal boundary
+ok 3 - money parsing is integer-only and exact at every supported decimal boundary
+  ---
+  duration_ms: 1.322891
+  ...
+# Subtest: aggregate arithmetic stays exact and safe at all 5000 maximum-value rows
+ok 4 - aggregate arithmetic stays exact and safe at all 5000 maximum-value rows
+  ---
+  duration_ms: 39.385872
+  ...
+# Subtest: formatting uses integer digits, never a floating major-unit ledger value
+ok 5 - formatting uses integer digits, never a floating major-unit ledger value
+  ---
+  duration_ms: 0.344553
+  ...
+# Subtest: upstream quote-boundary regression vectors refuse trailing characters
+ok 6 - upstream quote-boundary regression vectors refuse trailing characters
+  ---
+  duration_ms: 0.577389
+  ...
+# Subtest: upstream valid escaped quotes, commas and embedded newlines are preserved
+ok 7 - upstream valid escaped quotes, commas and embedded newlines are preserved
+  ---
+  duration_ms: 0.546116
+  ...
+# Subtest: upstream BOM and CR/LF/CRLF vectors retain field boundaries
+ok 8 - upstream BOM and CR/LF/CRLF vectors retain field boundaries
+  ---
+  duration_ms: 0.498287
+  ...
+# Subtest: unclosed or incorrectly positioned quotes never produce a partial report
+ok 9 - unclosed or incorrectly positioned quotes never produce a partial report
+  ---
+  duration_ms: 0.317361
+  ...
+# Subtest: upstream required headers are normalized and duplicates cannot discard amounts
+ok 10 - upstream required headers are normalized and duplicates cannot discard amounts
+  ---
+  duration_ms: 0.419204
+  ...
+# Subtest: upstream reordered and irrelevant extra columns remain compatible
+ok 11 - upstream reordered and irrelevant extra columns remain compatible
+  ---
+  duration_ms: 0.182228
+  ...
+# Subtest: wrong row widths, empty inputs and more than 5000 transactions are refused
+ok 12 - wrong row widths, empty inputs and more than 5000 transactions are refused
+  ---
+  duration_ms: 9.551942
+  ...
+# Subtest: real Gregorian date checks do not normalize invalid dates into another day
+ok 13 - real Gregorian date checks do not normalize invalid dates into another day
+  ---
+  duration_ms: 1.397458
+  ...
+# Subtest: optional currency column must match chosen currency, with no FX or mixing
+ok 14 - optional currency column must match chosen currency, with no FX or mixing
+  ---
+  duration_ms: 0.559325
+  ...
+# Subtest: exact duplicate rows are disclosed and retained, never silently removed
+ok 15 - exact duplicate rows are disclosed and retained, never silently removed
+  ---
+  duration_ms: 0.815365
+  ...
+# Subtest: byte limit is UTF-8, including upstream Unicode and exact-boundary vectors
+ok 16 - byte limit is UTF-8, including upstream Unicode and exact-boundary vectors
+  ---
+  duration_ms: 135.272078
+  ...
+# Subtest: control/binary text and non-text input are refused rather than coerced
+ok 17 - control/binary text and non-text input are refused rather than coerced
+  ---
+  duration_ms: 0.295746
+  ...
+# Subtest: HTML, URLs and spreadsheet formula text remain literal user data
+ok 18 - HTML, URLs and spreadsheet formula text remain literal user data
+  ---
+  duration_ms: 0.34
+  ...
+# Subtest: adopted module contains no network, storage, shell, model or DOM rendering path
+ok 19 - adopted module contains no network, storage, shell, model or DOM rendering path
+  ---
+  duration_ms: 0.488114
+  ...
+# Subtest: live route accepts only HTTPS exact /control/ without query
+ok 20 - live route accepts only HTTPS exact /control/ without query
+  ---
+  duration_ms: 1.480122
+  ...
+# Subtest: route allowlist rejects authority issuance, arbitrary tasks and path encodings
+ok 21 - route allowlist rejects authority issuance, arbitrary tasks and path encodings
+  ---
+  duration_ms: 0.393355
+  ...
+# Subtest: local preview cannot identify, pair or mutate
+ok 22 - local preview cannot identify, pair or mutate
+  ---
+  duration_ms: 1.469219
+  ...
+# Subtest: unpaired state has no authority and bad console inputs send nothing
+ok 23 - unpaired state has no authority and bad console inputs send nothing
+  ---
+  duration_ms: 2.14175
+  ...
+# Subtest: real P-256 proofs pair, scopes derive from server, private key is non-exportable
+ok 24 - real P-256 proofs pair, scopes derive from server, private key is non-exportable
+  ---
+  duration_ms: 15.900046
+  ...
+# Subtest: identity mismatch after first identity fails closed
+ok 25 - identity mismatch after first identity fails closed
+  ---
+  duration_ms: 3.335168
+  ...
+# Subtest: expired pairing result never becomes an active device
+ok 26 - expired pairing result never becomes an active device
+  ---
+  duration_ms: 4.057609
+  ...
+# Subtest: unknown or escalated viewer scopes are refused
+ok 27 - unknown or escalated viewer scopes are refused
+  ---
+  duration_ms: 6.241285
+  ...
+# Subtest: viewer cannot propose, approve, execute or cancel
+ok 28 - viewer cannot propose, approve, execute or cancel
+  ---
+  duration_ms: 2.99344
+  ...
+# Subtest: snapshot expires at exactly fifteen seconds and ignores backward monotonic time
+ok 29 - snapshot expires at exactly fifteen seconds and ignores backward monotonic time
+  ---
+  duration_ms: 8.084756
+  ...
+# Subtest: server grant expiry limits otherwise fresh snapshot
+ok 30 - server grant expiry limits otherwise fresh snapshot
+  ---
+  duration_ms: 3.058107
+  ...
+# Subtest: offline immediately disables writes without dispatch
+ok 31 - offline immediately disables writes without dispatch
+  ---
+  duration_ms: 2.890987
+  ...
+# Subtest: edits, arbitrary shell, foreign destination and UI role/venture are refused
+ok 32 - edits, arbitrary shell, foreign destination and UI role/venture are refused
+  ---
+  duration_ms: 3.021176
+  ...
+# Subtest: proposal signs exact method/path/body once and requires a new read-back
+ok 33 - proposal signs exact method/path/body once and requires a new read-back
+  ---
+  duration_ms: 6.313097
+  ...
+# Subtest: malformed challenge does not dispatch a signed operation
+ok 34 - malformed challenge does not dispatch a signed operation
+  ---
+  duration_ms: 3.93746
+  ...
+# Subtest: unknown write response is not retried and removes write freshness
+ok 35 - unknown write response is not retried and removes write freshness
+  ---
+  duration_ms: 5.887039
+  ...
+# Subtest: approval requires exact task/digest, review state and separate console code
+ok 36 - approval requires exact task/digest, review state and separate console code
+  ---
+  duration_ms: 2.849751
+  ...
+# Subtest: approval never implicitly executes, execution is a separate exact signed request
+ok 37 - approval never implicitly executes, execution is a separate exact signed request
+  ---
+  duration_ms: 5.59655
+  ...
+# Subtest: cancel is explicit and does not claim remote process kill
+ok 38 - cancel is explicit and does not claim remote process kill
+  ---
+  duration_ms: 3.213658
+  ...
+# Subtest: artifact content is hash checked, external delivery is refused
+ok 39 - artifact content is hash checked, external delivery is refused
+  ---
+  duration_ms: 7.012475
+  ...
+# Subtest: revoke forgets device and key locally only after acknowledged request
+ok 40 - revoke forgets device and key locally only after acknowledged request
+  ---
+  duration_ms: 3.093296
+  ...
+# Subtest: forget is not a claim of server revocation
+ok 41 - forget is not a claim of server revocation
+  ---
+  duration_ms: 2.239369
+  ...
+# Subtest: cancelled key generation cannot send a later pairing request
+ok 42 - cancelled key generation cannot send a later pairing request
+  ---
+  duration_ms: 1.21213
+  ...
+# Subtest: late write after invalidation is discarded with no replay
+ok 43 - late write after invalidation is discarded with no replay
+  ---
+  duration_ms: 3.243595
+  ...
+# Subtest: only one refresh is active; no mutation races a pending snapshot
+ok 44 - only one refresh is active; no mutation races a pending snapshot
+  ---
+  duration_ms: 2.832493
+  ...
+# Subtest: late read after lifecycle invalidation cannot restore authority
+ok 45 - late read after lifecycle invalidation cannot restore authority
+  ---
+  duration_ms: 2.506199
+  ...
+1..45
+# tests 45
+# suites 0
+# pass 45
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 441.758326

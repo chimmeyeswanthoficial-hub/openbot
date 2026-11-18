@@ -1,5 +1,9 @@
 # 0.3.0-local light interface — NOT a public release
 
+**Repair note:** `../REPAIR_REVIEW.md` records Antigravity-reported Windows process
+start/respond/stop. No raw native UI/screenshots/interactive acceptance was supplied;
+this is not independent supported-platform acceptance. Binaries are unchanged.
+
 - **Windows:** fresh genuine x64 GUI PE with exact shared light UI, required pinned
   WebView2 loader/license/README, mitigation flags and version-resource checks.
   **Unsigned, not launched/tested on Windows**, not an installer or accepted update path.

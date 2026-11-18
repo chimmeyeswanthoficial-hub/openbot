@@ -1,6 +1,6 @@
 # OpenBot — R01–R13 remaining work and release gates
 
-**NOT ready for public release.** Current handoff: **light-reference-1**. This is a
+**NOT ready for public release.** Current handoff: **light-repair-verified-1**. This is a
 complete engineering workspace, not a claim that all work, accounts, native devices,
 pilot or release approval exist. Prior downloaded archives and their receipts remain
 unchanged. Recorded runner/upstream timestamps are observations, never pilot credit.
@@ -48,11 +48,14 @@ account. Independent roles below are requirements, not invented collaborators.
 | **R12 — pilot** | No fabricated observations; **accepted real observed days 0**. | Actual consented 1–6-month private pilot including ≥30 consecutive genuinely observed days and independent acceptance. |
 | **R13 — human release** | Public-release flag remains false; no upload/push/deploy/store/release action. | Human accepts exact scope/evidence/terms/on-call; signed accepted artifacts and bounded observed rollout/rollback. |
 
-Current regression facts: **48 Studio Python / 8 handoff Python / 45 Studio Node /
+Current unit facts: **50 Studio Python collected (Linux 49 passed / 1 Windows-only skip) /
+10 handoff Python / 45 Studio Node /
 25 retained Node**, 35 UI + 21 finance cases **per Chromium/WebKit engine**, 78 offline
 viewer checks, 44 HTTPS application cases per engine and 5 fixture TLS/lifecycle
 checks per fixture. Kernel: **1251 passed, 173 PostgreSQL skips, zero fail/error**
-under the recorded namespace-opt-in/locked-tools profile. Initial reds and narrower
+under the recorded namespace-opt-in/locked-tools profile (retained, not rerun in the
+metadata-only finalization). `REPAIR_REVIEW.md` distinguishes reported Windows process
+launch from accepted native UI/device evidence. Initial reds and narrower
 runs are retained. These overlapping counts are not a feature-completion score.
 
 Chromium uses a disposable fixture SPKI pin with `ignoreHTTPSErrors=false`.

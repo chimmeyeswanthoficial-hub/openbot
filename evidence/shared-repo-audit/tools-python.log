@@ -1,0 +1,30 @@
+test_complete_tree_and_private_mode_boundary_are_explicit (test_git_source.GitSourceTests.test_complete_tree_and_private_mode_boundary_are_explicit) ... ok
+test_correct_explicit_index_executable_bit_is_accepted (test_git_source.GitSourceTests.test_correct_explicit_index_executable_bit_is_accepted) ... ok
+test_dirty_working_tree_does_not_masquerade_as_committed_content (test_git_source.GitSourceTests.test_dirty_working_tree_does_not_masquerade_as_committed_content) ... ok
+test_duplicate_or_nonobject_manifest_is_refused (test_git_source.GitSourceTests.test_duplicate_or_nonobject_manifest_is_refused) ... ok
+test_gitlink_is_refused (test_git_source.GitSourceTests.test_gitlink_is_refused) ... ok
+test_invalid_or_option_like_ref_is_refused (test_git_source.GitSourceTests.test_invalid_or_option_like_ref_is_refused) ... ok
+test_missing_committed_manifest_is_refused (test_git_source.GitSourceTests.test_missing_committed_manifest_is_refused) ... ok
+test_missing_committed_source_is_refused (test_git_source.GitSourceTests.test_missing_committed_source_is_refused) ... ok
+test_missing_git_executable_bit_is_refused (test_git_source.GitSourceTests.test_missing_git_executable_bit_is_refused) ... ok
+test_partial_clone_and_inherited_git_overrides_are_refused (test_git_source.GitSourceTests.test_partial_clone_and_inherited_git_overrides_are_refused) ... ok
+test_stale_aggregate_digest_is_refused (test_git_source.GitSourceTests.test_stale_aggregate_digest_is_refused) ... ok
+test_symlink_git_mode_is_refused_without_os_symlink_privilege (test_git_source.GitSourceTests.test_symlink_git_mode_is_refused_without_os_symlink_privilege) ... ok
+test_unlisted_committed_file_is_refused_without_reading_its_value (test_git_source.GitSourceTests.test_unlisted_committed_file_is_refused_without_reading_its_value) ... ok
+test_unsafe_manifest_paths_are_refused (test_git_source.GitSourceTests.test_unsafe_manifest_paths_are_refused) ... ok
+test_wrong_content_hash_is_refused (test_git_source.GitSourceTests.test_wrong_content_hash_is_refused) ... ok
+test_export_is_reproducible_and_never_overwrites (test_handoff.HandoffTests.test_export_is_reproducible_and_never_overwrites) ... ok
+test_fixture_preparation_refuses_linked_or_unknown_roots (test_handoff.HandoffTests.test_fixture_preparation_refuses_linked_or_unknown_roots) ... ok
+test_links_are_not_accepted_as_source (test_handoff.HandoffTests.test_links_are_not_accepted_as_source) ... ok
+test_manifest_archive_mode_is_canonical_independent_of_local_mode (test_handoff.HandoffTests.test_manifest_archive_mode_is_canonical_independent_of_local_mode) ... ok
+test_manifest_cannot_reference_parent_or_absolute_paths (test_handoff.HandoffTests.test_manifest_cannot_reference_parent_or_absolute_paths) ... ok
+test_manifest_only_export_excludes_unlisted_private_state (test_handoff.HandoffTests.test_manifest_only_export_excludes_unlisted_private_state) ... ok
+test_mutation_during_export_is_not_reported_as_success (test_handoff.HandoffTests.test_mutation_during_export_is_not_reported_as_success) ... ok
+test_present_manifest_metadata_digest_must_match_canonical_file_map (test_handoff.HandoffTests.test_present_manifest_metadata_digest_must_match_canonical_file_map) ... ok
+test_readonly_manifest_check_and_changed_source_refusal (test_handoff.HandoffTests.test_readonly_manifest_check_and_changed_source_refusal) ... ok
+test_synthetic_state_is_new_only_private_and_not_an_operating_grant (test_handoff.HandoffTests.test_synthetic_state_is_new_only_private_and_not_an_operating_grant) ... ok
+
+----------------------------------------------------------------------
+Ran 25 tests in 0.477s
+
+OK

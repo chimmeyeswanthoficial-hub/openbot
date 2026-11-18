@@ -1,0 +1,21 @@
+{
+  "base_commit": "5a98328bbd5a05646de14340a858f4debba24788",
+  "interpretation": "Strict filesystem verifier is for approved-mode ZIP extractions, not an ordinary Git checkout. Use the new committed-tree verifier in a clone; private filesystem permissions remain a separate acceptance requirement.",
+  "records": [
+    {
+      "command": "python3 tools/verify-source.py --strict",
+      "returncode": 2,
+      "stderr": "",
+      "stdout": "{\"error\": \"source mode mismatch: control/releases/windows-x64/OpenBot-Control-Local-x64.exe\"}\n",
+      "step": "unmodified fresh ordinary clone"
+    },
+    {
+      "command": "python3 tools/verify-source.py --strict",
+      "returncode": 2,
+      "stderr": "",
+      "stdout": "{\"error\": \"unlisted files present: .git/index, .git/HEAD, .git/description, .git/packed-refs, .git/config\"}\n",
+      "step": "same clone after local approved manifest chmod, only to isolate Git metadata behavior"
+    }
+  ],
+  "remote_updated": false
+}

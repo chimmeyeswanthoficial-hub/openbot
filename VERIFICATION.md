@@ -1,3 +1,14 @@
+# Current shared-repository audit
+
+Read `result.md`, `PROJECT_INVENTORY.md`, `TEAM_WORKFLOW.md` and
+`evidence/shared-repo-audit/`. The current addition is committed-source verification
+and eight executable-bit corrections, not new native runtime acceptance. Current
+Linux units: Studio49 + one Windows-only skip; tools25 (handoff10 + Git15); Node45/25;
+native binary/static27. A current disposable configured kernel run is 1251 passed /
+173 explicit PostgreSQL skips, zero failures/errors, one test-client deprecation
+warning; initial missing-prerequisite failures are retained, not suppressed. Git-head/source and ZIP receipt identities are supplied
+outside their own commit/archive. The older records below remain historical.
+
 # Verified repair successor — light-repair-verified-1
 
 The ZIP upload restriction did not block recovery. No laptop ZIP was uploaded or

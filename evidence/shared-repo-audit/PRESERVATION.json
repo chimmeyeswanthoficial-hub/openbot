@@ -1,0 +1,42 @@
+{
+  "all_4436_baseline_manifest_paths_retained": true,
+  "authenticated_push_available": false,
+  "base_git_commit": "5a98328bbd5a05646de14340a858f4debba24788",
+  "git_exec_flags_restored_to_existing_manifest": 8,
+  "missing_parent_files": 0,
+  "modified_parent_files": [
+    "ANTIGRAVITY_NEXT.md",
+    "CHECKPOINT.json",
+    "PUBLIC_RELEASE_ROADMAP.md",
+    "README.md",
+    "START_HERE.md",
+    "VERIFICATION.md",
+    "YOUR_NEXT_STEPS.md",
+    "control/OS_MATRIX.md",
+    "control/README.md",
+    "control/RELEASE_STATUS.md",
+    "control/native/windows/README-Windows.txt",
+    "control/releases/NATIVE_TEST_BUILDS.json",
+    "control/releases/windows-x64/README-Windows.txt",
+    "result.md"
+  ],
+  "native_html_exe_dll_apk_bytes_unchanged": [
+    "control/releases/windows-x64/OpenBot-Control-Local-x64.exe",
+    "control/releases/windows-x64/WebView2Loader.dll",
+    "control/releases/OpenBot-Control-Local-android.apk",
+    "studio/web/index.html",
+    "control/web/index.html",
+    "control/native/ios/OpenBotControl/index.html"
+  ],
+  "original_saved_bytes_rechecked": 127999912,
+  "original_saved_files_rechecked": 4212,
+  "original_saved_files_size_mode_hash_unchanged": true,
+  "originals_deleted_or_repacked": false,
+  "previous_delivered_zip_unchanged": true,
+  "public_release": false,
+  "remote_changes_by_arena": false,
+  "schema": "openbot.shared-source-preservation/1",
+  "unchanged_optional_upstream_files": 3475,
+  "unchanged_parent_files": 4422,
+  "unchanged_work_source_files": 4149
+}

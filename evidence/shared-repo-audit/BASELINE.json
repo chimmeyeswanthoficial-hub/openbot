@@ -1,0 +1,40 @@
+{
+  "accepted_real_observed_pilot_days": 0,
+  "all_manifest_contents_and_aggregate_digest_verified": true,
+  "authenticated_push_available_to_arena": false,
+  "base_git_manifest_sha256": "6d45c456770f05f53e00ea8260fb41f578d35e41d8cf0ff273c805039313ea82",
+  "committed_blobs_including_manifest": 4437,
+  "default_branch": "main",
+  "git_executable_flags_mismatched_in_base": [
+    "control/releases/windows-x64/OpenBot-Control-Local-x64.exe",
+    "control/scripts/build-android.sh",
+    "control/scripts/build-ios.sh",
+    "control/scripts/build-windows.sh",
+    "control/scripts/fetch-build-tools.py",
+    "control/scripts/package-delivery.py",
+    "control/scripts/verify-packages.py",
+    "work/scripts/pg-profile-recovery.py"
+  ],
+  "github_writes_performed": 0,
+  "manifest_file_counts_by_top_level": {
+    "(root files)": 13,
+    "control": 45,
+    "evidence": 186,
+    "studio": 36,
+    "tools": 7,
+    "work": 4149
+  },
+  "manifest_files": 4436,
+  "missing_manifest_files": 0,
+  "native_windows_status": "Reported 0xc000007b launch failure; cause unproved. No accepted native UI/device evidence.",
+  "observed_main_commit": "5a98328bbd5a05646de14340a858f4debba24788",
+  "observed_repair_commit": "5a98328bbd5a05646de14340a858f4debba24788",
+  "private_source_modes_not_representable_in_git": 46,
+  "public_release": false,
+  "repository": "https://github.com/chimmeyeswanthoficial-hub/openbot",
+  "retained_optional_upstream_files": 3475,
+  "schema": "openbot.shared-source-baseline/1",
+  "source_bytes": 72789910,
+  "source_completeness_is_not_product_feature_or_release_acceptance": true,
+  "unlisted_committed_files": 0
+}

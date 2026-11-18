@@ -1,5 +1,31 @@
 # Antigravity — concrete next engineering handoff
 
+## Latest priority — shared Git source, not another folder replacement
+
+Read `TEAM_WORKFLOW.md`, `PROJECT_INVENTORY.md` and `WINDOWS_LOADER_REVIEW.md`.
+This is `shared-repo-audit-1`, based on 5a98328. Main and repair already contain the
+whole verified baseline. Eight lost Git executable flags are fixed in an ordinary
+prepared commit; there were no missing source files. No automatic background sync
+or remote Arena write occurred: authenticated push is unavailable here.
+
+Import Arena's Git bundle using the supplied external transfer instructions, after
+preserving local changes. Require a fast-forward-only merge from the agreed base;
+if origin advanced, stop and return its SHA instead of resetting/forcing. Push on
+the repair branch, then review/PR normally into main. Do not copy patches by hand,
+replace folders, stage private state, install paid CI, or paste keys into chat.
+
+Run `python tools/verify-git-source.py --ref HEAD` in the clone. Tools cases now total
+25 (handoff10 + Git15); report actual Windows outcomes. Preserve 49-pass/1-skip Linux
+Studio versus reported 46-pass/4-skip Windows Studio distinction.
+
+Then focus on the Windows failure: local EXE/DLL hashes, actual error PNG and bounded
+Application/CodeIntegrity/loader evidence identifying the failing module. MinGW/TLS
+rejection and signing/MSVC requirements are not established causes. No antivirus or
+policy bypass, random DLL download or signing purchase. Actual light UI rendering
+and manual interactions remain required. Send new commit + sanitized evidence to
+the owner; Arena will fetch/review that commit in the next active session.
+
+
 **Delivery, not a sent IDE message.** Direct Antigravity integration is unsupported
 in this session; no IDE/session/account was connected and no collaborator received
 this file. The user should open this complete workspace in Antigravity and supply
@@ -55,7 +81,9 @@ No direct IDE message or GitHub write was sent by Arena.
 From the extracted root:
 
 ```sh
-python3 tools/verify-source.py --strict
+# Git clone: verify the exact committed source; uncommitted edits are separate.
+python3 tools/verify-git-source.py --ref HEAD
+# Clean mode-preserving ZIP extraction instead: python3 tools/verify-source.py --strict
 python3 -m unittest discover -s studio/tests -p 'test*.py' -v
 python3 -m unittest discover -s tools/tests -p 'test*.py' -v
 node --test studio/tests/*.test.cjs

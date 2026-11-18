@@ -1,0 +1,20 @@
+test_complete_tree_and_private_mode_boundary_are_explicit (test_git_source.GitSourceTests.test_complete_tree_and_private_mode_boundary_are_explicit) ... ok
+test_correct_explicit_index_executable_bit_is_accepted (test_git_source.GitSourceTests.test_correct_explicit_index_executable_bit_is_accepted) ... ok
+test_dirty_working_tree_does_not_masquerade_as_committed_content (test_git_source.GitSourceTests.test_dirty_working_tree_does_not_masquerade_as_committed_content) ... ok
+test_duplicate_or_nonobject_manifest_is_refused (test_git_source.GitSourceTests.test_duplicate_or_nonobject_manifest_is_refused) ... ok
+test_gitlink_is_refused (test_git_source.GitSourceTests.test_gitlink_is_refused) ... ok
+test_invalid_or_option_like_ref_is_refused (test_git_source.GitSourceTests.test_invalid_or_option_like_ref_is_refused) ... ok
+test_missing_committed_manifest_is_refused (test_git_source.GitSourceTests.test_missing_committed_manifest_is_refused) ... ok
+test_missing_committed_source_is_refused (test_git_source.GitSourceTests.test_missing_committed_source_is_refused) ... ok
+test_missing_git_executable_bit_is_refused (test_git_source.GitSourceTests.test_missing_git_executable_bit_is_refused) ... ok
+test_partial_clone_and_inherited_git_overrides_are_refused (test_git_source.GitSourceTests.test_partial_clone_and_inherited_git_overrides_are_refused) ... ok
+test_stale_aggregate_digest_is_refused (test_git_source.GitSourceTests.test_stale_aggregate_digest_is_refused) ... ok
+test_symlink_git_mode_is_refused_without_os_symlink_privilege (test_git_source.GitSourceTests.test_symlink_git_mode_is_refused_without_os_symlink_privilege) ... ok
+test_unlisted_committed_file_is_refused_without_reading_its_value (test_git_source.GitSourceTests.test_unlisted_committed_file_is_refused_without_reading_its_value) ... ok
+test_unsafe_manifest_paths_are_refused (test_git_source.GitSourceTests.test_unsafe_manifest_paths_are_refused) ... ok
+test_wrong_content_hash_is_refused (test_git_source.GitSourceTests.test_wrong_content_hash_is_refused) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.465s
+
+OK

@@ -1,5 +1,11 @@
 # Start here — one complete OpenBot workspace
 
+**Shared repository:** use `TEAM_WORKFLOW.md` and `PROJECT_INVENTORY.md`. In a Git
+clone run `python tools/verify-git-source.py --ref HEAD`; this validates committed
+content and Git executable flags without fetching. It does not verify dirty edits
+or private filesystem ACLs. Use the strict source verifier for clean, mode-preserving
+ZIP extractions instead. No native Windows success is claimed; read WINDOWS_LOADER_REVIEW.md.
+
 **Engineering preview, not a public release.** Extract this ZIP into a **new folder**.
 Do not apply old patches or overlay an operating company directory. The kernel,
 shared light interface, native source, explicit local test binaries, licenses,
@@ -7,17 +13,19 @@ tests, evidence and next instructions are together here.
 
 ## Current repair note
 
-This is `OpenBot-Workspace-Verified-Complete.zip`, one full successor, not a patch.
-The 258 missing Git files are restored; no repetition of that repair is needed.
-Read `REPAIR_REVIEW.md`. Arena reconstructed the pinned public source; your laptop
-ZIP was not uploaded. `result.md` is an attributed report, not independent acceptance.
+This is `OpenBot-Shared-Workspace-Complete.zip`, one full successor, not a patch.
+The 258-file omission is resolved. This audit adds the Git identity guard and eight
+executable metadata repairs, not missing source or an accepted native release.
+`result.md` is Arena's current technical audit; the original Antigravity report is
+preserved under `evidence/shared-repo-audit/`. `REPAIR_REVIEW.md` is historical.
+For an existing Git checkout use the bundle/TEAM_WORKFLOW.md, not folder replacement.
 
 On Windows, extract into a **new** directory. If Explorer fails/skips entries, use
 Python's ZIP tools and require success; do not disable antivirus/device policy:
 
 ```powershell
-python -m zipfile -t .\OpenBot-Workspace-Verified-Complete.zip
-python -m zipfile -e .\OpenBot-Workspace-Verified-Complete.zip .\OpenBot-Verified-New
+python -m zipfile -t .\OpenBot-Shared-Workspace-Complete.zip
+python -m zipfile -e .\OpenBot-Shared-Workspace-Complete.zip .\OpenBot-Verified-New
 ```
 
 Then run the strict verifier inside `OpenBot-Verified-New\OpenBot-Workspace`.
@@ -51,7 +59,7 @@ is deliberately not proxied through this public planner.
 
 | Target | Where to find it | Honest status |
 |---|---|---|
-| Windows x64 | `control/releases/windows-x64/OpenBot-Control-Local-x64.exe` | Unsigned portable **test build**. Keep `WebView2Loader.dll`, license and README beside it; current Microsoft Evergreen WebView2 x64 Runtime required. Not launched on Windows here. |
+| Windows x64 | `control/releases/windows-x64/OpenBot-Control-Local-x64.exe` | Unsigned portable **test build**. Keep `WebView2Loader.dll`, license and README beside it; current Microsoft Evergreen WebView2 x64 Runtime required. Reported native Windows launch error 0xc000007b is unresolved; not accepted. |
 | Android | `control/releases/OpenBot-Control-Local-android.apk` | Version 0.3.0-local / code 3, aligned, **demo v3 signature**, not a release identity. No emulator/device acceptance or Play/AAB release. Optional test-device sideload only if you trust the source and accept the risk. |
 | iOS/iPadOS | `control/native/ios/OpenBotControl.xcodeproj` | Shared light UI and Swift/Xcode source only. **No `.app` / `.ipa`.** A real Mac/Xcode, simulator, device, provisioning and your signing team are required. |
 
@@ -79,14 +87,16 @@ into chat, browser drafts or fixture commands.
 ## 4. Verify before changing anything
 
 ```sh
-python3 tools/verify-source.py --strict
+# Git clone:
+python3 tools/verify-git-source.py --ref HEAD
+# Clean ZIP extraction instead: python3 tools/verify-source.py --strict
 python3 -m unittest discover -s studio/tests -p 'test*.py' -v
 python3 -m unittest discover -s tools/tests -p 'test*.py' -v
 node --test studio/tests/*.test.cjs
 ```
 
 The read-only manifest verifier does not install or contact anything. There are
-50 Studio Python cases (Linux 49 passed / 1 Windows-only skip), 10 handoff tests,
+50 Studio Python cases (Linux 49 passed / 1 Windows-only skip), 25 tools cases (10 handoff + 15 Git-source),
 19 finance and 26 gateway Node unit tests.
 Browser and native package checks have separate prerequisites and evidence. The
 configured kernel run has **1,251 passed, 173 PostgreSQL skips, zero failures/errors**;

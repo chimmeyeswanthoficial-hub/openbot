@@ -1,6 +1,6 @@
 {
   "archive_manifest_mode": "0644 canonical on every host",
-  "checkpoint": "light-repair-verified-1",
+  "checkpoint": "shared-repo-audit-1",
   "contains_labeled_local_test_builds": true,
   "content_scope": "Complete selected engineering workspace: kernel/configuration/tests/retained donor source/shared UI/native source/labeled local test binaries/evidence/notices; not private runtime backup or accepted public release.",
   "declarative_source_exceptions": [
@@ -13,7 +13,7 @@
     ".openbot/ventures/media-api/venture.yaml"
   ],
   "durability": "Download this complete ZIP and save outside Arena. Session cache and live preview are not durable backups. Previous ZIPs and unique original source/history/private state remain preserved.",
-  "exclusions": "evidence/repair-review/EXPORT_AUDIT.json; historical original private state/uploads/recovery archives remain outside this export, not deleted.",
+  "exclusions": "evidence/shared-repo-audit/EXPORT_AUDIT.json; no Git metadata, credentials, private runtime, SDK/cache or historical recovery archives. Excluded originals are preserved, not deleted.",
   "files": {
     ".gitattributes": {
       "bytes": 278,
@@ -26,14 +26,14 @@
       "sha256": "cd8687b16b032287a644702b56312d0d7560905229dabc298e3e7e5796e07180"
     },
     "ANTIGRAVITY_NEXT.md": {
-      "bytes": 13436,
+      "bytes": 15231,
       "mode": 420,
-      "sha256": "8659ff0d92d73db16c305d4266c4d19b06eecc6e9c4a6d77862d8cec7c4abb9b"
+      "sha256": "19574c166093ea63daaadc26b743c91773b16af034cd9c3e69d4134bdb80a66e"
     },
     "CHECKPOINT.json": {
-      "bytes": 2530,
+      "bytes": 3324,
       "mode": 420,
-      "sha256": "c58ec81a9809f9f3d79d06a8b7ed497afd21cc069672e01f71eff20db088c4c6"
+      "sha256": "1170829f8a17aa64e78601eab1171621873df6d2f5910efc327bc505687ee83d"
     },
     "DESIGN_REFERENCE.md": {
       "bytes": 4254,
@@ -45,15 +45,20 @@
       "mode": 420,
       "sha256": "2603817874cec36ca385a70e610db574386b156e5c4d2dc7f34bd1ee6900bfaf"
     },
-    "PUBLIC_RELEASE_ROADMAP.md": {
-      "bytes": 26151,
+    "PROJECT_INVENTORY.md": {
+      "bytes": 5733,
       "mode": 420,
-      "sha256": "5657ca8f83c5ad1677cf8d10aaafa4930c260eb337cc4d56068a1ffac37d4424"
+      "sha256": "d6afc6bed8a154a347eb780d1e2c4dd2f59f0d885256e2fb4c7bb0f54662693e"
+    },
+    "PUBLIC_RELEASE_ROADMAP.md": {
+      "bytes": 26761,
+      "mode": 420,
+      "sha256": "ba0ff7da685c3f74b770bdd47ca7beb91cdb0c40f278803d80ce1bb7865f798d"
     },
     "README.md": {
-      "bytes": 2785,
+      "bytes": 3139,
       "mode": 420,
-      "sha256": "33b3e6f37ebbfeecd294bb38b21e5df015ec98be08cb210c0a084f7d508b8f1e"
+      "sha256": "cee040d7a4c298198fdb0a6bcd2e59e0840e62bb6213382f606acdc6a03fe92d"
     },
     "REPAIR_REVIEW.md": {
       "bytes": 4130,
@@ -61,19 +66,29 @@
       "sha256": "1e42dbecf35990658e331cd4df0dcbc11db8a53f234308d552f407f113d16df8"
     },
     "START_HERE.md": {
-      "bytes": 7671,
+      "bytes": 8422,
       "mode": 420,
-      "sha256": "2488285f5e0a1a54f77c6087be716ffeb7ac12d42f72a8bf7f7876703ff60ae3"
+      "sha256": "4b8ae7a0382a08a3644f5032b6782801b785409a44e34e7b1b1cba4228f2039e"
+    },
+    "TEAM_WORKFLOW.md": {
+      "bytes": 5915,
+      "mode": 420,
+      "sha256": "9e2407bc0a51821d906f77cd342f1def829d3c7421b519f28735b8dedddfc278"
     },
     "VERIFICATION.md": {
-      "bytes": 15661,
+      "bytes": 16390,
       "mode": 420,
-      "sha256": "a918c2e96afb0fd8b59888ef1b95cec54d5b48f19f75475fc8d9cd70c0ddb071"
+      "sha256": "c8f7244e73e33dbf1e3806ffa3ffab1da42f4118f479c07a604ff8c64806e29c"
+    },
+    "WINDOWS_LOADER_REVIEW.md": {
+      "bytes": 8803,
+      "mode": 420,
+      "sha256": "c53225afc5d646188f400b1f4a005051066aaea21f1ff5862f64e8f81c4bd47b"
     },
     "YOUR_NEXT_STEPS.md": {
-      "bytes": 5695,
+      "bytes": 6404,
       "mode": 420,
-      "sha256": "fa17d745cb9eeaf53837e1c374239aed24d4426f4784d2f08b790a55d43704fa"
+      "sha256": "74862a43d9b6f8e0c8a299b7d76cd36a0e4bf595417b5a73ff14099ecf6a0cf4"
     },
     "control/LICENSE": {
       "bytes": 1314,
@@ -81,9 +96,9 @@
       "sha256": "32cc10119059c0782a73295d362595957867b9e331974aea7198f515ec29e09b"
     },
     "control/OS_MATRIX.md": {
-      "bytes": 3315,
+      "bytes": 3569,
       "mode": 420,
-      "sha256": "742e8d84f75ba22169b91ca5089ff33ecc392312e9e6ad0d506939dc062deadf"
+      "sha256": "90f7eef8ad19a4332032c5c8f112a1969aedac183e21f5f89fbe93666a3be668"
     },
     "control/PRIVACY_DRAFT.md": {
       "bytes": 4369,
@@ -91,14 +106,14 @@
       "sha256": "f4efd5e894e24fb9b492255e7e500d10203e522b267c2a6d2b94b7808b69a71b"
     },
     "control/README.md": {
-      "bytes": 6827,
+      "bytes": 7081,
       "mode": 420,
-      "sha256": "df325d598e65556456baab1e24b500c3eea8e519e00cb2d5a726ff05edcb5e31"
+      "sha256": "4d49882e4d9c2614cffb24da9677f36198422b65ec4ba47999e166dfe4b13e29"
     },
     "control/RELEASE_STATUS.md": {
-      "bytes": 2504,
+      "bytes": 2758,
       "mode": 420,
-      "sha256": "8708da429e2c99a9bec779d9c912e4450cec1d38e218a515d3d8ba17c9dcad26"
+      "sha256": "063f9dc5eec3623c99bde15092814afdbc73beb8f3ad5ca2360693eb46132889"
     },
     "control/THIRD_PARTY.md": {
       "bytes": 2168,
@@ -181,9 +196,9 @@
       "sha256": "8daa19bdb659439bfc5f4a00b8f8e57d6178abccf0f7fe9b85374a811e02f613"
     },
     "control/native/windows/README-Windows.txt": {
-      "bytes": 2400,
+      "bytes": 2913,
       "mode": 420,
-      "sha256": "577360bcee3e2a3e5cbbd9a0470cfb3d17421c50f8162b32f668cf67b62472b6"
+      "sha256": "67ffc1fa914514f2780955e55adbdc76f3b910102cf9c16cb4b101235dc16bf8"
     },
     "control/native/windows/WebView2-LICENSE.txt": {
       "bytes": 1487,
@@ -206,9 +221,9 @@
       "sha256": "827ccff0e672d468640c22cc18eb6b2be743f4f90ea1bd1e582d2d4e67866378"
     },
     "control/releases/NATIVE_TEST_BUILDS.json": {
-      "bytes": 1275,
+      "bytes": 1402,
       "mode": 420,
-      "sha256": "413c329a58c402338748ab40549eb3d8b2eac01cffe73534eb6f4eb1b98f06c4"
+      "sha256": "c47592c10b4c8b43d01d3dfd253f0b4a4e142fb78e9f19ce1883721ef2538b52"
     },
     "control/releases/OpenBot-Control-Local-android.apk": {
       "bytes": 53589,
@@ -221,9 +236,9 @@
       "sha256": "ebcf4927302840f5b73f85e674590538569a0150703f55393d850f149be7bcdc"
     },
     "control/releases/windows-x64/README-Windows.txt": {
-      "bytes": 2400,
+      "bytes": 2913,
       "mode": 420,
-      "sha256": "577360bcee3e2a3e5cbbd9a0470cfb3d17421c50f8162b32f668cf67b62472b6"
+      "sha256": "67ffc1fa914514f2780955e55adbdc76f3b910102cf9c16cb4b101235dc16bf8"
     },
     "control/releases/windows-x64/WebView2-LICENSE.txt": {
       "bytes": 1487,
@@ -1215,6 +1230,116 @@
       "mode": 420,
       "sha256": "30c0d2355f7490693f96d5d980d54215d43851aa4a8897b3967274985d3e6db8"
     },
+    "evidence/shared-repo-audit/BASELINE.json": {
+      "bytes": 1631,
+      "mode": 420,
+      "sha256": "cb751c52fc401aa4aea1851bb2b545a81d9dea52d3e0733175f1cdaef5ddbe29"
+    },
+    "evidence/shared-repo-audit/EXPORT_AUDIT.json": {
+      "bytes": 5103,
+      "mode": 420,
+      "sha256": "b22bd8d6605c55d77a127919a8ba913b50c3a0bfc90ac883c4330cff99ad048c"
+    },
+    "evidence/shared-repo-audit/INDEX.md": {
+      "bytes": 1867,
+      "mode": 420,
+      "sha256": "0526dd9ae6c2e1d22693e3064eba3e7eeafc7bf32aaca4a32205e28922ae25b6"
+    },
+    "evidence/shared-repo-audit/PRESERVATION.json": {
+      "bytes": 1508,
+      "mode": 420,
+      "sha256": "f4b5c58e344a2f9cd8ddac249c9f6ee39d4f1cee26726f2eee72ebc134edac7a"
+    },
+    "evidence/shared-repo-audit/antigravity-report-5a98328.md": {
+      "bytes": 7314,
+      "mode": 420,
+      "sha256": "78ddfb26b5698d15050961f4fc943c5d41b26b6bceed0f397df10d9588272f2f"
+    },
+    "evidence/shared-repo-audit/base-checkout-verification.json": {
+      "bytes": 983,
+      "mode": 420,
+      "sha256": "8c057756b5933b26addd4c780ad3f8be5eb704c9c830136a311eb2783b243aa1"
+    },
+    "evidence/shared-repo-audit/base-git-verification.log": {
+      "bytes": 101,
+      "mode": 420,
+      "sha256": "b87c29561b85e3c9cc29c8b987fa064bbf2b12687d05422ebc41abc0c5f3e734"
+    },
+    "evidence/shared-repo-audit/git-tests-initial.log": {
+      "bytes": 2970,
+      "mode": 420,
+      "sha256": "926991b5bebc52a3e99d67d1ac7ce0236d37a3c07781266d93f45b51ef4240b3"
+    },
+    "evidence/shared-repo-audit/git-tests.log": {
+      "bytes": 2139,
+      "mode": 420,
+      "sha256": "91bfb3c0a92d7090ddf64965c66faf69c120ee169fb6de0aa0fdc52db36510b6"
+    },
+    "evidence/shared-repo-audit/kernel-configured.xml": {
+      "bytes": 268951,
+      "mode": 420,
+      "sha256": "4dcf2da7e23439741fb02fdbeda3c3455839dceaa591b3e96c9dd0b68f11267f"
+    },
+    "evidence/shared-repo-audit/kernel-python.log": {
+      "bytes": 13876,
+      "mode": 420,
+      "sha256": "c39213d38f3051819f1a99afcb1b3c13fe78fb2062af0f1d021232a4530dff5d"
+    },
+    "evidence/shared-repo-audit/kernel-test-preparation.log": {
+      "bytes": 201,
+      "mode": 420,
+      "sha256": "ffa14743e09a95fcc7c9436af7efc7e055f35cb566b56983020132a7c1626b12"
+    },
+    "evidence/shared-repo-audit/kernel-without-prerequisites.log": {
+      "bytes": 255491,
+      "mode": 420,
+      "sha256": "d6c7a05c105be111b4908535098e947b5eceab030feb3081a2f1dcd40a6f37f0"
+    },
+    "evidence/shared-repo-audit/native-packages.json": {
+      "bytes": 10019,
+      "mode": 420,
+      "sha256": "57c2c6a851127961b2bfc2e02ee0109b9886433233b59d7d342e966a260c4150"
+    },
+    "evidence/shared-repo-audit/native-packages.log": {
+      "bytes": 82,
+      "mode": 420,
+      "sha256": "8c1b43c26bb07c57b4a44d47dc3a512a205f5d468eb1753ae4897ebb8a5288b2"
+    },
+    "evidence/shared-repo-audit/push-access-check.json": {
+      "bytes": 141,
+      "mode": 420,
+      "sha256": "8b986a16ad98bdbd99d1cd32c2802149184daea50fb30c806d43955f423b5f73"
+    },
+    "evidence/shared-repo-audit/remote-refs-before-commit.txt": {
+      "bytes": 139,
+      "mode": 420,
+      "sha256": "7233f9902f7418a128f1163f2d7d3d32633a0b81383caeeafac381c3ec11539d"
+    },
+    "evidence/shared-repo-audit/retained-node.log": {
+      "bytes": 3627,
+      "mode": 420,
+      "sha256": "95f6b60f33ce4eda71b9947d53f68329dc0a7f1e98674ae04467c0cc1eda12b3"
+    },
+    "evidence/shared-repo-audit/ruff.log": {
+      "bytes": 46,
+      "mode": 420,
+      "sha256": "55d3783c4abb85658c0aabbd4d32749029963821c0da6514d54f41f3c42cf91b"
+    },
+    "evidence/shared-repo-audit/studio-node.log": {
+      "bytes": 8669,
+      "mode": 420,
+      "sha256": "b6e904239beb18925b5e8f2297975d234c982cab3dd77122571c57c5deaf42a2"
+    },
+    "evidence/shared-repo-audit/studio-python.log": {
+      "bytes": 8245,
+      "mode": 420,
+      "sha256": "2438c1103cc9c0e85bba939c2b24ded7b8025f9d3b52de1f6b5e74a9d4780917"
+    },
+    "evidence/shared-repo-audit/tools-python.log": {
+      "bytes": 3631,
+      "mode": 420,
+      "sha256": "0a0aa3d37480780f41a3bad9bea06b583bdf352e9dde112c76bb5af23fb57cc1"
+    },
     "evidence/source-assembly-summary.json": {
       "bytes": 1188,
       "mode": 420,
@@ -1231,9 +1356,9 @@
       "sha256": "5d6de02b3e81021af36ce4e46c54e5c590f4ae9bbd2854b47f6063719b6c46ac"
     },
     "result.md": {
-      "bytes": 7314,
+      "bytes": 3993,
       "mode": 420,
-      "sha256": "78ddfb26b5698d15050961f4fc943c5d41b26b6bceed0f397df10d9588272f2f"
+      "sha256": "b13c980ee58f2b4f27009c1e970bf417082663d207b9a176328c0affb9c07b89"
     },
     "studio/.gitignore": {
       "bytes": 99,
@@ -1440,10 +1565,20 @@
       "mode": 420,
       "sha256": "7b77447722cb2c5be2ded6b20c4a02dcc821da18cbeee0d56d1e68a512f3812c"
     },
+    "tools/tests/test_git_source.py": {
+      "bytes": 8640,
+      "mode": 420,
+      "sha256": "8738f7757dde97f1c027d265783dab0d256ae91e82467ee765770ed399ffc3c2"
+    },
     "tools/tests/test_handoff.py": {
       "bytes": 8082,
       "mode": 420,
       "sha256": "7c5774a075846364e9cad24933aa3828f582c3a131ec05779629a5d88c8e3d38"
+    },
+    "tools/verify-git-source.py": {
+      "bytes": 9724,
+      "mode": 420,
+      "sha256": "5042f814ba22cb21273809ab76cc6cb10254f5c26d3739a5af1c6bec775fe8da"
     },
     "tools/verify-source.py": {
       "bytes": 3877,
@@ -22197,7 +22332,10 @@
     }
   },
   "files_metadata_hash_encoding": "UTF-8 json.dumps(files, sort_keys=True, separators=(',', ':'), ensure_ascii=True), no trailing newline.",
-  "files_metadata_sha256": "1a954430f1036f38a5ab2f7ceae26f7adc02f1654fba3a06422cd59cbc45b0f5",
+  "files_metadata_sha256": "5733324e7e861c1304264a3d41424b78029f53a3d6aabca563a7a212b79cf97f",
+  "git_identity_verifier": "tools/verify-git-source.py",
+  "github_write_status": "Arena authenticated push unavailable. Ordinary local commit supplied for Antigravity to publish; no remote write claimed.",
+  "historical_reconstruction_provenance": "evidence/repair-review/SOURCE_PROVENANCE.json",
   "inherited_original_export_omission_counts": {
     "generated_or_dependency_cache": 265,
     "historical_archive_or_owner_upload": 14,
@@ -22218,10 +22356,10 @@
   },
   "optional_upstream_files_retained": 3475,
   "originals_deleted_or_repacked": false,
-  "parent_archive_reconstructed_from_verified_git_not_uploaded": true,
-  "parent_git_commit": "f40421329adc87e49698a752103a78d8d3aea507",
-  "parent_manifest_sha256": "1f69d0967636c173ba7eed13b9a39899d8229623f51941e8b1ae6da67560c8dd",
-  "parent_source_zip_sha256": "1c704f194ea06a139e72e4922c42be5056338d42be38ff4f5bb9e9ceaeb9b1cf",
+  "parent_git_commit": "5a98328bbd5a05646de14340a858f4debba24788",
+  "parent_manifest_sha256": "6d45c456770f05f53e00ea8260fb41f578d35e41d8cf0ff273c805039313ea82",
+  "parent_source_identity": "Full pinned Git clone, not a new received ZIP.",
+  "prior_delivered_archive_sha256": "c96dbbe947d96fe987658f125cc01a45fcf682b9721dc0d75d52ffd129436e87",
   "private_or_generated_state_excluded": true,
   "release_status": {
     "accepted_real_observed_pilot_days": 0,
@@ -22234,12 +22372,14 @@
     "real_provider_connections": 0,
     "studio_kernel_connected": true,
     "studio_kernel_connection_scope": "Actual disposable local HTTPS fixed-owned QA fixtures only; not staging/production or arbitrary AI/PC/social execution.",
-    "windows": "Antigravity-reported process start/respond/stop only; raw native UI/device evidence not received or independently accepted"
+    "windows": "Antigravity-reported 0xc000007b startup failure; root cause unproved; no accepted native UI/device evidence"
   },
   "schema": "openbot.workspace-source/1",
   "scope_note": "Manifest identifies this selected source, not signer identity, account permissions, provider/VM readiness, policy compliance, secret clearance, pilot acceptance or release authority.",
+  "shared_workflow": "TEAM_WORKFLOW.md",
   "signed_release": false,
+  "source_inventory": "PROJECT_INVENTORY.md",
   "source_only": false,
-  "source_provenance": "evidence/repair-review/SOURCE_PROVENANCE.json",
+  "source_provenance": "evidence/shared-repo-audit/BASELINE.json",
   "timestamp_policy": "Original donor/intake/runner timestamp observations retained, not a latest-branch assertion or elapsed pilot time."
 }

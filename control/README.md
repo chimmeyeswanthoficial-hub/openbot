@@ -1,5 +1,9 @@
 # OpenBot native control · 0.3.0-local light UI
 
+**Latest native status:** Antigravity reports a Windows 0xc000007b launch failure.
+Cause is not established; see `../WINDOWS_LOADER_REVIEW.md`. Git metadata corrections
+do not fix this error. No native UI/device acceptance or public release is claimed.
+
 **Repair note:** `../REPAIR_REVIEW.md` records Antigravity-reported Windows process
 start/respond/stop. No raw native UI/screenshots/interactive acceptance was supplied;
 this is not independent supported-platform acceptance. Binaries are unchanged.

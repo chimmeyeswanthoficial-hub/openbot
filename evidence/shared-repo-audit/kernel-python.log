@@ -1,0 +1,119 @@
+........................................................................ [  5%]
+........................................................................ [ 10%]
+..................................................................ssss.. [ 15%]
+...........................................................sssssssssssss [ 20%]
+sssssssssssssssssssss................................................... [ 25%]
+...ss....................s.s.s.s.s.s.s.s.s.....sssss.s.s.s.....sssss.... [ 30%]
+....s..ss.s...sss.s.s................................................... [ 35%]
+......................................................ss......ssssss.s.. [ 40%]
+ss.s.......s........ss.................................................. [ 45%]
+........................................................................ [ 50%]
+............................................s.s.s......ssssss.......ssss [ 55%]
+sss.s.s.s.s.s.s.s.s..................................................... [ 60%]
+........................................................................ [ 65%]
+........................................................................ [ 70%]
+..........s.s...s.s.s.....s.s.s.s.........sssssssss........ssssssss.s.s. [ 75%]
+s....ssss.s...sss.s.s.s...sss.s.s.s.s..ss.s.....sssss..ss..ss...sss.s... [ 80%]
+........................................................................ [ 85%]
+........................................................................ [ 91%]
+........................................................................ [ 96%]
+........................................................                 [100%]
+=============================== warnings summary ===============================
+../../../openbot-s11-s12/venv/lib/python3.13/site-packages/fastapi/testclient.py:1
+  /home/user/.cache/openbot-s11-s12/venv/lib/python3.13/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+SKIPPED [1] services/sentinel/tests/test_economic_book_pg.py:43: dedicated disposable OPENBOT_TEST_POSTGRES_DSN and explicit write opt-in required; no production fallback
+SKIPPED [1] services/sentinel/tests/test_economic_book_pg.py:58: dedicated disposable OPENBOT_TEST_POSTGRES_DSN and explicit write opt-in required; no production fallback
+SKIPPED [1] services/sentinel/tests/test_economic_book_pg.py:67: dedicated disposable OPENBOT_TEST_POSTGRES_DSN and explicit write opt-in required; no production fallback
+SKIPPED [1] services/sentinel/tests/test_economic_book_pg.py:81: dedicated disposable OPENBOT_TEST_POSTGRES_DSN and explicit write opt-in required; no production fallback
+SKIPPED [1] services/sentinel/tests/test_pg_profile.py:107: explicit disposable PG DSN + test write opt-in required; no production fallback
+SKIPPED [1] services/sentinel/tests/test_pg_profile.py:121: explicit disposable PG DSN + test write opt-in required; no production fallback
+SKIPPED [12] services/sentinel/tests/test_pg_profile.py:132: explicit disposable PG DSN + test write opt-in required; no production fallback
+SKIPPED [1] services/sentinel/tests/test_pg_profile.py:198: explicit disposable PG DSN + test write opt-in required; no production fallback
+SKIPPED [1] services/sentinel/tests/test_pg_profile.py:211: explicit disposable PG DSN + test write opt-in required; no production fallback
+SKIPPED [1] services/sentinel/tests/test_pg_profile.py:224: explicit disposable PG DSN + test write opt-in required; no production fallback
+SKIPPED [2] services/sentinel/tests/test_pg_profile.py:240: explicit disposable PG DSN + test write opt-in required; no production fallback
+SKIPPED [5] services/sentinel/tests/test_pg_profile.py:281: explicit disposable PG DSN + test write opt-in required; no production fallback
+SKIPPED [1] services/sentinel/tests/test_pg_profile.py:304: explicit disposable PG DSN + test write opt-in required; no production fallback
+SKIPPED [1] services/sentinel/tests/test_pg_profile.py:347: explicit disposable PG DSN + test write opt-in required; no production fallback
+SKIPPED [6] services/sentinel/tests/test_pg_profile.py:362: explicit disposable PG DSN + test write opt-in required; no production fallback
+SKIPPED [1] services/sentinel/tests/test_pg_profile.py:384: explicit disposable PG DSN + test write opt-in required; no production fallback
+SKIPPED [1] services/sentinel/tests/test_pg_profile.py:401: explicit disposable PG DSN + test write opt-in required; no production fallback
+SKIPPED [1] services/sentinel/tests/test_repository_pg.py:31: disposable OPENBOT_TEST_POSTGRES_DSN and explicit test write opt-in are required
+SKIPPED [1] services/sentinel/tests/test_repository_pg.py:47: disposable OPENBOT_TEST_POSTGRES_DSN and explicit test write opt-in are required
+SKIPPED [1] services/sentinel/tests/test_work_kernel.py:36: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [1] services/sentinel/tests/test_work_kernel.py:47: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [1] services/sentinel/tests/test_work_kernel.py:60: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [1] services/sentinel/tests/test_work_kernel.py:71: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [1] services/sentinel/tests/test_work_kernel.py:83: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [1] services/sentinel/tests/test_work_kernel.py:93: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [1] services/sentinel/tests/test_work_kernel.py:109: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [1] services/sentinel/tests/test_work_kernel.py:130: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [1] services/sentinel/tests/test_work_kernel.py:142: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [5] services/sentinel/tests/test_work_kernel.py:157: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [1] services/sentinel/tests/test_work_kernel.py:174: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [1] services/sentinel/tests/test_work_kernel.py:198: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [1] services/sentinel/tests/test_work_kernel.py:231: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [5] services/sentinel/tests/test_work_kernel.py:276: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [1] services/sentinel/tests/test_work_kernel.py:342: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [2] services/sentinel/tests/test_work_kernel.py:383: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [1] services/sentinel/tests/test_work_kernel.py:418: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [3] services/sentinel/tests/test_work_kernel.py:442: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [1] services/sentinel/tests/test_work_kernel.py:453: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [1] services/sentinel/tests/test_work_kernel.py:463: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [2] services/worker/tests/test_streaming_contract.py:144: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [6] services/worker/tests/test_streaming_contract.py:170: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [1] services/worker/tests/test_streaming_contract.py:186: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [2] services/worker/tests/test_streaming_contract.py:196: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [1] services/worker/tests/test_streaming_contract.py:221: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [1] services/worker/tests/test_streaming_contract.py:288: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [2] services/worker/tests/test_streaming_contract.py:320: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [1] services/gateway/tests/test_control_api.py:214: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [1] services/gateway/tests/test_control_api.py:234: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [1] services/gateway/tests/test_control_api.py:251: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [6] services/gateway/tests/test_control_api.py:259: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [7] services/gateway/tests/test_control_api.py:282: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [1] services/gateway/tests/test_control_api.py:292: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [1] services/gateway/tests/test_control_api.py:303: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [1] services/gateway/tests/test_control_api.py:341: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [1] services/gateway/tests/test_control_api.py:370: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [1] services/gateway/tests/test_control_api.py:393: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [1] services/gateway/tests/test_control_api.py:423: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [1] services/gateway/tests/test_control_api.py:432: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [1] services/gateway/tests/test_control_api.py:464: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [1] services/gateway/tests/test_operational_controls.py:256: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [1] services/gateway/tests/test_operational_controls.py:289: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [1] services/gateway/tests/test_operational_controls.py:338: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [1] services/gateway/tests/test_operational_controls.py:345: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [1] services/gateway/tests/test_operational_controls.py:372: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [1] services/gateway/tests/test_work_crash.py:109: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [1] services/gateway/tests/test_work_crash.py:124: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [1] services/gateway/tests/test_work_recovery.py:54: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [1] services/gateway/tests/test_work_service.py:83: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [9] services/gateway/tests/test_work_service.py:90: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [8] services/gateway/tests/test_work_service.py:114: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [1] services/gateway/tests/test_work_service.py:135: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [1] services/gateway/tests/test_work_service.py:148: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [1] services/gateway/tests/test_work_service.py:172: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [4] services/gateway/tests/test_work_service.py:193: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [1] services/gateway/tests/test_work_service.py:219: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [3] services/gateway/tests/test_work_service.py:239: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [1] services/gateway/tests/test_work_service.py:249: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [1] services/gateway/tests/test_work_service.py:259: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [1] services/gateway/tests/test_work_service.py:270: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [3] services/gateway/tests/test_work_service.py:295: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [1] services/gateway/tests/test_work_service.py:343: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [1] services/gateway/tests/test_work_service.py:363: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [1] services/gateway/tests/test_work_service.py:376: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [1] services/gateway/tests/test_work_service.py:388: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [2] services/gateway/tests/test_work_service.py:405: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [1] services/gateway/tests/test_work_service.py:454: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [5] services/gateway/tests/test_work_service.py:492: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [2] services/gateway/tests/test_work_service.py:512: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [2] services/gateway/tests/test_work_service.py:520: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [3] services/gateway/tests/test_work_service.py:549: explicit disposable PostgreSQL DSN and write opt-in required
+SKIPPED [1] services/gateway/tests/test_work_service.py:579: explicit disposable PostgreSQL DSN and write opt-in required
+1251 passed, 173 skipped, 1 warning in 61.88s (0:01:01)

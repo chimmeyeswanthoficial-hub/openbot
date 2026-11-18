@@ -1,5 +1,17 @@
 # Your next steps
 
+## Current handoff — keep your existing repository
+
+Both audited branches held the full source at 5a98328. Do not delete or replace your
+laptop folder. Give Antigravity the Git commit bundle and transfer instructions; it
+can import/push normally using its existing authentication. Arena cannot authenticate
+a push from this session and does not ask you for passwords/tokens. Send back the
+new full commit SHA and actual native Windows screenshot/log evidence. This is
+normal commit-based collaboration, not automatic background synchronization.
+
+The complete fallback ZIP is `OpenBot-Shared-Workspace-Complete.zip`; it is not needed
+to replace a healthy clone merely to consume the bundle. Keep all backups.
+
 ## Current note — no upload workaround needed
 
 The chat does not accept ZIP uploads. You do not need to rename the archive, use an
@@ -9,7 +21,7 @@ Keep your earlier downloads as backups. Read `REPAIR_REVIEW.md`.
 
 ## First: save one complete download
 
-Download the new **OpenBot-Workspace-Verified-Complete.zip** from the conversation's
+Download the new **OpenBot-Shared-Workspace-Complete.zip** from the conversation's
 file card. This ZIP is the current complete handoff; it does **not** need the old
 patches or earlier ZIPs applied. Save a second copy outside Arena, then extract into
 a new folder. Keep your earlier downloaded workspace as a backup until you verify

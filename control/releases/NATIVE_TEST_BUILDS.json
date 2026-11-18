@@ -11,8 +11,8 @@
       "sha256": "ebcf4927302840f5b73f85e674590538569a0150703f55393d850f149be7bcdc"
     },
     "releases/windows-x64/README-Windows.txt": {
-      "bytes": 2400,
-      "sha256": "577360bcee3e2a3e5cbbd9a0470cfb3d17421c50f8162b32f668cf67b62472b6"
+      "bytes": 2913,
+      "sha256": "67ffc1fa914514f2780955e55adbdc76f3b910102cf9c16cb4b101235dc16bf8"
     },
     "releases/windows-x64/WebView2-LICENSE.txt": {
       "bytes": 1487,
@@ -30,6 +30,7 @@
   "release_keys_distributed": false,
   "schema": "openbot.local-native-artifacts/1",
   "shared_ui_sha256": "bb99d979376841815bc5dcfe7c942bed28b36f2b87a0b3b80d8d366e5b8b3c67",
+  "windows_reported_launch_status": "0xc000007b reported by Antigravity; root cause unknown; native acceptance remains false",
   "windows_unsigned": true,
   "wire_client_version": "0.2.0"
 }

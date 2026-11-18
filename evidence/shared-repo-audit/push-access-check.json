@@ -1,0 +1,7 @@
+{
+  "dry_run": true,
+  "exit_code": 128,
+  "remote_updated": false,
+  "credentials_requested_from_user": false,
+  "prompts_disabled": true
+}

@@ -1,8 +1,13 @@
 # OpenBot workspace · light companion interface
 
-**Current checkpoint: `light-repair-verified-1`.** See `REPAIR_REVIEW.md` for the
-verified Git-based reconstruction, metadata fix, test results and reported-only
-Windows launch boundary. No laptop ZIP upload was required.
+**Shared source:** read `TEAM_WORKFLOW.md` and `PROJECT_INVENTORY.md`. The audited
+main and repair branches were complete at 5a98328; this successor fixes eight Git
+executable flags and adds a committed-tree integrity guard. It does not fix the
+reported Windows startup failure or complete all requested product features.
+
+**Current checkpoint: `shared-repo-audit-1`.** See `result.md`, `TEAM_WORKFLOW.md`
+and `evidence/shared-repo-audit/` for this audit. `REPAIR_REVIEW.md` is the historical
+reconstruction review. No laptop ZIP upload was required; Windows remains blocked.
 
 Start with **[START_HERE.md](START_HERE.md)**. This is one complete current workspace,
 not a patch chain: `studio/` shared UI, `control/` native shells and local test builds,

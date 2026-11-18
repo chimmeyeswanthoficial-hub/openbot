@@ -1,6 +1,6 @@
 # OpenBot — R01–R13 remaining work and release gates
 
-**NOT ready for public release.** Current handoff: **light-repair-verified-1**. This is a
+**NOT ready for public release.** Current handoff: **shared-repo-audit-1**. This is a
 complete engineering workspace, not a claim that all work, accounts, native devices,
 pilot or release approval exist. Prior downloaded archives and their receipts remain
 unchanged. Recorded runner/upstream timestamps are observations, never pilot credit.
@@ -9,9 +9,17 @@ The human owner retains account, spending, install, legal, data/consent and rele
 choices. Engineering initiative is not legal ownership or authority to activate an
 account. Independent roles below are requirements, not invented collaborators.
 
+## Current shared-source note
+
+Main and repair branch matched the full verified baseline at 5a98328. See
+PROJECT_INVENTORY.md / TEAM_WORKFLOW.md. This successor adds a local committed-tree
+verifier (15 new tests), restores eight Git executable flags, and does not enable
+unimplemented services or fix the reported Windows 0xc000007b startup failure.
+Current source completeness is not completion of all R01-R13 functionality.
+
 ## 1. Direct answers
 
-- **Where is the ZIP?** The new conversation file is `OpenBot-Workspace-Light-Complete.zip`.
+- **Where is the ZIP?** The new conversation file is `OpenBot-Shared-Workspace-Complete.zip`.
   It is one complete workspace with source and explicitly labeled Windows/Android
   local test artifacts. No earlier patch chain is needed. `START_HERE.md` is its entry.
 - **Does it follow the supplied design?** Yes: original light three-column desktop and
@@ -46,7 +54,7 @@ account. Independent roles below are requirements, not invented collaborators.
 | **R10 — operations** | Existing local pause/epoch/backup/restore/alerts/crash drills preserved and regression tested. | Witness actual staging rollout/rollback/off-host restore, vault/grants/key recovery/alerts and named on-call/support. |
 | **R11 — evaluation** | Protected-evaluation contracts/tests retained, not a self-accepted result. | Independently pre-freeze ≥20 protected held-out tasks/criteria/thresholds outside bot-writable work; independent raw report/acceptance. |
 | **R12 — pilot** | No fabricated observations; **accepted real observed days 0**. | Actual consented 1–6-month private pilot including ≥30 consecutive genuinely observed days and independent acceptance. |
-| **R13 — human release** | Public-release flag remains false; no upload/push/deploy/store/release action. | Human accepts exact scope/evidence/terms/on-call; signed accepted artifacts and bounded observed rollout/rollback. |
+| **R13 — human release** | Public-release flag remains false; source Git commits are not deployment/store/release authorization. | Human accepts exact scope/evidence/terms/on-call; signed accepted artifacts and bounded observed rollout/rollback. |
 
 Current unit facts: **50 Studio Python collected (Linux 49 passed / 1 Windows-only skip) /
 10 handoff Python / 45 Studio Node /
@@ -88,7 +96,9 @@ specified artifact and evidence, not a plan, screenshot, skip or simulated signa
 
 ### R01 — one authoritative workspace, feature inventory and release scope [P0]
 
-- Start from the verified clean ZIP, not older primary files or a prior patch alone.
+- Use the shared repair branch/full pinned commit per TEAM_WORKFLOW.md. For a fresh
+  non-Git workspace use the complete current ZIP, never old primary files or patches.
+  Do not replace or overlay a healthy clone merely to consume the Git bundle.
 - Keep one current source manifest, version/dependency locks, third-party notices,
   release status and this roadmap. Preserve earlier failures as historical evidence.
 - Freeze the supported first-release workflows, hosts, clients and disabled features.

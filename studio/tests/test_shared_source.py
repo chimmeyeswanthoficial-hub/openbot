@@ -54,6 +54,42 @@ class SharedSourceTests(unittest.TestCase):
                 (root / "control/native/ios/OpenBotControl/index.html").read_bytes(), expected
             )
 
+    def test_build_handles_crlf_input_canonicalizes_to_lf_and_preserves_expected_payload(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            for name in ("studio/scripts", "studio/web", "control"):
+                (root / name).mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(
+                ROOT / "studio/scripts/build-web.py", root / "studio/scripts/build-web.py"
+            )
+            for name in (
+                "template.html",
+                "styles.css",
+                "finance-preview.js",
+                "finance-workspace.js",
+                "gateway-session.js",
+                "app.js",
+            ):
+                content = (ROOT / "studio/web" / name).read_bytes().decode("utf-8")
+                # Force CRLF newlines into the input assets
+                crlf_content = content.replace("\r\n", "\n").replace("\n", "\r\n")
+                (root / "studio/web" / name).write_bytes(crlf_content.encode("utf-8"))
+            subprocess.run(
+                [sys.executable, str(root / "studio/scripts/build-web.py")],
+                check=True,
+                capture_output=True,
+                env={
+                    **os.environ,
+                    "http_proxy": "http://127.0.0.1:9",
+                    "https_proxy": "http://127.0.0.1:9",
+                },
+            )
+            expected = (ROOT / "studio/web/index.html").read_bytes()
+            built = (root / "studio/web/index.html").read_bytes()
+            self.assertEqual(built, expected)
+            self.assertEqual(len(built), 127185)
+            self.assertNotIn(b"\r\n", built)
+
     def test_light_mobile_css_and_no_external_assets_in_actual_built_html(self):
         page = (ROOT / "studio/web/index.html").read_text()
         self.assertIn('name="color-scheme" content="light"', page)

@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OpenBot OS — control room</title>
+<style>
+  :root{
+    --bg:#0e1014; --panel:#161a21; --panel2:#1c2129; --line:#2a313c; --ink:#e8eaf0;
+    --muted:#98a2b3; --accent:#7480f1; --mint:#23d5a2; --warn:#f5b544; --bad:#f2645a;
+    --mono:ui-monospace,SFMono-Regular,Menlo,monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+  a{color:var(--accent)}
+  header{display:flex;align-items:center;gap:14px;padding:14px 20px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#141821,#0e1014)}
+  .dot{width:9px;height:9px;border-radius:50%;background:var(--mint);box-shadow:0 0 10px var(--mint)}
+  h1{font-size:15px;margin:0;letter-spacing:.3px;font-weight:650}
+  .sub{color:var(--muted);font-size:12px}
+  .spacer{flex:1}
+  .pill{border:1px solid var(--line);border-radius:999px;padding:4px 10px;font-size:12px;color:var(--muted);font-family:var(--mono)}
+  main{padding:18px 20px 60px;max-width:1280px;margin:0 auto;display:grid;gap:16px}
+  .grid{display:grid;gap:16px}
+  .g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+  @media(max-width:900px){.g2,.g3{grid-template-columns:1fr}}
+  section{background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  section>h2{font-size:12px;text-transform:uppercase;letter-spacing:1.1px;color:var(--muted);margin:0;padding:12px 16px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:8px}
+  section>h2 .n{margin-left:auto;font-family:var(--mono);color:var(--ink);opacity:.7}
+  .body{padding:14px 16px}
+  .kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+  @media(max-width:900px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  .kpi{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:12px}
+  .kpi b{display:block;font-size:22px;font-variant-numeric:tabular-nums;letter-spacing:-.5px}
+  .kpi span{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.7px}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th{text-align:left;color:var(--muted);font-weight:500;font-size:11px;text-transform:uppercase;letter-spacing:.7px;padding:6px 8px;border-bottom:1px solid var(--line)}
+  td{padding:7px 8px;border-bottom:1px solid #20252e;vertical-align:top}
+  tr:last-child td{border-bottom:0}
+  code,.mono{font-family:var(--mono);font-size:12px}
+  .tag{display:inline-block;padding:1px 7px;border-radius:999px;font-size:11px;font-family:var(--mono);border:1px solid var(--line)}
+  .t-allow{color:var(--mint);border-color:#1c5c49;background:#0f2019}
+  .t-deny{color:var(--bad);border-color:#5c2420;background:#20100f}
+  .t-gate{color:var(--warn);border-color:#5c4420;background:#201a0f}
+  .t-gate2{color:var(--warn);border-color:#5c4420;background:#201a0f}
+  .muted{color:var(--muted)}
+  .empty{color:var(--muted);padding:10px 0}
+  button{font:inherit;border-radius:8px;border:1px solid var(--line);background:#202834;color:var(--ink);padding:6px 12px;cursor:pointer}
+  button.ok{background:#12352a;border-color:#1f6b52;color:#b9f5df}
+  button.no{background:#32181a;border-color:#6b2b2b;color:#f7c9c6}
+  button:hover{filter:brightness(1.15)}
+  button:disabled{opacity:.45;cursor:default}
+  .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  .bar{height:6px;background:#20252e;border-radius:99px;overflow:hidden}
+  .bar>i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--mint))}
+  .warnbox{border:1px solid #5c4420;background:#201a0f;color:#f7dfa8;border-radius:10px;padding:10px 12px;font-size:13px}
+  .warnbox.amber{border-color:#d97706;background:#3b2308;color:#fbbf24}
+  .badbox{border:1px solid #5c2420;background:#20100f;color:#f7c9c6;border-radius:10px;padding:10px 12px;font-size:13px}
+  .okbox{border:1px solid #1c5c49;background:#0f2019;color:#b9f5df;border-radius:10px;padding:10px 12px;font-size:13px}
+  .flow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;font-size:11px;text-align:center}
+  .flow div{border:1px dashed var(--line);border-radius:8px;padding:8px 4px;color:var(--muted)}
+  .flow div b{display:block;color:var(--ink);font-size:11px;letter-spacing:.4px}
+  footer{color:var(--muted);font-size:12px;padding:0 20px 40px;max-width:1280px;margin:0 auto}
+  .filters button{padding:4px 10px;font-size:12px}
+  .filters button[aria-pressed="true"]{background:#26314a;border-color:#3b4c74;color:#c9d4ff}
+  #live{font-family:var(--mono);font-size:11px;color:var(--muted)}
+  .scrolly{max-height:380px;overflow:auto}
+</style>
+</head>
+<body>
+<header>
+  <span class="dot" id="dot"></span>
+  <div>
+    <h1>OpenBot OS <span class="muted" style="font-weight:400">· control room</span></h1>
+    <div class="sub" id="headsub">loading…</div>
+  </div>
+  <div class="spacer"></div>
+  <span class="pill" id="live">live</span>
+  <button id="lock" title="This control room can approve actions. Set a token before it is public.">token</button>
+  <button id="refresh" title="Re-read every endpoint">Refresh</button>
+</header>
+
+<main>
+  <div id="banner"></div>
+
+  <section>
+    <h2>The company <span class="n" id="companyname"></span></h2>
+    <div class="body grid g3">
+      <div>
+        <div class="muted" style="font-size:11px;text-transform:uppercase;letter-spacing:.7px">Roles</div>
+        <div id="roles"></div>
+      </div>
+      <div>
+        <div class="muted" style="font-size:11px;text-transform:uppercase;letter-spacing:.7px">Standing duties</div>
+        <div id="duties"></div>
+      </div>
+      <div>
+        <div class="muted" style="font-size:11px;text-transform:uppercase;letter-spacing:.7px">Prohibitions (never, whoever asks)</div>
+        <div id="prohibitions"></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Money <span class="n">derived from ledger rows only</span></h2>
+    <div class="body">
+      <div class="kpis" id="money"></div>
+      <div class="row" style="margin-top:12px">
+        <span class="muted">Spend today</span>
+        <div class="bar" style="flex:1;min-width:140px"><i id="budgetbar" style="width:0%"></i></div>
+        <span class="mono" id="budgettext"></span>
+      </div>
+      <div id="pnlrows" style="margin-top:12px"></div>
+    </div>
+  </section>
+
+  <div class="grid g2">
+    <section>
+      <h2>Waiting for you <span class="n" id="apprN">0</span></h2>
+      <div class="body scrolly" id="approvals"></div>
+    </section>
+    <section>
+      <h2>How an action is judged <span class="n">safety → policy → budget → default</span></h2>
+      <div class="body">
+        <div class="flow">
+          <div><b>1 · resolve</b>who, what, where</div>
+          <div><b>2 · safety</b>money·creds·send·delete</div>
+          <div><b>3 · policy</b>egress·isolation</div>
+          <div><b>4 · budget</b>run·day·month</div>
+          <div><b>5 · audit</b>allow·gate·deny</div>
+        </div>
+        <p class="muted" style="font-size:12px;margin:12px 0 0">
+          A blocked action does not poll and does not continue. It waits here until a person decides,
+          and an approval can only be resolved once.
+        </p>
+        <div id="recentgated" style="margin-top:10px"></div>
+      </div>
+    </section>
+  </div>
+
+  <section>
+    <h2>Routines <span class="n" id="routineN"></span></h2>
+    <div class="body">
+      <div id="routineproblems"></div>
+      <div class="scrolly"><table id="routines"></table></div>
+    </div>
+  </section>
+
+  <div class="grid g2">
+    <section>
+      <h2>Audit trail <span class="n">append-only</span></h2>
+      <div class="body">
+        <div class="filters row" id="filters" style="margin-bottom:8px">
+          <button data-f="all" aria-pressed="true">All</button>
+          <button data-f="allow" aria-pressed="false">Allow</button>
+          <button data-f="gate" aria-pressed="false">Gate</button>
+          <button data-f="deny" aria-pressed="false">Deny</button>
+        </div>
+        <div class="scrolly"><table id="audit"></table></div>
+      </div>
+    </section>
+    <div class="grid">
+      <section>
+        <h2>Recent runs <span class="n" id="runN"></span></h2>
+        <div class="body scrolly"><table id="runs"></table></div>
+      </section>
+      <section>
+        <h2>Incidents <span class="n">each one must end in a rule</span></h2>
+        <div class="body scrolly"><table id="incidents"></table></div>
+      </section>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <span class="mono" id="footgen"></span> · every figure on this page is computed from stored rows ·
+  <a href="/v1/overview">raw /v1/overview</a> · <a href="/docs">API docs</a>
+</footer>
+
+<script type="application/json" id="boot-settings">
+{"refresh_ms": 5000, "title": "OpenBot OS — control room"}
+</script>
+<script>
+(function () {
+  "use strict";
+  var settings = { refresh_ms: 5000 };
+  try {
+    var el = document.getElementById("boot-settings");
+    if (el && el.textContent) { settings = Object.assign(settings, JSON.parse(el.textContent)); }
+  } catch (e) { /* keep defaults; never let config break the console */ }
+
+  var filter = "all";
+  var lastData = null;
+  var TOKEN_KEY = "openbot.sentinel.token";
+
+  function token() {
+    try { return window.sessionStorage.getItem(TOKEN_KEY) || ""; } catch (e) { return ""; }
+  }
+  function setToken(v) {
+    try { if (v) { window.sessionStorage.setItem(TOKEN_KEY, v); } else { window.sessionStorage.removeItem(TOKEN_KEY); } } catch (e) {}
+  }
+  function headers(extra) {
+    var h = Object.assign({ "content-type": "application/json" }, extra || {});
+    var t = token();
+    if (t) { h["X-OpenBot-Token"] = t; }
+    return h;
+  }
+  function askToken() {
+    var v = window.prompt("Control-room token (leave empty for a local demo):", token());
+    if (v !== null) { setToken(v.trim()); load(); }
+  }
+  function needsToken(res) {
+    if (res.status !== 401) { return false; }
+    var v = window.prompt("This server requires a token. Paste it:");
+    if (v) { setToken(v.trim()); return true; }
+    return false;
+  }
+
+  function esc(v) {
+    if (v === null || v === undefined) { return ""; }
+    return String(v).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+  function money(v) {
+    var n = Number(v || 0);
+    return (n < 0 ? "-$" : "$") + Math.abs(n).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+  function pct(v) { return (Number(v || 0) * 100).toFixed(1) + "%"; }
+  function tag(decision) {
+    var cls = decision === "allow" ? "t-allow" : decision === "deny" ? "t-deny" : "t-gate";
+    return '<span class="tag ' + cls + '">' + esc(decision) + "</span>";
+  }
+
+  function renderCompany(c) {
+    var name = document.getElementById("companyname");
+    if (!c || !c.ok) {
+      name.textContent = "not operable";
+      document.getElementById("roles").innerHTML = '<div class="badbox">' + esc((c && c.error) || "company.yaml failed to load") + "</div>";
+      return;
+    }
+    name.textContent = c.trading_name + (c.legal_name ? " · " + c.legal_name : " · no entity yet (human task)");
+    document.getElementById("roles").innerHTML = "<table>" + c.roles.map(function (r) {
+      return "<tr><td><code>" + esc(r.id) + "</code><br><span class=\"muted\">" + esc(r.title) + "</span></td>" +
+        "<td>" + (r.kind === "human" ? '<span class="tag">human</span>' : '<span class="tag">agent</span>') +
+        (r.reports_to ? '<br><span class="muted mono">' + esc(r.reports_to) + "</span>" : "<br><span class=\"muted mono\">root</span>") +
+        "</td><td class=\"mono\">" + (r.ceiling_usd_month ? money(r.ceiling_usd_month) + "/mo" : "—") + "</td></tr>";
+    }).join("") + "</table>";
+    document.getElementById("duties").innerHTML = "<table>" + c.duties.map(function (d) {
+      return "<tr><td><code>" + esc(d.id) + "</code></td><td class=\"mono muted\">" + esc(d.role) + "</td><td class=\"mono\">" + esc(d.cadence) + "</td></tr>";
+    }).join("") + "</table>";
+    document.getElementById("prohibitions").innerHTML = "<ul style=\"margin:0;padding-left:18px\">" + c.prohibitions.map(function (p) {
+      return "<li style=\"margin-bottom:4px\">" + esc(p) + "</li>";
+    }).join("") + "</ul>";
+  }
+
+  function renderMoney(d) {
+    var p = (d.pnl && d.pnl.portfolio) || {};
+    document.getElementById("money").innerHTML = [
+      ["Net revenue", money(p.net_revenue)],
+      ["Gross margin", pct(p.gross_margin)],
+      ["Contribution", money(p.contribution)],
+      ["Agent share of revenue", pct(p.agent_share)]
+    ].map(function (k) { return '<div class="kpi"><span>' + esc(k[0]) + "</span><b>" + esc(k[1]) + "</b></div>"; }).join("");
+
+    var b = d.budget || {};
+    var cap = Number(b.company_day_cap_usd || 0);
+    var spent = Number(b.spent_today_usd || 0);
+    var pctUsed = cap > 0 ? Math.min(100, (spent / cap) * 100) : 0;
+    document.getElementById("budgetbar").style.width = pctUsed + "%";
+    document.getElementById("budgettext").textContent = money(spent) + " of " + money(cap) + " · auto-spend " + money(b.auto_spend_usd || 0);
+
+    var rows = (d.pnl && d.pnl.ventures) || [];
+    document.getElementById("pnlrows").innerHTML = rows.length ? "<table><tr><th>Venture</th><th>Net revenue</th><th>Margin</th><th>Contribution</th><th>Agent share</th></tr>" +
+      rows.map(function (v) {
+        return "<tr><td><code>" + esc(v.venture) + "</code></td><td class=\"mono\">" + money(v.net_revenue) +
+          "</td><td class=\"mono\">" + pct(v.gross_margin) + "</td><td class=\"mono\">" + money(v.contribution) +
+          "</td><td class=\"mono\">" + pct(v.agent_share) + "</td></tr>";
+      }).join("") + "</table>"
+      : '<div class="empty">No ledger rows yet. Revenue appears here only when a payment provider posts a settled event — never because an agent said so.</div>';
+  }
+
+  function renderApprovals(list) {
+    document.getElementById("apprN").textContent = list.length;
+    var host = document.getElementById("approvals");
+    if (!list.length) {
+      host.innerHTML = '<div class="okbox">Nothing waiting. The company is not blocked.</div>';
+      return;
+    }
+    host.innerHTML = list.map(function (a) {
+      var target = a.action || {};
+      var what = target.name || target.url || target.path || "—";
+      return '<div style="border:1px solid var(--line);border-radius:10px;padding:10px;margin-bottom:10px;background:var(--panel2)">' +
+        '<div class="row"><span class="tag t-gate">' + esc(a.rule) + "</span>" +
+        '<span class="mono muted">' + esc(a.venture) + "</span>" +
+        '<span class="muted">' + esc(a.created) + "</span></div>" +
+        '<div style="margin:6px 0 2px">' + esc(a.reason || "") + "</div>" +
+        '<div class="mono muted" style="word-break:break-all">' + esc(what) + "</div>" +
+        '<div class="row" style="margin-top:8px"><button class="ok" data-ap="' + esc(a.id) + '" data-v="approved">Approve once</button>' +
+        '<button class="no" data-ap="' + esc(a.id) + '" data-v="denied">Deny</button>' +
+        '<span class="mono muted">' + esc(a.id) + "</span></div></div>";
+    }).join("");
+    Array.prototype.forEach.call(host.querySelectorAll("button[data-ap]"), function (btn) {
+      btn.addEventListener("click", function () { resolve(btn.getAttribute("data-ap"), btn.getAttribute("data-v"), btn); });
+    });
+  }
+
+  function resolve(id, verdict, btn) {
+    btn.disabled = true;
+    fetch("/v1/approvals/" + encodeURIComponent(id), {
+      method: "POST", headers: headers(),
+      body: JSON.stringify({ decision: verdict, by: "human:owner" })
+    }).then(function (r) {
+      if (needsToken(r)) { btn.disabled = false; return null; }
+      if (!r.ok) { return r.json().then(function (j) { throw new Error(j.detail || r.status); }); }
+      return r.json();
+    }).then(function (res) { if (res !== null) { load(); } })
+      .catch(function (e) { alert("Could not resolve: " + e.message); btn.disabled = false; });
+  }
+
+  function renderRoutines(r) {
+    var list = r.routines || [];
+    document.getElementById("routineN").textContent = list.length + " routines";
+    var probs = r.problems || [];
+    document.getElementById("routineproblems").innerHTML = probs.length
+      ? '<div class="badbox" style="margin-bottom:10px"><b>Refused routines</b><br>' + probs.map(esc).join("<br>") + "</div>"
+      : "";
+    document.getElementById("routines").innerHTML =
+      "<tr><th>Routine</th><th>Runs as</th><th>Schedule</th><th>Every</th><th>Budget</th><th>Approval</th><th>Next</th></tr>" +
+      list.map(function (s) {
+        return "<tr><td><code>" + esc(s.id) + "</code></td><td class=\"mono\">" + esc(s.bot) +
+          "</td><td class=\"mono\">" + esc(s.schedule) + "</td><td class=\"mono\">" +
+          (s.every_min ? s.every_min + "m" : "—") + "</td><td class=\"mono\">" + money(s.budget_usd) +
+          "</td><td>" + tag(s.approval === "auto" ? "allow" : "gate") + "</td><td class=\"mono muted\">" +
+          esc(s.next_fire || "—") + "</td></tr>";
+      }).join("");
+  }
+
+  function renderAudit(rows) {
+    var list = (rows || []).filter(function (r) { return filter === "all" || r.decision === filter; });
+    document.getElementById("audit").innerHTML =
+      "<tr><th>When</th><th>Venture</th><th>Action</th><th>Decision</th><th>Rule</th><th>Initiator</th></tr>" +
+      (list.length ? list.map(function (r) {
+        return "<tr><td class=\"mono muted\">" + esc((r.ts || "").slice(11, 19)) + "</td><td class=\"mono\">" + esc(r.venture || "—") +
+          "</td><td class=\"mono\">" + esc(r.action || "—") + "</td><td>" + tag(r.decision) +
+          "</td><td class=\"mono\">" + esc(r.rule) + "</td><td class=\"mono muted\">" +
+          esc((r.initiator_kind || "") + (r.initiator_id ? ":" + r.initiator_id : "")) + "</td></tr>";
+      }).join("") : '<tr><td colspan="6" class="empty">No decisions yet.</td></tr>');
+
+    var gated = (rows || []).filter(function (r) { return r.decision === "gate"; }).slice(0, 4);
+    document.getElementById("recentgated").innerHTML = gated.length
+      ? '<div class="muted" style="font-size:11px;text-transform:uppercase;letter-spacing:.7px;margin-bottom:4px">Recently stopped</div>' +
+        gated.map(function (r) {
+          return '<div class="mono" style="font-size:12px;margin-bottom:3px">' + tag("gate") + " " + esc(r.rule) + " · " + esc(r.venture || "") + "</div>";
+        }).join("")
+      : "";
+  }
+
+  function renderRuns(rows) {
+    var list = rows || [];
+    document.getElementById("runN").textContent = list.length;
+    document.getElementById("runs").innerHTML =
+      "<tr><th>Routine</th><th>Status</th><th>Started</th><th>Detail</th></tr>" +
+      (list.length ? list.map(function (r) {
+        return "<tr><td class=\"mono\">" + esc(r.routine_id) + "</td><td>" + tag(r.status === "running" || r.status === "queued" ? "gate" : r.status === "refused" || r.status === "denied" ? "deny" : "allow") +
+          "</td><td class=\"mono muted\">" + esc((r.started || "").slice(5, 16)) + "</td><td class=\"mono muted\" style=\"word-break:break-word\">" + esc(r.detail || "") + "</td></tr>";
+      }).join("") : '<tr><td colspan="4" class="empty">No runs recorded yet.</td></tr>');
+  }
+
+  function renderIncidents(rows) {
+    var list = rows || [];
+    document.getElementById("incidents").innerHTML =
+      "<tr><th>Id</th><th>Severity</th><th>Class</th><th>Rule</th></tr>" +
+      (list.length ? list.map(function (i) {
+        return "<tr><td class=\"mono\" style=\"font-size:11px\">" + esc(i.id) + "</td><td>" + tag(i.severity === "sev1" ? "deny" : "gate") +
+          "</td><td class=\"mono\">" + esc(i.class) + "</td><td class=\"mono muted\">" + esc(i.rule_kind || "(missing)") + "</td></tr>";
+      }).join("") : '<tr><td colspan="4" class="empty">No incidents. That is either good or a blind spot.</td></tr>');
+  }
+
+  function banner(d) {
+    var h = d.health || {};
+    var msgs = [];
+    var awaiting = (d.approvals || []).length;
+    var maxAge = d.approvals_pending_max_age_hours || 0;
+    if (!h.ok) { msgs.push('<div class="badbox">Sentinel is not healthy.</div>'); }
+    if (awaiting) {
+      if (maxAge > 24) {
+        msgs.push('<div class="warnbox amber"><b>Gate Starvation Alert:</b> ' + esc(awaiting) + " action" + (awaiting > 1 ? "s" : "") + " waiting for you (oldest: " + esc(maxAge) + "h). The company is stopped until you decide.</div>");
+      } else {
+        msgs.push('<div class="warnbox"><b>' + esc(awaiting) + " action" + (awaiting > 1 ? "s" : "") + " waiting for you.</b> The company is stopped until you decide — it will not guess.</div>");
+      }
+    }
+    var comp = d.company || {};
+    if (comp.ok === false) { msgs.push('<div class="badbox">The company definition is not operable: ' + esc(comp.error) + "</div>"); }
+    if (h.ui_token_required && !token()) { msgs.push('<div class="warnbox">This server requires a token to approve. Use the <b>token</b> button.</div>'); }
+    if (comp.ok && !comp.legal_name) { msgs.push('<div class="warnbox">No legal entity yet. Formation is a human task; nothing here can sign or receive money.</div>'); }
+    document.getElementById("banner").innerHTML = msgs.join("");
+  }
+
+  function load() {
+    fetch("/v1/overview", { cache: "no-store", headers: headers() })
+      .then(function (r) { if (!r.ok) { throw new Error("overview " + r.status); } return r.json(); })
+      .then(function (d) {
+        lastData = d;
+        document.getElementById("dot").style.background = "var(--mint)";
+        document.getElementById("headsub").textContent =
+          "as of " + esc(d.generated) + " · " + (d.ventures || []).length + " venture(s) · " +
+          ((d.routines && d.routines.routines) || []).length + " routines · " + esc(d.health.audit_rows) + " audit rows";
+        document.getElementById("footgen").textContent = "generated " + d.generated;
+        banner(d);
+        renderCompany(d.company);
+        renderMoney(d);
+        renderApprovals(d.approvals || []);
+        renderRoutines(d.routines || {});
+        renderAudit(d.audit || []);
+        renderRuns(d.runs || []);
+        renderIncidents(d.incidents || []);
+        document.getElementById("live").textContent = "live · " + new Date().toLocaleTimeString();
+      })
+      .catch(function (e) {
+        document.getElementById("dot").style.background = "var(--bad)";
+        document.getElementById("live").textContent = "offline";
+        document.getElementById("banner").innerHTML = '<div class="badbox">Cannot reach the Sentinel (' + esc(e.message) + "). This page never shows placeholder numbers.</div>";
+      });
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll("#filters button"), function (b) {
+    b.addEventListener("click", function () {
+      filter = b.getAttribute("data-f");
+      Array.prototype.forEach.call(document.querySelectorAll("#filters button"), function (x) {
+        x.setAttribute("aria-pressed", x === b ? "true" : "false");
+      });
+      if (lastData) { renderAudit(lastData.audit || []); }
+    });
+  });
+  document.getElementById("refresh").addEventListener("click", load);
+  document.getElementById("lock").addEventListener("click", askToken);
+  document.getElementById("lock").textContent = token() ? "token ✓" : "token";
+  load();
+  if (settings.refresh_ms > 0) { setInterval(load, settings.refresh_ms); }
+})();
+</script>
+</body>
+</html>

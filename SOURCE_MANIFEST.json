@@ -1200,9 +1200,9 @@
       "sha256": "840a3425c0cb93e16790fad00e1cdfae330e55acafa63e5af09db7b1f678c60a"
     },
     "studio/scripts/build-web.py": {
-      "bytes": 1547,
+      "bytes": 1717,
       "mode": 420,
-      "sha256": "81fd9c40a832b216dbb9a17cf7e8118735075c6c42477a3d22a7acffa3696d82"
+      "sha256": "53eeaea67fde6c8dc18d5b925c87b72eb706e40b00e2d63f7db4c0e94032cc45"
     },
     "studio/scripts/test-finance-ui.cjs": {
       "bytes": 16719,
@@ -1245,14 +1245,14 @@
       "sha256": "ee5b16e7357325312177da20af8665eaa8e1a29b0b4280f3a13a0c548a56f368"
     },
     "studio/tests/test_shared_source.py": {
-      "bytes": 5535,
+      "bytes": 7199,
       "mode": 420,
-      "sha256": "58b52cf023787d4d99e448d5d544c015022aac75555a11ae606009a552b5b07b"
+      "sha256": "5efc9e1989490b569a8c7cff41f9364a4bbc41e9ecdf9fb66bf4b6bf470871ac"
     },
     "studio/tests/test_studio_core.py": {
-      "bytes": 15877,
+      "bytes": 17344,
       "mode": 420,
-      "sha256": "30b6957bf003ca1bc0a077f81eb141a2479c5da20d7191cd0e1e9a25c52aa3dd"
+      "sha256": "031a4f1b111e0377c7e1787c849a3c601a467f6ad912f8f1bdabf7aa3a1141f0"
     },
     "studio/tests/test_studio_http.py": {
       "bytes": 8470,
@@ -1330,9 +1330,9 @@
       "sha256": "cb99b1e3c070fd5f056b85baa454f2c090fec841e8afe995fe226e99c8678ce9"
     },
     "tools/export-source.py": {
-      "bytes": 3081,
+      "bytes": 3207,
       "mode": 420,
-      "sha256": "344f8af96bc32b3f10e0f88460949f98a31942fb12cf61fb56f43e4c3b6068f8"
+      "sha256": "ecab055de570af240bd0780fec9d4b1f163f66377cace32b63650814f7d0c687"
     },
     "tools/kernel-test-state/active_ventures.yaml": {
       "bytes": 170,
@@ -1350,14 +1350,14 @@
       "sha256": "7b77447722cb2c5be2ded6b20c4a02dcc821da18cbeee0d56d1e68a512f3812c"
     },
     "tools/tests/test_handoff.py": {
-      "bytes": 5680,
+      "bytes": 6426,
       "mode": 420,
-      "sha256": "c960d3115310d3063ddb31f1e2564030fd0ce6b9418f6e6fe87a6ffeae84edf0"
+      "sha256": "8391f49bbf67b8290f18a4c68135f555683f143a7ef68027f3ee968accc0ebf7"
     },
     "tools/verify-source.py": {
-      "bytes": 3345,
+      "bytes": 3387,
       "mode": 420,
-      "sha256": "073ed349e9891865e96e0f18c254324118829ab7e536bd092d0fee2796060c11"
+      "sha256": "c1c3c7404ca208a70f9d49195084a818a81c4a59640bfadb434951b6f16f844c"
     },
     "work/.claude/skills/README.md": {
       "bytes": 3815,

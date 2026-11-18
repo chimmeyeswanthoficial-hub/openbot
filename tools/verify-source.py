@@ -63,12 +63,13 @@ def check(root=ROOT, *, strict=False):
             rel = path.relative_to(root)
             if any(p in IGNORED for p in rel.parts):
                 continue
+            rel_posix = rel.as_posix()
             if (
                 path.is_file()
-                and str(rel) not in manifest["files"]
-                and str(rel) != "SOURCE_MANIFEST.json"
+                and rel_posix not in manifest["files"]
+                and rel_posix != "SOURCE_MANIFEST.json"
             ):
-                extras.append(str(rel))
+                extras.append(rel_posix)
         if extras:
             raise ValueError("unlisted files present: " + ", ".join(extras[:5]))
     return {

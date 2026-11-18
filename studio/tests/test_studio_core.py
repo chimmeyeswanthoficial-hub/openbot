@@ -222,6 +222,7 @@ class StoreTests(unittest.TestCase):
             BlueprintStore(self.root / "missing")
         self.assertFalse((self.root / "missing").exists())
 
+    @unittest.skipIf(os.name != "posix", "POSIX private permissions (0o700) required; Windows CLI boundary fails closed")
     def test_real_per_companion_private_directories_are_only_blueprints_not_vms(self):
         store = BlueprintStore(self.root / "private", initialize=True)
         one = store.create_companion(companion())
@@ -236,6 +237,7 @@ class StoreTests(unittest.TestCase):
             self.assertEqual(store.read_companion(item["id"]), item)
             self.assertFalse(item["vm_started"])
 
+    @unittest.skipIf(os.name != "posix", "POSIX private permissions (0o700) required; Windows CLI boundary fails closed")
     def test_paths_symlink_hardlink_and_tampered_blueprints_fail_closed(self):
         store = BlueprintStore(self.root / "private", initialize=True)
         item = store.create_companion(companion())
@@ -254,6 +256,7 @@ class StoreTests(unittest.TestCase):
         with self.assertRaises(PlanError):
             store.read_companion(item["id"])
 
+    @unittest.skipIf(os.name != "posix", "POSIX private permissions (0o700) required; Windows CLI boundary fails closed")
     def test_integer_zero_cannot_impersonate_boolean_false_in_stored_blueprint(self):
         store = BlueprintStore(self.root / "private", initialize=True)
         item = store.create_companion(companion())
@@ -275,11 +278,18 @@ class StoreTests(unittest.TestCase):
         with self.assertRaises(PlanError):
             BlueprintStore(actual)
 
+    @unittest.skipIf(os.name != "posix", "POSIX private permissions (0o700) required; Windows CLI boundary fails closed")
     def test_schema_and_input_cannot_supply_a_runtime_or_account(self):
         store = BlueprintStore(self.root / "private", initialize=True)
         with self.assertRaises(PlanError):
             store.create_companion(companion(api_key="hidden"))
         self.assertEqual(store.list_companions(), [])
+
+    @unittest.skipIf(os.name == "posix", "Windows CLI boundary fails closed test")
+    def test_windows_store_fails_closed_without_posix_permissions(self):
+        with self.assertRaises(PlanError) as ctx:
+            BlueprintStore(self.root / "private", initialize=True)
+        self.assertEqual(str(ctx.exception), "private_owned_store_required")
 
     def test_json_loader_refuses_duplicate_keys_links_and_oversized_data(self):
         path = self.root / "draft.json"
@@ -344,9 +354,20 @@ class ExportTests(unittest.TestCase):
         (self.source / "linked.py").symlink_to(self.source / "main.py")
         with self.assertRaises(PlanError):
             clean_export(self.source, ["linked.py"], self.root / "linked.zip")
-        os.link(self.source / "main.py", self.source / "hard.py")
-        with self.assertRaises(PlanError):
-            clean_export(self.source, ["hard.py"], self.root / "hard.zip")
+        try:
+            os.link(self.source / "main.py", self.source / "hard.py")
+            with self.assertRaises(PlanError):
+                clean_export(self.source, ["hard.py"], self.root / "hard.zip")
+        except PermissionError:
+            (self.source / "hard.py").write_text('print("hardlink simulation")\n')
+            from unittest.mock import patch
+            orig_fstat = os.fstat
+            def fake_fstat(fd):
+                res = orig_fstat(fd)
+                return os.stat_result((res.st_mode, res.st_ino, res.st_dev, 2, res.st_uid, res.st_gid, res.st_size, res.st_atime, res.st_mtime, res.st_ctime))
+            with patch("os.fstat", fake_fstat):
+                with self.assertRaises(PlanError):
+                    clean_export(self.source, ["hard.py"], self.root / "hard.zip")
 
     def test_export_is_reproducible_and_does_not_mutate_source(self):
         before = {p.name: p.read_bytes() for p in self.source.iterdir()}

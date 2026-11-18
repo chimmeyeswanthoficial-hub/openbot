@@ -80,9 +80,22 @@ class HandoffTests(unittest.TestCase):
         (self.root / "linked.md").symlink_to(self.root / "README.md")
         with self.assertRaises(ValueError):
             VERIFY.safe_file(self.root, "linked.md")
-        os.link(self.root / "README.md", self.root / "hard.md")
-        with self.assertRaises(ValueError):
-            VERIFY.safe_file(self.root, "hard.md")
+        try:
+            os.link(self.root / "README.md", self.root / "hard.md")
+            with self.assertRaises(ValueError):
+                VERIFY.safe_file(self.root, "hard.md")
+        except PermissionError:
+            (self.root / "hard.md").write_text("hard link simulation")
+            from unittest.mock import patch
+            orig_stat = Path.stat
+            def fake_stat(self, *args, **kwargs):
+                res = orig_stat(self, *args, **kwargs)
+                if self.name == "hard.md":
+                    return os.stat_result((res.st_mode, res.st_ino, res.st_dev, 2, res.st_uid, res.st_gid, res.st_size, res.st_atime, res.st_mtime, res.st_ctime))
+                return res
+            with patch.object(Path, "stat", fake_stat):
+                with self.assertRaises(ValueError):
+                    VERIFY.safe_file(self.root, "hard.md")
 
     def test_manifest_only_export_excludes_unlisted_private_state(self):
         (self.root / ".env").write_text("PRIVATE_FIXTURE=not-source")
@@ -127,7 +140,8 @@ class HandoffTests(unittest.TestCase):
         self.assertFalse(result["services_started"])
         self.assertFalse(result["external_actions_enabled"])
         state = self.root / ".openbot/state"
-        self.assertEqual(state.stat().st_mode & 0o777, 0o700)
+        if os.name == "posix":
+            self.assertEqual(state.stat().st_mode & 0o777, 0o700)
         budget = json.loads((state / "budget.json").read_bytes())
         self.assertTrue(budget["fixture_only"])
         self.assertEqual(budget["auto_spend_usd"], 0)

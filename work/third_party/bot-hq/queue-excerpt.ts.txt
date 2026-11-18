@@ -1,0 +1,12 @@
+From server/src/agent/loop.ts; surrounding queues Map also required.
+
+/** Run a job in the bot's serial queue, after any running turn. */
+export function runInBotQueue<T>(botId: string, job: () => Promise<T>): Promise<T> {
+  const prev = queues.get(botId) ?? Promise.resolve();
+  const result = prev.then(job);
+  const next = result.then(() => {}, () => {});
+  queues.set(botId, next);
+  next.finally(() => { if (queues.get(botId) === next) queues.delete(botId); });
+  return result;
+}
+

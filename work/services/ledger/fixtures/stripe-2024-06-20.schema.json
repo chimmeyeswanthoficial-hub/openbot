@@ -1,0 +1,566 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:openbot:synthetic-economic:stripe:2024-06-20:v1",
+  "title": "Accepted synthetic expanded-object subset, NOT the complete provider schema or conformance certification",
+  "$comment": "No schema/network lookup is performed by ingestion. Missing/unsupported facts yield unresolved/rejected outcomes instead of being forced into this accepted subset. Code adds cross-object, account/venture, byte, fingerprint, transaction and lexical numeric constraints.",
+  "x-static-provider-type-reference": {
+    "repository": "stripe/stripe-python",
+    "tag": "v10.12.0",
+    "commit": "3587026b839435d072b7d220967c476d4c6b9a9b",
+    "api_version": "2024-06-20",
+    "manifest": "audit/fixture-profiles/stripe-2024-06-20.json"
+  },
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "livemode",
+    "api_version",
+    "data"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^evt_[A-Za-z0-9_]{1,96}$"
+    },
+    "type": {
+      "enum": [
+        "invoice.paid",
+        "payment_intent.succeeded",
+        "checkout.session.completed",
+        "charge.succeeded",
+        "charge.captured",
+        "refund.created",
+        "refund.updated",
+        "charge.refund.updated",
+        "charge.refunded"
+      ]
+    },
+    "livemode": {
+      "const": false
+    },
+    "api_version": {
+      "const": "2024-06-20"
+    },
+    "account": {
+      "type": "string",
+      "pattern": "^acct_[A-Za-z0-9_]{1,96}$"
+    }
+  },
+  "oneOf": [
+    {
+      "properties": {
+        "type": {
+          "const": "invoice.paid"
+        },
+        "data": {
+          "type": "object",
+          "required": [
+            "object"
+          ],
+          "properties": {
+            "object": {
+              "$ref": "#/$defs/invoice"
+            }
+          }
+        }
+      }
+    },
+    {
+      "properties": {
+        "type": {
+          "const": "payment_intent.succeeded"
+        },
+        "data": {
+          "type": "object",
+          "required": [
+            "object"
+          ],
+          "properties": {
+            "object": {
+              "$ref": "#/$defs/payment_intent"
+            }
+          }
+        }
+      }
+    },
+    {
+      "properties": {
+        "type": {
+          "const": "checkout.session.completed"
+        },
+        "data": {
+          "type": "object",
+          "required": [
+            "object"
+          ],
+          "properties": {
+            "object": {
+              "$ref": "#/$defs/checkout"
+            }
+          }
+        }
+      }
+    },
+    {
+      "properties": {
+        "type": {
+          "const": "charge.succeeded"
+        },
+        "data": {
+          "type": "object",
+          "required": [
+            "object"
+          ],
+          "properties": {
+            "object": {
+              "$ref": "#/$defs/charge_capture"
+            }
+          }
+        }
+      }
+    },
+    {
+      "properties": {
+        "type": {
+          "const": "charge.captured"
+        },
+        "data": {
+          "type": "object",
+          "required": [
+            "object"
+          ],
+          "properties": {
+            "object": {
+              "$ref": "#/$defs/charge_capture"
+            }
+          }
+        }
+      }
+    },
+    {
+      "properties": {
+        "type": {
+          "const": "refund.created"
+        },
+        "data": {
+          "type": "object",
+          "required": [
+            "object"
+          ],
+          "properties": {
+            "object": {
+              "$ref": "#/$defs/refund"
+            }
+          }
+        }
+      }
+    },
+    {
+      "properties": {
+        "type": {
+          "const": "refund.updated"
+        },
+        "data": {
+          "type": "object",
+          "required": [
+            "object"
+          ],
+          "properties": {
+            "object": {
+              "$ref": "#/$defs/refund"
+            }
+          }
+        }
+      }
+    },
+    {
+      "properties": {
+        "type": {
+          "const": "charge.refund.updated"
+        },
+        "data": {
+          "type": "object",
+          "required": [
+            "object"
+          ],
+          "properties": {
+            "object": {
+              "$ref": "#/$defs/refund"
+            }
+          }
+        }
+      }
+    },
+    {
+      "properties": {
+        "type": {
+          "const": "charge.refunded"
+        },
+        "data": {
+          "type": "object",
+          "required": [
+            "object"
+          ],
+          "properties": {
+            "object": {
+              "$ref": "#/$defs/charge_refund_snapshot"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "charge_capture": {
+      "type": "object",
+      "required": [
+        "object",
+        "id",
+        "livemode",
+        "currency",
+        "amount",
+        "amount_captured",
+        "paid",
+        "captured",
+        "status",
+        "disputed",
+        "payment_intent"
+      ],
+      "properties": {
+        "livemode": {
+          "const": false
+        },
+        "currency": {
+          "const": "usd"
+        },
+        "metadata": {
+          "type": "object",
+          "properties": {
+            "venture": {
+              "type": "string",
+              "pattern": "^[a-z0-9][a-z0-9-]{0,63}$"
+            }
+          },
+          "additionalProperties": true
+        },
+        "object": {
+          "const": "charge"
+        },
+        "id": {
+          "type": "string",
+          "pattern": "^ch_[A-Za-z0-9_]{1,96}$"
+        },
+        "amount": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991,
+          "$comment": "Runtime additionally requires an integer JSON token/Python int, never bool/float. This is a representation bound, NOT a spending budget."
+        },
+        "amount_captured": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991,
+          "$comment": "Runtime additionally requires an integer JSON token/Python int, never bool/float. This is a representation bound, NOT a spending budget."
+        },
+        "paid": {
+          "const": true
+        },
+        "captured": {
+          "const": true
+        },
+        "status": {
+          "const": "succeeded"
+        },
+        "disputed": {
+          "const": false
+        },
+        "payment_intent": {
+          "type": "string",
+          "pattern": "^pi_[A-Za-z0-9_]{1,96}$"
+        }
+      },
+      "additionalProperties": true,
+      "$comment": "Only full stable single-charge captures: amount_captured must equal amount. Non-null transfer/on_behalf_of/source_transfer/application_fee flows are unresolved. No bank settlement is asserted."
+    },
+    "payment_intent": {
+      "type": "object",
+      "required": [
+        "object",
+        "id",
+        "livemode",
+        "currency",
+        "amount_received",
+        "status",
+        "latest_charge"
+      ],
+      "properties": {
+        "livemode": {
+          "const": false
+        },
+        "currency": {
+          "const": "usd"
+        },
+        "metadata": {
+          "type": "object",
+          "properties": {
+            "venture": {
+              "type": "string",
+              "pattern": "^[a-z0-9][a-z0-9-]{0,63}$"
+            }
+          },
+          "additionalProperties": true
+        },
+        "object": {
+          "const": "payment_intent"
+        },
+        "id": {
+          "type": "string",
+          "pattern": "^pi_[A-Za-z0-9_]{1,96}$"
+        },
+        "amount_received": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991,
+          "$comment": "Runtime additionally requires an integer JSON token/Python int, never bool/float. This is a representation bound, NOT a spending budget."
+        },
+        "status": {
+          "const": "succeeded"
+        },
+        "latest_charge": {
+          "$ref": "#/$defs/charge_capture"
+        }
+      },
+      "additionalProperties": true,
+      "$comment": "Runtime requires intent.id == charge.payment_intent and amount_received == amount_captured."
+    },
+    "invoice": {
+      "type": "object",
+      "required": [
+        "object",
+        "id",
+        "livemode",
+        "currency",
+        "amount_paid",
+        "status",
+        "paid",
+        "paid_out_of_band",
+        "payment_intent"
+      ],
+      "properties": {
+        "livemode": {
+          "const": false
+        },
+        "currency": {
+          "const": "usd"
+        },
+        "metadata": {
+          "type": "object",
+          "properties": {
+            "venture": {
+              "type": "string",
+              "pattern": "^[a-z0-9][a-z0-9-]{0,63}$"
+            }
+          },
+          "additionalProperties": true
+        },
+        "object": {
+          "const": "invoice"
+        },
+        "id": {
+          "type": "string",
+          "pattern": "^in_[A-Za-z0-9_]{1,96}$"
+        },
+        "amount_paid": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991,
+          "$comment": "Runtime additionally requires an integer JSON token/Python int, never bool/float. This is a representation bound, NOT a spending budget."
+        },
+        "status": {
+          "const": "paid"
+        },
+        "paid": {
+          "const": true
+        },
+        "paid_out_of_band": {
+          "const": false
+        },
+        "payment_intent": {
+          "$ref": "#/$defs/payment_intent"
+        }
+      },
+      "additionalProperties": true,
+      "$comment": "Runtime requires invoice.amount_paid == the supplied capture amount; invoice state alone is not capture evidence."
+    },
+    "checkout": {
+      "type": "object",
+      "required": [
+        "object",
+        "id",
+        "livemode",
+        "currency",
+        "amount_total",
+        "mode",
+        "status",
+        "payment_status",
+        "payment_intent"
+      ],
+      "properties": {
+        "livemode": {
+          "const": false
+        },
+        "currency": {
+          "const": "usd"
+        },
+        "metadata": {
+          "type": "object",
+          "properties": {
+            "venture": {
+              "type": "string",
+              "pattern": "^[a-z0-9][a-z0-9-]{0,63}$"
+            }
+          },
+          "additionalProperties": true
+        },
+        "object": {
+          "const": "checkout.session"
+        },
+        "id": {
+          "type": "string",
+          "pattern": "^cs_[A-Za-z0-9_]{1,96}$"
+        },
+        "amount_total": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991,
+          "$comment": "Runtime additionally requires an integer JSON token/Python int, never bool/float. This is a representation bound, NOT a spending budget."
+        },
+        "mode": {
+          "const": "payment"
+        },
+        "status": {
+          "const": "complete"
+        },
+        "payment_status": {
+          "const": "paid"
+        },
+        "payment_intent": {
+          "$ref": "#/$defs/payment_intent"
+        }
+      },
+      "additionalProperties": true,
+      "$comment": "Runtime requires amount_total == capture amount; completed/unpaid/subscription sessions are not booked."
+    },
+    "refund": {
+      "type": "object",
+      "required": [
+        "object",
+        "id",
+        "livemode",
+        "currency",
+        "amount",
+        "status",
+        "charge"
+      ],
+      "properties": {
+        "livemode": {
+          "const": false
+        },
+        "currency": {
+          "const": "usd"
+        },
+        "metadata": {
+          "type": "object",
+          "properties": {
+            "venture": {
+              "type": "string",
+              "pattern": "^[a-z0-9][a-z0-9-]{0,63}$"
+            }
+          },
+          "additionalProperties": true
+        },
+        "object": {
+          "const": "refund"
+        },
+        "id": {
+          "type": "string",
+          "pattern": "^re_[A-Za-z0-9_]{1,96}$"
+        },
+        "amount": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991,
+          "$comment": "Runtime additionally requires an integer JSON token/Python int, never bool/float. This is a representation bound, NOT a spending budget."
+        },
+        "status": {
+          "const": "succeeded"
+        },
+        "charge": {
+          "type": "string",
+          "pattern": "^ch_[A-Za-z0-9_]{1,96}$"
+        },
+        "payment_intent": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^pi_[A-Za-z0-9_]{1,96}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "additionalProperties": true,
+      "$comment": "An existing same-scope capture is required before booking; supplied intent must match. Parent amount/cumulative over-refund constraints are transactional."
+    },
+    "charge_refund_snapshot": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/charge_capture"
+        },
+        {
+          "type": "object",
+          "required": [
+            "amount_refunded",
+            "refunds"
+          ],
+          "properties": {
+            "amount_refunded": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991,
+              "$comment": "Runtime additionally requires an integer JSON token/Python int, never bool/float. This is a representation bound, NOT a spending budget."
+            },
+            "refunds": {
+              "type": "object",
+              "required": [
+                "object",
+                "has_more",
+                "data"
+              ],
+              "properties": {
+                "object": {
+                  "const": "list"
+                },
+                "has_more": {
+                  "const": false
+                },
+                "data": {
+                  "type": "array",
+                  "minItems": 1,
+                  "maxItems": 100,
+                  "items": {
+                    "$ref": "#/$defs/refund"
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "$comment": "Runtime verifies unique refund IDs, each parent/intent, exact cumulative sum and equality to the stored capture witness; no new capture is made from a refund snapshot."
+    }
+  }
+}

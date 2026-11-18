@@ -1,0 +1,348 @@
+{
+  "sales": [
+    {
+      "id": "evt_invoice",
+      "type": "invoice.paid",
+      "api_version": "2024-06-20",
+      "livemode": false,
+      "account": "acct_fixture",
+      "data": {
+        "object": {
+          "object": "invoice",
+          "livemode": false,
+          "id": "in_sale",
+          "currency": "usd",
+          "amount_paid": 10000,
+          "status": "paid",
+          "paid": true,
+          "paid_out_of_band": false,
+          "payment_intent": {
+            "object": "payment_intent",
+            "livemode": false,
+            "id": "pi_sale",
+            "currency": "usd",
+            "status": "succeeded",
+            "amount": 10000,
+            "amount_received": 10000,
+            "latest_charge": {
+              "object": "charge",
+              "livemode": false,
+              "id": "ch_sale",
+              "payment_intent": "pi_sale",
+              "amount": 10000,
+              "amount_captured": 10000,
+              "currency": "usd",
+              "paid": true,
+              "captured": true,
+              "status": "succeeded",
+              "disputed": false,
+              "metadata": {
+                "venture": "media-api"
+              }
+            },
+            "metadata": {
+              "venture": "media-api"
+            }
+          },
+          "metadata": {
+            "venture": "media-api"
+          }
+        }
+      }
+    },
+    {
+      "id": "evt_checkout",
+      "type": "checkout.session.completed",
+      "api_version": "2024-06-20",
+      "livemode": false,
+      "account": "acct_fixture",
+      "data": {
+        "object": {
+          "object": "checkout.session",
+          "livemode": false,
+          "id": "cs_sale",
+          "currency": "usd",
+          "mode": "payment",
+          "status": "complete",
+          "payment_status": "paid",
+          "amount_total": 10000,
+          "payment_intent": {
+            "object": "payment_intent",
+            "livemode": false,
+            "id": "pi_sale",
+            "currency": "usd",
+            "status": "succeeded",
+            "amount": 10000,
+            "amount_received": 10000,
+            "latest_charge": {
+              "object": "charge",
+              "livemode": false,
+              "id": "ch_sale",
+              "payment_intent": "pi_sale",
+              "amount": 10000,
+              "amount_captured": 10000,
+              "currency": "usd",
+              "paid": true,
+              "captured": true,
+              "status": "succeeded",
+              "disputed": false,
+              "metadata": {
+                "venture": "media-api"
+              }
+            },
+            "metadata": {
+              "venture": "media-api"
+            }
+          },
+          "metadata": {
+            "venture": "media-api"
+          }
+        }
+      }
+    },
+    {
+      "id": "evt_intent",
+      "type": "payment_intent.succeeded",
+      "api_version": "2024-06-20",
+      "livemode": false,
+      "account": "acct_fixture",
+      "data": {
+        "object": {
+          "object": "payment_intent",
+          "livemode": false,
+          "id": "pi_sale",
+          "currency": "usd",
+          "status": "succeeded",
+          "amount": 10000,
+          "amount_received": 10000,
+          "latest_charge": {
+            "object": "charge",
+            "livemode": false,
+            "id": "ch_sale",
+            "payment_intent": "pi_sale",
+            "amount": 10000,
+            "amount_captured": 10000,
+            "currency": "usd",
+            "paid": true,
+            "captured": true,
+            "status": "succeeded",
+            "disputed": false,
+            "metadata": {
+              "venture": "media-api"
+            }
+          },
+          "metadata": {
+            "venture": "media-api"
+          }
+        }
+      }
+    }
+  ],
+  "distinct": [
+    {
+      "id": "evt_first",
+      "type": "invoice.paid",
+      "api_version": "2024-06-20",
+      "livemode": false,
+      "account": "acct_fixture",
+      "data": {
+        "object": {
+          "object": "invoice",
+          "livemode": false,
+          "id": "in_first",
+          "currency": "usd",
+          "amount_paid": 10000,
+          "status": "paid",
+          "paid": true,
+          "paid_out_of_band": false,
+          "payment_intent": {
+            "object": "payment_intent",
+            "livemode": false,
+            "id": "pi_first",
+            "currency": "usd",
+            "status": "succeeded",
+            "amount": 10000,
+            "amount_received": 10000,
+            "latest_charge": {
+              "object": "charge",
+              "livemode": false,
+              "id": "ch_first",
+              "payment_intent": "pi_first",
+              "amount": 10000,
+              "amount_captured": 10000,
+              "currency": "usd",
+              "paid": true,
+              "captured": true,
+              "status": "succeeded",
+              "disputed": false,
+              "metadata": {
+                "venture": "media-api"
+              }
+            },
+            "metadata": {
+              "venture": "media-api"
+            }
+          },
+          "metadata": {
+            "venture": "media-api"
+          }
+        }
+      }
+    },
+    {
+      "id": "evt_second",
+      "type": "invoice.paid",
+      "api_version": "2024-06-20",
+      "livemode": false,
+      "account": "acct_fixture",
+      "data": {
+        "object": {
+          "object": "invoice",
+          "livemode": false,
+          "id": "in_second",
+          "currency": "usd",
+          "amount_paid": 10000,
+          "status": "paid",
+          "paid": true,
+          "paid_out_of_band": false,
+          "payment_intent": {
+            "object": "payment_intent",
+            "livemode": false,
+            "id": "pi_second",
+            "currency": "usd",
+            "status": "succeeded",
+            "amount": 10000,
+            "amount_received": 10000,
+            "latest_charge": {
+              "object": "charge",
+              "livemode": false,
+              "id": "ch_second",
+              "payment_intent": "pi_second",
+              "amount": 10000,
+              "amount_captured": 10000,
+              "currency": "usd",
+              "paid": true,
+              "captured": true,
+              "status": "succeeded",
+              "disputed": false,
+              "metadata": {
+                "venture": "media-api"
+              }
+            },
+            "metadata": {
+              "venture": "media-api"
+            }
+          },
+          "metadata": {
+            "venture": "media-api"
+          }
+        }
+      }
+    }
+  ],
+  "refunds": [
+    {
+      "id": "evt_snapshot20",
+      "type": "charge.refunded",
+      "api_version": "2024-06-20",
+      "livemode": false,
+      "account": "acct_fixture",
+      "data": {
+        "object": {
+          "object": "charge",
+          "livemode": false,
+          "id": "ch_sale",
+          "payment_intent": "pi_sale",
+          "amount": 10000,
+          "amount_captured": 10000,
+          "currency": "usd",
+          "paid": true,
+          "captured": true,
+          "status": "succeeded",
+          "disputed": false,
+          "metadata": {
+            "venture": "media-api"
+          },
+          "amount_refunded": 2000,
+          "refunds": {
+            "object": "list",
+            "has_more": false,
+            "data": [
+              {
+                "object": "refund",
+                "livemode": false,
+                "id": "re_first",
+                "charge": "ch_sale",
+                "payment_intent": "pi_sale",
+                "currency": "usd",
+                "amount": 2000,
+                "status": "succeeded",
+                "metadata": {
+                  "venture": "media-api"
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "evt_snapshot50",
+      "type": "charge.refunded",
+      "api_version": "2024-06-20",
+      "livemode": false,
+      "account": "acct_fixture",
+      "data": {
+        "object": {
+          "object": "charge",
+          "livemode": false,
+          "id": "ch_sale",
+          "payment_intent": "pi_sale",
+          "amount": 10000,
+          "amount_captured": 10000,
+          "currency": "usd",
+          "paid": true,
+          "captured": true,
+          "status": "succeeded",
+          "disputed": false,
+          "metadata": {
+            "venture": "media-api"
+          },
+          "amount_refunded": 5000,
+          "refunds": {
+            "object": "list",
+            "has_more": false,
+            "data": [
+              {
+                "object": "refund",
+                "livemode": false,
+                "id": "re_first",
+                "charge": "ch_sale",
+                "payment_intent": "pi_sale",
+                "currency": "usd",
+                "amount": 2000,
+                "status": "succeeded",
+                "metadata": {
+                  "venture": "media-api"
+                }
+              },
+              {
+                "object": "refund",
+                "livemode": false,
+                "id": "re_second",
+                "charge": "ch_sale",
+                "payment_intent": "pi_sale",
+                "currency": "usd",
+                "amount": 3000,
+                "status": "succeeded",
+                "metadata": {
+                  "venture": "media-api"
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

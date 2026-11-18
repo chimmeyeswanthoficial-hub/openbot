@@ -1,0 +1,16 @@
+# OpenBot OS — venture policy (Sentinel)
+# Media API: media conversion/splitting/compression sold as a metered subscription.
+# Everything here is a *ceiling*, not a promise: absent policy = deny all.
+slug: media-api
+egress_mode: allowlist_only
+allow_hosts:
+  - api.stripe.com              # billing: gated at the action layer, allowed to reach
+  - "*.amazonaws.com"           # object storage
+  - "*.sentry.io"               # error reporting
+  - api.resend.com              # transactional email: gated before it is called
+auto_spend_usd: 0.00            # pre-revenue: any charge needs a person
+day_budget_usd: 3.00
+spend_today_usd: 0.00
+allowed_write_roots:
+  - /sandboxes/media-api        # anything outside is a hostile-breakout event
+data_class: public

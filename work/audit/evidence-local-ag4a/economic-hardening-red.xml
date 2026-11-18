@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="8" skipped="0" tests="8" time="0.476" timestamp="2026-11-14T17:36:39.017571+00:00" hostname="e2b.local"><testcase classname="services.sentinel.tests.test_economic_book" name="test_refund_snapshot_must_not_ignore_a_conflicting_parent_capture_amount" time="0.006"><failure message="Failed: DID NOT RAISE EconomicConflict">book = &lt;economic_repository.EconomicBook object at 0x7f559726ee40&gt;
+
+    def test_refund_snapshot_must_not_ignore_a_conflicting_parent_capture_amount(book):
+        book.ingest(encoded(), scope())
+        obj = snapshot()
+        obj['amount'] = obj['amount_captured'] = 20000
+&gt;       with pytest.raises(EconomicConflict):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE EconomicConflict
+
+services/sentinel/tests/test_economic_book.py:329: Failed</failure></testcase><testcase classname="services.sentinel.tests.test_economic_book" name="test_insert_or_replace_must_not_bypass_append_only_guards" time="0.003"><failure message="Failed: DID NOT RAISE IntegrityError">book = &lt;economic_repository.EconomicBook object at 0x7f55972725d0&gt;
+
+    def test_insert_or_replace_must_not_bypass_append_only_guards(book):
+        book.ingest(encoded(), scope())
+&gt;       with pytest.raises(sqlite3.IntegrityError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE IntegrityError
+
+services/sentinel/tests/test_economic_book.py:336: Failed</failure></testcase><testcase classname="services.sentinel.tests.test_economic_book" name="test_nested_live_object_cannot_be_mixed_into_a_test_book[charge.succeeded-obj0]" time="0.003"><failure message="Failed: DID NOT RAISE EconomicError">book = &lt;economic_repository.EconomicBook object at 0x7f5597272990&gt;
+kind = 'charge.succeeded'
+obj = {'object': 'charge', 'id': 'ch_sale', 'payment_intent': 'pi_sale', 'amount': 10000, ...}
+
+    @pytest.mark.parametrize('kind,obj', [('charge.succeeded', charge()), ('refund.created', refund())])
+    def test_nested_live_object_cannot_be_mixed_into_a_test_book(book, kind, obj):
+        obj = dict(obj, livemode=True)
+&gt;       with pytest.raises(EconomicError) as error:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE EconomicError
+
+services/sentinel/tests/test_economic_book.py:348: Failed</failure></testcase><testcase classname="services.sentinel.tests.test_economic_book" name="test_nested_live_object_cannot_be_mixed_into_a_test_book[refund.created-obj1]" time="0.003"><failure message="Failed: DID NOT RAISE EconomicError">book = &lt;economic_repository.EconomicBook object at 0x7f55972a2060&gt;
+kind = 'refund.created'
+obj = {'object': 'refund', 'id': 're_first', 'charge': 'ch_sale', 'payment_intent': 'pi_sale', ...}
+
+    @pytest.mark.parametrize('kind,obj', [('charge.succeeded', charge()), ('refund.created', refund())])
+    def test_nested_live_object_cannot_be_mixed_into_a_test_book(book, kind, obj):
+        obj = dict(obj, livemode=True)
+&gt;       with pytest.raises(EconomicError) as error:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE EconomicError
+
+services/sentinel/tests/test_economic_book.py:348: Failed</failure></testcase><testcase classname="services.sentinel.tests.test_economic_boundary" name="test_direct_legacy_store_also_refuses_invalid_new_money[nan]" time="0.001"><failure message="Failed: DID NOT RAISE ValueError">value = nan
+
+    @pytest.mark.parametrize('value', [float('nan'), float('inf'), -float('inf'), True])
+    def test_direct_legacy_store_also_refuses_invalid_new_money(value):
+        store = Store(':memory:')
+        try:
+&gt;           with pytest.raises(ValueError):
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+E           Failed: DID NOT RAISE ValueError
+
+services/sentinel/tests/test_economic_boundary.py:70: Failed</failure></testcase><testcase classname="services.sentinel.tests.test_economic_boundary" name="test_direct_legacy_store_also_refuses_invalid_new_money[inf]" time="0.001"><failure message="Failed: DID NOT RAISE ValueError">value = inf
+
+    @pytest.mark.parametrize('value', [float('nan'), float('inf'), -float('inf'), True])
+    def test_direct_legacy_store_also_refuses_invalid_new_money(value):
+        store = Store(':memory:')
+        try:
+&gt;           with pytest.raises(ValueError):
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+E           Failed: DID NOT RAISE ValueError
+
+services/sentinel/tests/test_economic_boundary.py:70: Failed</failure></testcase><testcase classname="services.sentinel.tests.test_economic_boundary" name="test_direct_legacy_store_also_refuses_invalid_new_money[-inf]" time="0.001"><failure message="Failed: DID NOT RAISE ValueError">value = -inf
+
+    @pytest.mark.parametrize('value', [float('nan'), float('inf'), -float('inf'), True])
+    def test_direct_legacy_store_also_refuses_invalid_new_money(value):
+        store = Store(':memory:')
+        try:
+&gt;           with pytest.raises(ValueError):
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+E           Failed: DID NOT RAISE ValueError
+
+services/sentinel/tests/test_economic_boundary.py:70: Failed</failure></testcase><testcase classname="services.sentinel.tests.test_economic_boundary" name="test_direct_legacy_store_also_refuses_invalid_new_money[True]" time="0.001"><failure message="Failed: DID NOT RAISE ValueError">value = True
+
+    @pytest.mark.parametrize('value', [float('nan'), float('inf'), -float('inf'), True])
+    def test_direct_legacy_store_also_refuses_invalid_new_money(value):
+        store = Store(':memory:')
+        try:
+&gt;           with pytest.raises(ValueError):
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+E           Failed: DID NOT RAISE ValueError
+
+services/sentinel/tests/test_economic_boundary.py:70: Failed</failure></testcase></testsuite></testsuites>

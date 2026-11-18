@@ -1,0 +1,30 @@
+{
+  "scope": "serial fresh venv, requirements-only, whitelisted source copy, no donors/history/dependencies/runtime DBs",
+  "python": {
+    "collected": 253,
+    "passed": 250,
+    "skipped": 3,
+    "failed": 0
+  },
+  "skipped_tests": [
+    "services.sentinel.tests.test_company::test_the_agent_impl_manifest_matches_the_substrate",
+    "services.sentinel.tests.test_repository_pg::test_pg_audit_append_only",
+    "services.sentinel.tests.test_repository_pg::test_pg_resolve_approval_lost_race"
+  ],
+  "junit_sha256": "548c55c03306b2e99cfb5f0002364b98603e5ee4e56a9128262fdfd50efe94f9",
+  "node": {
+    "passed": 25,
+    "failed": 0
+  },
+  "lint": "clean",
+  "verify": {
+    "passed": 22,
+    "failed": 0,
+    "warned": 7
+  },
+  "smoke": {
+    "passed": 10,
+    "failed": 0
+  },
+  "disposable_copy_removed": true
+}

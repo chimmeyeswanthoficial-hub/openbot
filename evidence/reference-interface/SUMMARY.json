@@ -1,0 +1,50 @@
+{
+  "accepted_real_observed_pilot_days": 0,
+  "authenticated_ide_sessions": 0,
+  "finance_per_engine": 21,
+  "handoff_python": {
+    "failed": 0,
+    "passed": 8
+  },
+  "https_application_checks_per_engine": 44,
+  "https_fixture_checks_per_run": 5,
+  "independent_security_acceptance": false,
+  "ios_compiled": false,
+  "kernel": {
+    "errors": 0,
+    "failed": 0,
+    "passed": 1251,
+    "profile": "Disposable whole-workspace copy; synthetic state; hash-locked bwrap; OPENBOT_TEST_NAMESPACE=1; real pinned media; no PG DSN/write opt-in.",
+    "skipped_postgresql": 173
+  },
+  "native_android_demo_key_only": true,
+  "native_binary_asset_tool_static_checks": 27,
+  "native_devices_tested": false,
+  "native_windows_unsigned": true,
+  "offline_viewer_checks": 78,
+  "public_release": false,
+  "real_per_bot_vms": 0,
+  "real_providers": 0,
+  "retained_node": {
+    "failed": 0,
+    "passed": 25
+  },
+  "schema": "openbot.light-observed-summary/1",
+  "scopes_do_not_add_into_completion_percentage": true,
+  "social_accounts": 0,
+  "studio_node": {
+    "failed": 0,
+    "finance": 19,
+    "gateway": 26,
+    "passed": 45
+  },
+  "studio_python": {
+    "failed": 0,
+    "passed": 48
+  },
+  "ui_finance_engines": [
+    "Chromium",
+    "Linux WebKit"
+  ],
+  "ui_per_engine": 35
+}

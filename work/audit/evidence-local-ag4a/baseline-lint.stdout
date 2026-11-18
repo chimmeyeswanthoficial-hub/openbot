@@ -1,0 +1,55 @@
+python3 -m ruff check services packages scripts
+UP017 [*] Use `datetime.UTC` alias
+  --> scripts/generate_full_junit.py:27:39
+   |
+25 |         raise ValueError(f"expected 588 collected items, got {len(items)}")
+26 |
+27 |     timestamp = datetime.datetime.now(datetime.timezone.utc).isoformat()
+   |                                       ^^^^^^^^^^^^^^^^^^^^^
+28 |     testsuites = ET.Element("testsuites", name="pytest tests")
+29 |     testsuite = ET.SubElement(
+   |
+help: Convert to `datetime.UTC` alias
+   |
+26 |
+   -     timestamp = datetime.datetime.now(datetime.timezone.utc).isoformat()
+27 +     timestamp = datetime.datetime.now(datetime.UTC).isoformat()
+28 |     testsuites = ET.Element("testsuites", name="pytest tests")
+   |
+
+I001 [*] Import block is un-sorted or un-formatted
+  --> scripts/tests/test_platform_guards.py:11:1
+   |
+ 9 |   executor refusal before state creation. They do NOT certify native Windows/macOS.
+10 |   """
+11 | / from __future__ import annotations
+12 | |
+13 | | import importlib
+14 | | import json
+15 | | import os
+16 | | import sys
+17 | | from unittest.mock import MagicMock
+18 | |
+19 | | import pytest
+20 | |
+21 | | import hq_readiness as hq
+22 | | import isolation
+23 | | from local_executor import Authority
+24 | | from namespace_executor import NamespaceExecutor
+   | |________________________________________________^
+25 |
+26 |   REQUEST_ID = "90a22229-e876-4937-b683-265b3bdb0819"
+   |
+help: Organize imports
+   |
+18 |
+   - import pytest
+   -
+19 | import hq_readiness as hq
+20 | import isolation
+21 + import pytest
+22 | from local_executor import Authority
+   |
+
+Found 2 errors.
+[*] 2 fixable with `--fix`.

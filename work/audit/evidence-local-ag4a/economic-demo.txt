@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "output": "/home/user/.cache/ag4a-engineering/economic-readback.json",
+  "generated_disposable_state": ".cache/economic-demo-hvmjxrml",
+  "actual_race_scenarios": 4,
+  "actual_process_deaths": 5,
+  "bank_settlement_verified": false,
+  "production_ready": false
+}

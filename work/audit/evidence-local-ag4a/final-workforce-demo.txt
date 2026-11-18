@@ -1,0 +1,45 @@
+python3 scripts/workforce-demo.py
+{
+  "observed_runner_utc": "2026-11-14T17:53:15+00:00",
+  "mode": "offline disposable demonstration",
+  "intake": {
+    "status": "review_for_proposal",
+    "questions": [],
+    "brief_sha256": "de0c6cc3efa82edb7d614f54791ad7ea3850627135f494e7f13c590ec62a013f",
+    "allows_send": false,
+    "allows_execution": false,
+    "limits": "Metadata attestations are not verified availability, permissions, a customer or income."
+  },
+  "qa_source": "SYNTHETIC XML and brief/revision identifiers; not a real test run.",
+  "qa_packet": {
+    "counts": {
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0,
+      "collected": 1
+    },
+    "evidence_status": "ready_for_review",
+    "brief_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "source_revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "run_ref": "synthetic-demo",
+    "junit_sha256": "a40fb52042d8eaa2883e01be85071a795f70f1299680670cccd803709a335a50",
+    "runner_exit_code": 0,
+    "required_cases": [
+      "fixture::sample"
+    ],
+    "unmet_cases": [],
+    "delivery_authorized": false,
+    "specialist_parity": "not_measured",
+    "limits": "Parser did not execute tests, authenticate their origin, verify test quality, approve delivery or measure specialist parity."
+  },
+  "feedback_fixture": {
+    "real_consent_or_human_review": false,
+    "pending_visible": 0,
+    "fixture_review_visible_after_restart": 1,
+    "visible_after_revocation": 0,
+    "social_import_refused": true
+  },
+  "network_or_provider_calls": 0,
+  "external_deliveries": 0,
+  "income_usd": 0
+}

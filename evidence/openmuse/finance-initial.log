@@ -1,0 +1,119 @@
+TAP version 13
+# Subtest: actual adoption produces an explicitly unreconciled read-only source-currency report
+ok 1 - actual adoption produces an explicitly unreconciled read-only source-currency report
+  ---
+  duration_ms: 2.160607
+  ...
+# Subtest: currency and positive-expense sign convention require explicit correctly typed confirmation
+ok 2 - currency and positive-expense sign convention require explicit correctly typed confirmation
+  ---
+  duration_ms: 0.64163
+  ...
+# Subtest: money parsing is integer-only and exact at every supported decimal boundary
+ok 3 - money parsing is integer-only and exact at every supported decimal boundary
+  ---
+  duration_ms: 1.18853
+  ...
+# Subtest: aggregate arithmetic stays exact and safe at all 5000 maximum-value rows
+ok 4 - aggregate arithmetic stays exact and safe at all 5000 maximum-value rows
+  ---
+  duration_ms: 37.6226
+  ...
+# Subtest: formatting uses integer digits, never a floating major-unit ledger value
+ok 5 - formatting uses integer digits, never a floating major-unit ledger value
+  ---
+  duration_ms: 0.317864
+  ...
+# Subtest: upstream quote-boundary regression vectors refuse trailing characters
+ok 6 - upstream quote-boundary regression vectors refuse trailing characters
+  ---
+  duration_ms: 3.999217
+  ...
+# Subtest: upstream valid escaped quotes, commas and embedded newlines are preserved
+ok 7 - upstream valid escaped quotes, commas and embedded newlines are preserved
+  ---
+  duration_ms: 0.673506
+  ...
+# Subtest: upstream BOM and CR/LF/CRLF vectors retain field boundaries
+ok 8 - upstream BOM and CR/LF/CRLF vectors retain field boundaries
+  ---
+  duration_ms: 0.371298
+  ...
+# Subtest: unclosed or incorrectly positioned quotes never produce a partial report
+ok 9 - unclosed or incorrectly positioned quotes never produce a partial report
+  ---
+  duration_ms: 0.326823
+  ...
+# Subtest: upstream required headers are normalized and duplicates cannot discard amounts
+ok 10 - upstream required headers are normalized and duplicates cannot discard amounts
+  ---
+  duration_ms: 0.378535
+  ...
+# Subtest: upstream reordered and irrelevant extra columns remain compatible
+ok 11 - upstream reordered and irrelevant extra columns remain compatible
+  ---
+  duration_ms: 0.210027
+  ...
+# Subtest: wrong row widths, empty inputs and more than 5000 transactions are refused
+ok 12 - wrong row widths, empty inputs and more than 5000 transactions are refused
+  ---
+  duration_ms: 9.421305
+  ...
+# Subtest: real Gregorian date checks do not normalize invalid dates into another day
+ok 13 - real Gregorian date checks do not normalize invalid dates into another day
+  ---
+  duration_ms: 0.65938
+  ...
+# Subtest: optional currency column must match chosen currency, with no FX or mixing
+ok 14 - optional currency column must match chosen currency, with no FX or mixing
+  ---
+  duration_ms: 0.458201
+  ...
+# Subtest: exact duplicate rows are disclosed and retained, never silently removed
+ok 15 - exact duplicate rows are disclosed and retained, never silently removed
+  ---
+  duration_ms: 0.767427
+  ...
+# Subtest: byte limit is UTF-8, including upstream Unicode and exact-boundary vectors
+ok 16 - byte limit is UTF-8, including upstream Unicode and exact-boundary vectors
+  ---
+  duration_ms: 133.691134
+  ...
+# Subtest: control/binary text and non-text input are refused rather than coerced
+ok 17 - control/binary text and non-text input are refused rather than coerced
+  ---
+  duration_ms: 0.321811
+  ...
+# Subtest: HTML, URLs and spreadsheet formula text remain literal user data
+not ok 18 - HTML, URLs and spreadsheet formula text remain literal user data
+  ---
+  duration_ms: 0.490569
+  location: '/home/user/.cache/openbot-release-next/workspace/OpenBot-Workspace/studio/tests/finance-preview.test.cjs:91:1'
+  failureType: 'testCodeFailure'
+  error: 'Invalid quoted CSV field.'
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    scanCsv (/home/user/.cache/openbot-release-next/workspace/OpenBot-Workspace/studio/web/finance-preview.js:70:48)
+    analyzeSpending (/home/user/.cache/openbot-release-next/workspace/OpenBot-Workspace/studio/web/finance-preview.js:94:18)
+    TestContext.<anonymous> (/home/user/.cache/openbot-release-next/workspace/OpenBot-Workspace/studio/tests/finance-preview.test.cjs:92:10)
+    Test.runInAsyncScope (node:async_hooks:206:9)
+    Test.run (node:internal/test_runner/test:796:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:526:18)
+    Test.postRun (node:internal/test_runner/test:889:19)
+    Test.run (node:internal/test_runner/test:835:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:526:7)
+  ...
+# Subtest: adopted module contains no network, storage, shell, model or DOM rendering path
+ok 19 - adopted module contains no network, storage, shell, model or DOM rendering path
+  ---
+  duration_ms: 0.485334
+  ...
+1..19
+# tests 19
+# suites 0
+# pass 18
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 280.878389

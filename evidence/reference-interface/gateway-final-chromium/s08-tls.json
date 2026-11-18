@@ -1,0 +1,33 @@
+{
+  "certificate_sha256": "b8dbc75ee8364a3561836a022b7c0fa8aab189953de2acb5c5101ea3fca245b9",
+  "checks": [
+    {
+      "name": "Actual TLS socket accepts explicitly trusted fixture CA",
+      "passed": true
+    },
+    {
+      "name": "Untrusted fixture CA refused by default trust store",
+      "passed": true
+    },
+    {
+      "name": "Wrong server hostname refused with trusted fixture CA",
+      "passed": true
+    },
+    {
+      "name": "Cleartext HTTP does not serve the TLS API",
+      "passed": true
+    },
+    {
+      "name": "TLS fixture exited and listener stopped",
+      "passed": true
+    }
+  ],
+  "fixture_server_pid": 74480,
+  "native_device_evidence": false,
+  "platform_ca_native_acceptance": false,
+  "production_pairing": false,
+  "profile_private_keys_distributed": false,
+  "provider_started": false,
+  "returncode": -15,
+  "schema": "openbot.local-tls-proof/1"
+}

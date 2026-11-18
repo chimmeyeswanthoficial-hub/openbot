@@ -1,0 +1,32 @@
+{
+  "observed_runner_utc": "2026-11-13T19:44:52.081991+00:00",
+  "default_preset6_archive_bytes": 19503932,
+  "preset9_extreme_archive_bytes": 18584576,
+  "manifest_bytes": 1858480,
+  "same_expanded_payload_validation": {
+    "validated": true,
+    "regular_files": 8985,
+    "payload_bytes": 111081792,
+    "archive_sha256": "2499cf30cd3728746bb6773fac44623f8e936f85c50d666c153b44a58d92a0ba",
+    "checks": [
+      "regular files only",
+      "safe relative paths",
+      "no duplicate members",
+      "manifest file set",
+      "every payload size and SHA-256",
+      "bounded expanded size"
+    ]
+  },
+  "workspace_before_bundle": {
+    "files": 8989,
+    "bytes": 109594194,
+    "decimal_megabytes": 109.594,
+    "file_cap": 10000,
+    "byte_cap": 128000000,
+    "within_cap": true
+  },
+  "projected_bytes_with_archive_and_manifest": 130045442,
+  "cap_bytes": 128000000,
+  "projected_within_cap": false,
+  "primary_files_deleted_or_rewritten": false
+}

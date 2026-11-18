@@ -1,0 +1,43 @@
+{
+  "observed_runner_utc": "2026-11-14T08:13:29.463576+00:00",
+  "purpose": "Losslessly compact newly generated verbose JUnit evidence within snapshot cap; old historical audit files unchanged.",
+  "original_path": "audit/execution-python.xml",
+  "original_bytes": 46146,
+  "original_sha256": "f64d937d6861bfccf1189d2d9f206dc4d7b965ea19250b77ba3872abdeeaa55c",
+  "retained_path": "audit/execution-python.xml.xz",
+  "retained_bytes": 6040,
+  "retained_sha256": "382b06adc36efb5cda7b8568d53173ff4b18f7b1129b4d107cb86ece99d6d9f2",
+  "exact_decompression_verified": true,
+  "loose_generated_xml_removed_after_roundtrip": true,
+  "evidence_discarded": false,
+  "additional_fresh_evidence": [
+    {
+      "original_description": "independently restored .cache/execution-fresh-python.xml",
+      "original_bytes": 46539,
+      "original_sha256": "914df0a89ec13a6e309de2f3f5e9d56e6ab24705d8de6970a8edd3ebbdcc6505",
+      "retained_path": "audit/execution-fresh-python.xml.xz",
+      "retained_bytes": 6156,
+      "retained_sha256": "adc0df46d038d7d702347eeff3ca8dc87384168320d4e8418ebce405b2e5a371",
+      "exact_decompression_verified": true
+    },
+    {
+      "original_description": "independent fresh install/Python/release/actual-process receipts combined in named sections",
+      "original_bytes": 15729,
+      "original_sha256": "873f5530a3b9a5cb428a684600e5689b280080d7499caa635e66e9a7ede4c9bd",
+      "retained_path": "audit/execution-fresh-gates.txt.xz",
+      "retained_bytes": 5200,
+      "retained_sha256": "a0c293486a7407ae3263d36ed814b78107aa6aad2805c2c46d28743c5bedc3d9",
+      "exact_decompression_verified": true
+    }
+  ],
+  "final_local_gate_evidence": {
+    "original_path": "audit/execution-release-check.txt",
+    "original_bytes": 7706,
+    "original_sha256": "54ebe02e8d119da4b5113d8319f7669b8f62bb53ac30d174573434475e586b42",
+    "retained_path": "audit/execution-release-check.txt.xz",
+    "retained_bytes": 3444,
+    "retained_sha256": "93ad1cb6b14cdb919464009b9f69cd6bdb97370f1b6c5036092e24ce484d11ce",
+    "exact_decompression_verified": true,
+    "loose_generated_log_removed_after_roundtrip": true
+  }
+}

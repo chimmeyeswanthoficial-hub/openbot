@@ -1,0 +1,17 @@
+/* OPENBOT-OS local profile: neutral accessible header, no copied design-export art. */
+.hq-local-banner { height: 76px; padding: 12px 22px; display: flex; align-items: center; gap: 24px; background: #142a40; color: #f5f8fc; border-bottom: 1px solid #334e68; box-sizing: border-box; }
+.hq-local-banner > div { display: flex; flex-direction: column; gap: 3px; min-width: 200px; }
+.hq-local-banner strong { font-size: 17px; letter-spacing: -.3px; }
+.hq-local-banner span { font-size: 9px; letter-spacing: 1.1px; color: #b8d5ed; }
+.hq-local-banner p { flex: 1; font-size: 12px; line-height: 1.45; margin: 0; color: #d4e4f2; }
+.hq-local-banner .btn { background: #e0f2fe; color: #163650; }
+.hq-local-banner .btn:disabled { opacity: .55; }
+.hq-local-banner + .app { height: calc(100% - 76px); }
+.signin__card label { text-align: left; font-size: 13px; color: #334155; }
+.signin__card form { display: flex; flex-direction: column; gap: 12px; }
+.signin__foot code { font-size: 11px; }
+/* OPENBOT-OS: explicit history read with visible loading/retry state. */
+.transcript__history { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 12px 0 20px; }
+.transcript__history [role="alert"] { font-size: 12px; color: #a52a2a; }
+.transcript__history .btn:disabled { opacity: .6; cursor: wait; }
+@media (max-width: 900px) { .hq-local-banner { height: 94px; padding: 10px 14px; gap: 12px; flex-wrap: wrap; } .hq-local-banner p { display: none; } .hq-local-banner + .app { height: calc(100% - 94px); } .sidebar { width: 230px; } .details { display: none; } }

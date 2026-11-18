@@ -1,0 +1,6 @@
+{
+  "name": "Atlas",
+  "role": "builder",
+  "provider": "unconfigured",
+  "ide_tools": ["claude_code", "antigravity", "t3_code"]
+}

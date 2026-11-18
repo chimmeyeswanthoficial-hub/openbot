@@ -1,0 +1,257 @@
+FFFFFFFFFFFFFF                                                           [100%]
+=================================== FAILURES ===================================
+_ test_legacy_event_id_mapper_is_not_an_authoritative_money_writer[invoice.paid-obj0] _
+
+event_type = 'invoice.paid', obj = {'id': 'in_fixture', 'amount_paid': 10000}
+
+    @pytest.mark.parametrize('event_type,obj', [
+        ('invoice.paid', {'id': 'in_fixture', 'amount_paid': 10000}),
+        ('charge.refunded', {'id': 'ch_fixture', 'amount_refunded': 5000}),
+        ('invoice.paid', {'id': 'in_fixture_inr', 'currency': 'inr', 'amount_paid': 10000}),
+    ])
+    def test_legacy_event_id_mapper_is_not_an_authoritative_money_writer(event_type, obj):
+>       with pytest.raises(WebhookError, match='legacy'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE WebhookError
+
+services/sentinel/tests/test_economic_boundary.py:26: Failed
+_ test_legacy_event_id_mapper_is_not_an_authoritative_money_writer[charge.refunded-obj1] _
+
+event_type = 'charge.refunded'
+obj = {'id': 'ch_fixture', 'amount_refunded': 5000}
+
+    @pytest.mark.parametrize('event_type,obj', [
+        ('invoice.paid', {'id': 'in_fixture', 'amount_paid': 10000}),
+        ('charge.refunded', {'id': 'ch_fixture', 'amount_refunded': 5000}),
+        ('invoice.paid', {'id': 'in_fixture_inr', 'currency': 'inr', 'amount_paid': 10000}),
+    ])
+    def test_legacy_event_id_mapper_is_not_an_authoritative_money_writer(event_type, obj):
+>       with pytest.raises(WebhookError, match='legacy'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE WebhookError
+
+services/sentinel/tests/test_economic_boundary.py:26: Failed
+_ test_legacy_event_id_mapper_is_not_an_authoritative_money_writer[invoice.paid-obj2] _
+
+event_type = 'invoice.paid'
+obj = {'id': 'in_fixture_inr', 'currency': 'inr', 'amount_paid': 10000}
+
+    @pytest.mark.parametrize('event_type,obj', [
+        ('invoice.paid', {'id': 'in_fixture', 'amount_paid': 10000}),
+        ('charge.refunded', {'id': 'ch_fixture', 'amount_refunded': 5000}),
+        ('invoice.paid', {'id': 'in_fixture_inr', 'currency': 'inr', 'amount_paid': 10000}),
+    ])
+    def test_legacy_event_id_mapper_is_not_an_authoritative_money_writer(event_type, obj):
+>       with pytest.raises(WebhookError, match='legacy'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE WebhookError
+
+services/sentinel/tests/test_economic_boundary.py:26: Failed
+_______ test_legacy_validation_refuses_nonfinite_and_boolean_money[nan] ________
+
+value = nan
+
+    @pytest.mark.parametrize('value', [float('nan'), float('inf'), -float('inf'), True])
+    def test_legacy_validation_refuses_nonfinite_and_boolean_money(value):
+>       with pytest.raises(LedgerError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE LedgerError
+
+services/sentinel/tests/test_economic_boundary.py:33: Failed
+_______ test_legacy_validation_refuses_nonfinite_and_boolean_money[inf] ________
+
+value = inf
+
+    @pytest.mark.parametrize('value', [float('nan'), float('inf'), -float('inf'), True])
+    def test_legacy_validation_refuses_nonfinite_and_boolean_money(value):
+>       with pytest.raises(LedgerError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE LedgerError
+
+services/sentinel/tests/test_economic_boundary.py:33: Failed
+_______ test_legacy_validation_refuses_nonfinite_and_boolean_money[-inf] _______
+
+value = -inf
+
+    @pytest.mark.parametrize('value', [float('nan'), float('inf'), -float('inf'), True])
+    def test_legacy_validation_refuses_nonfinite_and_boolean_money(value):
+>       with pytest.raises(LedgerError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE LedgerError
+
+services/sentinel/tests/test_economic_boundary.py:33: Failed
+_______ test_legacy_validation_refuses_nonfinite_and_boolean_money[True] _______
+
+value = True
+
+    @pytest.mark.parametrize('value', [float('nan'), float('inf'), -float('inf'), True])
+    def test_legacy_validation_refuses_nonfinite_and_boolean_money(value):
+>       with pytest.raises(LedgerError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE LedgerError
+
+services/sentinel/tests/test_economic_boundary.py:33: Failed
+______ test_legacy_secret_alone_cannot_enable_an_unverified_ledger_writer ______
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f6a580e9480>
+
+    def test_legacy_secret_alone_cannot_enable_an_unverified_ledger_writer(monkeypatch):
+        store = Store(':memory:')
+        monkeypatch.setattr(service, 'store', store)
+        secret = 'explicitly-fake-unit-signing-secret'
+        monkeypatch.setenv('STRIPE_WEBHOOK_SECRET', secret)
+        payload = json.dumps({'id': 'evt_fixture', 'type': 'invoice.paid',
+                              'data': {'object': {'id': 'in_fixture', 'amount_paid': 10000}}}).encode()
+        timestamp = int(time.time())
+        signature = hmac.new(secret.encode(), str(timestamp).encode() + b'.' + payload, hashlib.sha256).hexdigest()
+        response = TestClient(service.app).post('/webhooks/stripe', content=payload,
+                    headers={'stripe-signature': f't={timestamp},v1={signature}'})
+>       assert response.status_code == 503
+E       assert 201 == 503
+E        +  where 201 = <Response [201 Created]>.status_code
+
+services/sentinel/tests/test_economic_boundary.py:49: AssertionError
+___________ test_legacy_manual_http_does_not_coerce_boolean_to_money ___________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f6a5815bbb0>
+
+    def test_legacy_manual_http_does_not_coerce_boolean_to_money(monkeypatch):
+        store = Store(':memory:')
+        monkeypatch.setattr(service, 'store', store)
+        response = TestClient(service.app).post('/v1/ledger', json={
+            'venture': 'media-api', 'kind': 'revenue', 'amount_usd': True,
+            'source': 'manual', 'idempotency_key': 'bool-fixture',
+        })
+>       assert response.status_code == 422
+E       assert 201 == 422
+E        +  where 201 = <Response [201 Created]>.status_code
+
+services/sentinel/tests/test_economic_boundary.py:61: AssertionError
+________ test_generator_executes_pytest_and_preserves_real_failure_xml _________
+
+tmp_path = PosixPath('/tmp/pytest-of-user/pytest-1/test_generator_executes_pytest0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f6a5804b1d0>
+
+    def test_generator_executes_pytest_and_preserves_real_failure_xml(tmp_path, monkeypatch):
+        calls = []
+        runner_fixture(monkeypatch, calls)
+        output = tmp_path / 'actual.xml'
+        generator.generate(output)
+>       assert '--collect-only' not in calls[0], 'collection cannot be reported as execution'
+E       AssertionError: collection cannot be reported as execution
+E       assert '--collect-only' not in ['python', '-m', 'pytest', 'services/sentinel/tests', 'services/worker/tests', 'services/ledger/tests', ...]
+
+scripts/tests/test_verification_execution.py:50: AssertionError
+----------------------------- Captured stdout call -----------------------------
+Generated /tmp/pytest-of-user/pytest-1/test_generator_executes_pytest0/actual.xml (588 cases, sha256=ebb826151ccc1056a8d4993546b93cd3497a0699875f9bc8d0cb60cef18a8162)
+_____________ test_generator_does_not_overwrite_existing_evidence ______________
+
+tmp_path = PosixPath('/tmp/pytest-of-user/pytest-1/test_generator_does_not_overwr0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f6a58213350>
+
+    def test_generator_does_not_overwrite_existing_evidence(tmp_path, monkeypatch):
+        runner_fixture(monkeypatch, [])
+        output = tmp_path / 'preserve.xml'
+        output.write_text('original evidence')
+>       with pytest.raises(FileExistsError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE FileExistsError
+
+scripts/tests/test_verification_execution.py:60: Failed
+----------------------------- Captured stdout call -----------------------------
+Generated /tmp/pytest-of-user/pytest-1/test_generator_does_not_overwr0/preserve.xml (588 cases, sha256=441ed4fd70252179830cfab429f05505a7fed993164e4a7216c09f1a67d6e341)
+______ test_record_refuses_inconsistent_or_duplicate_case_evidence[xml0] _______
+
+tmp_path = PosixPath('/tmp/pytest-of-user/pytest-1/test_record_refuses_inconsiste0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f6a58212360>
+xml = '<testsuites><testsuite tests="2" failures="0" errors="0" skipped="0"><testcase classname="x" name="a"/></testsuite></testsuites>'
+
+    @pytest.mark.parametrize('xml', [
+        '<testsuites><testsuite tests="2" failures="0" errors="0" skipped="0"><testcase classname="x" name="a"/></testsuite></testsuites>',
+        '<testsuites><testsuite tests="2" failures="0" errors="0" skipped="0"><testcase classname="x" name="a"/><testcase classname="x" name="a"/></testsuite></testsuites>',
+    ])
+    def test_record_refuses_inconsistent_or_duplicate_case_evidence(tmp_path, monkeypatch, xml):
+        recorder = load_script('record-verification')
+        monkeypatch.setattr(recorder, 'ROOT', tmp_path)
+        for name in ('README.md', 'PROJECT_STATE.md', 'CHANGELOG.md'):
+            (tmp_path / name).write_text('Current Python: `pass=1, skip=0, fail=0, collected=1`\n')
+        evidence = tmp_path / 'bad.xml'
+        evidence.write_text(xml)
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+scripts/tests/test_verification_execution.py:76: Failed
+----------------------------- Captured stdout call -----------------------------
+Current Python: `pass=1, skip=0, fail=0, collected=1`
+______ test_record_refuses_inconsistent_or_duplicate_case_evidence[xml1] _______
+
+tmp_path = PosixPath('/tmp/pytest-of-user/pytest-1/test_record_refuses_inconsiste1')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f6a580bd850>
+xml = '<testsuites><testsuite tests="2" failures="0" errors="0" skipped="0"><testcase classname="x" name="a"/><testcase classname="x" name="a"/></testsuite></testsuites>'
+
+    @pytest.mark.parametrize('xml', [
+        '<testsuites><testsuite tests="2" failures="0" errors="0" skipped="0"><testcase classname="x" name="a"/></testsuite></testsuites>',
+        '<testsuites><testsuite tests="2" failures="0" errors="0" skipped="0"><testcase classname="x" name="a"/><testcase classname="x" name="a"/></testsuite></testsuites>',
+    ])
+    def test_record_refuses_inconsistent_or_duplicate_case_evidence(tmp_path, monkeypatch, xml):
+        recorder = load_script('record-verification')
+        monkeypatch.setattr(recorder, 'ROOT', tmp_path)
+        for name in ('README.md', 'PROJECT_STATE.md', 'CHANGELOG.md'):
+            (tmp_path / name).write_text('Current Python: `pass=1, skip=0, fail=0, collected=1`\n')
+        evidence = tmp_path / 'bad.xml'
+        evidence.write_text(xml)
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+scripts/tests/test_verification_execution.py:76: Failed
+----------------------------- Captured stdout call -----------------------------
+Current Python: `pass=2, skip=0, fail=0, collected=2`
+________ test_manifest_refuses_receipt_hash_not_matching_designated_xml ________
+
+tmp_path = PosixPath('/tmp/pytest-of-user/pytest-1/test_manifest_refuses_receipt_0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f6a580bc250>
+
+    def test_manifest_refuses_receipt_hash_not_matching_designated_xml(tmp_path, monkeypatch):
+        publisher = load_script('create_evidence_manifest')
+        monkeypatch.setattr(publisher, 'ROOT', tmp_path)
+        evidence = tmp_path / 'audit/evidence-ag0-c02'
+        evidence.mkdir(parents=True)
+        monkeypatch.setattr(publisher, 'EVIDENCE', evidence)
+        (evidence / 'full-python.xml').write_text(UNIT_XML)
+        (tmp_path / 'audit/verification-current.json').write_text(json.dumps({
+            'runner_timestamp': 'unit-fixture-not-a-measurement',
+            'junit_artifact': 'audit/evidence-ag0-c02/full-python.xml',
+            'junit_sha256': 'not-the-artifact-digest',
+            'python': {'passed': 1, 'failed': 1, 'skipped': 1, 'collected': 3},
+        }))
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+scripts/tests/test_verification_execution.py:94: Failed
+----------------------------- Captured stdout call -----------------------------
+Wrote manifest with 1 files to /tmp/pytest-of-user/pytest-1/test_manifest_refuses_receipt_0/audit/evidence-ag0-c02/manifest.json
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/fastapi/testclient.py:1
+  /home/user/.cache/ag4a-engineering/work/.venv/lib/python3.13/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED services/sentinel/tests/test_economic_boundary.py::test_legacy_event_id_mapper_is_not_an_authoritative_money_writer[invoice.paid-obj0]
+FAILED services/sentinel/tests/test_economic_boundary.py::test_legacy_event_id_mapper_is_not_an_authoritative_money_writer[charge.refunded-obj1]
+FAILED services/sentinel/tests/test_economic_boundary.py::test_legacy_event_id_mapper_is_not_an_authoritative_money_writer[invoice.paid-obj2]
+FAILED services/sentinel/tests/test_economic_boundary.py::test_legacy_validation_refuses_nonfinite_and_boolean_money[nan]
+FAILED services/sentinel/tests/test_economic_boundary.py::test_legacy_validation_refuses_nonfinite_and_boolean_money[inf]
+FAILED services/sentinel/tests/test_economic_boundary.py::test_legacy_validation_refuses_nonfinite_and_boolean_money[-inf]
+FAILED services/sentinel/tests/test_economic_boundary.py::test_legacy_validation_refuses_nonfinite_and_boolean_money[True]
+FAILED services/sentinel/tests/test_economic_boundary.py::test_legacy_secret_alone_cannot_enable_an_unverified_ledger_writer
+FAILED services/sentinel/tests/test_economic_boundary.py::test_legacy_manual_http_does_not_coerce_boolean_to_money
+FAILED scripts/tests/test_verification_execution.py::test_generator_executes_pytest_and_preserves_real_failure_xml
+FAILED scripts/tests/test_verification_execution.py::test_generator_does_not_overwrite_existing_evidence
+FAILED scripts/tests/test_verification_execution.py::test_record_refuses_inconsistent_or_duplicate_case_evidence[xml0]
+FAILED scripts/tests/test_verification_execution.py::test_record_refuses_inconsistent_or_duplicate_case_evidence[xml1]
+FAILED scripts/tests/test_verification_execution.py::test_manifest_refuses_receipt_hash_not_matching_designated_xml
+14 failed, 1 warning in 0.47s

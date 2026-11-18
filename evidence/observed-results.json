@@ -1,0 +1,51 @@
+{
+  "authenticated_ide_sessions": 0,
+  "browser": {
+    "chromium": {
+      "failed": 0,
+      "passed": 27
+    },
+    "webkit": {
+      "failed": 0,
+      "passed": 27
+    }
+  },
+  "date_note": "Runner timestamp is retained as observed, not substituted for the task-local date, evidence of elapsed pilot days, or release acceptance.",
+  "gateway_wiring_implemented": false,
+  "handoff_unittest": {
+    "failed": 0,
+    "passed": 8
+  },
+  "initial_setup_failures_retained": [
+    "kernel-before-venture-template.log",
+    "kernel-without-prerequisites.log"
+  ],
+  "kernel_configured_local": {
+    "collected": 1424,
+    "errors": 0,
+    "failed": 0,
+    "passed": 1251,
+    "skipped": 173,
+    "skipped_scope": "All 173 are PostgreSQL cases with explicit fixture/write opt-in absent. No new PostgreSQL server was started.",
+    "time_seconds_reported": "59.467"
+  },
+  "kernel_source_files_modified": 0,
+  "live_models_connected": 0,
+  "pilot_observed_days_accepted": 0,
+  "public_release_approved": false,
+  "retained_node_reuse": {
+    "failed": 0,
+    "passed": 25,
+    "skipped": 0
+  },
+  "runtime_junit_timestamp_observed": "2026-11-15T13:47:01.096501+00:00",
+  "schema": "openbot.observed-handoff/1",
+  "scope": "Source-only local engineering handoff. Old fully provisioned S11-S12 1424-pass evidence is historical, not the current configured source-only result.",
+  "social_accounts_connected": 0,
+  "studio_unittest": {
+    "failed": 0,
+    "passed": 40
+  },
+  "task_local_date": "2026-11-10",
+  "virtual_pcs_provisioned": 0
+}

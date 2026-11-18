@@ -1,0 +1,48 @@
+{
+  "adopted_into": [
+    "studio/web/finance-preview.js",
+    "studio/tests/finance-preview.test.cjs"
+  ],
+  "commit": "a4944f4c471d3dc93b8bfc060b5da309b5216ab2",
+  "license": "MIT",
+  "license_sha256": "399a9cccf1b228c9e8ad348ef66a0a5802d438d46735d0d068390925aee5ee36",
+  "not_imported": [
+    "zod dependency",
+    "CopilotKit Intelligence service or keys",
+    "telemetry",
+    "Google OAuth",
+    "browser or shell workers",
+    "Docker computer engine",
+    "bank connection",
+    "accounting ledger write"
+  ],
+  "original_integration": [
+    "studio/web/finance-workspace.js"
+  ],
+  "recorded_committer_date": "2026-10-26T15:38:10Z",
+  "requested_repository": "https://github.com/CopilotKit/OpenMuse",
+  "resolved_repository": "https://github.com/CopilotKit/openfuse",
+  "review_date_context": "Predecessor recorded intake date retained; not the current handoff date, latest-branch claim or pilot time.",
+  "review_task_local_date": "2026-11-10",
+  "schema": "openbot.scoped-donor-adoption/1",
+  "selection": "Immutable bounded review revision, not a claim to have reviewed the latest branch. Public API query cutoff recorded as 2026-11-10T18:29:59Z.",
+  "test_scope": "Adapted regression vectors execute the actual dependency-free JS adapter; original TypeScript tests are retained for provenance, not claimed to run unchanged.",
+  "upstream_files": {
+    "apps/server/src/engine/finance.ts": {
+      "bytes": 3862,
+      "sha256": "286580721d3b278325f676c80c268c3f9794deca6a54e276df39ab6fdb455c10"
+    },
+    "tests/finance-byte-limit.test.ts": {
+      "bytes": 1260,
+      "sha256": "81eeb0310e78ee82d4e90eb57082b9e0289495d9c2dc1ce46267897b76f9111b"
+    },
+    "tests/finance-headers.test.ts": {
+      "bytes": 1373,
+      "sha256": "a3e9563313559989850d4dca17ce68c6c66e14473b62c7b1fef3cae95d2ce8e5"
+    },
+    "tests/finance.test.ts": {
+      "bytes": 2761,
+      "sha256": "2a6f48f8c2a9cb64f282091a99c5a3ff4cd9a3cb28aea63c45c9695a99a3403b"
+    }
+  }
+}

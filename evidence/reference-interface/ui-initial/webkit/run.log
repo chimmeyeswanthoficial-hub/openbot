@@ -1,0 +1,38 @@
+PASS initial original light UI has ten blueprints, no live model, PC or authority
+PASS desktop three columns are distinct, bounded and capture the reference layout
+PASS companion search filters display profiles, not accounts
+PASS computer details close and reopen correctly on desktop
+PASS example conversation is conspicuously fictional and cannot send messages
+PASS unsent text survives navigation without upload or silent saving
+PASS local brief and deterministic intake are XSS-safe, not invented model output
+PASS Markdown export is explicitly a human brief, not execution approval
+PASS requested xAI profile becomes a verified planning blueprint only
+PASS real-PC and all three IDE requirements remain explicit and unprovisioned
+PASS Unicode/markup companion names preserve plan hash and cannot inject HTML
+PASS routine validates the IANA zone, saves a request, never schedules a job
+PASS YouTube local review explicitly previews private visibility and unknown audience
+PASS social acknowledgement/export cannot become authenticated publishing approval
+PASS every draft edit invalidates review and acknowledgement
+PASS duplicate content is warned, not rewritten for evasion
+PASS X has no reply, DM, like, follow or account-write route
+PASS Instagram login/account/scopes remain unfulfilled, not granted by a checklist
+PASS validator outage retains draft and cannot claim a successful review
+PASS late validator response cannot approve an edited draft
+PASS opt-in browser persistence excludes financial data, authority and verified plans
+PASS legacy browser data is preserved, never silently migrated or deleted
+PASS possible credentials are refused as briefs, not persisted or sent
+PASS local UTF-8 attachment is a composer draft, never automatically saved/uploaded
+PASS invalid UTF-8, binary and oversized brief files fail closed
+PASS editing a draft wins over a late local attachment read
+PASS unpaired work and session views expose no privileged execution route
+PASS mobile opens as companion list, selects chat, and returns with native-style back
+PASS mobile search includes pinned companions and details overlay dismisses accessibly
+PASS all eight views fit 320px, 760px and desktop without horizontal document overflow
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+1 !== 0
+
+    at /home/user/.cache/openbot-reference-next/workspace/OpenBot-Workspace/studio/scripts/test-ui.cjs:130:414
+    at async test (/home/user/.cache/openbot-reference-next/workspace/OpenBot-Workspace/studio/scripts/test-ui.cjs:15:57)
+    at async /home/user/.cache/openbot-reference-next/workspace/OpenBot-Workspace/studio/scripts/test-ui.cjs:129:2
+Observed 30 passed; 1 failed

@@ -1,0 +1,68 @@
+{
+  "accepted_real_observed_pilot_days": 0,
+  "kernel_profile": "Not rerun in this successor. All 4188 kernel+paired control listed files are byte/size/mode unchanged; retained previous configured result 1251 pass/173 PostgreSQL skips is historical.",
+  "lint": "11 selected Python files checked; lint and formatting clean",
+  "new_code_artifacts": {
+    "studio/scripts/build-web.py": "f4b5d5e4c607401673a5aef6f43e06a6e204e05621879a2b6adda14a0cf642bc",
+    "studio/scripts/test-finance-ui.cjs": "a069b9c8ce1e6444cf9bdf8e70e0fca4beb54cc40f58a993e372f685b1f92ff1",
+    "studio/tests/test_finance_source.py": "5fc6623c5e2a0f9d55a527ee95370daeec40280f9f334d5cd13868a285b152f1",
+    "studio/web/app.js": "b85dee1ca14473ff4a78b5b9c026809d3f9a3f958058b18b699ed939acb6b597",
+    "studio/web/finance-preview.js": "6e75bdbc858a88836f527487dbf74601e9b2405d0256d7d1c57adaa74d37c289",
+    "studio/web/finance-workspace.js": "635647f9edad3b1fa923d0ba4f65d24dcabf5c4abd08a7360d00a17fcfc376ca",
+    "studio/web/index.html": "31543a52439065dfc2de4bde28679e2fdf80ff04ca8124f98bf0e9a73d9a2d02"
+  },
+  "node": "v20.20.2",
+  "platform": "Linux-6.1.189+-x86_64-with-glibc2.41",
+  "public_release": false,
+  "python": "3.13.18",
+  "ruff": "ruff 0.17.5",
+  "runner_clock_not_pilot_time": true,
+  "schema": "openbot.openmuse-checkpoint-pre-export/1",
+  "task_local_date": "2026-11-10",
+  "tests": {
+    "finance-chromium": {
+      "failed": 0,
+      "page_errors": 0,
+      "passed": 21,
+      "receipt_sha256": "68c17e18f3d1768e7b02104ff3d6dcbc52b210aea4171587860934927107093f"
+    },
+    "finance-webkit": {
+      "failed": 0,
+      "page_errors": 0,
+      "passed": 21,
+      "receipt_sha256": "270e5c113cc08987f0c64c45b84e53079f55d200c0fe8f2444ca27201382d4e7"
+    },
+    "pre-export-finance-node": {
+      "log_sha256": "c7a348e9532fc9963892714ff896ef6ea0137158dbee455cb1d4ac6d4a657fdb",
+      "passed": 19,
+      "scope": "specified local profile; no external acceptance"
+    },
+    "pre-export-handoff-python": {
+      "log_sha256": "1a9393015b51c2283a3cd31a433b321a76c7e786edc5a578cb6d550899d22fcd",
+      "passed": 8,
+      "scope": "specified local profile; no external acceptance"
+    },
+    "pre-export-studio-python": {
+      "log_sha256": "9b0605acfaa35e290fc9d1696e7d1bc7ae7463ca35d06bf1177f6fdab9f70947",
+      "passed": 42,
+      "scope": "specified local profile; no external acceptance"
+    },
+    "regression-chromium": {
+      "failed": 0,
+      "page_errors": 0,
+      "passed": 27,
+      "receipt_sha256": "80f6ba82623e0b2c3ed2fab41be8319df77091591b2d847d92cdb6a02ef67609"
+    },
+    "regression-webkit": {
+      "failed": 0,
+      "page_errors": 0,
+      "passed": 27,
+      "receipt_sha256": "67c51f8dad45132e9a58efea4ac69462710262f10e003ae8da40ac481777c53a"
+    },
+    "retained-reuse-profile": {
+      "log_sha256": "cb6a2b76c358f00bd77e4cb0a208b4ed7bf6b52561d898b05fbc69920b6b924a",
+      "passed": 25,
+      "scope": "specified local profile; no external acceptance"
+    }
+  }
+}

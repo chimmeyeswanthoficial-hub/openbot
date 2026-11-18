@@ -1,0 +1,246 @@
+{
+  "schema": "openbot.observed-reference-ui/1",
+  "engine": "webkit",
+  "base": "http://127.0.0.1:4184",
+  "results": [
+    {
+      "name": "initial original light UI has ten blueprints, no live model, PC or authority",
+      "status": "passed",
+      "duration_ms": 995
+    },
+    {
+      "name": "desktop three columns are distinct, bounded and capture the reference layout",
+      "status": "passed",
+      "duration_ms": 538
+    },
+    {
+      "name": "companion search filters display profiles, not accounts",
+      "status": "passed",
+      "duration_ms": 192
+    },
+    {
+      "name": "computer details close and reopen correctly on desktop",
+      "status": "passed",
+      "duration_ms": 442
+    },
+    {
+      "name": "example conversation is conspicuously fictional and cannot send messages",
+      "status": "passed",
+      "duration_ms": 822
+    },
+    {
+      "name": "unsent text survives navigation without upload or silent saving",
+      "status": "passed",
+      "duration_ms": 557
+    },
+    {
+      "name": "local brief and deterministic intake are XSS-safe, not invented model output",
+      "status": "passed",
+      "duration_ms": 378
+    },
+    {
+      "name": "Markdown export is explicitly a human brief, not execution approval",
+      "status": "passed",
+      "duration_ms": 300
+    },
+    {
+      "name": "requested xAI profile becomes a verified planning blueprint only",
+      "status": "passed",
+      "duration_ms": 1668
+    },
+    {
+      "name": "real-PC and all three IDE requirements remain explicit and unprovisioned",
+      "status": "passed",
+      "duration_ms": 1030
+    },
+    {
+      "name": "Unicode/markup companion names preserve plan hash and cannot inject HTML",
+      "status": "passed",
+      "duration_ms": 1125
+    },
+    {
+      "name": "routine validates the IANA zone, saves a request, never schedules a job",
+      "status": "passed",
+      "duration_ms": 1643
+    },
+    {
+      "name": "YouTube local review explicitly previews private visibility and unknown audience",
+      "status": "passed",
+      "duration_ms": 431
+    },
+    {
+      "name": "social acknowledgement/export cannot become authenticated publishing approval",
+      "status": "passed",
+      "duration_ms": 248
+    },
+    {
+      "name": "every draft edit invalidates review and acknowledgement",
+      "status": "passed",
+      "duration_ms": 22
+    },
+    {
+      "name": "duplicate content is warned, not rewritten for evasion",
+      "status": "passed",
+      "duration_ms": 91
+    },
+    {
+      "name": "X has no reply, DM, like, follow or account-write route",
+      "status": "passed",
+      "duration_ms": 181
+    },
+    {
+      "name": "Instagram login/account/scopes remain unfulfilled, not granted by a checklist",
+      "status": "passed",
+      "duration_ms": 135
+    },
+    {
+      "name": "validator outage retains draft and cannot claim a successful review",
+      "status": "passed",
+      "duration_ms": 136
+    },
+    {
+      "name": "late validator response cannot approve an edited draft",
+      "status": "passed",
+      "duration_ms": 154
+    },
+    {
+      "name": "opt-in browser persistence excludes financial data, authority and verified plans",
+      "status": "passed",
+      "duration_ms": 984
+    },
+    {
+      "name": "legacy browser data is preserved, never silently migrated or deleted",
+      "status": "passed",
+      "duration_ms": 2076
+    },
+    {
+      "name": "possible credentials are refused as briefs, not persisted or sent",
+      "status": "passed",
+      "duration_ms": 362
+    },
+    {
+      "name": "local UTF-8 attachment is a composer draft, never automatically saved/uploaded",
+      "status": "passed",
+      "duration_ms": 62
+    },
+    {
+      "name": "invalid UTF-8, binary and oversized brief files fail closed",
+      "status": "passed",
+      "duration_ms": 238
+    },
+    {
+      "name": "editing a draft wins over a late local attachment read",
+      "status": "passed",
+      "duration_ms": 35
+    },
+    {
+      "name": "unpaired work and session views expose no privileged execution route",
+      "status": "passed",
+      "duration_ms": 245
+    },
+    {
+      "name": "mobile opens as companion list, selects chat, and returns with native-style back",
+      "status": "passed",
+      "duration_ms": 864
+    },
+    {
+      "name": "mobile search includes pinned companions and details overlay dismisses accessibly",
+      "status": "passed",
+      "duration_ms": 30244
+    },
+    {
+      "name": "all eight views fit 320px, 760px and desktop without horizontal document overflow",
+      "status": "passed",
+      "duration_ms": 62312
+    },
+    {
+      "name": "keyboard landmarks, dialog focus and mobile action names are present",
+      "status": "failed",
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n1 !== 0\n\n    at /home/user/.cache/openbot-reference-next/workspace/OpenBot-Workspace/studio/scripts/test-ui.cjs:130:414\n    at async test (/home/user/.cache/openbot-reference-next/workspace/OpenBot-Workspace/studio/scripts/test-ui.cjs:15:57)\n    at async /home/user/.cache/openbot-reference-next/workspace/OpenBot-Workspace/studio/scripts/test-ui.cjs:129:2"
+    }
+  ],
+  "requests": [
+    {
+      "url": "http://127.0.0.1:4184/",
+      "method": "GET",
+      "kind": "document"
+    },
+    {
+      "url": "http://127.0.0.1:4184/api/status",
+      "method": "GET",
+      "kind": "fetch"
+    },
+    {
+      "url": "http://127.0.0.1:4184/api/companion-plan",
+      "method": "POST",
+      "kind": "fetch"
+    },
+    {
+      "url": "http://127.0.0.1:4184/api/companion-plan",
+      "method": "POST",
+      "kind": "fetch"
+    },
+    {
+      "url": "http://127.0.0.1:4184/api/social-plan",
+      "method": "POST",
+      "kind": "fetch"
+    },
+    {
+      "url": "http://127.0.0.1:4184/api/social-plan",
+      "method": "POST",
+      "kind": "fetch"
+    },
+    {
+      "url": "http://127.0.0.1:4184/api/social-plan",
+      "method": "POST",
+      "kind": "fetch"
+    },
+    {
+      "url": "http://127.0.0.1:4184/api/social-plan",
+      "method": "POST",
+      "kind": "fetch"
+    },
+    {
+      "url": "http://127.0.0.1:4184/api/social-plan",
+      "method": "POST",
+      "kind": "fetch"
+    },
+    {
+      "url": "http://127.0.0.1:4184/api/social-plan",
+      "method": "POST",
+      "kind": "fetch"
+    },
+    {
+      "url": "http://127.0.0.1:4184/",
+      "method": "GET",
+      "kind": "document"
+    },
+    {
+      "url": "http://127.0.0.1:4184/api/status",
+      "method": "GET",
+      "kind": "fetch"
+    },
+    {
+      "url": "http://127.0.0.1:4184/",
+      "method": "GET",
+      "kind": "document"
+    },
+    {
+      "url": "http://127.0.0.1:4184/api/status",
+      "method": "GET",
+      "kind": "fetch"
+    },
+    {
+      "url": "http://127.0.0.1:4184/",
+      "method": "GET",
+      "kind": "document"
+    },
+    {
+      "url": "http://127.0.0.1:4184/api/status",
+      "method": "GET",
+      "kind": "fetch"
+    }
+  ],
+  "page_errors": [],
+  "scope": "Local light UI and synthetic planning. No real model, PC, IDE, social, native-device, independent accessibility or release acceptance."
+}

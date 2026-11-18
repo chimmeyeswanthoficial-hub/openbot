@@ -1,0 +1,2573 @@
+........................................................................ [  5%]
+........................................................................ [ 10%]
+..................................................................ssss.. [ 15%]
+...........................................................sssssssssssss [ 20%]
+sssssssssssssssssssss................................................... [ 25%]
+...ss....................s.s.s.s.s.s.s.s.s.....sssss.s.s.s.....sssss.... [ 30%]
+....s..ss.s...sss.s.s................................................... [ 35%]
+......................................................ss......ssssss.s.. [ 40%]
+ss.s.......s........ss.................................................. [ 45%]
+........................................................................ [ 50%]
+...........................................EsEsEsEEEEEEssssssEEEEEEEssss [ 55%]
+sssEsEsEsEsEsEsEsEs..................................................... [ 60%]
+........................................................................ [ 65%]
+.............................sssssss.....................sss............ [ 70%]
+..........s.s...s.sss....ssssss.s.........sssssssss........ssssssss.s.s. [ 75%]
+s....ssss.s...sss.s.s.sssssssss.s.sssssssss.....sssss..ssssss...sss.s... [ 80%]
+........................................................................ [ 85%]
+........................................................................ [ 91%]
+........................................................................ [ 96%]
+.................s.sss..................................                 [100%]
+==================================== ERRORS ====================================
+_ ERROR at setup of test_default_off_no_legacy_grants_and_no_http_downgrade[sqlite] _
+
+durable_backend = namespace(kind='sqlite', store=Store(path='/tmp/pytest-of-user/pytest-55/test_default_off_no_legacy_gra0/governed.sqli...], admin=None, role=None, schema=None, path=PosixPath('/tmp/pytest-of-user/pytest-55/test_default_off_no_legacy_gra0'))
+tmp_path = PosixPath('/tmp/pytest-of-user/pytest-55/test_default_off_no_legacy_gra0')
+
+    @pytest.fixture
+    def control(durable_backend, tmp_path):
+        b = durable_backend
+        issuer = WorkService(b.provision, enabled=True)
+        work = WorkService(b.work, enabled=True)
+        server = sha(b"owned-synthetic-control-fixture")
+        devices = DeviceStore(
+            tmp_path / "devices.db", server, initialize=True, clock=lambda: b.clock[0]
+        )
+        authority = ControlAuthority(devices, issuer)
+        admin_key = Ed25519PrivateKey.generate()
+        trusted = {
+            "host": {
+                "public_key": encode(admin_key.public_key().public_bytes_raw()),
+                "roles": ["catalog-admin"],
+                "revoked": False,
+            }
+        }
+        root = Path(__file__).resolve().parents[3]
+        lock = root / "audit/first-party-tool-catalog.json"
+        auth_file = tmp_path / "catalog-authority.json"
+        catalog_payload = {
+            "schema": "openbot.tool-authority/1",
+            "epoch": 1,
+            "not_before": int(b.clock[0]) - 1,
+            "expires": int(b.clock[0]) + 3600,
+            "revoked": [],
+            "grants": {"demo": ["owned.qa"], "other": ["owned.qa"]},
+        }
+        auth_file.write_text(json.dumps(sign(admin_key, "host", catalog_payload)))
+        catalog = ToolCatalog(root, lock, file_sha(lock), auth_file, trusted, clock=lambda: b.clock[0])
+        setup_book = EconomicBook(b.owner, experimental=True)
+        scopes = {
+            "demo": Scope("acct_controlfixture", "demo"),
+            "other": Scope("acct_otherfixture", "other"),
+        }
+        for venture, scope in scopes.items():
+            obj = charge(venture, 25000 if venture == "demo" else 99999)
+            obj["metadata"]["venture"] = venture
+            setup_book.ingest(
+                encoded("charge.succeeded", obj, "evt_control_" + venture, scope.account), scope
+            )
+        obj = refund("control", 5000, "demo")
+        obj["metadata"]["venture"] = "demo"
+        setup_book.ingest(
+            encoded("refund.created", obj, "evt_control_refund", scopes["demo"].account), scopes["demo"]
+        )
+        if b.kind == "pg":
+            from psycopg2 import sql
+    
+            with b.admin.cursor() as cur:
+                for table in [
+                    "economic_v1_schema",
+                    "economic_v1_messages",
+                    "economic_v1_postings",
+                    "economic_v1_links",
+                    "economic_v1_events",
+                ]:
+                    cur.execute(
+                        sql.SQL("GRANT SELECT ON {}.{} TO {}").format(
+                            sql.Identifier(b.schema), sql.Identifier(table), sql.Identifier(b.role)
+                        )
+                    )
+        book = EconomicBook(b.store, experimental=True, initialize=False)
+        bridge = ControlBridge(
+            devices, work, catalog, book=book, book_scopes=scopes, authority=authority
+        )
+        client_file = root.parent / "control/web/index.html"
+        app = create_control_app(
+            bridge,
+            origin="https://control.test",
+            client_file=client_file,
+>           client_sha256=file_sha(client_file),
+                          ^^^^^^^^^^^^^^^^^^^^^
+            enabled=True,
+        )
+
+services/gateway/tests/test_control_api.py:167: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+services/gateway/src/governed_skills.py:36: in file_sha
+    with Path(path).open("rb") as handle:
+         ^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/home/user/.cache/openbot-reference-next/control/web/index.html')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/user/.cache/openbot-reference-next/control/web/index.html'
+
+/usr/local/lib/python3.13/pathlib/_local.py:537: FileNotFoundError
+_ ERROR at setup of test_real_scoped_reads_use_the_exact_book_not_float_pnl[sqlite] _
+
+durable_backend = namespace(kind='sqlite', store=Store(path='/tmp/pytest-of-user/pytest-55/test_real_scoped_reads_use_the0/governed.sqli...], admin=None, role=None, schema=None, path=PosixPath('/tmp/pytest-of-user/pytest-55/test_real_scoped_reads_use_the0'))
+tmp_path = PosixPath('/tmp/pytest-of-user/pytest-55/test_real_scoped_reads_use_the0')
+
+    @pytest.fixture
+    def control(durable_backend, tmp_path):
+        b = durable_backend
+        issuer = WorkService(b.provision, enabled=True)
+        work = WorkService(b.work, enabled=True)
+        server = sha(b"owned-synthetic-control-fixture")
+        devices = DeviceStore(
+            tmp_path / "devices.db", server, initialize=True, clock=lambda: b.clock[0]
+        )
+        authority = ControlAuthority(devices, issuer)
+        admin_key = Ed25519PrivateKey.generate()
+        trusted = {
+            "host": {
+                "public_key": encode(admin_key.public_key().public_bytes_raw()),
+                "roles": ["catalog-admin"],
+                "revoked": False,
+            }
+        }
+        root = Path(__file__).resolve().parents[3]
+        lock = root / "audit/first-party-tool-catalog.json"
+        auth_file = tmp_path / "catalog-authority.json"
+        catalog_payload = {
+            "schema": "openbot.tool-authority/1",
+            "epoch": 1,
+            "not_before": int(b.clock[0]) - 1,
+            "expires": int(b.clock[0]) + 3600,
+            "revoked": [],
+            "grants": {"demo": ["owned.qa"], "other": ["owned.qa"]},
+        }
+        auth_file.write_text(json.dumps(sign(admin_key, "host", catalog_payload)))
+        catalog = ToolCatalog(root, lock, file_sha(lock), auth_file, trusted, clock=lambda: b.clock[0])
+        setup_book = EconomicBook(b.owner, experimental=True)
+        scopes = {
+            "demo": Scope("acct_controlfixture", "demo"),
+            "other": Scope("acct_otherfixture", "other"),
+        }
+        for venture, scope in scopes.items():
+            obj = charge(venture, 25000 if venture == "demo" else 99999)
+            obj["metadata"]["venture"] = venture
+            setup_book.ingest(
+                encoded("charge.succeeded", obj, "evt_control_" + venture, scope.account), scope
+            )
+        obj = refund("control", 5000, "demo")
+        obj["metadata"]["venture"] = "demo"
+        setup_book.ingest(
+            encoded("refund.created", obj, "evt_control_refund", scopes["demo"].account), scopes["demo"]
+        )
+        if b.kind == "pg":
+            from psycopg2 import sql
+    
+            with b.admin.cursor() as cur:
+                for table in [
+                    "economic_v1_schema",
+                    "economic_v1_messages",
+                    "economic_v1_postings",
+                    "economic_v1_links",
+                    "economic_v1_events",
+                ]:
+                    cur.execute(
+                        sql.SQL("GRANT SELECT ON {}.{} TO {}").format(
+                            sql.Identifier(b.schema), sql.Identifier(table), sql.Identifier(b.role)
+                        )
+                    )
+        book = EconomicBook(b.store, experimental=True, initialize=False)
+        bridge = ControlBridge(
+            devices, work, catalog, book=book, book_scopes=scopes, authority=authority
+        )
+        client_file = root.parent / "control/web/index.html"
+        app = create_control_app(
+            bridge,
+            origin="https://control.test",
+            client_file=client_file,
+>           client_sha256=file_sha(client_file),
+                          ^^^^^^^^^^^^^^^^^^^^^
+            enabled=True,
+        )
+
+services/gateway/tests/test_control_api.py:167: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+services/gateway/src/governed_skills.py:36: in file_sha
+    with Path(path).open("rb") as handle:
+         ^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/home/user/.cache/openbot-reference-next/control/web/index.html')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/user/.cache/openbot-reference-next/control/web/index.html'
+
+/usr/local/lib/python3.13/pathlib/_local.py:537: FileNotFoundError
+_ ERROR at setup of test_pairing_code_one_use_and_public_key_is_proved[sqlite] _
+
+durable_backend = namespace(kind='sqlite', store=Store(path='/tmp/pytest-of-user/pytest-55/test_pairing_code_one_use_and_0/governed.sqli...], admin=None, role=None, schema=None, path=PosixPath('/tmp/pytest-of-user/pytest-55/test_pairing_code_one_use_and_0'))
+tmp_path = PosixPath('/tmp/pytest-of-user/pytest-55/test_pairing_code_one_use_and_0')
+
+    @pytest.fixture
+    def control(durable_backend, tmp_path):
+        b = durable_backend
+        issuer = WorkService(b.provision, enabled=True)
+        work = WorkService(b.work, enabled=True)
+        server = sha(b"owned-synthetic-control-fixture")
+        devices = DeviceStore(
+            tmp_path / "devices.db", server, initialize=True, clock=lambda: b.clock[0]
+        )
+        authority = ControlAuthority(devices, issuer)
+        admin_key = Ed25519PrivateKey.generate()
+        trusted = {
+            "host": {
+                "public_key": encode(admin_key.public_key().public_bytes_raw()),
+                "roles": ["catalog-admin"],
+                "revoked": False,
+            }
+        }
+        root = Path(__file__).resolve().parents[3]
+        lock = root / "audit/first-party-tool-catalog.json"
+        auth_file = tmp_path / "catalog-authority.json"
+        catalog_payload = {
+            "schema": "openbot.tool-authority/1",
+            "epoch": 1,
+            "not_before": int(b.clock[0]) - 1,
+            "expires": int(b.clock[0]) + 3600,
+            "revoked": [],
+            "grants": {"demo": ["owned.qa"], "other": ["owned.qa"]},
+        }
+        auth_file.write_text(json.dumps(sign(admin_key, "host", catalog_payload)))
+        catalog = ToolCatalog(root, lock, file_sha(lock), auth_file, trusted, clock=lambda: b.clock[0])
+        setup_book = EconomicBook(b.owner, experimental=True)
+        scopes = {
+            "demo": Scope("acct_controlfixture", "demo"),
+            "other": Scope("acct_otherfixture", "other"),
+        }
+        for venture, scope in scopes.items():
+            obj = charge(venture, 25000 if venture == "demo" else 99999)
+            obj["metadata"]["venture"] = venture
+            setup_book.ingest(
+                encoded("charge.succeeded", obj, "evt_control_" + venture, scope.account), scope
+            )
+        obj = refund("control", 5000, "demo")
+        obj["metadata"]["venture"] = "demo"
+        setup_book.ingest(
+            encoded("refund.created", obj, "evt_control_refund", scopes["demo"].account), scopes["demo"]
+        )
+        if b.kind == "pg":
+            from psycopg2 import sql
+    
+            with b.admin.cursor() as cur:
+                for table in [
+                    "economic_v1_schema",
+                    "economic_v1_messages",
+                    "economic_v1_postings",
+                    "economic_v1_links",
+                    "economic_v1_events",
+                ]:
+                    cur.execute(
+                        sql.SQL("GRANT SELECT ON {}.{} TO {}").format(
+                            sql.Identifier(b.schema), sql.Identifier(table), sql.Identifier(b.role)
+                        )
+                    )
+        book = EconomicBook(b.store, experimental=True, initialize=False)
+        bridge = ControlBridge(
+            devices, work, catalog, book=book, book_scopes=scopes, authority=authority
+        )
+        client_file = root.parent / "control/web/index.html"
+        app = create_control_app(
+            bridge,
+            origin="https://control.test",
+            client_file=client_file,
+>           client_sha256=file_sha(client_file),
+                          ^^^^^^^^^^^^^^^^^^^^^
+            enabled=True,
+        )
+
+services/gateway/tests/test_control_api.py:167: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+services/gateway/src/governed_skills.py:36: in file_sha
+    with Path(path).open("rb") as handle:
+         ^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/home/user/.cache/openbot-reference-next/control/web/index.html')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/user/.cache/openbot-reference-next/control/web/index.html'
+
+/usr/local/lib/python3.13/pathlib/_local.py:537: FileNotFoundError
+_ ERROR at setup of test_requests_are_key_nonce_body_path_device_and_time_bound[sqlite-forged-key] _
+
+durable_backend = namespace(kind='sqlite', store=Store(path='/tmp/pytest-of-user/pytest-55/test_requests_are_key_nonce_bo0/governed.sqli...], admin=None, role=None, schema=None, path=PosixPath('/tmp/pytest-of-user/pytest-55/test_requests_are_key_nonce_bo0'))
+tmp_path = PosixPath('/tmp/pytest-of-user/pytest-55/test_requests_are_key_nonce_bo0')
+
+    @pytest.fixture
+    def control(durable_backend, tmp_path):
+        b = durable_backend
+        issuer = WorkService(b.provision, enabled=True)
+        work = WorkService(b.work, enabled=True)
+        server = sha(b"owned-synthetic-control-fixture")
+        devices = DeviceStore(
+            tmp_path / "devices.db", server, initialize=True, clock=lambda: b.clock[0]
+        )
+        authority = ControlAuthority(devices, issuer)
+        admin_key = Ed25519PrivateKey.generate()
+        trusted = {
+            "host": {
+                "public_key": encode(admin_key.public_key().public_bytes_raw()),
+                "roles": ["catalog-admin"],
+                "revoked": False,
+            }
+        }
+        root = Path(__file__).resolve().parents[3]
+        lock = root / "audit/first-party-tool-catalog.json"
+        auth_file = tmp_path / "catalog-authority.json"
+        catalog_payload = {
+            "schema": "openbot.tool-authority/1",
+            "epoch": 1,
+            "not_before": int(b.clock[0]) - 1,
+            "expires": int(b.clock[0]) + 3600,
+            "revoked": [],
+            "grants": {"demo": ["owned.qa"], "other": ["owned.qa"]},
+        }
+        auth_file.write_text(json.dumps(sign(admin_key, "host", catalog_payload)))
+        catalog = ToolCatalog(root, lock, file_sha(lock), auth_file, trusted, clock=lambda: b.clock[0])
+        setup_book = EconomicBook(b.owner, experimental=True)
+        scopes = {
+            "demo": Scope("acct_controlfixture", "demo"),
+            "other": Scope("acct_otherfixture", "other"),
+        }
+        for venture, scope in scopes.items():
+            obj = charge(venture, 25000 if venture == "demo" else 99999)
+            obj["metadata"]["venture"] = venture
+            setup_book.ingest(
+                encoded("charge.succeeded", obj, "evt_control_" + venture, scope.account), scope
+            )
+        obj = refund("control", 5000, "demo")
+        obj["metadata"]["venture"] = "demo"
+        setup_book.ingest(
+            encoded("refund.created", obj, "evt_control_refund", scopes["demo"].account), scopes["demo"]
+        )
+        if b.kind == "pg":
+            from psycopg2 import sql
+    
+            with b.admin.cursor() as cur:
+                for table in [
+                    "economic_v1_schema",
+                    "economic_v1_messages",
+                    "economic_v1_postings",
+                    "economic_v1_links",
+                    "economic_v1_events",
+                ]:
+                    cur.execute(
+                        sql.SQL("GRANT SELECT ON {}.{} TO {}").format(
+                            sql.Identifier(b.schema), sql.Identifier(table), sql.Identifier(b.role)
+                        )
+                    )
+        book = EconomicBook(b.store, experimental=True, initialize=False)
+        bridge = ControlBridge(
+            devices, work, catalog, book=book, book_scopes=scopes, authority=authority
+        )
+        client_file = root.parent / "control/web/index.html"
+        app = create_control_app(
+            bridge,
+            origin="https://control.test",
+            client_file=client_file,
+>           client_sha256=file_sha(client_file),
+                          ^^^^^^^^^^^^^^^^^^^^^
+            enabled=True,
+        )
+
+services/gateway/tests/test_control_api.py:167: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+services/gateway/src/governed_skills.py:36: in file_sha
+    with Path(path).open("rb") as handle:
+         ^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/home/user/.cache/openbot-reference-next/control/web/index.html')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/user/.cache/openbot-reference-next/control/web/index.html'
+
+/usr/local/lib/python3.13/pathlib/_local.py:537: FileNotFoundError
+_ ERROR at setup of test_requests_are_key_nonce_body_path_device_and_time_bound[sqlite-replay] _
+
+durable_backend = namespace(kind='sqlite', store=Store(path='/tmp/pytest-of-user/pytest-55/test_requests_are_key_nonce_bo1/governed.sqli...], admin=None, role=None, schema=None, path=PosixPath('/tmp/pytest-of-user/pytest-55/test_requests_are_key_nonce_bo1'))
+tmp_path = PosixPath('/tmp/pytest-of-user/pytest-55/test_requests_are_key_nonce_bo1')
+
+    @pytest.fixture
+    def control(durable_backend, tmp_path):
+        b = durable_backend
+        issuer = WorkService(b.provision, enabled=True)
+        work = WorkService(b.work, enabled=True)
+        server = sha(b"owned-synthetic-control-fixture")
+        devices = DeviceStore(
+            tmp_path / "devices.db", server, initialize=True, clock=lambda: b.clock[0]
+        )
+        authority = ControlAuthority(devices, issuer)
+        admin_key = Ed25519PrivateKey.generate()
+        trusted = {
+            "host": {
+                "public_key": encode(admin_key.public_key().public_bytes_raw()),
+                "roles": ["catalog-admin"],
+                "revoked": False,
+            }
+        }
+        root = Path(__file__).resolve().parents[3]
+        lock = root / "audit/first-party-tool-catalog.json"
+        auth_file = tmp_path / "catalog-authority.json"
+        catalog_payload = {
+            "schema": "openbot.tool-authority/1",
+            "epoch": 1,
+            "not_before": int(b.clock[0]) - 1,
+            "expires": int(b.clock[0]) + 3600,
+            "revoked": [],
+            "grants": {"demo": ["owned.qa"], "other": ["owned.qa"]},
+        }
+        auth_file.write_text(json.dumps(sign(admin_key, "host", catalog_payload)))
+        catalog = ToolCatalog(root, lock, file_sha(lock), auth_file, trusted, clock=lambda: b.clock[0])
+        setup_book = EconomicBook(b.owner, experimental=True)
+        scopes = {
+            "demo": Scope("acct_controlfixture", "demo"),
+            "other": Scope("acct_otherfixture", "other"),
+        }
+        for venture, scope in scopes.items():
+            obj = charge(venture, 25000 if venture == "demo" else 99999)
+            obj["metadata"]["venture"] = venture
+            setup_book.ingest(
+                encoded("charge.succeeded", obj, "evt_control_" + venture, scope.account), scope
+            )
+        obj = refund("control", 5000, "demo")
+        obj["metadata"]["venture"] = "demo"
+        setup_book.ingest(
+            encoded("refund.created", obj, "evt_control_refund", scopes["demo"].account), scopes["demo"]
+        )
+        if b.kind == "pg":
+            from psycopg2 import sql
+    
+            with b.admin.cursor() as cur:
+                for table in [
+                    "economic_v1_schema",
+                    "economic_v1_messages",
+                    "economic_v1_postings",
+                    "economic_v1_links",
+                    "economic_v1_events",
+                ]:
+                    cur.execute(
+                        sql.SQL("GRANT SELECT ON {}.{} TO {}").format(
+                            sql.Identifier(b.schema), sql.Identifier(table), sql.Identifier(b.role)
+                        )
+                    )
+        book = EconomicBook(b.store, experimental=True, initialize=False)
+        bridge = ControlBridge(
+            devices, work, catalog, book=book, book_scopes=scopes, authority=authority
+        )
+        client_file = root.parent / "control/web/index.html"
+        app = create_control_app(
+            bridge,
+            origin="https://control.test",
+            client_file=client_file,
+>           client_sha256=file_sha(client_file),
+                          ^^^^^^^^^^^^^^^^^^^^^
+            enabled=True,
+        )
+
+services/gateway/tests/test_control_api.py:167: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+services/gateway/src/governed_skills.py:36: in file_sha
+    with Path(path).open("rb") as handle:
+         ^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/home/user/.cache/openbot-reference-next/control/web/index.html')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/user/.cache/openbot-reference-next/control/web/index.html'
+
+/usr/local/lib/python3.13/pathlib/_local.py:537: FileNotFoundError
+_ ERROR at setup of test_requests_are_key_nonce_body_path_device_and_time_bound[sqlite-body] _
+
+durable_backend = namespace(kind='sqlite', store=Store(path='/tmp/pytest-of-user/pytest-55/test_requests_are_key_nonce_bo2/governed.sqli...], admin=None, role=None, schema=None, path=PosixPath('/tmp/pytest-of-user/pytest-55/test_requests_are_key_nonce_bo2'))
+tmp_path = PosixPath('/tmp/pytest-of-user/pytest-55/test_requests_are_key_nonce_bo2')
+
+    @pytest.fixture
+    def control(durable_backend, tmp_path):
+        b = durable_backend
+        issuer = WorkService(b.provision, enabled=True)
+        work = WorkService(b.work, enabled=True)
+        server = sha(b"owned-synthetic-control-fixture")
+        devices = DeviceStore(
+            tmp_path / "devices.db", server, initialize=True, clock=lambda: b.clock[0]
+        )
+        authority = ControlAuthority(devices, issuer)
+        admin_key = Ed25519PrivateKey.generate()
+        trusted = {
+            "host": {
+                "public_key": encode(admin_key.public_key().public_bytes_raw()),
+                "roles": ["catalog-admin"],
+                "revoked": False,
+            }
+        }
+        root = Path(__file__).resolve().parents[3]
+        lock = root / "audit/first-party-tool-catalog.json"
+        auth_file = tmp_path / "catalog-authority.json"
+        catalog_payload = {
+            "schema": "openbot.tool-authority/1",
+            "epoch": 1,
+            "not_before": int(b.clock[0]) - 1,
+            "expires": int(b.clock[0]) + 3600,
+            "revoked": [],
+            "grants": {"demo": ["owned.qa"], "other": ["owned.qa"]},
+        }
+        auth_file.write_text(json.dumps(sign(admin_key, "host", catalog_payload)))
+        catalog = ToolCatalog(root, lock, file_sha(lock), auth_file, trusted, clock=lambda: b.clock[0])
+        setup_book = EconomicBook(b.owner, experimental=True)
+        scopes = {
+            "demo": Scope("acct_controlfixture", "demo"),
+            "other": Scope("acct_otherfixture", "other"),
+        }
+        for venture, scope in scopes.items():
+            obj = charge(venture, 25000 if venture == "demo" else 99999)
+            obj["metadata"]["venture"] = venture
+            setup_book.ingest(
+                encoded("charge.succeeded", obj, "evt_control_" + venture, scope.account), scope
+            )
+        obj = refund("control", 5000, "demo")
+        obj["metadata"]["venture"] = "demo"
+        setup_book.ingest(
+            encoded("refund.created", obj, "evt_control_refund", scopes["demo"].account), scopes["demo"]
+        )
+        if b.kind == "pg":
+            from psycopg2 import sql
+    
+            with b.admin.cursor() as cur:
+                for table in [
+                    "economic_v1_schema",
+                    "economic_v1_messages",
+                    "economic_v1_postings",
+                    "economic_v1_links",
+                    "economic_v1_events",
+                ]:
+                    cur.execute(
+                        sql.SQL("GRANT SELECT ON {}.{} TO {}").format(
+                            sql.Identifier(b.schema), sql.Identifier(table), sql.Identifier(b.role)
+                        )
+                    )
+        book = EconomicBook(b.store, experimental=True, initialize=False)
+        bridge = ControlBridge(
+            devices, work, catalog, book=book, book_scopes=scopes, authority=authority
+        )
+        client_file = root.parent / "control/web/index.html"
+        app = create_control_app(
+            bridge,
+            origin="https://control.test",
+            client_file=client_file,
+>           client_sha256=file_sha(client_file),
+                          ^^^^^^^^^^^^^^^^^^^^^
+            enabled=True,
+        )
+
+services/gateway/tests/test_control_api.py:167: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+services/gateway/src/governed_skills.py:36: in file_sha
+    with Path(path).open("rb") as handle:
+         ^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/home/user/.cache/openbot-reference-next/control/web/index.html')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/user/.cache/openbot-reference-next/control/web/index.html'
+
+/usr/local/lib/python3.13/pathlib/_local.py:537: FileNotFoundError
+_ ERROR at setup of test_requests_are_key_nonce_body_path_device_and_time_bound[sqlite-path] _
+
+durable_backend = namespace(kind='sqlite', store=Store(path='/tmp/pytest-of-user/pytest-55/test_requests_are_key_nonce_bo3/governed.sqli...], admin=None, role=None, schema=None, path=PosixPath('/tmp/pytest-of-user/pytest-55/test_requests_are_key_nonce_bo3'))
+tmp_path = PosixPath('/tmp/pytest-of-user/pytest-55/test_requests_are_key_nonce_bo3')
+
+    @pytest.fixture
+    def control(durable_backend, tmp_path):
+        b = durable_backend
+        issuer = WorkService(b.provision, enabled=True)
+        work = WorkService(b.work, enabled=True)
+        server = sha(b"owned-synthetic-control-fixture")
+        devices = DeviceStore(
+            tmp_path / "devices.db", server, initialize=True, clock=lambda: b.clock[0]
+        )
+        authority = ControlAuthority(devices, issuer)
+        admin_key = Ed25519PrivateKey.generate()
+        trusted = {
+            "host": {
+                "public_key": encode(admin_key.public_key().public_bytes_raw()),
+                "roles": ["catalog-admin"],
+                "revoked": False,
+            }
+        }
+        root = Path(__file__).resolve().parents[3]
+        lock = root / "audit/first-party-tool-catalog.json"
+        auth_file = tmp_path / "catalog-authority.json"
+        catalog_payload = {
+            "schema": "openbot.tool-authority/1",
+            "epoch": 1,
+            "not_before": int(b.clock[0]) - 1,
+            "expires": int(b.clock[0]) + 3600,
+            "revoked": [],
+            "grants": {"demo": ["owned.qa"], "other": ["owned.qa"]},
+        }
+        auth_file.write_text(json.dumps(sign(admin_key, "host", catalog_payload)))
+        catalog = ToolCatalog(root, lock, file_sha(lock), auth_file, trusted, clock=lambda: b.clock[0])
+        setup_book = EconomicBook(b.owner, experimental=True)
+        scopes = {
+            "demo": Scope("acct_controlfixture", "demo"),
+            "other": Scope("acct_otherfixture", "other"),
+        }
+        for venture, scope in scopes.items():
+            obj = charge(venture, 25000 if venture == "demo" else 99999)
+            obj["metadata"]["venture"] = venture
+            setup_book.ingest(
+                encoded("charge.succeeded", obj, "evt_control_" + venture, scope.account), scope
+            )
+        obj = refund("control", 5000, "demo")
+        obj["metadata"]["venture"] = "demo"
+        setup_book.ingest(
+            encoded("refund.created", obj, "evt_control_refund", scopes["demo"].account), scopes["demo"]
+        )
+        if b.kind == "pg":
+            from psycopg2 import sql
+    
+            with b.admin.cursor() as cur:
+                for table in [
+                    "economic_v1_schema",
+                    "economic_v1_messages",
+                    "economic_v1_postings",
+                    "economic_v1_links",
+                    "economic_v1_events",
+                ]:
+                    cur.execute(
+                        sql.SQL("GRANT SELECT ON {}.{} TO {}").format(
+                            sql.Identifier(b.schema), sql.Identifier(table), sql.Identifier(b.role)
+                        )
+                    )
+        book = EconomicBook(b.store, experimental=True, initialize=False)
+        bridge = ControlBridge(
+            devices, work, catalog, book=book, book_scopes=scopes, authority=authority
+        )
+        client_file = root.parent / "control/web/index.html"
+        app = create_control_app(
+            bridge,
+            origin="https://control.test",
+            client_file=client_file,
+>           client_sha256=file_sha(client_file),
+                          ^^^^^^^^^^^^^^^^^^^^^
+            enabled=True,
+        )
+
+services/gateway/tests/test_control_api.py:167: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+services/gateway/src/governed_skills.py:36: in file_sha
+    with Path(path).open("rb") as handle:
+         ^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/home/user/.cache/openbot-reference-next/control/web/index.html')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/user/.cache/openbot-reference-next/control/web/index.html'
+
+/usr/local/lib/python3.13/pathlib/_local.py:537: FileNotFoundError
+_ ERROR at setup of test_requests_are_key_nonce_body_path_device_and_time_bound[sqlite-device] _
+
+durable_backend = namespace(kind='sqlite', store=Store(path='/tmp/pytest-of-user/pytest-55/test_requests_are_key_nonce_bo4/governed.sqli...], admin=None, role=None, schema=None, path=PosixPath('/tmp/pytest-of-user/pytest-55/test_requests_are_key_nonce_bo4'))
+tmp_path = PosixPath('/tmp/pytest-of-user/pytest-55/test_requests_are_key_nonce_bo4')
+
+    @pytest.fixture
+    def control(durable_backend, tmp_path):
+        b = durable_backend
+        issuer = WorkService(b.provision, enabled=True)
+        work = WorkService(b.work, enabled=True)
+        server = sha(b"owned-synthetic-control-fixture")
+        devices = DeviceStore(
+            tmp_path / "devices.db", server, initialize=True, clock=lambda: b.clock[0]
+        )
+        authority = ControlAuthority(devices, issuer)
+        admin_key = Ed25519PrivateKey.generate()
+        trusted = {
+            "host": {
+                "public_key": encode(admin_key.public_key().public_bytes_raw()),
+                "roles": ["catalog-admin"],
+                "revoked": False,
+            }
+        }
+        root = Path(__file__).resolve().parents[3]
+        lock = root / "audit/first-party-tool-catalog.json"
+        auth_file = tmp_path / "catalog-authority.json"
+        catalog_payload = {
+            "schema": "openbot.tool-authority/1",
+            "epoch": 1,
+            "not_before": int(b.clock[0]) - 1,
+            "expires": int(b.clock[0]) + 3600,
+            "revoked": [],
+            "grants": {"demo": ["owned.qa"], "other": ["owned.qa"]},
+        }
+        auth_file.write_text(json.dumps(sign(admin_key, "host", catalog_payload)))
+        catalog = ToolCatalog(root, lock, file_sha(lock), auth_file, trusted, clock=lambda: b.clock[0])
+        setup_book = EconomicBook(b.owner, experimental=True)
+        scopes = {
+            "demo": Scope("acct_controlfixture", "demo"),
+            "other": Scope("acct_otherfixture", "other"),
+        }
+        for venture, scope in scopes.items():
+            obj = charge(venture, 25000 if venture == "demo" else 99999)
+            obj["metadata"]["venture"] = venture
+            setup_book.ingest(
+                encoded("charge.succeeded", obj, "evt_control_" + venture, scope.account), scope
+            )
+        obj = refund("control", 5000, "demo")
+        obj["metadata"]["venture"] = "demo"
+        setup_book.ingest(
+            encoded("refund.created", obj, "evt_control_refund", scopes["demo"].account), scopes["demo"]
+        )
+        if b.kind == "pg":
+            from psycopg2 import sql
+    
+            with b.admin.cursor() as cur:
+                for table in [
+                    "economic_v1_schema",
+                    "economic_v1_messages",
+                    "economic_v1_postings",
+                    "economic_v1_links",
+                    "economic_v1_events",
+                ]:
+                    cur.execute(
+                        sql.SQL("GRANT SELECT ON {}.{} TO {}").format(
+                            sql.Identifier(b.schema), sql.Identifier(table), sql.Identifier(b.role)
+                        )
+                    )
+        book = EconomicBook(b.store, experimental=True, initialize=False)
+        bridge = ControlBridge(
+            devices, work, catalog, book=book, book_scopes=scopes, authority=authority
+        )
+        client_file = root.parent / "control/web/index.html"
+        app = create_control_app(
+            bridge,
+            origin="https://control.test",
+            client_file=client_file,
+>           client_sha256=file_sha(client_file),
+                          ^^^^^^^^^^^^^^^^^^^^^
+            enabled=True,
+        )
+
+services/gateway/tests/test_control_api.py:167: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+services/gateway/src/governed_skills.py:36: in file_sha
+    with Path(path).open("rb") as handle:
+         ^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/home/user/.cache/openbot-reference-next/control/web/index.html')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/user/.cache/openbot-reference-next/control/web/index.html'
+
+/usr/local/lib/python3.13/pathlib/_local.py:537: FileNotFoundError
+_ ERROR at setup of test_requests_are_key_nonce_body_path_device_and_time_bound[sqlite-expiry] _
+
+durable_backend = namespace(kind='sqlite', store=Store(path='/tmp/pytest-of-user/pytest-55/test_requests_are_key_nonce_bo5/governed.sqli...], admin=None, role=None, schema=None, path=PosixPath('/tmp/pytest-of-user/pytest-55/test_requests_are_key_nonce_bo5'))
+tmp_path = PosixPath('/tmp/pytest-of-user/pytest-55/test_requests_are_key_nonce_bo5')
+
+    @pytest.fixture
+    def control(durable_backend, tmp_path):
+        b = durable_backend
+        issuer = WorkService(b.provision, enabled=True)
+        work = WorkService(b.work, enabled=True)
+        server = sha(b"owned-synthetic-control-fixture")
+        devices = DeviceStore(
+            tmp_path / "devices.db", server, initialize=True, clock=lambda: b.clock[0]
+        )
+        authority = ControlAuthority(devices, issuer)
+        admin_key = Ed25519PrivateKey.generate()
+        trusted = {
+            "host": {
+                "public_key": encode(admin_key.public_key().public_bytes_raw()),
+                "roles": ["catalog-admin"],
+                "revoked": False,
+            }
+        }
+        root = Path(__file__).resolve().parents[3]
+        lock = root / "audit/first-party-tool-catalog.json"
+        auth_file = tmp_path / "catalog-authority.json"
+        catalog_payload = {
+            "schema": "openbot.tool-authority/1",
+            "epoch": 1,
+            "not_before": int(b.clock[0]) - 1,
+            "expires": int(b.clock[0]) + 3600,
+            "revoked": [],
+            "grants": {"demo": ["owned.qa"], "other": ["owned.qa"]},
+        }
+        auth_file.write_text(json.dumps(sign(admin_key, "host", catalog_payload)))
+        catalog = ToolCatalog(root, lock, file_sha(lock), auth_file, trusted, clock=lambda: b.clock[0])
+        setup_book = EconomicBook(b.owner, experimental=True)
+        scopes = {
+            "demo": Scope("acct_controlfixture", "demo"),
+            "other": Scope("acct_otherfixture", "other"),
+        }
+        for venture, scope in scopes.items():
+            obj = charge(venture, 25000 if venture == "demo" else 99999)
+            obj["metadata"]["venture"] = venture
+            setup_book.ingest(
+                encoded("charge.succeeded", obj, "evt_control_" + venture, scope.account), scope
+            )
+        obj = refund("control", 5000, "demo")
+        obj["metadata"]["venture"] = "demo"
+        setup_book.ingest(
+            encoded("refund.created", obj, "evt_control_refund", scopes["demo"].account), scopes["demo"]
+        )
+        if b.kind == "pg":
+            from psycopg2 import sql
+    
+            with b.admin.cursor() as cur:
+                for table in [
+                    "economic_v1_schema",
+                    "economic_v1_messages",
+                    "economic_v1_postings",
+                    "economic_v1_links",
+                    "economic_v1_events",
+                ]:
+                    cur.execute(
+                        sql.SQL("GRANT SELECT ON {}.{} TO {}").format(
+                            sql.Identifier(b.schema), sql.Identifier(table), sql.Identifier(b.role)
+                        )
+                    )
+        book = EconomicBook(b.store, experimental=True, initialize=False)
+        bridge = ControlBridge(
+            devices, work, catalog, book=book, book_scopes=scopes, authority=authority
+        )
+        client_file = root.parent / "control/web/index.html"
+        app = create_control_app(
+            bridge,
+            origin="https://control.test",
+            client_file=client_file,
+>           client_sha256=file_sha(client_file),
+                          ^^^^^^^^^^^^^^^^^^^^^
+            enabled=True,
+        )
+
+services/gateway/tests/test_control_api.py:167: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+services/gateway/src/governed_skills.py:36: in file_sha
+    with Path(path).open("rb") as handle:
+         ^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/home/user/.cache/openbot-reference-next/control/web/index.html')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/user/.cache/openbot-reference-next/control/web/index.html'
+
+/usr/local/lib/python3.13/pathlib/_local.py:537: FileNotFoundError
+_______ ERROR at setup of test_json_cannot_grant_authority[sqlite-role] ________
+
+durable_backend = namespace(kind='sqlite', store=Store(path='/tmp/pytest-of-user/pytest-55/test_json_cannot_grant_authori0/governed.sqli...], admin=None, role=None, schema=None, path=PosixPath('/tmp/pytest-of-user/pytest-55/test_json_cannot_grant_authori0'))
+tmp_path = PosixPath('/tmp/pytest-of-user/pytest-55/test_json_cannot_grant_authori0')
+
+    @pytest.fixture
+    def control(durable_backend, tmp_path):
+        b = durable_backend
+        issuer = WorkService(b.provision, enabled=True)
+        work = WorkService(b.work, enabled=True)
+        server = sha(b"owned-synthetic-control-fixture")
+        devices = DeviceStore(
+            tmp_path / "devices.db", server, initialize=True, clock=lambda: b.clock[0]
+        )
+        authority = ControlAuthority(devices, issuer)
+        admin_key = Ed25519PrivateKey.generate()
+        trusted = {
+            "host": {
+                "public_key": encode(admin_key.public_key().public_bytes_raw()),
+                "roles": ["catalog-admin"],
+                "revoked": False,
+            }
+        }
+        root = Path(__file__).resolve().parents[3]
+        lock = root / "audit/first-party-tool-catalog.json"
+        auth_file = tmp_path / "catalog-authority.json"
+        catalog_payload = {
+            "schema": "openbot.tool-authority/1",
+            "epoch": 1,
+            "not_before": int(b.clock[0]) - 1,
+            "expires": int(b.clock[0]) + 3600,
+            "revoked": [],
+            "grants": {"demo": ["owned.qa"], "other": ["owned.qa"]},
+        }
+        auth_file.write_text(json.dumps(sign(admin_key, "host", catalog_payload)))
+        catalog = ToolCatalog(root, lock, file_sha(lock), auth_file, trusted, clock=lambda: b.clock[0])
+        setup_book = EconomicBook(b.owner, experimental=True)
+        scopes = {
+            "demo": Scope("acct_controlfixture", "demo"),
+            "other": Scope("acct_otherfixture", "other"),
+        }
+        for venture, scope in scopes.items():
+            obj = charge(venture, 25000 if venture == "demo" else 99999)
+            obj["metadata"]["venture"] = venture
+            setup_book.ingest(
+                encoded("charge.succeeded", obj, "evt_control_" + venture, scope.account), scope
+            )
+        obj = refund("control", 5000, "demo")
+        obj["metadata"]["venture"] = "demo"
+        setup_book.ingest(
+            encoded("refund.created", obj, "evt_control_refund", scopes["demo"].account), scopes["demo"]
+        )
+        if b.kind == "pg":
+            from psycopg2 import sql
+    
+            with b.admin.cursor() as cur:
+                for table in [
+                    "economic_v1_schema",
+                    "economic_v1_messages",
+                    "economic_v1_postings",
+                    "economic_v1_links",
+                    "economic_v1_events",
+                ]:
+                    cur.execute(
+                        sql.SQL("GRANT SELECT ON {}.{} TO {}").format(
+                            sql.Identifier(b.schema), sql.Identifier(table), sql.Identifier(b.role)
+                        )
+                    )
+        book = EconomicBook(b.store, experimental=True, initialize=False)
+        bridge = ControlBridge(
+            devices, work, catalog, book=book, book_scopes=scopes, authority=authority
+        )
+        client_file = root.parent / "control/web/index.html"
+        app = create_control_app(
+            bridge,
+            origin="https://control.test",
+            client_file=client_file,
+>           client_sha256=file_sha(client_file),
+                          ^^^^^^^^^^^^^^^^^^^^^
+            enabled=True,
+        )
+
+services/gateway/tests/test_control_api.py:167: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+services/gateway/src/governed_skills.py:36: in file_sha
+    with Path(path).open("rb") as handle:
+         ^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/home/user/.cache/openbot-reference-next/control/web/index.html')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/user/.cache/openbot-reference-next/control/web/index.html'
+
+/usr/local/lib/python3.13/pathlib/_local.py:537: FileNotFoundError
+_______ ERROR at setup of test_json_cannot_grant_authority[sqlite-actor] _______
+
+durable_backend = namespace(kind='sqlite', store=Store(path='/tmp/pytest-of-user/pytest-55/test_json_cannot_grant_authori1/governed.sqli...], admin=None, role=None, schema=None, path=PosixPath('/tmp/pytest-of-user/pytest-55/test_json_cannot_grant_authori1'))
+tmp_path = PosixPath('/tmp/pytest-of-user/pytest-55/test_json_cannot_grant_authori1')
+
+    @pytest.fixture
+    def control(durable_backend, tmp_path):
+        b = durable_backend
+        issuer = WorkService(b.provision, enabled=True)
+        work = WorkService(b.work, enabled=True)
+        server = sha(b"owned-synthetic-control-fixture")
+        devices = DeviceStore(
+            tmp_path / "devices.db", server, initialize=True, clock=lambda: b.clock[0]
+        )
+        authority = ControlAuthority(devices, issuer)
+        admin_key = Ed25519PrivateKey.generate()
+        trusted = {
+            "host": {
+                "public_key": encode(admin_key.public_key().public_bytes_raw()),
+                "roles": ["catalog-admin"],
+                "revoked": False,
+            }
+        }
+        root = Path(__file__).resolve().parents[3]
+        lock = root / "audit/first-party-tool-catalog.json"
+        auth_file = tmp_path / "catalog-authority.json"
+        catalog_payload = {
+            "schema": "openbot.tool-authority/1",
+            "epoch": 1,
+            "not_before": int(b.clock[0]) - 1,
+            "expires": int(b.clock[0]) + 3600,
+            "revoked": [],
+            "grants": {"demo": ["owned.qa"], "other": ["owned.qa"]},
+        }
+        auth_file.write_text(json.dumps(sign(admin_key, "host", catalog_payload)))
+        catalog = ToolCatalog(root, lock, file_sha(lock), auth_file, trusted, clock=lambda: b.clock[0])
+        setup_book = EconomicBook(b.owner, experimental=True)
+        scopes = {
+            "demo": Scope("acct_controlfixture", "demo"),
+            "other": Scope("acct_otherfixture", "other"),
+        }
+        for venture, scope in scopes.items():
+            obj = charge(venture, 25000 if venture == "demo" else 99999)
+            obj["metadata"]["venture"] = venture
+            setup_book.ingest(
+                encoded("charge.succeeded", obj, "evt_control_" + venture, scope.account), scope
+            )
+        obj = refund("control", 5000, "demo")
+        obj["metadata"]["venture"] = "demo"
+        setup_book.ingest(
+            encoded("refund.created", obj, "evt_control_refund", scopes["demo"].account), scopes["demo"]
+        )
+        if b.kind == "pg":
+            from psycopg2 import sql
+    
+            with b.admin.cursor() as cur:
+                for table in [
+                    "economic_v1_schema",
+                    "economic_v1_messages",
+                    "economic_v1_postings",
+                    "economic_v1_links",
+                    "economic_v1_events",
+                ]:
+                    cur.execute(
+                        sql.SQL("GRANT SELECT ON {}.{} TO {}").format(
+                            sql.Identifier(b.schema), sql.Identifier(table), sql.Identifier(b.role)
+                        )
+                    )
+        book = EconomicBook(b.store, experimental=True, initialize=False)
+        bridge = ControlBridge(
+            devices, work, catalog, book=book, book_scopes=scopes, authority=authority
+        )
+        client_file = root.parent / "control/web/index.html"
+        app = create_control_app(
+            bridge,
+            origin="https://control.test",
+            client_file=client_file,
+>           client_sha256=file_sha(client_file),
+                          ^^^^^^^^^^^^^^^^^^^^^
+            enabled=True,
+        )
+
+services/gateway/tests/test_control_api.py:167: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+services/gateway/src/governed_skills.py:36: in file_sha
+    with Path(path).open("rb") as handle:
+         ^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/home/user/.cache/openbot-reference-next/control/web/index.html')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/user/.cache/openbot-reference-next/control/web/index.html'
+
+/usr/local/lib/python3.13/pathlib/_local.py:537: FileNotFoundError
+______ ERROR at setup of test_json_cannot_grant_authority[sqlite-venture] ______
+
+durable_backend = namespace(kind='sqlite', store=Store(path='/tmp/pytest-of-user/pytest-55/test_json_cannot_grant_authori2/governed.sqli...], admin=None, role=None, schema=None, path=PosixPath('/tmp/pytest-of-user/pytest-55/test_json_cannot_grant_authori2'))
+tmp_path = PosixPath('/tmp/pytest-of-user/pytest-55/test_json_cannot_grant_authori2')
+
+    @pytest.fixture
+    def control(durable_backend, tmp_path):
+        b = durable_backend
+        issuer = WorkService(b.provision, enabled=True)
+        work = WorkService(b.work, enabled=True)
+        server = sha(b"owned-synthetic-control-fixture")
+        devices = DeviceStore(
+            tmp_path / "devices.db", server, initialize=True, clock=lambda: b.clock[0]
+        )
+        authority = ControlAuthority(devices, issuer)
+        admin_key = Ed25519PrivateKey.generate()
+        trusted = {
+            "host": {
+                "public_key": encode(admin_key.public_key().public_bytes_raw()),
+                "roles": ["catalog-admin"],
+                "revoked": False,
+            }
+        }
+        root = Path(__file__).resolve().parents[3]
+        lock = root / "audit/first-party-tool-catalog.json"
+        auth_file = tmp_path / "catalog-authority.json"
+        catalog_payload = {
+            "schema": "openbot.tool-authority/1",
+            "epoch": 1,
+            "not_before": int(b.clock[0]) - 1,
+            "expires": int(b.clock[0]) + 3600,
+            "revoked": [],
+            "grants": {"demo": ["owned.qa"], "other": ["owned.qa"]},
+        }
+        auth_file.write_text(json.dumps(sign(admin_key, "host", catalog_payload)))
+        catalog = ToolCatalog(root, lock, file_sha(lock), auth_file, trusted, clock=lambda: b.clock[0])
+        setup_book = EconomicBook(b.owner, experimental=True)
+        scopes = {
+            "demo": Scope("acct_controlfixture", "demo"),
+            "other": Scope("acct_otherfixture", "other"),
+        }
+        for venture, scope in scopes.items():
+            obj = charge(venture, 25000 if venture == "demo" else 99999)
+            obj["metadata"]["venture"] = venture
+            setup_book.ingest(
+                encoded("charge.succeeded", obj, "evt_control_" + venture, scope.account), scope
+            )
+        obj = refund("control", 5000, "demo")
+        obj["metadata"]["venture"] = "demo"
+        setup_book.ingest(
+            encoded("refund.created", obj, "evt_control_refund", scopes["demo"].account), scopes["demo"]
+        )
+        if b.kind == "pg":
+            from psycopg2 import sql
+    
+            with b.admin.cursor() as cur:
+                for table in [
+                    "economic_v1_schema",
+                    "economic_v1_messages",
+                    "economic_v1_postings",
+                    "economic_v1_links",
+                    "economic_v1_events",
+                ]:
+                    cur.execute(
+                        sql.SQL("GRANT SELECT ON {}.{} TO {}").format(
+                            sql.Identifier(b.schema), sql.Identifier(table), sql.Identifier(b.role)
+                        )
+                    )
+        book = EconomicBook(b.store, experimental=True, initialize=False)
+        bridge = ControlBridge(
+            devices, work, catalog, book=book, book_scopes=scopes, authority=authority
+        )
+        client_file = root.parent / "control/web/index.html"
+        app = create_control_app(
+            bridge,
+            origin="https://control.test",
+            client_file=client_file,
+>           client_sha256=file_sha(client_file),
+                          ^^^^^^^^^^^^^^^^^^^^^
+            enabled=True,
+        )
+
+services/gateway/tests/test_control_api.py:167: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+services/gateway/src/governed_skills.py:36: in file_sha
+    with Path(path).open("rb") as handle:
+         ^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/home/user/.cache/openbot-reference-next/control/web/index.html')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/user/.cache/openbot-reference-next/control/web/index.html'
+
+/usr/local/lib/python3.13/pathlib/_local.py:537: FileNotFoundError
+______ ERROR at setup of test_json_cannot_grant_authority[sqlite-program] ______
+
+durable_backend = namespace(kind='sqlite', store=Store(path='/tmp/pytest-of-user/pytest-55/test_json_cannot_grant_authori3/governed.sqli...], admin=None, role=None, schema=None, path=PosixPath('/tmp/pytest-of-user/pytest-55/test_json_cannot_grant_authori3'))
+tmp_path = PosixPath('/tmp/pytest-of-user/pytest-55/test_json_cannot_grant_authori3')
+
+    @pytest.fixture
+    def control(durable_backend, tmp_path):
+        b = durable_backend
+        issuer = WorkService(b.provision, enabled=True)
+        work = WorkService(b.work, enabled=True)
+        server = sha(b"owned-synthetic-control-fixture")
+        devices = DeviceStore(
+            tmp_path / "devices.db", server, initialize=True, clock=lambda: b.clock[0]
+        )
+        authority = ControlAuthority(devices, issuer)
+        admin_key = Ed25519PrivateKey.generate()
+        trusted = {
+            "host": {
+                "public_key": encode(admin_key.public_key().public_bytes_raw()),
+                "roles": ["catalog-admin"],
+                "revoked": False,
+            }
+        }
+        root = Path(__file__).resolve().parents[3]
+        lock = root / "audit/first-party-tool-catalog.json"
+        auth_file = tmp_path / "catalog-authority.json"
+        catalog_payload = {
+            "schema": "openbot.tool-authority/1",
+            "epoch": 1,
+            "not_before": int(b.clock[0]) - 1,
+            "expires": int(b.clock[0]) + 3600,
+            "revoked": [],
+            "grants": {"demo": ["owned.qa"], "other": ["owned.qa"]},
+        }
+        auth_file.write_text(json.dumps(sign(admin_key, "host", catalog_payload)))
+        catalog = ToolCatalog(root, lock, file_sha(lock), auth_file, trusted, clock=lambda: b.clock[0])
+        setup_book = EconomicBook(b.owner, experimental=True)
+        scopes = {
+            "demo": Scope("acct_controlfixture", "demo"),
+            "other": Scope("acct_otherfixture", "other"),
+        }
+        for venture, scope in scopes.items():
+            obj = charge(venture, 25000 if venture == "demo" else 99999)
+            obj["metadata"]["venture"] = venture
+            setup_book.ingest(
+                encoded("charge.succeeded", obj, "evt_control_" + venture, scope.account), scope
+            )
+        obj = refund("control", 5000, "demo")
+        obj["metadata"]["venture"] = "demo"
+        setup_book.ingest(
+            encoded("refund.created", obj, "evt_control_refund", scopes["demo"].account), scopes["demo"]
+        )
+        if b.kind == "pg":
+            from psycopg2 import sql
+    
+            with b.admin.cursor() as cur:
+                for table in [
+                    "economic_v1_schema",
+                    "economic_v1_messages",
+                    "economic_v1_postings",
+                    "economic_v1_links",
+                    "economic_v1_events",
+                ]:
+                    cur.execute(
+                        sql.SQL("GRANT SELECT ON {}.{} TO {}").format(
+                            sql.Identifier(b.schema), sql.Identifier(table), sql.Identifier(b.role)
+                        )
+                    )
+        book = EconomicBook(b.store, experimental=True, initialize=False)
+        bridge = ControlBridge(
+            devices, work, catalog, book=book, book_scopes=scopes, authority=authority
+        )
+        client_file = root.parent / "control/web/index.html"
+        app = create_control_app(
+            bridge,
+            origin="https://control.test",
+            client_file=client_file,
+>           client_sha256=file_sha(client_file),
+                          ^^^^^^^^^^^^^^^^^^^^^
+            enabled=True,
+        )
+
+services/gateway/tests/test_control_api.py:167: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+services/gateway/src/governed_skills.py:36: in file_sha
+    with Path(path).open("rb") as handle:
+         ^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/home/user/.cache/openbot-reference-next/control/web/index.html')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/user/.cache/openbot-reference-next/control/web/index.html'
+
+/usr/local/lib/python3.13/pathlib/_local.py:537: FileNotFoundError
+____ ERROR at setup of test_json_cannot_grant_authority[sqlite-budget_usd] _____
+
+durable_backend = namespace(kind='sqlite', store=Store(path='/tmp/pytest-of-user/pytest-55/test_json_cannot_grant_authori4/governed.sqli...], admin=None, role=None, schema=None, path=PosixPath('/tmp/pytest-of-user/pytest-55/test_json_cannot_grant_authori4'))
+tmp_path = PosixPath('/tmp/pytest-of-user/pytest-55/test_json_cannot_grant_authori4')
+
+    @pytest.fixture
+    def control(durable_backend, tmp_path):
+        b = durable_backend
+        issuer = WorkService(b.provision, enabled=True)
+        work = WorkService(b.work, enabled=True)
+        server = sha(b"owned-synthetic-control-fixture")
+        devices = DeviceStore(
+            tmp_path / "devices.db", server, initialize=True, clock=lambda: b.clock[0]
+        )
+        authority = ControlAuthority(devices, issuer)
+        admin_key = Ed25519PrivateKey.generate()
+        trusted = {
+            "host": {
+                "public_key": encode(admin_key.public_key().public_bytes_raw()),
+                "roles": ["catalog-admin"],
+                "revoked": False,
+            }
+        }
+        root = Path(__file__).resolve().parents[3]
+        lock = root / "audit/first-party-tool-catalog.json"
+        auth_file = tmp_path / "catalog-authority.json"
+        catalog_payload = {
+            "schema": "openbot.tool-authority/1",
+            "epoch": 1,
+            "not_before": int(b.clock[0]) - 1,
+            "expires": int(b.clock[0]) + 3600,
+            "revoked": [],
+            "grants": {"demo": ["owned.qa"], "other": ["owned.qa"]},
+        }
+        auth_file.write_text(json.dumps(sign(admin_key, "host", catalog_payload)))
+        catalog = ToolCatalog(root, lock, file_sha(lock), auth_file, trusted, clock=lambda: b.clock[0])
+        setup_book = EconomicBook(b.owner, experimental=True)
+        scopes = {
+            "demo": Scope("acct_controlfixture", "demo"),
+            "other": Scope("acct_otherfixture", "other"),
+        }
+        for venture, scope in scopes.items():
+            obj = charge(venture, 25000 if venture == "demo" else 99999)
+            obj["metadata"]["venture"] = venture
+            setup_book.ingest(
+                encoded("charge.succeeded", obj, "evt_control_" + venture, scope.account), scope
+            )
+        obj = refund("control", 5000, "demo")
+        obj["metadata"]["venture"] = "demo"
+        setup_book.ingest(
+            encoded("refund.created", obj, "evt_control_refund", scopes["demo"].account), scopes["demo"]
+        )
+        if b.kind == "pg":
+            from psycopg2 import sql
+    
+            with b.admin.cursor() as cur:
+                for table in [
+                    "economic_v1_schema",
+                    "economic_v1_messages",
+                    "economic_v1_postings",
+                    "economic_v1_links",
+                    "economic_v1_events",
+                ]:
+                    cur.execute(
+                        sql.SQL("GRANT SELECT ON {}.{} TO {}").format(
+                            sql.Identifier(b.schema), sql.Identifier(table), sql.Identifier(b.role)
+                        )
+                    )
+        book = EconomicBook(b.store, experimental=True, initialize=False)
+        bridge = ControlBridge(
+            devices, work, catalog, book=book, book_scopes=scopes, authority=authority
+        )
+        client_file = root.parent / "control/web/index.html"
+        app = create_control_app(
+            bridge,
+            origin="https://control.test",
+            client_file=client_file,
+>           client_sha256=file_sha(client_file),
+                          ^^^^^^^^^^^^^^^^^^^^^
+            enabled=True,
+        )
+
+services/gateway/tests/test_control_api.py:167: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+services/gateway/src/governed_skills.py:36: in file_sha
+    with Path(path).open("rb") as handle:
+         ^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/home/user/.cache/openbot-reference-next/control/web/index.html')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/user/.cache/openbot-reference-next/control/web/index.html'
+
+/usr/local/lib/python3.13/pathlib/_local.py:537: FileNotFoundError
+____ ERROR at setup of test_json_cannot_grant_authority[sqlite-upper_minor] ____
+
+durable_backend = namespace(kind='sqlite', store=Store(path='/tmp/pytest-of-user/pytest-55/test_json_cannot_grant_authori5/governed.sqli...], admin=None, role=None, schema=None, path=PosixPath('/tmp/pytest-of-user/pytest-55/test_json_cannot_grant_authori5'))
+tmp_path = PosixPath('/tmp/pytest-of-user/pytest-55/test_json_cannot_grant_authori5')
+
+    @pytest.fixture
+    def control(durable_backend, tmp_path):
+        b = durable_backend
+        issuer = WorkService(b.provision, enabled=True)
+        work = WorkService(b.work, enabled=True)
+        server = sha(b"owned-synthetic-control-fixture")
+        devices = DeviceStore(
+            tmp_path / "devices.db", server, initialize=True, clock=lambda: b.clock[0]
+        )
+        authority = ControlAuthority(devices, issuer)
+        admin_key = Ed25519PrivateKey.generate()
+        trusted = {
+            "host": {
+                "public_key": encode(admin_key.public_key().public_bytes_raw()),
+                "roles": ["catalog-admin"],
+                "revoked": False,
+            }
+        }
+        root = Path(__file__).resolve().parents[3]
+        lock = root / "audit/first-party-tool-catalog.json"
+        auth_file = tmp_path / "catalog-authority.json"
+        catalog_payload = {
+            "schema": "openbot.tool-authority/1",
+            "epoch": 1,
+            "not_before": int(b.clock[0]) - 1,
+            "expires": int(b.clock[0]) + 3600,
+            "revoked": [],
+            "grants": {"demo": ["owned.qa"], "other": ["owned.qa"]},
+        }
+        auth_file.write_text(json.dumps(sign(admin_key, "host", catalog_payload)))
+        catalog = ToolCatalog(root, lock, file_sha(lock), auth_file, trusted, clock=lambda: b.clock[0])
+        setup_book = EconomicBook(b.owner, experimental=True)
+        scopes = {
+            "demo": Scope("acct_controlfixture", "demo"),
+            "other": Scope("acct_otherfixture", "other"),
+        }
+        for venture, scope in scopes.items():
+            obj = charge(venture, 25000 if venture == "demo" else 99999)
+            obj["metadata"]["venture"] = venture
+            setup_book.ingest(
+                encoded("charge.succeeded", obj, "evt_control_" + venture, scope.account), scope
+            )
+        obj = refund("control", 5000, "demo")
+        obj["metadata"]["venture"] = "demo"
+        setup_book.ingest(
+            encoded("refund.created", obj, "evt_control_refund", scopes["demo"].account), scopes["demo"]
+        )
+        if b.kind == "pg":
+            from psycopg2 import sql
+    
+            with b.admin.cursor() as cur:
+                for table in [
+                    "economic_v1_schema",
+                    "economic_v1_messages",
+                    "economic_v1_postings",
+                    "economic_v1_links",
+                    "economic_v1_events",
+                ]:
+                    cur.execute(
+                        sql.SQL("GRANT SELECT ON {}.{} TO {}").format(
+                            sql.Identifier(b.schema), sql.Identifier(table), sql.Identifier(b.role)
+                        )
+                    )
+        book = EconomicBook(b.store, experimental=True, initialize=False)
+        bridge = ControlBridge(
+            devices, work, catalog, book=book, book_scopes=scopes, authority=authority
+        )
+        client_file = root.parent / "control/web/index.html"
+        app = create_control_app(
+            bridge,
+            origin="https://control.test",
+            client_file=client_file,
+>           client_sha256=file_sha(client_file),
+                          ^^^^^^^^^^^^^^^^^^^^^
+            enabled=True,
+        )
+
+services/gateway/tests/test_control_api.py:167: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+services/gateway/src/governed_skills.py:36: in file_sha
+    with Path(path).open("rb") as handle:
+         ^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/home/user/.cache/openbot-reference-next/control/web/index.html')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/user/.cache/openbot-reference-next/control/web/index.html'
+
+/usr/local/lib/python3.13/pathlib/_local.py:537: FileNotFoundError
+_____ ERROR at setup of test_json_cannot_grant_authority[sqlite-provider] ______
+
+durable_backend = namespace(kind='sqlite', store=Store(path='/tmp/pytest-of-user/pytest-55/test_json_cannot_grant_authori6/governed.sqli...], admin=None, role=None, schema=None, path=PosixPath('/tmp/pytest-of-user/pytest-55/test_json_cannot_grant_authori6'))
+tmp_path = PosixPath('/tmp/pytest-of-user/pytest-55/test_json_cannot_grant_authori6')
+
+    @pytest.fixture
+    def control(durable_backend, tmp_path):
+        b = durable_backend
+        issuer = WorkService(b.provision, enabled=True)
+        work = WorkService(b.work, enabled=True)
+        server = sha(b"owned-synthetic-control-fixture")
+        devices = DeviceStore(
+            tmp_path / "devices.db", server, initialize=True, clock=lambda: b.clock[0]
+        )
+        authority = ControlAuthority(devices, issuer)
+        admin_key = Ed25519PrivateKey.generate()
+        trusted = {
+            "host": {
+                "public_key": encode(admin_key.public_key().public_bytes_raw()),
+                "roles": ["catalog-admin"],
+                "revoked": False,
+            }
+        }
+        root = Path(__file__).resolve().parents[3]
+        lock = root / "audit/first-party-tool-catalog.json"
+        auth_file = tmp_path / "catalog-authority.json"
+        catalog_payload = {
+            "schema": "openbot.tool-authority/1",
+            "epoch": 1,
+            "not_before": int(b.clock[0]) - 1,
+            "expires": int(b.clock[0]) + 3600,
+            "revoked": [],
+            "grants": {"demo": ["owned.qa"], "other": ["owned.qa"]},
+        }
+        auth_file.write_text(json.dumps(sign(admin_key, "host", catalog_payload)))
+        catalog = ToolCatalog(root, lock, file_sha(lock), auth_file, trusted, clock=lambda: b.clock[0])
+        setup_book = EconomicBook(b.owner, experimental=True)
+        scopes = {
+            "demo": Scope("acct_controlfixture", "demo"),
+            "other": Scope("acct_otherfixture", "other"),
+        }
+        for venture, scope in scopes.items():
+            obj = charge(venture, 25000 if venture == "demo" else 99999)
+            obj["metadata"]["venture"] = venture
+            setup_book.ingest(
+                encoded("charge.succeeded", obj, "evt_control_" + venture, scope.account), scope
+            )
+        obj = refund("control", 5000, "demo")
+        obj["metadata"]["venture"] = "demo"
+        setup_book.ingest(
+            encoded("refund.created", obj, "evt_control_refund", scopes["demo"].account), scopes["demo"]
+        )
+        if b.kind == "pg":
+            from psycopg2 import sql
+    
+            with b.admin.cursor() as cur:
+                for table in [
+                    "economic_v1_schema",
+                    "economic_v1_messages",
+                    "economic_v1_postings",
+                    "economic_v1_links",
+                    "economic_v1_events",
+                ]:
+                    cur.execute(
+                        sql.SQL("GRANT SELECT ON {}.{} TO {}").format(
+                            sql.Identifier(b.schema), sql.Identifier(table), sql.Identifier(b.role)
+                        )
+                    )
+        book = EconomicBook(b.store, experimental=True, initialize=False)
+        bridge = ControlBridge(
+            devices, work, catalog, book=book, book_scopes=scopes, authority=authority
+        )
+        client_file = root.parent / "control/web/index.html"
+        app = create_control_app(
+            bridge,
+            origin="https://control.test",
+            client_file=client_file,
+>           client_sha256=file_sha(client_file),
+                          ^^^^^^^^^^^^^^^^^^^^^
+            enabled=True,
+        )
+
+services/gateway/tests/test_control_api.py:167: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+services/gateway/src/governed_skills.py:36: in file_sha
+    with Path(path).open("rb") as handle:
+         ^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/home/user/.cache/openbot-reference-next/control/web/index.html')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/user/.cache/openbot-reference-next/control/web/index.html'
+
+/usr/local/lib/python3.13/pathlib/_local.py:537: FileNotFoundError
+_ ERROR at setup of test_viewer_cross_venture_revoked_and_expired_devices_are_refused[sqlite] _
+
+durable_backend = namespace(kind='sqlite', store=Store(path='/tmp/pytest-of-user/pytest-55/test_viewer_cross_venture_revo0/governed.sqli...], admin=None, role=None, schema=None, path=PosixPath('/tmp/pytest-of-user/pytest-55/test_viewer_cross_venture_revo0'))
+tmp_path = PosixPath('/tmp/pytest-of-user/pytest-55/test_viewer_cross_venture_revo0')
+
+    @pytest.fixture
+    def control(durable_backend, tmp_path):
+        b = durable_backend
+        issuer = WorkService(b.provision, enabled=True)
+        work = WorkService(b.work, enabled=True)
+        server = sha(b"owned-synthetic-control-fixture")
+        devices = DeviceStore(
+            tmp_path / "devices.db", server, initialize=True, clock=lambda: b.clock[0]
+        )
+        authority = ControlAuthority(devices, issuer)
+        admin_key = Ed25519PrivateKey.generate()
+        trusted = {
+            "host": {
+                "public_key": encode(admin_key.public_key().public_bytes_raw()),
+                "roles": ["catalog-admin"],
+                "revoked": False,
+            }
+        }
+        root = Path(__file__).resolve().parents[3]
+        lock = root / "audit/first-party-tool-catalog.json"
+        auth_file = tmp_path / "catalog-authority.json"
+        catalog_payload = {
+            "schema": "openbot.tool-authority/1",
+            "epoch": 1,
+            "not_before": int(b.clock[0]) - 1,
+            "expires": int(b.clock[0]) + 3600,
+            "revoked": [],
+            "grants": {"demo": ["owned.qa"], "other": ["owned.qa"]},
+        }
+        auth_file.write_text(json.dumps(sign(admin_key, "host", catalog_payload)))
+        catalog = ToolCatalog(root, lock, file_sha(lock), auth_file, trusted, clock=lambda: b.clock[0])
+        setup_book = EconomicBook(b.owner, experimental=True)
+        scopes = {
+            "demo": Scope("acct_controlfixture", "demo"),
+            "other": Scope("acct_otherfixture", "other"),
+        }
+        for venture, scope in scopes.items():
+            obj = charge(venture, 25000 if venture == "demo" else 99999)
+            obj["metadata"]["venture"] = venture
+            setup_book.ingest(
+                encoded("charge.succeeded", obj, "evt_control_" + venture, scope.account), scope
+            )
+        obj = refund("control", 5000, "demo")
+        obj["metadata"]["venture"] = "demo"
+        setup_book.ingest(
+            encoded("refund.created", obj, "evt_control_refund", scopes["demo"].account), scopes["demo"]
+        )
+        if b.kind == "pg":
+            from psycopg2 import sql
+    
+            with b.admin.cursor() as cur:
+                for table in [
+                    "economic_v1_schema",
+                    "economic_v1_messages",
+                    "economic_v1_postings",
+                    "economic_v1_links",
+                    "economic_v1_events",
+                ]:
+                    cur.execute(
+                        sql.SQL("GRANT SELECT ON {}.{} TO {}").format(
+                            sql.Identifier(b.schema), sql.Identifier(table), sql.Identifier(b.role)
+                        )
+                    )
+        book = EconomicBook(b.store, experimental=True, initialize=False)
+        bridge = ControlBridge(
+            devices, work, catalog, book=book, book_scopes=scopes, authority=authority
+        )
+        client_file = root.parent / "control/web/index.html"
+        app = create_control_app(
+            bridge,
+            origin="https://control.test",
+            client_file=client_file,
+>           client_sha256=file_sha(client_file),
+                          ^^^^^^^^^^^^^^^^^^^^^
+            enabled=True,
+        )
+
+services/gateway/tests/test_control_api.py:167: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+services/gateway/src/governed_skills.py:36: in file_sha
+    with Path(path).open("rb") as handle:
+         ^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/home/user/.cache/openbot-reference-next/control/web/index.html')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/user/.cache/openbot-reference-next/control/web/index.html'
+
+/usr/local/lib/python3.13/pathlib/_local.py:537: FileNotFoundError
+_ ERROR at setup of test_exact_approval_needs_separate_fresh_task_and_device_bound_reauth[sqlite] _
+
+durable_backend = namespace(kind='sqlite', store=Store(path='/tmp/pytest-of-user/pytest-55/test_exact_approval_needs_sepa0/governed.sqli...], admin=None, role=None, schema=None, path=PosixPath('/tmp/pytest-of-user/pytest-55/test_exact_approval_needs_sepa0'))
+tmp_path = PosixPath('/tmp/pytest-of-user/pytest-55/test_exact_approval_needs_sepa0')
+
+    @pytest.fixture
+    def control(durable_backend, tmp_path):
+        b = durable_backend
+        issuer = WorkService(b.provision, enabled=True)
+        work = WorkService(b.work, enabled=True)
+        server = sha(b"owned-synthetic-control-fixture")
+        devices = DeviceStore(
+            tmp_path / "devices.db", server, initialize=True, clock=lambda: b.clock[0]
+        )
+        authority = ControlAuthority(devices, issuer)
+        admin_key = Ed25519PrivateKey.generate()
+        trusted = {
+            "host": {
+                "public_key": encode(admin_key.public_key().public_bytes_raw()),
+                "roles": ["catalog-admin"],
+                "revoked": False,
+            }
+        }
+        root = Path(__file__).resolve().parents[3]
+        lock = root / "audit/first-party-tool-catalog.json"
+        auth_file = tmp_path / "catalog-authority.json"
+        catalog_payload = {
+            "schema": "openbot.tool-authority/1",
+            "epoch": 1,
+            "not_before": int(b.clock[0]) - 1,
+            "expires": int(b.clock[0]) + 3600,
+            "revoked": [],
+            "grants": {"demo": ["owned.qa"], "other": ["owned.qa"]},
+        }
+        auth_file.write_text(json.dumps(sign(admin_key, "host", catalog_payload)))
+        catalog = ToolCatalog(root, lock, file_sha(lock), auth_file, trusted, clock=lambda: b.clock[0])
+        setup_book = EconomicBook(b.owner, experimental=True)
+        scopes = {
+            "demo": Scope("acct_controlfixture", "demo"),
+            "other": Scope("acct_otherfixture", "other"),
+        }
+        for venture, scope in scopes.items():
+            obj = charge(venture, 25000 if venture == "demo" else 99999)
+            obj["metadata"]["venture"] = venture
+            setup_book.ingest(
+                encoded("charge.succeeded", obj, "evt_control_" + venture, scope.account), scope
+            )
+        obj = refund("control", 5000, "demo")
+        obj["metadata"]["venture"] = "demo"
+        setup_book.ingest(
+            encoded("refund.created", obj, "evt_control_refund", scopes["demo"].account), scopes["demo"]
+        )
+        if b.kind == "pg":
+            from psycopg2 import sql
+    
+            with b.admin.cursor() as cur:
+                for table in [
+                    "economic_v1_schema",
+                    "economic_v1_messages",
+                    "economic_v1_postings",
+                    "economic_v1_links",
+                    "economic_v1_events",
+                ]:
+                    cur.execute(
+                        sql.SQL("GRANT SELECT ON {}.{} TO {}").format(
+                            sql.Identifier(b.schema), sql.Identifier(table), sql.Identifier(b.role)
+                        )
+                    )
+        book = EconomicBook(b.store, experimental=True, initialize=False)
+        bridge = ControlBridge(
+            devices, work, catalog, book=book, book_scopes=scopes, authority=authority
+        )
+        client_file = root.parent / "control/web/index.html"
+        app = create_control_app(
+            bridge,
+            origin="https://control.test",
+            client_file=client_file,
+>           client_sha256=file_sha(client_file),
+                          ^^^^^^^^^^^^^^^^^^^^^
+            enabled=True,
+        )
+
+services/gateway/tests/test_control_api.py:167: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+services/gateway/src/governed_skills.py:36: in file_sha
+    with Path(path).open("rb") as handle:
+         ^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/home/user/.cache/openbot-reference-next/control/web/index.html')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/user/.cache/openbot-reference-next/control/web/index.html'
+
+/usr/local/lib/python3.13/pathlib/_local.py:537: FileNotFoundError
+_ ERROR at setup of test_browser_contract_to_governance_artifact_readback_and_replay[sqlite] _
+
+durable_backend = namespace(kind='sqlite', store=Store(path='/tmp/pytest-of-user/pytest-55/test_browser_contract_to_gover0/governed.sqli...], admin=None, role=None, schema=None, path=PosixPath('/tmp/pytest-of-user/pytest-55/test_browser_contract_to_gover0'))
+tmp_path = PosixPath('/tmp/pytest-of-user/pytest-55/test_browser_contract_to_gover0')
+
+    @pytest.fixture
+    def control(durable_backend, tmp_path):
+        b = durable_backend
+        issuer = WorkService(b.provision, enabled=True)
+        work = WorkService(b.work, enabled=True)
+        server = sha(b"owned-synthetic-control-fixture")
+        devices = DeviceStore(
+            tmp_path / "devices.db", server, initialize=True, clock=lambda: b.clock[0]
+        )
+        authority = ControlAuthority(devices, issuer)
+        admin_key = Ed25519PrivateKey.generate()
+        trusted = {
+            "host": {
+                "public_key": encode(admin_key.public_key().public_bytes_raw()),
+                "roles": ["catalog-admin"],
+                "revoked": False,
+            }
+        }
+        root = Path(__file__).resolve().parents[3]
+        lock = root / "audit/first-party-tool-catalog.json"
+        auth_file = tmp_path / "catalog-authority.json"
+        catalog_payload = {
+            "schema": "openbot.tool-authority/1",
+            "epoch": 1,
+            "not_before": int(b.clock[0]) - 1,
+            "expires": int(b.clock[0]) + 3600,
+            "revoked": [],
+            "grants": {"demo": ["owned.qa"], "other": ["owned.qa"]},
+        }
+        auth_file.write_text(json.dumps(sign(admin_key, "host", catalog_payload)))
+        catalog = ToolCatalog(root, lock, file_sha(lock), auth_file, trusted, clock=lambda: b.clock[0])
+        setup_book = EconomicBook(b.owner, experimental=True)
+        scopes = {
+            "demo": Scope("acct_controlfixture", "demo"),
+            "other": Scope("acct_otherfixture", "other"),
+        }
+        for venture, scope in scopes.items():
+            obj = charge(venture, 25000 if venture == "demo" else 99999)
+            obj["metadata"]["venture"] = venture
+            setup_book.ingest(
+                encoded("charge.succeeded", obj, "evt_control_" + venture, scope.account), scope
+            )
+        obj = refund("control", 5000, "demo")
+        obj["metadata"]["venture"] = "demo"
+        setup_book.ingest(
+            encoded("refund.created", obj, "evt_control_refund", scopes["demo"].account), scopes["demo"]
+        )
+        if b.kind == "pg":
+            from psycopg2 import sql
+    
+            with b.admin.cursor() as cur:
+                for table in [
+                    "economic_v1_schema",
+                    "economic_v1_messages",
+                    "economic_v1_postings",
+                    "economic_v1_links",
+                    "economic_v1_events",
+                ]:
+                    cur.execute(
+                        sql.SQL("GRANT SELECT ON {}.{} TO {}").format(
+                            sql.Identifier(b.schema), sql.Identifier(table), sql.Identifier(b.role)
+                        )
+                    )
+        book = EconomicBook(b.store, experimental=True, initialize=False)
+        bridge = ControlBridge(
+            devices, work, catalog, book=book, book_scopes=scopes, authority=authority
+        )
+        client_file = root.parent / "control/web/index.html"
+        app = create_control_app(
+            bridge,
+            origin="https://control.test",
+            client_file=client_file,
+>           client_sha256=file_sha(client_file),
+                          ^^^^^^^^^^^^^^^^^^^^^
+            enabled=True,
+        )
+
+services/gateway/tests/test_control_api.py:167: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+services/gateway/src/governed_skills.py:36: in file_sha
+    with Path(path).open("rb") as handle:
+         ^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/home/user/.cache/openbot-reference-next/control/web/index.html')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/user/.cache/openbot-reference-next/control/web/index.html'
+
+/usr/local/lib/python3.13/pathlib/_local.py:537: FileNotFoundError
+_ ERROR at setup of test_catalog_revocation_prevents_effect_after_review[sqlite] _
+
+durable_backend = namespace(kind='sqlite', store=Store(path='/tmp/pytest-of-user/pytest-55/test_catalog_revocation_preven0/governed.sqli...], admin=None, role=None, schema=None, path=PosixPath('/tmp/pytest-of-user/pytest-55/test_catalog_revocation_preven0'))
+tmp_path = PosixPath('/tmp/pytest-of-user/pytest-55/test_catalog_revocation_preven0')
+
+    @pytest.fixture
+    def control(durable_backend, tmp_path):
+        b = durable_backend
+        issuer = WorkService(b.provision, enabled=True)
+        work = WorkService(b.work, enabled=True)
+        server = sha(b"owned-synthetic-control-fixture")
+        devices = DeviceStore(
+            tmp_path / "devices.db", server, initialize=True, clock=lambda: b.clock[0]
+        )
+        authority = ControlAuthority(devices, issuer)
+        admin_key = Ed25519PrivateKey.generate()
+        trusted = {
+            "host": {
+                "public_key": encode(admin_key.public_key().public_bytes_raw()),
+                "roles": ["catalog-admin"],
+                "revoked": False,
+            }
+        }
+        root = Path(__file__).resolve().parents[3]
+        lock = root / "audit/first-party-tool-catalog.json"
+        auth_file = tmp_path / "catalog-authority.json"
+        catalog_payload = {
+            "schema": "openbot.tool-authority/1",
+            "epoch": 1,
+            "not_before": int(b.clock[0]) - 1,
+            "expires": int(b.clock[0]) + 3600,
+            "revoked": [],
+            "grants": {"demo": ["owned.qa"], "other": ["owned.qa"]},
+        }
+        auth_file.write_text(json.dumps(sign(admin_key, "host", catalog_payload)))
+        catalog = ToolCatalog(root, lock, file_sha(lock), auth_file, trusted, clock=lambda: b.clock[0])
+        setup_book = EconomicBook(b.owner, experimental=True)
+        scopes = {
+            "demo": Scope("acct_controlfixture", "demo"),
+            "other": Scope("acct_otherfixture", "other"),
+        }
+        for venture, scope in scopes.items():
+            obj = charge(venture, 25000 if venture == "demo" else 99999)
+            obj["metadata"]["venture"] = venture
+            setup_book.ingest(
+                encoded("charge.succeeded", obj, "evt_control_" + venture, scope.account), scope
+            )
+        obj = refund("control", 5000, "demo")
+        obj["metadata"]["venture"] = "demo"
+        setup_book.ingest(
+            encoded("refund.created", obj, "evt_control_refund", scopes["demo"].account), scopes["demo"]
+        )
+        if b.kind == "pg":
+            from psycopg2 import sql
+    
+            with b.admin.cursor() as cur:
+                for table in [
+                    "economic_v1_schema",
+                    "economic_v1_messages",
+                    "economic_v1_postings",
+                    "economic_v1_links",
+                    "economic_v1_events",
+                ]:
+                    cur.execute(
+                        sql.SQL("GRANT SELECT ON {}.{} TO {}").format(
+                            sql.Identifier(b.schema), sql.Identifier(table), sql.Identifier(b.role)
+                        )
+                    )
+        book = EconomicBook(b.store, experimental=True, initialize=False)
+        bridge = ControlBridge(
+            devices, work, catalog, book=book, book_scopes=scopes, authority=authority
+        )
+        client_file = root.parent / "control/web/index.html"
+        app = create_control_app(
+            bridge,
+            origin="https://control.test",
+            client_file=client_file,
+>           client_sha256=file_sha(client_file),
+                          ^^^^^^^^^^^^^^^^^^^^^
+            enabled=True,
+        )
+
+services/gateway/tests/test_control_api.py:167: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+services/gateway/src/governed_skills.py:36: in file_sha
+    with Path(path).open("rb") as handle:
+         ^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/home/user/.cache/openbot-reference-next/control/web/index.html')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/user/.cache/openbot-reference-next/control/web/index.html'
+
+/usr/local/lib/python3.13/pathlib/_local.py:537: FileNotFoundError
+_ ERROR at setup of test_body_request_identity_and_challenge_capacity_are_bounded[sqlite] _
+
+durable_backend = namespace(kind='sqlite', store=Store(path='/tmp/pytest-of-user/pytest-55/test_body_request_identity_and0/governed.sqli...], admin=None, role=None, schema=None, path=PosixPath('/tmp/pytest-of-user/pytest-55/test_body_request_identity_and0'))
+tmp_path = PosixPath('/tmp/pytest-of-user/pytest-55/test_body_request_identity_and0')
+
+    @pytest.fixture
+    def control(durable_backend, tmp_path):
+        b = durable_backend
+        issuer = WorkService(b.provision, enabled=True)
+        work = WorkService(b.work, enabled=True)
+        server = sha(b"owned-synthetic-control-fixture")
+        devices = DeviceStore(
+            tmp_path / "devices.db", server, initialize=True, clock=lambda: b.clock[0]
+        )
+        authority = ControlAuthority(devices, issuer)
+        admin_key = Ed25519PrivateKey.generate()
+        trusted = {
+            "host": {
+                "public_key": encode(admin_key.public_key().public_bytes_raw()),
+                "roles": ["catalog-admin"],
+                "revoked": False,
+            }
+        }
+        root = Path(__file__).resolve().parents[3]
+        lock = root / "audit/first-party-tool-catalog.json"
+        auth_file = tmp_path / "catalog-authority.json"
+        catalog_payload = {
+            "schema": "openbot.tool-authority/1",
+            "epoch": 1,
+            "not_before": int(b.clock[0]) - 1,
+            "expires": int(b.clock[0]) + 3600,
+            "revoked": [],
+            "grants": {"demo": ["owned.qa"], "other": ["owned.qa"]},
+        }
+        auth_file.write_text(json.dumps(sign(admin_key, "host", catalog_payload)))
+        catalog = ToolCatalog(root, lock, file_sha(lock), auth_file, trusted, clock=lambda: b.clock[0])
+        setup_book = EconomicBook(b.owner, experimental=True)
+        scopes = {
+            "demo": Scope("acct_controlfixture", "demo"),
+            "other": Scope("acct_otherfixture", "other"),
+        }
+        for venture, scope in scopes.items():
+            obj = charge(venture, 25000 if venture == "demo" else 99999)
+            obj["metadata"]["venture"] = venture
+            setup_book.ingest(
+                encoded("charge.succeeded", obj, "evt_control_" + venture, scope.account), scope
+            )
+        obj = refund("control", 5000, "demo")
+        obj["metadata"]["venture"] = "demo"
+        setup_book.ingest(
+            encoded("refund.created", obj, "evt_control_refund", scopes["demo"].account), scopes["demo"]
+        )
+        if b.kind == "pg":
+            from psycopg2 import sql
+    
+            with b.admin.cursor() as cur:
+                for table in [
+                    "economic_v1_schema",
+                    "economic_v1_messages",
+                    "economic_v1_postings",
+                    "economic_v1_links",
+                    "economic_v1_events",
+                ]:
+                    cur.execute(
+                        sql.SQL("GRANT SELECT ON {}.{} TO {}").format(
+                            sql.Identifier(b.schema), sql.Identifier(table), sql.Identifier(b.role)
+                        )
+                    )
+        book = EconomicBook(b.store, experimental=True, initialize=False)
+        bridge = ControlBridge(
+            devices, work, catalog, book=book, book_scopes=scopes, authority=authority
+        )
+        client_file = root.parent / "control/web/index.html"
+        app = create_control_app(
+            bridge,
+            origin="https://control.test",
+            client_file=client_file,
+>           client_sha256=file_sha(client_file),
+                          ^^^^^^^^^^^^^^^^^^^^^
+            enabled=True,
+        )
+
+services/gateway/tests/test_control_api.py:167: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+services/gateway/src/governed_skills.py:36: in file_sha
+    with Path(path).open("rb") as handle:
+         ^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/home/user/.cache/openbot-reference-next/control/web/index.html')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/user/.cache/openbot-reference-next/control/web/index.html'
+
+/usr/local/lib/python3.13/pathlib/_local.py:537: FileNotFoundError
+_ ERROR at setup of test_failed_pair_attempts_are_rate_limited_not_rolled_back[sqlite] _
+
+durable_backend = namespace(kind='sqlite', store=Store(path='/tmp/pytest-of-user/pytest-55/test_failed_pair_attempts_are_0/governed.sqli...], admin=None, role=None, schema=None, path=PosixPath('/tmp/pytest-of-user/pytest-55/test_failed_pair_attempts_are_0'))
+tmp_path = PosixPath('/tmp/pytest-of-user/pytest-55/test_failed_pair_attempts_are_0')
+
+    @pytest.fixture
+    def control(durable_backend, tmp_path):
+        b = durable_backend
+        issuer = WorkService(b.provision, enabled=True)
+        work = WorkService(b.work, enabled=True)
+        server = sha(b"owned-synthetic-control-fixture")
+        devices = DeviceStore(
+            tmp_path / "devices.db", server, initialize=True, clock=lambda: b.clock[0]
+        )
+        authority = ControlAuthority(devices, issuer)
+        admin_key = Ed25519PrivateKey.generate()
+        trusted = {
+            "host": {
+                "public_key": encode(admin_key.public_key().public_bytes_raw()),
+                "roles": ["catalog-admin"],
+                "revoked": False,
+            }
+        }
+        root = Path(__file__).resolve().parents[3]
+        lock = root / "audit/first-party-tool-catalog.json"
+        auth_file = tmp_path / "catalog-authority.json"
+        catalog_payload = {
+            "schema": "openbot.tool-authority/1",
+            "epoch": 1,
+            "not_before": int(b.clock[0]) - 1,
+            "expires": int(b.clock[0]) + 3600,
+            "revoked": [],
+            "grants": {"demo": ["owned.qa"], "other": ["owned.qa"]},
+        }
+        auth_file.write_text(json.dumps(sign(admin_key, "host", catalog_payload)))
+        catalog = ToolCatalog(root, lock, file_sha(lock), auth_file, trusted, clock=lambda: b.clock[0])
+        setup_book = EconomicBook(b.owner, experimental=True)
+        scopes = {
+            "demo": Scope("acct_controlfixture", "demo"),
+            "other": Scope("acct_otherfixture", "other"),
+        }
+        for venture, scope in scopes.items():
+            obj = charge(venture, 25000 if venture == "demo" else 99999)
+            obj["metadata"]["venture"] = venture
+            setup_book.ingest(
+                encoded("charge.succeeded", obj, "evt_control_" + venture, scope.account), scope
+            )
+        obj = refund("control", 5000, "demo")
+        obj["metadata"]["venture"] = "demo"
+        setup_book.ingest(
+            encoded("refund.created", obj, "evt_control_refund", scopes["demo"].account), scopes["demo"]
+        )
+        if b.kind == "pg":
+            from psycopg2 import sql
+    
+            with b.admin.cursor() as cur:
+                for table in [
+                    "economic_v1_schema",
+                    "economic_v1_messages",
+                    "economic_v1_postings",
+                    "economic_v1_links",
+                    "economic_v1_events",
+                ]:
+                    cur.execute(
+                        sql.SQL("GRANT SELECT ON {}.{} TO {}").format(
+                            sql.Identifier(b.schema), sql.Identifier(table), sql.Identifier(b.role)
+                        )
+                    )
+        book = EconomicBook(b.store, experimental=True, initialize=False)
+        bridge = ControlBridge(
+            devices, work, catalog, book=book, book_scopes=scopes, authority=authority
+        )
+        client_file = root.parent / "control/web/index.html"
+        app = create_control_app(
+            bridge,
+            origin="https://control.test",
+            client_file=client_file,
+>           client_sha256=file_sha(client_file),
+                          ^^^^^^^^^^^^^^^^^^^^^
+            enabled=True,
+        )
+
+services/gateway/tests/test_control_api.py:167: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+services/gateway/src/governed_skills.py:36: in file_sha
+    with Path(path).open("rb") as handle:
+         ^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/home/user/.cache/openbot-reference-next/control/web/index.html')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/user/.cache/openbot-reference-next/control/web/index.html'
+
+/usr/local/lib/python3.13/pathlib/_local.py:537: FileNotFoundError
+_ ERROR at setup of test_device_schema_identity_client_pin_and_host_only_authority[sqlite] _
+
+durable_backend = namespace(kind='sqlite', store=Store(path='/tmp/pytest-of-user/pytest-55/test_device_schema_identity_cl0/governed.sqli...], admin=None, role=None, schema=None, path=PosixPath('/tmp/pytest-of-user/pytest-55/test_device_schema_identity_cl0'))
+tmp_path = PosixPath('/tmp/pytest-of-user/pytest-55/test_device_schema_identity_cl0')
+
+    @pytest.fixture
+    def control(durable_backend, tmp_path):
+        b = durable_backend
+        issuer = WorkService(b.provision, enabled=True)
+        work = WorkService(b.work, enabled=True)
+        server = sha(b"owned-synthetic-control-fixture")
+        devices = DeviceStore(
+            tmp_path / "devices.db", server, initialize=True, clock=lambda: b.clock[0]
+        )
+        authority = ControlAuthority(devices, issuer)
+        admin_key = Ed25519PrivateKey.generate()
+        trusted = {
+            "host": {
+                "public_key": encode(admin_key.public_key().public_bytes_raw()),
+                "roles": ["catalog-admin"],
+                "revoked": False,
+            }
+        }
+        root = Path(__file__).resolve().parents[3]
+        lock = root / "audit/first-party-tool-catalog.json"
+        auth_file = tmp_path / "catalog-authority.json"
+        catalog_payload = {
+            "schema": "openbot.tool-authority/1",
+            "epoch": 1,
+            "not_before": int(b.clock[0]) - 1,
+            "expires": int(b.clock[0]) + 3600,
+            "revoked": [],
+            "grants": {"demo": ["owned.qa"], "other": ["owned.qa"]},
+        }
+        auth_file.write_text(json.dumps(sign(admin_key, "host", catalog_payload)))
+        catalog = ToolCatalog(root, lock, file_sha(lock), auth_file, trusted, clock=lambda: b.clock[0])
+        setup_book = EconomicBook(b.owner, experimental=True)
+        scopes = {
+            "demo": Scope("acct_controlfixture", "demo"),
+            "other": Scope("acct_otherfixture", "other"),
+        }
+        for venture, scope in scopes.items():
+            obj = charge(venture, 25000 if venture == "demo" else 99999)
+            obj["metadata"]["venture"] = venture
+            setup_book.ingest(
+                encoded("charge.succeeded", obj, "evt_control_" + venture, scope.account), scope
+            )
+        obj = refund("control", 5000, "demo")
+        obj["metadata"]["venture"] = "demo"
+        setup_book.ingest(
+            encoded("refund.created", obj, "evt_control_refund", scopes["demo"].account), scopes["demo"]
+        )
+        if b.kind == "pg":
+            from psycopg2 import sql
+    
+            with b.admin.cursor() as cur:
+                for table in [
+                    "economic_v1_schema",
+                    "economic_v1_messages",
+                    "economic_v1_postings",
+                    "economic_v1_links",
+                    "economic_v1_events",
+                ]:
+                    cur.execute(
+                        sql.SQL("GRANT SELECT ON {}.{} TO {}").format(
+                            sql.Identifier(b.schema), sql.Identifier(table), sql.Identifier(b.role)
+                        )
+                    )
+        book = EconomicBook(b.store, experimental=True, initialize=False)
+        bridge = ControlBridge(
+            devices, work, catalog, book=book, book_scopes=scopes, authority=authority
+        )
+        client_file = root.parent / "control/web/index.html"
+        app = create_control_app(
+            bridge,
+            origin="https://control.test",
+            client_file=client_file,
+>           client_sha256=file_sha(client_file),
+                          ^^^^^^^^^^^^^^^^^^^^^
+            enabled=True,
+        )
+
+services/gateway/tests/test_control_api.py:167: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+services/gateway/src/governed_skills.py:36: in file_sha
+    with Path(path).open("rb") as handle:
+         ^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/home/user/.cache/openbot-reference-next/control/web/index.html')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/user/.cache/openbot-reference-next/control/web/index.html'
+
+/usr/local/lib/python3.13/pathlib/_local.py:537: FileNotFoundError
+_ ERROR at setup of test_feedback_identity_is_derived_from_session_not_client_json[sqlite] _
+
+durable_backend = namespace(kind='sqlite', store=Store(path='/tmp/pytest-of-user/pytest-55/test_feedback_identity_is_deri0/governed.sqli...], admin=None, role=None, schema=None, path=PosixPath('/tmp/pytest-of-user/pytest-55/test_feedback_identity_is_deri0'))
+tmp_path = PosixPath('/tmp/pytest-of-user/pytest-55/test_feedback_identity_is_deri0')
+
+    @pytest.fixture
+    def control(durable_backend, tmp_path):
+        b = durable_backend
+        issuer = WorkService(b.provision, enabled=True)
+        work = WorkService(b.work, enabled=True)
+        server = sha(b"owned-synthetic-control-fixture")
+        devices = DeviceStore(
+            tmp_path / "devices.db", server, initialize=True, clock=lambda: b.clock[0]
+        )
+        authority = ControlAuthority(devices, issuer)
+        admin_key = Ed25519PrivateKey.generate()
+        trusted = {
+            "host": {
+                "public_key": encode(admin_key.public_key().public_bytes_raw()),
+                "roles": ["catalog-admin"],
+                "revoked": False,
+            }
+        }
+        root = Path(__file__).resolve().parents[3]
+        lock = root / "audit/first-party-tool-catalog.json"
+        auth_file = tmp_path / "catalog-authority.json"
+        catalog_payload = {
+            "schema": "openbot.tool-authority/1",
+            "epoch": 1,
+            "not_before": int(b.clock[0]) - 1,
+            "expires": int(b.clock[0]) + 3600,
+            "revoked": [],
+            "grants": {"demo": ["owned.qa"], "other": ["owned.qa"]},
+        }
+        auth_file.write_text(json.dumps(sign(admin_key, "host", catalog_payload)))
+        catalog = ToolCatalog(root, lock, file_sha(lock), auth_file, trusted, clock=lambda: b.clock[0])
+        setup_book = EconomicBook(b.owner, experimental=True)
+        scopes = {
+            "demo": Scope("acct_controlfixture", "demo"),
+            "other": Scope("acct_otherfixture", "other"),
+        }
+        for venture, scope in scopes.items():
+            obj = charge(venture, 25000 if venture == "demo" else 99999)
+            obj["metadata"]["venture"] = venture
+            setup_book.ingest(
+                encoded("charge.succeeded", obj, "evt_control_" + venture, scope.account), scope
+            )
+        obj = refund("control", 5000, "demo")
+        obj["metadata"]["venture"] = "demo"
+        setup_book.ingest(
+            encoded("refund.created", obj, "evt_control_refund", scopes["demo"].account), scopes["demo"]
+        )
+        if b.kind == "pg":
+            from psycopg2 import sql
+    
+            with b.admin.cursor() as cur:
+                for table in [
+                    "economic_v1_schema",
+                    "economic_v1_messages",
+                    "economic_v1_postings",
+                    "economic_v1_links",
+                    "economic_v1_events",
+                ]:
+                    cur.execute(
+                        sql.SQL("GRANT SELECT ON {}.{} TO {}").format(
+                            sql.Identifier(b.schema), sql.Identifier(table), sql.Identifier(b.role)
+                        )
+                    )
+        book = EconomicBook(b.store, experimental=True, initialize=False)
+        bridge = ControlBridge(
+            devices, work, catalog, book=book, book_scopes=scopes, authority=authority
+        )
+        client_file = root.parent / "control/web/index.html"
+        app = create_control_app(
+            bridge,
+            origin="https://control.test",
+            client_file=client_file,
+>           client_sha256=file_sha(client_file),
+                          ^^^^^^^^^^^^^^^^^^^^^
+            enabled=True,
+        )
+
+services/gateway/tests/test_control_api.py:167: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+services/gateway/src/governed_skills.py:36: in file_sha
+    with Path(path).open("rb") as handle:
+         ^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/home/user/.cache/openbot-reference-next/control/web/index.html')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/user/.cache/openbot-reference-next/control/web/index.html'
+
+/usr/local/lib/python3.13/pathlib/_local.py:537: FileNotFoundError
+=============================== warnings summary ===============================
+../../openbot-s11-s12/venv/lib/python3.13/site-packages/fastapi/testclient.py:1
+  /home/user/.cache/openbot-s11-s12/venv/lib/python3.13/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+ERROR services/gateway/tests/test_control_api.py::test_default_off_no_legacy_grants_and_no_http_downgrade[sqlite]
+ERROR services/gateway/tests/test_control_api.py::test_real_scoped_reads_use_the_exact_book_not_float_pnl[sqlite]
+ERROR services/gateway/tests/test_control_api.py::test_pairing_code_one_use_and_public_key_is_proved[sqlite]
+ERROR services/gateway/tests/test_control_api.py::test_requests_are_key_nonce_body_path_device_and_time_bound[sqlite-forged-key]
+ERROR services/gateway/tests/test_control_api.py::test_requests_are_key_nonce_body_path_device_and_time_bound[sqlite-replay]
+ERROR services/gateway/tests/test_control_api.py::test_requests_are_key_nonce_body_path_device_and_time_bound[sqlite-body]
+ERROR services/gateway/tests/test_control_api.py::test_requests_are_key_nonce_body_path_device_and_time_bound[sqlite-path]
+ERROR services/gateway/tests/test_control_api.py::test_requests_are_key_nonce_body_path_device_and_time_bound[sqlite-device]
+ERROR services/gateway/tests/test_control_api.py::test_requests_are_key_nonce_body_path_device_and_time_bound[sqlite-expiry]
+ERROR services/gateway/tests/test_control_api.py::test_json_cannot_grant_authority[sqlite-role]
+ERROR services/gateway/tests/test_control_api.py::test_json_cannot_grant_authority[sqlite-actor]
+ERROR services/gateway/tests/test_control_api.py::test_json_cannot_grant_authority[sqlite-venture]
+ERROR services/gateway/tests/test_control_api.py::test_json_cannot_grant_authority[sqlite-program]
+ERROR services/gateway/tests/test_control_api.py::test_json_cannot_grant_authority[sqlite-budget_usd]
+ERROR services/gateway/tests/test_control_api.py::test_json_cannot_grant_authority[sqlite-upper_minor]
+ERROR services/gateway/tests/test_control_api.py::test_json_cannot_grant_authority[sqlite-provider]
+ERROR services/gateway/tests/test_control_api.py::test_viewer_cross_venture_revoked_and_expired_devices_are_refused[sqlite]
+ERROR services/gateway/tests/test_control_api.py::test_exact_approval_needs_separate_fresh_task_and_device_bound_reauth[sqlite]
+ERROR services/gateway/tests/test_control_api.py::test_browser_contract_to_governance_artifact_readback_and_replay[sqlite]
+ERROR services/gateway/tests/test_control_api.py::test_catalog_revocation_prevents_effect_after_review[sqlite]
+ERROR services/gateway/tests/test_control_api.py::test_body_request_identity_and_challenge_capacity_are_bounded[sqlite]
+ERROR services/gateway/tests/test_control_api.py::test_failed_pair_attempts_are_rate_limited_not_rolled_back[sqlite]
+ERROR services/gateway/tests/test_control_api.py::test_device_schema_identity_client_pin_and_host_only_authority[sqlite]
+ERROR services/gateway/tests/test_control_api.py::test_feedback_identity_is_derived_from_session_not_client_json[sqlite]
+1199 passed, 201 skipped, 1 warning, 24 errors in 54.20s

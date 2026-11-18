@@ -1,0 +1,10 @@
+{
+  "schema": "openbot.required-staging-controls/1",
+  "mode": "external_owner_approval_and_independent_witness_required",
+  "default_network": "deny",
+  "required_per_job": ["delegated_cgroup_v2_cpu", "delegated_cgroup_v2_memory", "delegated_cgroup_v2_pids", "hard_disk_quota_or_sized_private_tmpfs", "private_mount_user_pid_net_namespaces", "no_host_secrets", "no_authority_database_mount", "no_host_socket_mount", "protected_kernel_authority", "process_tree_stop_and_parent_death_cleanup"],
+  "witnessed_tests": ["cpu_enforced", "memory_enforced", "pids_enforced", "disk_hard_quota", "default_deny_egress", "no_host_secrets", "no_authority_db_mounts", "no_host_sockets", "kernel_authority_protected", "process_tree_stop", "parent_death_cleanup", "escape_path_symlink_metadata", "tenant_boundary"],
+  "provider": {"enabled": false, "owner_eligible_account_required": true, "budget_currency": "usd", "maximum_admission_fixture_minor": 100, "unattended": false, "independent_final_usage_required": true},
+  "production_or_release_authorized": false,
+  "namespace_rlimit_demo_is_sufficient": false
+}

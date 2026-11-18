@@ -1,0 +1,211 @@
+{
+  "changed_previous_files": {
+    "README.md": {
+      "after": {
+        "bytes": 1369,
+        "mode": 420,
+        "sha256": "56e62e708314b7b31b43484648cd53b962fb0d523500a73f6cb5ea1fe624ba74"
+      },
+      "before": {
+        "bytes": 1014,
+        "mode": 420,
+        "sha256": "acd517d0352a8023b565ce3809ece5c00898f40921aed8005a639ed66ddcd20d"
+      }
+    },
+    "START_HERE.md": {
+      "after": {
+        "bytes": 5704,
+        "mode": 420,
+        "sha256": "5526e684ae3b022a4163942c7bbd47873b67b51f26197e486265b4ee45f52adb"
+      },
+      "before": {
+        "bytes": 4742,
+        "mode": 420,
+        "sha256": "393bb8dccf8f77df875bf2122f6b6d29ff702f6ffb4824aba87cb14f6c69c600"
+      }
+    },
+    "VERIFICATION.md": {
+      "after": {
+        "bytes": 7900,
+        "mode": 420,
+        "sha256": "bfa7e39794c2f24f4a410c47ec3e8948a14db8849c22bcd68a29b7973762249c"
+      },
+      "before": {
+        "bytes": 2902,
+        "mode": 420,
+        "sha256": "d41efc50c3a9799eedd51e8061406e0661675a317370104f22dfbab25e18f3b1"
+      }
+    },
+    "studio/README.md": {
+      "after": {
+        "bytes": 6006,
+        "mode": 420,
+        "sha256": "565a9f8ece6034a4dc8234eaa29fb485728f2c3e881795a6a8c0ca6d4647d44d"
+      },
+      "before": {
+        "bytes": 5380,
+        "mode": 420,
+        "sha256": "782954f2e5384d49aa0c0069ecae0e3e3f2c6407f78ec84f5ebe5b5defdb21f0"
+      }
+    },
+    "studio/SOURCE_FILES.json": {
+      "after": {
+        "bytes": 1026,
+        "mode": 420,
+        "sha256": "093fcb6888b69f5c6cdecae193dcf9baa6fd293c99fada3dfafd350be6e1e59d"
+      },
+      "before": {
+        "bytes": 501,
+        "mode": 420,
+        "sha256": "1d87d0c6b02e97d25ee7b03c76dc60098ff5c0ba42cae602b7f12572a7a16cf4"
+      }
+    },
+    "studio/docs/REUSE.md": {
+      "after": {
+        "bytes": 5165,
+        "mode": 420,
+        "sha256": "9181f7ba89fe421217188cc9cf4c3dbd15648594c595e6cc5b35c4dfb3498cd1"
+      },
+      "before": {
+        "bytes": 4156,
+        "mode": 420,
+        "sha256": "1ae368a517d6f0c500f846755898762300ffb5770258e41d9909ad2e1b90cdfa"
+      }
+    },
+    "studio/scripts/build-web.py": {
+      "after": {
+        "bytes": 1196,
+        "mode": 420,
+        "sha256": "f4b5d5e4c607401673a5aef6f43e06a6e204e05621879a2b6adda14a0cf642bc"
+      },
+      "before": {
+        "bytes": 1105,
+        "mode": 420,
+        "sha256": "7c2236585823b311f9c422e51afb9df7de3c3e42b8f0ec4cb6cd414d36bc6b87"
+      }
+    },
+    "studio/src/studio_core.py": {
+      "after": {
+        "bytes": 23920,
+        "mode": 420,
+        "sha256": "041ae62aeca4099cf6dd048019f6a447861756e72ba61ad16c58d9727c9625db"
+      },
+      "before": {
+        "bytes": 23831,
+        "mode": 420,
+        "sha256": "1d332155c16a8fe5c59a3880cb2db7e94a3bd47fed9e9361c0eb3ceed38702e7"
+      }
+    },
+    "studio/web/app.js": {
+      "after": {
+        "bytes": 49708,
+        "mode": 420,
+        "sha256": "b85dee1ca14473ff4a78b5b9c026809d3f9a3f958058b18b699ed939acb6b597"
+      },
+      "before": {
+        "bytes": 48735,
+        "mode": 420,
+        "sha256": "7bb50594f6692ac45c932a07e91663426867d2a10f5f2c4779be3b1d44b5e29c"
+      }
+    },
+    "studio/web/index.html": {
+      "after": {
+        "bytes": 116674,
+        "mode": 420,
+        "sha256": "31543a52439065dfc2de4bde28679e2fdf80ff04ca8124f98bf0e9a73d9a2d02"
+      },
+      "before": {
+        "bytes": 88261,
+        "mode": 420,
+        "sha256": "d6c5def0f954e1fcbc0040b55f3c117ea325a4386fa8d62f6252fb4ad8e2d9f6"
+      }
+    },
+    "studio/web/styles.css": {
+      "after": {
+        "bytes": 34718,
+        "mode": 420,
+        "sha256": "54f0678d2c6182f0499ee16c90655241a7b87ba3db758fdde3f7febeda8b4b7a"
+      },
+      "before": {
+        "bytes": 29243,
+        "mode": 420,
+        "sha256": "49136191f3d4c347f892d62e5e46c39df2c6e4d29450445b31df48b0ae059b3d"
+      }
+    },
+    "studio/web/template.html": {
+      "after": {
+        "bytes": 10411,
+        "mode": 420,
+        "sha256": "98b6595f0a6377fbcba29c14da18b0a2e031bf1b022aaeeb09793895082521e5"
+      },
+      "before": {
+        "bytes": 10107,
+        "mode": 420,
+        "sha256": "dc2a696ea0a4d4615bacc1ca787be66488725a2b2376a967ca07250be0125c0a"
+      }
+    }
+  },
+  "kernel_and_paired_control_unchanged": 4188,
+  "new_source_paths": [
+    "CHECKPOINT.json",
+    "OPENMUSE_ADOPTION.md",
+    "PUBLIC_RELEASE_ROADMAP.md",
+    "evidence/openmuse/INDEX.md",
+    "evidence/openmuse/build-final-v2.log",
+    "evidence/openmuse/finance-initial.exit",
+    "evidence/openmuse/finance-initial.log",
+    "evidence/openmuse/finance-ui-chromium.exit",
+    "evidence/openmuse/finance-ui-chromium.log",
+    "evidence/openmuse/finance-ui-webkit.exit",
+    "evidence/openmuse/finance-ui-webkit.log",
+    "evidence/openmuse/pre-export-finance-chromium.exit",
+    "evidence/openmuse/pre-export-finance-chromium.json",
+    "evidence/openmuse/pre-export-finance-chromium.log",
+    "evidence/openmuse/pre-export-finance-node.exit",
+    "evidence/openmuse/pre-export-finance-node.log",
+    "evidence/openmuse/pre-export-finance-webkit.exit",
+    "evidence/openmuse/pre-export-finance-webkit.json",
+    "evidence/openmuse/pre-export-finance-webkit.log",
+    "evidence/openmuse/pre-export-handoff-python.exit",
+    "evidence/openmuse/pre-export-handoff-python.log",
+    "evidence/openmuse/pre-export-observed.json",
+    "evidence/openmuse/pre-export-regression-chromium.exit",
+    "evidence/openmuse/pre-export-regression-chromium.json",
+    "evidence/openmuse/pre-export-regression-chromium.log",
+    "evidence/openmuse/pre-export-regression-webkit.exit",
+    "evidence/openmuse/pre-export-regression-webkit.json",
+    "evidence/openmuse/pre-export-regression-webkit.log",
+    "evidence/openmuse/pre-export-studio-python.exit",
+    "evidence/openmuse/pre-export-studio-python.log",
+    "evidence/openmuse/preservation-before-freeze.json",
+    "evidence/openmuse/retained-reuse-node.exit",
+    "evidence/openmuse/retained-reuse-node.log",
+    "evidence/openmuse/retained-reuse-profile.exit",
+    "evidence/openmuse/retained-reuse-profile.log",
+    "evidence/openmuse/ruff-check-final.exit",
+    "evidence/openmuse/ruff-check-final.log",
+    "evidence/openmuse/ruff-format-check.exit",
+    "evidence/openmuse/ruff-format-check.log",
+    "evidence/openmuse/ruff-format-final.exit",
+    "evidence/openmuse/ruff-format-final.log",
+    "evidence/openmuse/ruff-format-fix.log",
+    "evidence/openmuse/source-changes.json",
+    "studio/docs/FINANCE_PREVIEW.md",
+    "studio/scripts/test-finance-ui.cjs",
+    "studio/tests/finance-preview.test.cjs",
+    "studio/tests/test_finance_source.py",
+    "studio/third_party/openmuse/LICENSE",
+    "studio/third_party/openmuse/PROVENANCE.json",
+    "studio/third_party/openmuse/upstream/apps/server/src/engine/finance.ts",
+    "studio/third_party/openmuse/upstream/tests/finance-byte-limit.test.ts",
+    "studio/third_party/openmuse/upstream/tests/finance-headers.test.ts",
+    "studio/third_party/openmuse/upstream/tests/finance.test.ts",
+    "studio/web/finance-preview.js",
+    "studio/web/finance-workspace.js"
+  ],
+  "note": "The successor manifest itself is replaced and excluded from its own list. Historical prior evidence stays unchanged. New code is scoped to Studio; no runtime gateway, account, bank, PC or release authority added.",
+  "parent_zip_sha256": "a7e0aec0de71e346eacd318270e85aceb52473aa665213f0b041b767f0ba3abe",
+  "previous_files_deleted": [],
+  "previous_listed_files": 4236,
+  "schema": "openbot.source-successor-changes/1"
+}

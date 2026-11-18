@@ -1,0 +1,94 @@
+{
+  "schema": 1,
+  "scope": "Locally authored synthetic USD/test-only accepted subset; generated SDK references statically read, never executed; NOT a provider certification",
+  "provider_api_version": "2024-06-20",
+  "source_reference": {
+    "scope": "static generated SDK type references only; NOT live provider/event lookup, conformance certification or code execution",
+    "repository": "stripe/stripe-python",
+    "requested_tag": "v10.12.0",
+    "commit": "3587026b839435d072b7d220967c476d4c6b9a9b",
+    "commit_lookup_url": "https://api.github.com/repos/stripe/stripe-python/commits/v10.12.0",
+    "files": [
+      {
+        "path": "stripe/_api_version.py",
+        "source_url": "https://raw.githubusercontent.com/stripe/stripe-python/3587026b839435d072b7d220967c476d4c6b9a9b/stripe/_api_version.py",
+        "bytes": 109,
+        "sha256": "fe64549dbbb80fae73aeacf7478e2df898cbe0abe2648994aa3b430e057e045d"
+      },
+      {
+        "path": "stripe/_charge.py",
+        "source_url": "https://raw.githubusercontent.com/stripe/stripe-python/3587026b839435d072b7d220967c476d4c6b9a9b/stripe/_charge.py",
+        "bytes": 122712,
+        "sha256": "3037461a0a44ad6402cc25a1fa3af9cda6fe810dcf893ee0cc919f3f483434ca"
+      },
+      {
+        "path": "stripe/_payment_intent.py",
+        "source_url": "https://raw.githubusercontent.com/stripe/stripe-python/3587026b839435d072b7d220967c476d4c6b9a9b/stripe/_payment_intent.py",
+        "bytes": 572229,
+        "sha256": "1c55e81a039ebe04e00989089d19dd3109c9d08600275957d7c1346bb304e77a"
+      },
+      {
+        "path": "stripe/_invoice.py",
+        "source_url": "https://raw.githubusercontent.com/stripe/stripe-python/3587026b839435d072b7d220967c476d4c6b9a9b/stripe/_invoice.py",
+        "bytes": 374004,
+        "sha256": "39fd7457e1d66ac7367f74bd001399b2044bc3fafd18b274fcb94227e649219d"
+      },
+      {
+        "path": "stripe/_refund.py",
+        "source_url": "https://raw.githubusercontent.com/stripe/stripe-python/3587026b839435d072b7d220967c476d4c6b9a9b/stripe/_refund.py",
+        "bytes": 32740,
+        "sha256": "1de90dfe3330c7aa5348cdfcc5ab03fedad3f358f89a1ac64802539fb1f14063"
+      },
+      {
+        "path": "stripe/_event.py",
+        "source_url": "https://raw.githubusercontent.com/stripe/stripe-python/3587026b839435d072b7d220967c476d4c6b9a9b/stripe/_event.py",
+        "bytes": 18792,
+        "sha256": "5929d5b77890ac13723bfefe64362e521023e6158db9e9ce2aaf17175e936946"
+      },
+      {
+        "path": "stripe/checkout/_session.py",
+        "source_url": "https://raw.githubusercontent.com/stripe/stripe-python/3587026b839435d072b7d220967c476d4c6b9a9b/stripe/checkout/_session.py",
+        "bytes": 220522,
+        "sha256": "ccdf5307da7665ae2a6ce76a3595e2250a0399a134a47daed6d4a7b7f058169a"
+      },
+      {
+        "path": "LICENSE",
+        "source_url": "https://raw.githubusercontent.com/stripe/stripe-python/3587026b839435d072b7d220967c476d4c6b9a9b/LICENSE",
+        "bytes": 1092,
+        "sha256": "8b28bcffabe88a728cc48d37d907bd75febd0ee725fd774946912dca31bc6027"
+      }
+    ]
+  },
+  "supported_event_families": [
+    "invoice.paid",
+    "payment_intent.succeeded",
+    "checkout.session.completed",
+    "charge.succeeded",
+    "charge.captured",
+    "refund.created",
+    "refund.updated",
+    "charge.refund.updated",
+    "charge.refunded"
+  ],
+  "accepted_subset_schema": {
+    "path": "services/ledger/fixtures/stripe-2024-06-20.schema.json",
+    "sha256": "7b8a1ca9317225977a14ac3b8b61450f85d85194fa61511f03776581218876c3"
+  },
+  "frozen_arithmetic_facts": {
+    "path": "services/ledger/fixtures/arithmetic-contract.json",
+    "sha256": "3d3c26a2e8f0a45d843577e68236b9d0ec79dbc62b94594cd41d1023ff752d1b"
+  },
+  "authoritative_scope": "host account/environment/venture binding; metadata never grants authority",
+  "account_envelopes": {
+    "own": "account may be omitted; if present must match the host binding",
+    "connected": "account is mandatory and must match; transfers/application fees unsupported"
+  },
+  "money": {
+    "currency": "usd",
+    "unit": "integer minor units",
+    "min": 0,
+    "max": 9007199254740991,
+    "bound_is_spend_budget": false
+  },
+  "side_effects": "Only explicitly supplied disposable Store; default app has no configured book or migration; no provider/network/currency lookup"
+}

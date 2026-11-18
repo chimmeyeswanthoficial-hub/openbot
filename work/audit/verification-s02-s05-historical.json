@@ -1,0 +1,18 @@
+{
+  "scope": "local Python source tests; outcome snapshot, not a production certification",
+  "python": {
+    "passed": 1210,
+    "skipped": 0,
+    "failed": 0,
+    "collected": 1210
+  },
+  "runner_timestamp": "2026-11-15T09:30:43.498805+00:00",
+  "measurement_date": "2026-11-15",
+  "junit_sha256": "03a96f546f616c301c0a7d53c22e945f061b09fe837562d9878d664c675ea90f",
+  "junit_artifact": "audit/evidence-local-s02-s05/full-python.xml",
+  "limits": [
+    "PostgreSQL tests skipped unless explicitly opted into a disposable test database",
+    "No real Bot/model/payment provider/deploy/long-duration pilot exercised",
+    "XML hash/consistency alone is not proof of execution; retain runner logs/source pin"
+  ]
+}

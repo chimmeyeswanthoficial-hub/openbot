@@ -1,0 +1,224 @@
+{
+  "artifacts": {
+    "releases/OpenBot-Control-Local-android.apk": {
+      "bytes": 53589,
+      "sha256": "533ed5b781d4b04dc0420d6f60e7f994799912b60422d7b141f717af14550c56"
+    },
+    "releases/windows-x64/OpenBot-Control-Local-x64.exe": {
+      "bytes": 448512,
+      "sha256": "142f982e38f49a2fafff00cbff03ef341d2dd5d2d0831f78f885523da270ccd3"
+    },
+    "releases/windows-x64/WebView2Loader.dll": {
+      "bytes": 165968,
+      "sha256": "462b36fd1be6ca9f7563466a89e57c41ef4a4def3e0a84fa885d203aea4a3aaf"
+    }
+  },
+  "checks": [
+    {
+      "class": "binary_structure",
+      "name": "Actual x64 PE GUI",
+      "passed": true
+    },
+    {
+      "class": "binary_structure",
+      "name": "Local Windows artifact is honestly unsigned",
+      "passed": true
+    },
+    {
+      "class": "binary_structure",
+      "name": "ASLR/NX/high-entropy flags set",
+      "passed": true
+    },
+    {
+      "class": "asset_bytes",
+      "name": "Exact reviewed shared UI is embedded in EXE",
+      "passed": true
+    },
+    {
+      "class": "asset_bytes",
+      "name": "x64 loader is the selected pinned SDK loader",
+      "passed": true
+    },
+    {
+      "class": "binary_structure",
+      "name": "Windows version resource identifies 0.3.0 local test build",
+      "passed": true
+    },
+    {
+      "class": "asset_bytes",
+      "name": "Studio and gateway payload bytes match",
+      "passed": true
+    },
+    {
+      "class": "static_source",
+      "name": "Windows source has explicit owner-origin confirmation and no native authority bridge",
+      "passed": true
+    },
+    {
+      "class": "static_source",
+      "name": "Windows per-monitor DPI path exists",
+      "passed": true
+    },
+    {
+      "class": "asset_bytes",
+      "name": "Exact shared UI is embedded in APK",
+      "passed": true
+    },
+    {
+      "class": "binary_structure",
+      "name": "Actual DEX contains compiled control Activity",
+      "passed": true
+    },
+    {
+      "class": "binary_structure",
+      "name": "Actual compiled Android manifest present",
+      "passed": true
+    },
+    {
+      "class": "tool_output",
+      "name": "Compiled APK is package version 0.3.0-local / code 3",
+      "passed": true
+    },
+    {
+      "class": "tool_output",
+      "name": "Actual Android v3 demo signature verifies",
+      "passed": true
+    },
+    {
+      "class": "tool_output",
+      "name": "Actual APK alignment passes",
+      "passed": true
+    },
+    {
+      "class": "tool_output",
+      "name": "INTERNET is the only declared Android permission",
+      "passed": true
+    },
+    {
+      "class": "tool_output",
+      "name": "Android cleartext/backup/debuggable flags disabled",
+      "passed": true
+    },
+    {
+      "class": "static_source",
+      "name": "Android source rejects TLS errors and arbitrary origins",
+      "passed": true
+    },
+    {
+      "class": "static_source",
+      "name": "Android back/pause/resume are wired in source",
+      "passed": true
+    },
+    {
+      "class": "static_source",
+      "name": "iOS plist templates parse without ATS cleartext exceptions",
+      "passed": true
+    },
+    {
+      "class": "static_source",
+      "name": "iOS privacy template is nontracking, pending final owner review",
+      "passed": true
+    },
+    {
+      "class": "static_source",
+      "name": "iOS project targets 0.3.0 / iOS 16, without a configured signing team",
+      "passed": true
+    },
+    {
+      "class": "static_source",
+      "name": "iOS source uses ephemeral exact-origin WebView, no native JS bridge",
+      "passed": true
+    },
+    {
+      "class": "static_source",
+      "name": "All three native sources select light chrome (static only)",
+      "passed": true
+    },
+    {
+      "class": "asset_bytes",
+      "name": "iOS bundled offline UI matches shared source",
+      "passed": true
+    },
+    {
+      "class": "archive_structure",
+      "name": "iOS deliverable is explicitly source only, not an IPA",
+      "passed": true
+    },
+    {
+      "class": "archive_structure",
+      "name": "No private signing/provisioning credentials in iOS source ZIP",
+      "passed": true
+    }
+  ],
+  "commands": {
+    "apk_alignment": {
+      "argv": [
+        "/home/user/.cache/openbot-control/android-sdk/build-tools/35.0.0/zipalign",
+        "-c",
+        "-p",
+        "4",
+        "/home/user/.cache/openbot-reference-next/workspace/OpenBot-Workspace/control/releases/OpenBot-Control-Local-android.apk"
+      ],
+      "stderr": "",
+      "stdout": ""
+    },
+    "apk_badging": {
+      "argv": [
+        "/home/user/.cache/openbot-control/android-sdk/build-tools/35.0.0/aapt",
+        "dump",
+        "badging",
+        "/home/user/.cache/openbot-reference-next/workspace/OpenBot-Workspace/control/releases/OpenBot-Control-Local-android.apk"
+      ],
+      "stderr": "",
+      "stdout": "package: name='dev.openbot.controlpreview' versionCode='3' versionName='0.3.0-local' platformBuildVersionName='15' platformBuildVersionCode='35' compileSdkVersion='35' compileSdkVersionCodename='15'\nsdkVersion:'28'\ntargetSdkVersion:'35'\nuses-permission: name='android.permission.INTERNET'\napplication-label:'OpenBot Test'\napplication-icon-160:'res/drawable/ic_launcher.xml'\napplication: label='OpenBot Test' icon='res/drawable/ic_launcher.xml'\nlaunchable-activity: name='dev.openbot.controlpreview.MainActivity'  label='' icon=''\nfeature-group: label=''\n  uses-feature: name='android.hardware.faketouch'\n  uses-implied-feature: name='android.hardware.faketouch' reason='default feature for all apps'\nmain\nsupports-screens: 'small' 'normal' 'large' 'xlarge'\nsupports-any-density: 'true'\nlocales: '--_--'\ndensities: '160'\n"
+    },
+    "apk_manifest": {
+      "argv": [
+        "/home/user/.cache/openbot-control/android-sdk/build-tools/35.0.0/aapt",
+        "dump",
+        "xmltree",
+        "/home/user/.cache/openbot-reference-next/workspace/OpenBot-Workspace/control/releases/OpenBot-Control-Local-android.apk",
+        "AndroidManifest.xml"
+      ],
+      "stderr": "",
+      "stdout": "N: android=http://schemas.android.com/apk/res/android\n  E: manifest (line=2)\n    A: android:versionCode(0x0101021b)=(type 0x10)0x3\n    A: android:versionName(0x0101021c)=\"0.3.0-local\" (Raw: \"0.3.0-local\")\n    A: android:compileSdkVersion(0x01010572)=(type 0x10)0x23\n    A: android:compileSdkVersionCodename(0x01010573)=\"15\" (Raw: \"15\")\n    A: package=\"dev.openbot.controlpreview\" (Raw: \"dev.openbot.controlpreview\")\n    A: platformBuildVersionCode=(type 0x10)0x23\n    A: platformBuildVersionName=(type 0x10)0xf\n    E: uses-sdk (line=3)\n      A: android:minSdkVersion(0x0101020c)=(type 0x10)0x1c\n      A: android:targetSdkVersion(0x01010270)=(type 0x10)0x23\n    E: uses-permission (line=5)\n      A: android:name(0x01010003)=\"android.permission.INTERNET\" (Raw: \"android.permission.INTERNET\")\n    E: application (line=6)\n      A: android:theme(0x01010000)=@0x7f020000\n      A: android:label(0x01010001)=\"OpenBot Test\" (Raw: \"OpenBot Test\")\n      A: android:icon(0x01010002)=@0x7f010000\n      A: android:debuggable(0x0101000f)=(type 0x12)0x0\n      A: android:allowBackup(0x01010280)=(type 0x12)0x0\n      A: android:supportsRtl(0x010103af)=(type 0x12)0xffffffff\n      A: android:fullBackupContent(0x010104eb)=(type 0x12)0x0\n      A: android:usesCleartextTraffic(0x010104ec)=(type 0x12)0x0\n      E: activity (line=7)\n        A: android:name(0x01010003)=\".MainActivity\" (Raw: \".MainActivity\")\n        A: android:exported(0x01010010)=(type 0x12)0xffffffff\n        A: android:configChanges(0x0101001f)=(type 0x11)0x4a0\n        A: android:windowSoftInputMode(0x0101022b)=(type 0x11)0x10\n        E: intent-filter (line=8)\n          E: action (line=8)\n            A: android:name(0x01010003)=\"android.intent.action.MAIN\" (Raw: \"android.intent.action.MAIN\")\n          E: category (line=8)\n            A: android:name(0x01010003)=\"android.intent.category.LAUNCHER\" (Raw: \"android.intent.category.LAUNCHER\")\n"
+    },
+    "apk_permissions": {
+      "argv": [
+        "/home/user/.cache/openbot-control/android-sdk/build-tools/35.0.0/aapt",
+        "dump",
+        "permissions",
+        "/home/user/.cache/openbot-reference-next/workspace/OpenBot-Workspace/control/releases/OpenBot-Control-Local-android.apk"
+      ],
+      "stderr": "",
+      "stdout": "package: dev.openbot.controlpreview\nuses-permission: name='android.permission.INTERNET'\n"
+    },
+    "apk_signature": {
+      "argv": [
+        "/home/user/.cache/openbot-control/android-sdk/build-tools/35.0.0/apksigner",
+        "verify",
+        "--verbose",
+        "--print-certs",
+        "/home/user/.cache/openbot-reference-next/workspace/OpenBot-Workspace/control/releases/OpenBot-Control-Local-android.apk"
+      ],
+      "stderr": "",
+      "stdout": "Verifies\nVerified using v1 scheme (JAR signing): false\nVerified using v2 scheme (APK Signature Scheme v2): false\nVerified using v3 scheme (APK Signature Scheme v3): true\nVerified using v3.1 scheme (APK Signature Scheme v3.1): false\nVerified using v4 scheme (APK Signature Scheme v4): false\nVerified for SourceStamp: false\nNumber of signers: 1\nSigner #1 certificate DN: C=IN, O=Local Preview, OU=Not a release key, CN=OpenBot Local Demo Only\nSigner #1 certificate SHA-256 digest: 132a0d33eacd39271fb85fcd54787a8367839cbbe7f336f54a2c144c2985ae22\nSigner #1 certificate SHA-1 digest: 4e35b49e91349ef110a12b553b556b2255eec57e\nSigner #1 certificate MD5 digest: dacb9ccc7d5bc4900dc6fc18695f50c0\nSigner #1 key algorithm: RSA\nSigner #1 key size (bits): 2048\nSigner #1 public key SHA-256 digest: 15b6d66181b7db812458611902d0734543f79b3609b69fffd692cdaebd803528\nSigner #1 public key SHA-1 digest: 3f36d2fd8831646464e4de81a86364b719af58ee\nSigner #1 public key MD5 digest: 4f78e1d03e4c54881f0ee0601aea2d6e\n"
+    }
+  },
+  "count": 27,
+  "ios_compiled": false,
+  "native_launch_tests_performed": false,
+  "note": "Binary/tool/static facts only. No native runtime, installation, pairing or store acceptance follows.",
+  "release_signing_performed": false,
+  "schema": "openbot.local-package-verification/1",
+  "windows_pe": {
+    "bytes": 448512,
+    "certificate_directory": [
+      0,
+      0
+    ],
+    "dll_characteristics": 352,
+    "machine": "amd64",
+    "subsystem": 2
+  }
+}

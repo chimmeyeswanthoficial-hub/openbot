@@ -1,0 +1,180 @@
+python3 scripts/bootstrap-isolation.py
+{
+  "ok": true,
+  "binary": ".cache/openbot-isolation/bubblewrap-0.12.0-deb13u1/usr/bin/bwrap",
+  "binary_sha256": "573236e5328ac2ebb08f59ae3a9805b4f8d12bdef14be8af4450d5463294985f",
+  "version": "bubblewrap 0.12.0",
+  "setuid": false,
+  "cgroup_path_writable": false,
+  "cgroup_delegated": false,
+  "production_ready": false,
+  "server_or_provider_started": false
+}
+python3 scripts/isolation-demo.py
+{
+  "observed_runner_utc": "2026-11-14T17:34:54.283593+00:00",
+  "passed": true,
+  "profile": "rootless-fixed-v1",
+  "negative_probe": {
+    "environment_keys": [
+      "LANG",
+      "PATH",
+      "PWD",
+      "PYTHONDONTWRITEBYTECODE",
+      "PYTHONNOUSERSITE"
+    ],
+    "fork_blocked": true,
+    "host_environment_absent": true,
+    "host_read_blocked": true,
+    "host_write_blocked": true,
+    "ipv4_socket_blocked": true,
+    "ipv6_socket_blocked": true,
+    "namespaces": {
+      "ipc": "ipc:[4026532103]",
+      "mnt": "mnt:[4026532101]",
+      "net": "net:[4026532106]",
+      "pid": "pid:[4026532104]",
+      "user": "user:[4026532210]",
+      "uts": "uts:[4026532102]"
+    },
+    "nested_userns_blocked": true,
+    "pid1_root_canary_blocked": true,
+    "pid_count": 2,
+    "raw_syscall_io_uring_blocked": true,
+    "raw_syscall_socket_blocked": true,
+    "rlimits": {
+      "AS": [
+        134217728,
+        134217728
+      ],
+      "CORE": [
+        0,
+        0
+      ],
+      "CPU": [
+        2,
+        2
+      ],
+      "FSIZE": [
+        0,
+        0
+      ],
+      "NOFILE": [
+        16,
+        16
+      ],
+      "NPROC": [
+        1,
+        1
+      ]
+    },
+    "root_write_blocked": true,
+    "status": {
+      "CapEff": "0000000000000000",
+      "NoNewPrivs": "1",
+      "Seccomp": "2"
+    },
+    "tmp_write_blocked": true,
+    "unix_socket_blocked": true
+  },
+  "host_canary_unchanged": true,
+  "actual_wordcount": {
+    "characters": 33,
+    "isolation": {
+      "cgroup_enforced": false,
+      "environment_keys": [
+        "LANG",
+        "PATH",
+        "PWD",
+        "PYTHONDONTWRITEBYTECODE",
+        "PYTHONNOUSERSITE"
+      ],
+      "general_hostile_execution_authorized": false,
+      "host_environment_absent": true,
+      "namespaces": {
+        "ipc": "ipc:[4026532104]",
+        "mnt": "mnt:[4026532102]",
+        "net": "net:[4026532209]",
+        "pid": "pid:[4026532105]",
+        "user": "user:[4026532312]",
+        "uts": "uts:[4026532103]"
+      },
+      "pid_count": 2,
+      "profile": "rootless-fixed-v1",
+      "rlimits": {
+        "AS": [
+          134217728,
+          134217728
+        ],
+        "CORE": [
+          0,
+          0
+        ],
+        "CPU": [
+          2,
+          2
+        ],
+        "FSIZE": [
+          0,
+          0
+        ],
+        "NOFILE": [
+          16,
+          16
+        ],
+        "NPROC": [
+          1,
+          1
+        ]
+      },
+      "status": {
+        "CapEff": "0000000000000000",
+        "NoNewPrivs": "1",
+        "Seccomp": "2"
+      }
+    },
+    "minimal_environment": true,
+    "words": 4,
+    "worker_pid": 2
+  },
+  "seven_correlated_events": [
+    "RUN_STARTED",
+    "TOOL_CALL_START",
+    "TOOL_CALL_END",
+    "TEXT_MESSAGE_START",
+    "TEXT_MESSAGE_CONTENT",
+    "TEXT_MESSAGE_END",
+    "RUN_FINISHED"
+  ],
+  "restart_replay_without_execution_or_redelivery": true,
+  "parent_death": {
+    "actual_supervisor_killed": true,
+    "supervisor_returncode": -9,
+    "launcher_pid": 4858,
+    "observed_tree_pids": [
+      4858,
+      4860,
+      4862
+    ],
+    "all_observed_tree_pids_gone": true,
+    "adopted_exit_codes": {
+      "4858": -9,
+      "4860": -9
+    },
+    "stop_observation_seconds": 0.0156,
+    "interrupted_request_not_reexecuted": true,
+    "reserved_attempt_not_refunded": true
+  },
+  "cgroup_enforced": false,
+  "authenticated_mandatory_runtime_hook": false,
+  "providers_enabled": false,
+  "external_delivery_attempted": false,
+  "production_ready": false,
+  "generated_disposable_state": ".cache/isolation-demo-_ndrkn8e",
+  "limits": [
+    "Reviewed fixed worker only; not arbitrary customer programs",
+    "Read-only /usr and libraries are trusted host runtime, not hermetic images",
+    "Rlimits/seccomp/namespaces do not replace delegated cgroups or independent security review",
+    "Authority/Owner remain trusted-host APIs, not remote identity authentication"
+  ]
+}

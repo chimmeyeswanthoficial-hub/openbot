@@ -1,0 +1,122 @@
+FFFFFFFF                                                                 [100%]
+=================================== FAILURES ===================================
+___ test_refund_snapshot_must_not_ignore_a_conflicting_parent_capture_amount ___
+
+book = <economic_repository.EconomicBook object at 0x7f559726ee40>
+
+    def test_refund_snapshot_must_not_ignore_a_conflicting_parent_capture_amount(book):
+        book.ingest(encoded(), scope())
+        obj = snapshot()
+        obj['amount'] = obj['amount_captured'] = 20000
+>       with pytest.raises(EconomicConflict):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE EconomicConflict
+
+services/sentinel/tests/test_economic_book.py:329: Failed
+__________ test_insert_or_replace_must_not_bypass_append_only_guards ___________
+
+book = <economic_repository.EconomicBook object at 0x7f55972725d0>
+
+    def test_insert_or_replace_must_not_bypass_append_only_guards(book):
+        book.ingest(encoded(), scope())
+>       with pytest.raises(sqlite3.IntegrityError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE IntegrityError
+
+services/sentinel/tests/test_economic_book.py:336: Failed
+_ test_nested_live_object_cannot_be_mixed_into_a_test_book[charge.succeeded-obj0] _
+
+book = <economic_repository.EconomicBook object at 0x7f5597272990>
+kind = 'charge.succeeded'
+obj = {'object': 'charge', 'id': 'ch_sale', 'payment_intent': 'pi_sale', 'amount': 10000, ...}
+
+    @pytest.mark.parametrize('kind,obj', [('charge.succeeded', charge()), ('refund.created', refund())])
+    def test_nested_live_object_cannot_be_mixed_into_a_test_book(book, kind, obj):
+        obj = dict(obj, livemode=True)
+>       with pytest.raises(EconomicError) as error:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE EconomicError
+
+services/sentinel/tests/test_economic_book.py:348: Failed
+_ test_nested_live_object_cannot_be_mixed_into_a_test_book[refund.created-obj1] _
+
+book = <economic_repository.EconomicBook object at 0x7f55972a2060>
+kind = 'refund.created'
+obj = {'object': 'refund', 'id': 're_first', 'charge': 'ch_sale', 'payment_intent': 'pi_sale', ...}
+
+    @pytest.mark.parametrize('kind,obj', [('charge.succeeded', charge()), ('refund.created', refund())])
+    def test_nested_live_object_cannot_be_mixed_into_a_test_book(book, kind, obj):
+        obj = dict(obj, livemode=True)
+>       with pytest.raises(EconomicError) as error:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE EconomicError
+
+services/sentinel/tests/test_economic_book.py:348: Failed
+_________ test_direct_legacy_store_also_refuses_invalid_new_money[nan] _________
+
+value = nan
+
+    @pytest.mark.parametrize('value', [float('nan'), float('inf'), -float('inf'), True])
+    def test_direct_legacy_store_also_refuses_invalid_new_money(value):
+        store = Store(':memory:')
+        try:
+>           with pytest.raises(ValueError):
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+E           Failed: DID NOT RAISE ValueError
+
+services/sentinel/tests/test_economic_boundary.py:70: Failed
+_________ test_direct_legacy_store_also_refuses_invalid_new_money[inf] _________
+
+value = inf
+
+    @pytest.mark.parametrize('value', [float('nan'), float('inf'), -float('inf'), True])
+    def test_direct_legacy_store_also_refuses_invalid_new_money(value):
+        store = Store(':memory:')
+        try:
+>           with pytest.raises(ValueError):
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+E           Failed: DID NOT RAISE ValueError
+
+services/sentinel/tests/test_economic_boundary.py:70: Failed
+________ test_direct_legacy_store_also_refuses_invalid_new_money[-inf] _________
+
+value = -inf
+
+    @pytest.mark.parametrize('value', [float('nan'), float('inf'), -float('inf'), True])
+    def test_direct_legacy_store_also_refuses_invalid_new_money(value):
+        store = Store(':memory:')
+        try:
+>           with pytest.raises(ValueError):
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+E           Failed: DID NOT RAISE ValueError
+
+services/sentinel/tests/test_economic_boundary.py:70: Failed
+________ test_direct_legacy_store_also_refuses_invalid_new_money[True] _________
+
+value = True
+
+    @pytest.mark.parametrize('value', [float('nan'), float('inf'), -float('inf'), True])
+    def test_direct_legacy_store_also_refuses_invalid_new_money(value):
+        store = Store(':memory:')
+        try:
+>           with pytest.raises(ValueError):
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+E           Failed: DID NOT RAISE ValueError
+
+services/sentinel/tests/test_economic_boundary.py:70: Failed
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/fastapi/testclient.py:1
+  /home/user/.cache/ag4a-engineering/work/.venv/lib/python3.13/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED services/sentinel/tests/test_economic_book.py::test_refund_snapshot_must_not_ignore_a_conflicting_parent_capture_amount
+FAILED services/sentinel/tests/test_economic_book.py::test_insert_or_replace_must_not_bypass_append_only_guards
+FAILED services/sentinel/tests/test_economic_book.py::test_nested_live_object_cannot_be_mixed_into_a_test_book[charge.succeeded-obj0]
+FAILED services/sentinel/tests/test_economic_book.py::test_nested_live_object_cannot_be_mixed_into_a_test_book[refund.created-obj1]
+FAILED services/sentinel/tests/test_economic_boundary.py::test_direct_legacy_store_also_refuses_invalid_new_money[nan]
+FAILED services/sentinel/tests/test_economic_boundary.py::test_direct_legacy_store_also_refuses_invalid_new_money[inf]
+FAILED services/sentinel/tests/test_economic_boundary.py::test_direct_legacy_store_also_refuses_invalid_new_money[-inf]
+FAILED services/sentinel/tests/test_economic_boundary.py::test_direct_legacy_store_also_refuses_invalid_new_money[True]
+8 failed, 52 deselected, 1 warning in 0.48s

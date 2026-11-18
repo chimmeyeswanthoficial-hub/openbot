@@ -1,0 +1,81 @@
+✔ health truthfully reports disabled providers and no Hermes readiness claim (43.454662ms)
+✔ unauthenticated host refuses operational API requests (4.16446ms)
+✔ bad code and cross-origin login are refused (3.472984ms)
+✔ explicit local code signs in an owner; session is HttpOnly (8.691713ms)
+✔ roster mutations are stored without provisioning any engine (5.41482ms)
+✔ one useful company-report task runs through the actual Python kernel and persists receipts (115.379449ms)
+✔ client arguments cannot become shell, network, budget or file targets (4.277126ms)
+✔ unknown bots cannot start a kernel job (1.276668ms)
+✔ upstream dangerous routes are unmounted, not merely hidden by UI (3.867032ms)
+✔ chat is a truthful local note, never a pretend model response (4.181471ms)
+✔ skill bodies are stored as inert data, not executed (2.759753ms)
+✔ state and request idempotency survive a new app instance (6.238799ms)
+✔ static app has no donor artwork URLs and API misses do not return HTML (9.556575ms)
+✖ owned transcript pages recover every retained entry once with bounded cursors (94.621995ms)
+✖ history rejects malformed, duplicated, unbounded and unversioned cursor queries (2.2713ms)
+✖ history binds earlier pages to the conversation generation and refuses cross-owner reads (5.211738ms)
+✔ logout invalidates the session (1.50577ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 14
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 527.098478
+
+✖ failing tests:
+
+test at apps/bot-hq/server/test/local.test.mjs:136:1
+✖ owned transcript pages recover every retained entry once with bounded cursors (94.621995ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(Number.isSafeInteger(page.revision))
+  
+      at TestContext.<anonymous> (file:///home/user/apps/bot-hq/server/test/local.test.mjs:153:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at apps/bot-hq/server/test/local.test.mjs:172:1
+✖ history rejects malformed, duplicated, unbounded and unversioned cursor queries (2.2713ms)
+  AssertionError [ERR_ASSERTION]: limit=0
+  
+  200 !== 400
+  
+      at TestContext.<anonymous> (file:///home/user/apps/bot-hq/server/test/local.test.mjs:177:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 200,
+    expected: 400,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at apps/bot-hq/server/test/local.test.mjs:181:1
+✖ history binds earlier pages to the conversation generation and refuses cross-owner reads (5.211738ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  200 !== 409
+  
+      at TestContext.<anonymous> (file:///home/user/apps/bot-hq/server/test/local.test.mjs:189:10)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 200,
+    expected: 409,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

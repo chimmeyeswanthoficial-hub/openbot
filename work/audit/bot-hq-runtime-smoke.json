@@ -1,0 +1,23 @@
+{
+  "task_date": "2026-11-10",
+  "observed_runner_utc": "2026-11-13T19:31:20.348639+00:00",
+  "real_http_profile": "local-only",
+  "port": 8787,
+  "request_id": "5de080ed-fc54-4e96-b74f-748aa4dd16d2",
+  "bot_id": "bot_9mDWLwRvocpF",
+  "kernel_run_id": "run_224ac9e76256",
+  "report_sha256": "a4104f12ea3a17416e94bcbf23bed4b06b8f486f93688037deb870a38cde2afc",
+  "audit_rows_after": 6,
+  "recorded_python": {
+    "passed": 290,
+    "skipped": 2,
+    "failed": 0,
+    "collected": 292
+  },
+  "providers_enabled": false,
+  "restart_replay_checked": true,
+  "scope": "Real current-workspace local report using actual company state; no model/provider/shell/browser/payment executed; not a new test run.",
+  "audit_rows_after_restart_replay": 6,
+  "replayed_without_reexecution": true,
+  "restarted_observed_runner_utc": "2026-11-13T19:31:36.050244+00:00"
+}

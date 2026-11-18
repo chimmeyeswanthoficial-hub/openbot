@@ -1,0 +1,23 @@
+{
+  "scope": "public unauthenticated HTTPS GET; no remote writes",
+  "requests": [
+    {
+      "url": "https://api.github.com/repos/chimmeyeswanthoficial-hub/openbot/git/ref/heads/main",
+      "bytes": 364,
+      "sha256": "6630b7f94ade4bde3750a83670515528cb7c6ad5ead044e41c10249d6d56ff6d",
+      "observed_runner_utc": "2026-11-14T17:11:03.344723+00:00"
+    },
+    {
+      "url": "https://api.github.com/repos/chimmeyeswanthoficial-hub/openbot/git/commits/fe1267e0cd1e35e8a816dc0556be80ec68343401",
+      "bytes": 1281,
+      "sha256": "f4fbe8036ce018adce2f5cb5d7c2e09d07e1bd851b35e085209398ff6d4960d4",
+      "observed_runner_utc": "2026-11-14T17:11:03.479119+00:00"
+    },
+    {
+      "url": "https://api.github.com/repos/chimmeyeswanthoficial-hub/openbot/git/trees/7bbe14e46424fa5dcd6b992d5b9604e472920c10?recursive=1",
+      "bytes": 1406732,
+      "sha256": "82befd0fbcb56b134812e93ba2efff12bf05b2eba11579127ab4917676cbcb64",
+      "observed_runner_utc": "2026-11-14T17:11:05.065629+00:00"
+    }
+  ]
+}

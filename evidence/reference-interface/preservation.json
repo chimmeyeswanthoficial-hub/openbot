@@ -1,0 +1,100 @@
+{
+  "all_3475_optional_upstream_files_retained": true,
+  "all_saved_snapshot_files_byte_size_mode_unchanged": true,
+  "archive_audit": [
+    {
+      "archive": "/home/user/openbot-continuation.tar.xz",
+      "archive_bytes": 20491328,
+      "archive_sha256": "1180754618e0460f7e676e4359822b1881479c2aa5c3b80f24a6c6f9497b7d93",
+      "entries_without_live_equivalent": 3,
+      "equivalent_regular_entries": 3942,
+      "not_deleted": true
+    },
+    {
+      "archive": "/home/user/archive/ag4a-local-fe1267e.tar.xz",
+      "archive_bytes": 21190688,
+      "archive_sha256": "b5839932567a182df376b35306fc93a323048fd210e7b832686659cb2a6d10f6",
+      "entries_without_live_equivalent": 263,
+      "equivalent_regular_entries": 3969,
+      "not_deleted": true
+    }
+  ],
+  "immutable_archives": {
+    "OpenBot-Workspace-OpenMuse-source.zip": {
+      "bytes": 16390939,
+      "sha256": "657c89aec18c3410cdb9ef7972ba53713337ca307391ce057dfe97b53024c9d6",
+      "unchanged": true
+    },
+    "OpenBot-Workspace-current-source.zip": {
+      "bytes": 16300116,
+      "sha256": "a7e0aec0de71e346eacd318270e85aceb52473aa665213f0b041b767f0ba3abe",
+      "unchanged": true
+    },
+    "ag4a-local-fe1267e.tar.xz": {
+      "bytes": 21190688,
+      "sha256": "b5839932567a182df376b35306fc93a323048fd210e7b832686659cb2a6d10f6",
+      "unchanged": true
+    },
+    "openbot-continuation.tar.xz": {
+      "bytes": 20491328,
+      "sha256": "1180754618e0460f7e676e4359822b1881479c2aa5c3b80f24a6c6f9497b7d93",
+      "unchanged": true
+    }
+  },
+  "missing_parent_files": 0,
+  "modified_parent_files": [
+    "CHECKPOINT.json",
+    "OPENMUSE_ADOPTION.md",
+    "PUBLIC_RELEASE_ROADMAP.md",
+    "README.md",
+    "START_HERE.md",
+    "VERIFICATION.md",
+    "control/OS_MATRIX.md",
+    "control/PRIVACY_DRAFT.md",
+    "control/README.md",
+    "control/RELEASE_STATUS.md",
+    "control/native/android/AndroidManifest.xml",
+    "control/native/android/res/values/styles.xml",
+    "control/native/android/src/dev/openbot/controlpreview/MainActivity.java",
+    "control/native/ios/OpenBotControl.xcodeproj/project.pbxproj",
+    "control/native/ios/OpenBotControl/ControlApp.swift",
+    "control/native/ios/OpenBotControl/Info.plist",
+    "control/native/ios/OpenBotControl/PreviewWebView.swift",
+    "control/native/ios/OpenBotControl/index.html",
+    "control/native/windows/README-Windows.txt",
+    "control/native/windows/app.manifest",
+    "control/native/windows/main.cpp",
+    "control/scripts/build-windows.sh",
+    "control/scripts/embed-recorded.py",
+    "control/scripts/test-connected.cjs",
+    "control/scripts/test-ui.cjs",
+    "control/scripts/test-viewer.cjs",
+    "control/scripts/verify-local-packages.py",
+    "control/web/index.html",
+    "studio/README.md",
+    "studio/SOURCE_FILES.json",
+    "studio/docs/INTEGRATION_CONTRACT.md",
+    "studio/docs/REUSE.md",
+    "studio/scripts/build-web.py",
+    "studio/scripts/test-finance-ui.cjs",
+    "studio/scripts/test-ui.cjs",
+    "studio/tests/test_finance_source.py",
+    "studio/third_party/openmuse/PROVENANCE.json",
+    "studio/web/app.js",
+    "studio/web/finance-workspace.js",
+    "studio/web/index.html",
+    "studio/web/styles.css",
+    "studio/web/template.html",
+    "tools/KERNEL_TEST_PROFILE.md",
+    "tools/export-source.py",
+    "tools/verify-source.py"
+  ],
+  "original_files_deleted_or_repacked": 0,
+  "original_saved_bytes_rechecked": 127999912,
+  "original_saved_files_rechecked": 4212,
+  "parent_manifest_listed_work_files_unchanged": 4149,
+  "private_contents_copied_into_delivery": false,
+  "schema": "openbot.light-successor-preservation/1",
+  "storage_decision": "Preserve both archives: each has unique recovery/history entries. No consolidation/delete performed.",
+  "unchanged_parent_files": 4246
+}

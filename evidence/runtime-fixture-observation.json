@@ -1,0 +1,12 @@
+{
+  "bwrap_sha256": "573236e5328ac2ebb08f59ae3a9805b4f8d12bdef14be8af4450d5463294985f",
+  "bwrap_source": "existing previously verified cache, copied only into the new disposable source-copy cache",
+  "excluded_from_source_export": true,
+  "media_libraries_checked": 211,
+  "media_receipt_sha256": "87c923a8c97be6c01234ec84cc241367dd5c8f907873a544327262884b77ecbe",
+  "new_downloads": 0,
+  "schema": "openbot.local-fixture-observation/1",
+  "services_started": 0,
+  "system_installs": 0,
+  "virtual_pcs_started": 0
+}

@@ -1,0 +1,14 @@
+/home/user/.cache/openbot-reference-next/workspace/OpenBot-Workspace/control/releases/windows-x64/OpenBot-Control-Local-x64.exe: PE32+ executable for MS Windows 10.00 (GUI), x86-64 (stripped to external PDB), 10 sections
+MajorSubsystemVersion	10
+MinorSubsystemVersion	0
+Subsystem		00000002	(Windows GUI)
+DllCharacteristics	00000160
+Entry 4 0000000000000000 00000000 Security Directory
+	DLL Name: GDI32.dll
+	DLL Name: KERNEL32.dll
+	DLL Name: msvcrt.dll
+	DLL Name: ole32.dll
+	DLL Name: SHELL32.dll
+	DLL Name: USER32.dll
+Built UNSIGNED portable x64 executable: /home/user/.cache/openbot-reference-next/workspace/OpenBot-Workspace/control/releases/windows-x64/OpenBot-Control-Local-x64.exe
+Requires the current Microsoft Edge WebView2 x64 Runtime. Not Windows-launch-tested by this script.

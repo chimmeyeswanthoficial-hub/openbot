@@ -1,0 +1,255 @@
+{
+  "all_parent_manifest_files_retained": true,
+  "audit_limit": "Narrow heuristic/content-context triage, not independent secret clearance, linked-binary audit, provider validity check, complete SBOM/license review or release approval. No token/credential validity request made. Source fixtures preserved unchanged.",
+  "contains_labeled_native_test_artifacts": true,
+  "excluded_cache_bytes": 607028,
+  "excluded_cache_file_count": 30,
+  "excluded_cache_roots": [
+    ".cache",
+    ".pytest_cache",
+    ".ruff_cache",
+    ".venv",
+    "__pycache__",
+    "node_modules"
+  ],
+  "excluded_items": [
+    {
+      "bytes": 17603,
+      "file": "studio/src/__pycache__/studio.cpython-313.pyc"
+    },
+    {
+      "bytes": 32577,
+      "file": "studio/src/__pycache__/studio_core.cpython-313.pyc"
+    },
+    {
+      "bytes": 5687,
+      "file": "studio/tests/__pycache__/test_finance_source.cpython-313.pyc"
+    },
+    {
+      "bytes": 7892,
+      "file": "studio/tests/__pycache__/test_shared_source.cpython-313.pyc"
+    },
+    {
+      "bytes": 29952,
+      "file": "studio/tests/__pycache__/test_studio_core.cpython-313.pyc"
+    },
+    {
+      "bytes": 14192,
+      "file": "studio/tests/__pycache__/test_studio_http.cpython-313.pyc"
+    },
+    {
+      "bytes": 5605,
+      "file": "tools/__pycache__/export-source.cpython-313.pyc"
+    },
+    {
+      "bytes": 4274,
+      "file": "tools/__pycache__/prepare-test-state.cpython-313.pyc"
+    },
+    {
+      "bytes": 6527,
+      "file": "tools/__pycache__/verify-source.cpython-313.pyc"
+    },
+    {
+      "bytes": 12592,
+      "file": "tools/tests/__pycache__/test_handoff.cpython-313.pyc"
+    },
+    {
+      "bytes": 80248,
+      "file": "work/.cache/openbot-isolation/bubblewrap-0.12.0-deb13u1/usr/bin/bwrap"
+    },
+    {
+      "bytes": 3922,
+      "file": "work/services/gateway/src/__pycache__/adapter.cpython-313.pyc"
+    },
+    {
+      "bytes": 45985,
+      "file": "work/services/gateway/src/__pycache__/control_api.cpython-313.pyc"
+    },
+    {
+      "bytes": 34052,
+      "file": "work/services/gateway/src/__pycache__/governed_skills.cpython-313.pyc"
+    },
+    {
+      "bytes": 14514,
+      "file": "work/services/gateway/src/__pycache__/isolation.cpython-313.pyc"
+    },
+    {
+      "bytes": 5006,
+      "file": "work/services/gateway/src/__pycache__/isolation_runtime.cpython-313.pyc"
+    },
+    {
+      "bytes": 43034,
+      "file": "work/services/gateway/src/__pycache__/local_executor.cpython-313.pyc"
+    },
+    {
+      "bytes": 4843,
+      "file": "work/services/gateway/src/__pycache__/mapper.cpython-313.pyc"
+    },
+    {
+      "bytes": 1353,
+      "file": "work/services/gateway/src/__pycache__/qa_catalog.cpython-313.pyc"
+    },
+    {
+      "bytes": 6725,
+      "file": "work/services/gateway/src/__pycache__/qa_workflow.cpython-313.pyc"
+    },
+    {
+      "bytes": 4483,
+      "file": "work/services/gateway/src/__pycache__/trust_crypto.cpython-313.pyc"
+    },
+    {
+      "bytes": 36958,
+      "file": "work/services/gateway/src/__pycache__/work_service.cpython-313.pyc"
+    },
+    {
+      "bytes": 27867,
+      "file": "work/services/gateway/src/__pycache__/workbench.cpython-313.pyc"
+    },
+    {
+      "bytes": 19003,
+      "file": "work/services/ledger/src/__pycache__/economic.cpython-313.pyc"
+    },
+    {
+      "bytes": 3891,
+      "file": "work/services/ledger/src/__pycache__/economic_fixtures.cpython-313.pyc"
+    },
+    {
+      "bytes": 32003,
+      "file": "work/services/sentinel/__pycache__/economic_repository.cpython-313.pyc"
+    },
+    {
+      "bytes": 16028,
+      "file": "work/services/sentinel/__pycache__/policy.cpython-313.pyc"
+    },
+    {
+      "bytes": 33415,
+      "file": "work/services/sentinel/__pycache__/repository.cpython-313.pyc"
+    },
+    {
+      "bytes": 43732,
+      "file": "work/services/sentinel/__pycache__/work_store.cpython-313.pyc"
+    },
+    {
+      "bytes": 13065,
+      "file": "work/services/worker/src/__pycache__/sse_protocol.cpython-313.pyc"
+    }
+  ],
+  "historical_original_archives_deleted": 0,
+  "parent_manifest_sha256": "25377f470035ba5ab3e90bed6c0af591bdfff461d2fa518af1377d67c4849cbc",
+  "parent_source_zip_sha256": "657c89aec18c3410cdb9ef7972ba53713337ca307391ce057dfe97b53024c9d6",
+  "private_fixture_and_signing_caches_outside_workspace": true,
+  "public_release": false,
+  "reviewed_upstream_test_literal_findings": [
+    {
+      "disposition": "Explicit synthetic-access / synthetic-refresh literal in retained upstream Rust test fixture, not a populated credential file.",
+      "file": "work/repos/OpenBot/desktop/src-tauri/src/main.rs",
+      "line": 10009,
+      "match_sha256": "8311c46062d14440944fc2ba36a4ed8e1d00d3fb46b7db5c8fa6bd65f9ea34e2",
+      "pattern": "populated token field",
+      "source_sha256": "d3587fab2d6c44d5c6910170bbb69dec9a12ad8019abaf75a0da974f1a418858"
+    },
+    {
+      "disposition": "Explicit synthetic-access / synthetic-refresh literal in retained upstream Rust test fixture, not a populated credential file.",
+      "file": "work/repos/OpenBot/desktop/src-tauri/src/plan.rs",
+      "line": 1832,
+      "match_sha256": "ac9f21e6879d9a9b135ed8aca664cbd8e6adbe0d2a1464c26e3d1b66ded4860e",
+      "pattern": "populated token field",
+      "source_sha256": "59e32c3ba717918a2298b42ed31d463aa155baf32e7a5543debe2672a699d423"
+    },
+    {
+      "disposition": "Explicit synthetic-access / synthetic-refresh literal in retained upstream Rust test fixture, not a populated credential file.",
+      "file": "work/repos/OpenBot/desktop/src-tauri/src/plan.rs",
+      "line": 1832,
+      "match_sha256": "30481ba431fe904caacacf81a59a77a00174b87e2b54de0c6c16b114ab107e9b",
+      "pattern": "populated token field",
+      "source_sha256": "59e32c3ba717918a2298b42ed31d463aa155baf32e7a5543debe2672a699d423"
+    },
+    {
+      "disposition": "Explicit synthetic-access / synthetic-refresh literal in retained upstream Rust test fixture, not a populated credential file.",
+      "file": "work/repos/OpenBot/desktop/src-tauri/src/provider_oauth.rs",
+      "line": 1432,
+      "match_sha256": "8311c46062d14440944fc2ba36a4ed8e1d00d3fb46b7db5c8fa6bd65f9ea34e2",
+      "pattern": "populated token field",
+      "source_sha256": "857b1ab9dbf4501790e04071e1a650d9369f963d92988384dc302746943e7ee0"
+    },
+    {
+      "disposition": "Explicit synthetic-access / synthetic-refresh literal in retained upstream Rust test fixture, not a populated credential file.",
+      "file": "work/repos/OpenBot/desktop/src-tauri/src/provider_oauth.rs",
+      "line": 1443,
+      "match_sha256": "8311c46062d14440944fc2ba36a4ed8e1d00d3fb46b7db5c8fa6bd65f9ea34e2",
+      "pattern": "populated token field",
+      "source_sha256": "857b1ab9dbf4501790e04071e1a650d9369f963d92988384dc302746943e7ee0"
+    },
+    {
+      "disposition": "Explicit synthetic-access / synthetic-refresh literal in retained upstream Rust test fixture, not a populated credential file.",
+      "file": "work/repos/OpenBot/desktop/src-tauri/src/provider_oauth.rs",
+      "line": 1502,
+      "match_sha256": "8311c46062d14440944fc2ba36a4ed8e1d00d3fb46b7db5c8fa6bd65f9ea34e2",
+      "pattern": "populated token field",
+      "source_sha256": "857b1ab9dbf4501790e04071e1a650d9369f963d92988384dc302746943e7ee0"
+    },
+    {
+      "disposition": "Explicit synthetic-access / synthetic-refresh literal in retained upstream Rust test fixture, not a populated credential file.",
+      "file": "work/repos/OpenBot/desktop/src-tauri/src/provider_oauth.rs",
+      "line": 1642,
+      "match_sha256": "8311c46062d14440944fc2ba36a4ed8e1d00d3fb46b7db5c8fa6bd65f9ea34e2",
+      "pattern": "populated token field",
+      "source_sha256": "857b1ab9dbf4501790e04071e1a650d9369f963d92988384dc302746943e7ee0"
+    },
+    {
+      "disposition": "Explicit synthetic-access / synthetic-refresh literal in retained upstream Rust test fixture, not a populated credential file.",
+      "file": "work/repos/OpenBot/desktop/src-tauri/src/provider_oauth.rs",
+      "line": 1682,
+      "match_sha256": "8311c46062d14440944fc2ba36a4ed8e1d00d3fb46b7db5c8fa6bd65f9ea34e2",
+      "pattern": "populated token field",
+      "source_sha256": "857b1ab9dbf4501790e04071e1a650d9369f963d92988384dc302746943e7ee0"
+    },
+    {
+      "disposition": "Explicit synthetic-access / synthetic-refresh literal in retained upstream Rust test fixture, not a populated credential file.",
+      "file": "work/repos/OpenBot/desktop/src-tauri/src/provider_oauth.rs",
+      "line": 1697,
+      "match_sha256": "8311c46062d14440944fc2ba36a4ed8e1d00d3fb46b7db5c8fa6bd65f9ea34e2",
+      "pattern": "populated token field",
+      "source_sha256": "857b1ab9dbf4501790e04071e1a650d9369f963d92988384dc302746943e7ee0"
+    },
+    {
+      "disposition": "Retained test of provider-shaped version argument stripping before record merge; no provider auth activation.",
+      "file": "work/repos/OpenBot/server/tests/composio-connections.test.ts",
+      "line": 1816,
+      "match_sha256": "746e07fc14f7afc45e7122f5597f034c01536b2080ea268544a93be9eca23543",
+      "pattern": "provider-shaped literal",
+      "source_sha256": "0e4b9e91c6fdcfd30ff98fb4a765b40a7ed71981fd04eec590a926194c8c3187"
+    },
+    {
+      "disposition": "Retained credential-redaction unit-test input, expected output REDACTED.",
+      "file": "work/repos/OpenBot/server/tests/enterprise-controls.test.ts",
+      "line": 432,
+      "match_sha256": "3193831645bd691450f50c575c8f3019bcd83b9be8448321f223ef36671e03c5",
+      "pattern": "provider-shaped literal",
+      "source_sha256": "72fde6e8698e11c1967701508a8fe8d91ee950987b0d6189312034e913707236"
+    },
+    {
+      "disposition": "Retained static unit-test KEY passed into mocked fakeFetch, not a supplied live account key.",
+      "file": "work/repos/OpenBot/server/tests/model-availability-check.test.ts",
+      "line": 7,
+      "match_sha256": "cf8032a2b34ec8f603df897d1c8738dee931ef8f0e9e2e67f3c98138a04251af",
+      "pattern": "provider-shaped literal",
+      "source_sha256": "0242e38e197fe906499060fdf3d789359bb9e4e027a53e7513129cb2e8378abc"
+    },
+    {
+      "disposition": "Retained static model-listing unit-test KEY with fake local provider responses.",
+      "file": "work/repos/OpenBot/server/tests/model-catalogue.test.ts",
+      "line": 18,
+      "match_sha256": "cf8032a2b34ec8f603df897d1c8738dee931ef8f0e9e2e67f3c98138a04251af",
+      "pattern": "provider-shaped literal",
+      "source_sha256": "ab7a6636a5cf73eb33facaffa7c30e4e9de70d56cf0ab811226d864ce3d3f73d"
+    }
+  ],
+  "runtime_backup": false,
+  "schema": "openbot.workspace-export-audit/1",
+  "selection": "Every regular single-link file under this combined tree except SOURCE_MANIFEST.json itself and explicit generated/tool/dependency caches; audit included in final manifest.",
+  "sensitive_filename_findings": [],
+  "unchanged_optional_upstream_files": 3475,
+  "unchanged_parent_work_files": 4149,
+  "unresolved_selected_pattern_findings": []
+}

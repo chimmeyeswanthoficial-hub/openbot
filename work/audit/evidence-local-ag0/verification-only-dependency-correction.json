@@ -1,0 +1,5 @@
+{
+  "correction": "share locked nested Vite dependencies from prior scratch npm ci; no source changes or install",
+  "path": "/home/user/.cache/ag4a-engineering/verification-only/apps/bot-hq/web/node_modules",
+  "original_failure": "TS2688 vite/client absent in verification-only web workspace; original failed log retained"
+}

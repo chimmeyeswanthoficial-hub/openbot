@@ -1,0 +1,183 @@
+{
+  "schema": 1,
+  "task_date": "2026-11-10",
+  "observed_runner_utc": "2026-11-14T08:05:33.027036+00:00",
+  "purpose": "Retained source-content fingerprints and scoped reuse-review evidence; not upstream provenance/signature, security, licence-asset clearance or enabled integration.",
+  "tree_digest_algorithm": "SHA256 of UTF-8 json.dumps(rows,ensure_ascii=True,sort_keys=True,separators=(comma,colon)); rows sorted by relative path, each {path,bytes,sha256}. Selected paths follow scripts/handoff.py::_source_files; full per-file hashes also inside continuation manifest.",
+  "donors": {
+    "rakazo": {
+      "root_license": "Apache-2.0",
+      "metadata_pin": "main @ 2026-11-09 tarball; exact upstream commit unestablished",
+      "selected_files": 4899,
+      "selected_bytes": 47148124,
+      "tree_sha256": "8fe178f033904fc282ab3beaad891727375753bfe66e46c0045bb82d16a3f469",
+      "omissions_not_deleted": [],
+      "reviewed_references": [
+        {
+          "path": "LICENSE",
+          "bytes": 9717,
+          "sha256": "b9738182c46747cb7cd36cad62d55c8922ca8d0029df280d3d73bb3c95d34935"
+        },
+        {
+          "path": "packages/adapters/src/routine-coalescing.ts",
+          "bytes": 4909,
+          "sha256": "1e209bfab012f88a7cd358bf8ed0b58857706d3adcd5d8c8e3b178dc6643063c"
+        },
+        {
+          "path": "packages/adapters/src/routine-coalescing.test.ts",
+          "bytes": 3725,
+          "sha256": "36e1e85de3287eddc1d5f4800f462c030a9a110fc8f18c3c5ba53781147544fb"
+        },
+        {
+          "path": "packages/adapters/src/routine-watch.ts",
+          "bytes": 33918,
+          "sha256": "8e0661cc65f2bbb85abc7c8796c736e19d1853bb0903424f8c572b2a09bcb86d"
+        },
+        {
+          "path": "packages/adapters/src/routine-watch.test.ts",
+          "bytes": 59980,
+          "sha256": "ef93fe8bfa497ebc8988b75d9e70af31849464f547834ed159ee2aba92afa341"
+        },
+        {
+          "path": "packages/adapters/src/routine-handover.ts",
+          "bytes": 1760,
+          "sha256": "f71a04514fc76b7a5645633d0d497a1be99b5d81c6156baa4dfaffb874bad19a"
+        },
+        {
+          "path": "packages/adapters/src/ticket-context.ts",
+          "bytes": 4873,
+          "sha256": "6154075dda82e8dcd080525dcef1153fa5495c43013c199dad91eb39fa4a570b"
+        },
+        {
+          "path": "packages/adapters/src/group-handoff.ts",
+          "bytes": 10028,
+          "sha256": "5d4975f90f75b6d68f4d361b4d4e2eafaaa98b920c9599ef6a2a29829cc477ee"
+        },
+        {
+          "path": "docs/board.md",
+          "bytes": 749,
+          "sha256": "7dbb4308e791b5269b9ef9a9b4f4a03cd9c427657696e6390bb28eec90f590a5"
+        },
+        {
+          "path": "docs/groups.md",
+          "bytes": 1816,
+          "sha256": "d62f77d260c16a2dab35dc7d4e1a090da81dd4c4805f13f6d518d5f46abfd596"
+        },
+        {
+          "path": "docs/skills.md",
+          "bytes": 2038,
+          "sha256": "49b5ed5e7ac4bb5f5634ff944bf75d88403b2816b60272976a5db2cab419b5df"
+        },
+        {
+          "path": "skills-lock.json",
+          "bytes": 267,
+          "sha256": "6ceffde966bf0235afd0e99e691e6dcccc8c166ad79a53e44127bcc3f6bbf232"
+        },
+        {
+          "path": "docs/self-host-backups.md",
+          "bytes": 18580,
+          "sha256": "11cae76636673eeb0f00c26b2ed1eae191c2b630de3df2220b3f10ea3656d096"
+        },
+        {
+          "path": "infra/compose/backup-drill.sh",
+          "bytes": 868,
+          "sha256": "f2abcf2f61bac9f67395bdffe243e150d888e6d3fb8461db0bf40cb9d9d91cff"
+        }
+      ],
+      "source_tree_modified": false,
+      "runtime_enabled": false
+    },
+    "OpenDots": {
+      "root_license": "MIT; Copyright Atai Barkai",
+      "metadata_pin": "main @ 2026-11-09 tarball; exact upstream commit unestablished",
+      "selected_files": 187,
+      "selected_bytes": 1578537,
+      "tree_sha256": "a140f68f90a4574b19a6743dfa6d0dfe518064ee9e3e4dd11260c6e238a1c4dc",
+      "omissions_not_deleted": [
+        {
+          "path": ".env",
+          "reason": "credential/link/non-regular/SQLite journal; not deleted"
+        }
+      ],
+      "reviewed_references": [
+        {
+          "path": "LICENSE",
+          "bytes": 1067,
+          "sha256": "15a0e5343aea872c0573ad72feb6044b336f162d724cc1673c608e6b37ea071b"
+        },
+        {
+          "path": "src/client/PageReviewCard.tsx",
+          "bytes": 6961,
+          "sha256": "49e672790a097f0f0908d7f7672cbc73985bc111cc1ef09924952a3ab37a6309"
+        },
+        {
+          "path": "src/client/TaskActions.tsx",
+          "bytes": 1694,
+          "sha256": "2a6521420303d69a007c9d7c45412508eb58ec8b09793eb622da60479e046491"
+        },
+        {
+          "path": "src/server/page-routes.ts",
+          "bytes": 5300,
+          "sha256": "c6de47eac3c33d7b144ae3dcbcfedf1bca2fbeeafb75898514016531d0cd2a95"
+        },
+        {
+          "path": "src/server/pages.ts",
+          "bytes": 10138,
+          "sha256": "0b390a9e04cd5754995eba40dd56968acd6c4b22bc0025064e617af9ad11911c"
+        },
+        {
+          "path": "src/server/page-tools.ts",
+          "bytes": 3358,
+          "sha256": "5069e31e77dff9cd8ccc9139d3514501a20113533d40d0215e351175cfd1a0fe"
+        },
+        {
+          "path": "src/server/page-service.ts",
+          "bytes": 4965,
+          "sha256": "33f75c9a04597356251a20487a00766316fdfeb7e26da53342ca9fb1f5111ab5"
+        },
+        {
+          "path": "src/server/connection-tools.ts",
+          "bytes": 2008,
+          "sha256": "1f65461346d3fcc5f23c8bae866b2ea7cd8d6c4745cc51256a5e7e2c0a5d365b"
+        },
+        {
+          "path": "src/server/connection-routes.ts",
+          "bytes": 6210,
+          "sha256": "9d59d04c5790cdde6f1f80f779f6fb3be1ccac0f59fb813d883a70fbfe543439"
+        },
+        {
+          "path": "src/server/connection-store.ts",
+          "bytes": 8325,
+          "sha256": "fd7ce21c9f049be1005ca43bb442962cf60b7e2618d212f5f9660d8e4c9f0a1d"
+        },
+        {
+          "path": "src/server/connections.ts",
+          "bytes": 10289,
+          "sha256": "5185f6faa0ccef8d51054942e4fa86ef54301327ca308c9f08514bd4f672ab69"
+        },
+        {
+          "path": "src/server/runner.ts",
+          "bytes": 3688,
+          "sha256": "f2ca4672b903e1caf955f50af750babd1c94484e1c11d158e9e9a405bffe8004"
+        }
+      ],
+      "source_tree_modified": false,
+      "runtime_enabled": false
+    }
+  },
+  "scoped_source_reference_search": {
+    "roots": [
+      "services",
+      "apps/bot-hq",
+      "packages",
+      "scripts"
+    ],
+    "patterns": [
+      "repos/(rakazo|OpenDots)",
+      "@rakazo/"
+    ],
+    "source_files_checked": 177,
+    "hits": [],
+    "limit": "No direct match is not a full transitive dependency or runtime audit."
+  }
+}

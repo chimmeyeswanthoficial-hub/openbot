@@ -1,0 +1,16 @@
+python3 scripts/bootstrap-isolation.py
+{
+  "ok": true,
+  "binary": ".cache/openbot-isolation/bubblewrap-0.12.0-deb13u1/usr/bin/bwrap",
+  "binary_sha256": "573236e5328ac2ebb08f59ae3a9805b4f8d12bdef14be8af4450d5463294985f",
+  "version": "bubblewrap 0.12.0",
+  "setuid": false,
+  "cgroup_path_writable": false,
+  "cgroup_delegated": false,
+  "production_ready": false,
+  "server_or_provider_started": false
+}
+OPENBOT_TEST_NAMESPACE=1 python3 -m pytest services/gateway/tests/test_namespace_executor.py scripts/tests/test_isolation_bootstrap.py services/worker/tests/test_transport_truth.py services/worker/tests/test_dispatch_agui.py
+........................................................................ [ 61%]
+.............................................                            [100%]
+117 passed in 0.79s

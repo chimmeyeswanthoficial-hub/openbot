@@ -1,0 +1,191 @@
+TAP version 13
+# node:internal/modules/esm/resolve:283
+#     throw new ERR_MODULE_NOT_FOUND(
+#           ^
+# Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/home/user/.cache/openbot-release-next/workspace/OpenBot-Workspace/work/apps/bot-hq/server/dist/history-state.js' imported from /home/user/.cache/openbot-release-next/workspace/OpenBot-Workspace/work/apps/bot-hq/server/test/history.test.mjs
+#     at finalizeResolution (node:internal/modules/esm/resolve:283:11)
+#     at moduleResolve (node:internal/modules/esm/resolve:952:10)
+#     at defaultResolve (node:internal/modules/esm/resolve:1188:11)
+#     at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:708:12)
+#     at \#cachedDefaultResolve (node:internal/modules/esm/loader:657:25)
+#     at ModuleLoader.resolve (node:internal/modules/esm/loader:640:38)
+#     at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:264:38)
+#     at ModuleJob._link (node:internal/modules/esm/module_job:168:49) {
+#   code: 'ERR_MODULE_NOT_FOUND',
+#   url: 'file:///home/user/.cache/openbot-release-next/workspace/OpenBot-Workspace/work/apps/bot-hq/server/dist/history-state.js'
+# }
+# Node.js v20.20.2
+# Subtest: /home/user/.cache/openbot-release-next/workspace/OpenBot-Workspace/work/apps/bot-hq/server/test/history.test.mjs
+not ok 1 - /home/user/.cache/openbot-release-next/workspace/OpenBot-Workspace/work/apps/bot-hq/server/test/history.test.mjs
+  ---
+  duration_ms: 54.641682
+  location: '/home/user/.cache/openbot-release-next/workspace/OpenBot-Workspace/work/apps/bot-hq/server/test/history.test.mjs:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# node:internal/modules/esm/resolve:283
+#     throw new ERR_MODULE_NOT_FOUND(
+#           ^
+# Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/home/user/.cache/openbot-release-next/workspace/OpenBot-Workspace/work/apps/bot-hq/server/dist/local-app.js' imported from /home/user/.cache/openbot-release-next/workspace/OpenBot-Workspace/work/apps/bot-hq/server/test/local.test.mjs
+#     at finalizeResolution (node:internal/modules/esm/resolve:283:11)
+#     at moduleResolve (node:internal/modules/esm/resolve:952:10)
+#     at defaultResolve (node:internal/modules/esm/resolve:1188:11)
+#     at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:708:12)
+#     at \#cachedDefaultResolve (node:internal/modules/esm/loader:657:25)
+#     at ModuleLoader.resolve (node:internal/modules/esm/loader:640:38)
+#     at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:264:38)
+#     at ModuleLoader.import (node:internal/modules/esm/loader:605:34)
+#     at defaultImportModuleDynamicallyForModule (node:internal/modules/esm/utils:221:31)
+#     at importModuleDynamicallyCallback (node:internal/modules/esm/utils:260:12) {
+#   code: 'ERR_MODULE_NOT_FOUND',
+#   url: 'file:///home/user/.cache/openbot-release-next/workspace/OpenBot-Workspace/work/apps/bot-hq/server/dist/local-app.js'
+# }
+# Node.js v20.20.2
+# Subtest: /home/user/.cache/openbot-release-next/workspace/OpenBot-Workspace/work/apps/bot-hq/server/test/local.test.mjs
+not ok 2 - /home/user/.cache/openbot-release-next/workspace/OpenBot-Workspace/work/apps/bot-hq/server/test/local.test.mjs
+  ---
+  duration_ms: 54.505845
+  location: '/home/user/.cache/openbot-release-next/workspace/OpenBot-Workspace/work/apps/bot-hq/server/test/local.test.mjs:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: same bot executes one turn at a time, preserving order
+ok 3 - same bot executes one turn at a time, preserving order
+  ---
+  duration_ms: 2.061231
+  ...
+# Subtest: different bots do not wait for one another
+ok 4 - different bots do not wait for one another
+  ---
+  duration_ms: 0.378493
+  ...
+# Subtest: failure reaches caller but does not poison subsequent turns
+ok 5 - failure reaches caller but does not poison subsequent turns
+  ---
+  duration_ms: 0.608915
+  ...
+# Subtest: closing refuses new work but drains existing work without claiming cancellation
+ok 6 - closing refuses new work but drains existing work without claiming cancellation
+  ---
+  duration_ms: 1.525186
+  ...
+# Subtest: invalid bot identity and callback are rejected
+ok 7 - invalid bot identity and callback are rejected
+  ---
+  duration_ms: 0.236786
+  ...
+# Subtest: default research does not read gh auth or send inherited tokens
+ok 8 - default research does not read gh auth or send inherited tokens
+  ---
+  duration_ms: 90.102005
+  ...
+# Subtest: environment auth requires explicit opt-in and still does not invoke gh
+ok 9 - environment auth requires explicit opt-in and still does not invoke gh
+  ---
+  duration_ms: 68.426366
+  ...
+# Subtest: authenticated responses are not written to shared public cache
+ok 10 - authenticated responses are not written to shared public cache
+  ---
+  duration_ms: 69.184545
+  ...
+# Subtest: init cannot mutate project instructions by default
+ok 11 - init cannot mutate project instructions by default
+  ---
+  duration_ms: 43.802467
+  ...
+# Subtest: extractKeywords strips filler words
+ok 12 - extractKeywords strips filler words
+  ---
+  duration_ms: 2.079516
+  ...
+# Subtest: stem matches word variants
+ok 13 - stem matches word variants
+  ---
+  duration_ms: 0.406176
+  ...
+# Subtest: active, licensed, relevant repo scores high
+ok 14 - active, licensed, relevant repo scores high
+  ---
+  duration_ms: 0.90166
+  ...
+# Subtest: archived and stale repos are penalised
+ok 15 - archived and stale repos are penalised
+  ---
+  duration_ms: 1.481404
+  ...
+# Subtest: off-topic mega repo does not beat on-topic repo
+ok 16 - off-topic mega repo does not beat on-topic repo
+  ---
+  duration_ms: 0.237655
+  ...
+# Subtest: awesome lists are detected and demoted
+ok 17 - awesome lists are detected and demoted
+  ---
+  duration_ms: 0.312394
+  ...
+# Subtest: explain produces warnings
+ok 18 - explain produces warnings
+  ---
+  duration_ms: 0.306659
+  ...
+# Subtest: buildRepoQueries applies filters
+ok 19 - buildRepoQueries applies filters
+  ---
+  duration_ms: 0.401131
+  ...
+# Subtest: mergeAndRank dedupes and sorts
+ok 20 - mergeAndRank dedupes and sorts
+  ---
+  duration_ms: 0.613349
+  ...
+# Subtest: isSkillRepo
+ok 21 - isSkillRepo
+  ---
+  duration_ms: 0.805808
+  ...
+# Subtest: parseArgs
+ok 22 - parseArgs
+  ---
+  duration_ms: 0.41893
+  ...
+# Subtest: isAwesomeList rejects keyword-stuffed repos
+ok 23 - isAwesomeList rejects keyword-stuffed repos
+  ---
+  duration_ms: 0.548517
+  ...
+# Subtest: auto-mode block is idempotent and removable
+ok 24 - auto-mode block is idempotent and removable
+  ---
+  duration_ms: 0.368343
+  ...
+# Subtest: detectStack reads manifests
+ok 25 - detectStack reads manifests
+  ---
+  duration_ms: 2.620813
+  ...
+# Subtest: multi-language filter and momentum
+ok 26 - multi-language filter and momentum
+  ---
+  duration_ms: 0.238775
+  ...
+# Subtest: short keywords match whole words only
+ok 27 - short keywords match whole words only
+  ---
+  duration_ms: 0.364205
+  ...
+1..27
+# tests 27
+# suites 0
+# pass 25
+# fail 2
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 603.465094

@@ -1,0 +1,14 @@
+{
+  "commit": "fe1267e0cd1e35e8a816dc0556be80ec68343401",
+  "observed_main": "fe1267e0cd1e35e8a816dc0556be80ec68343401",
+  "parents": [
+    "7079862b46a3c6ebe4ba1a329c632a07f1599d0d"
+  ],
+  "project_prefix": "workspace-01a1d9f2-d81b-7755-a4ce-2e5ce9fc91d8/",
+  "public_files_verified_git_blobs_sizes_modes": 3950,
+  "project_files": 3946,
+  "archive_bytes": 24578275,
+  "archive_sha256": "cc6eba7f18397504234e61b0ce402dc072756d12f004e00d55b115f904eb624a",
+  "only_bounded_regular_files_and_directories": true,
+  "primary_source_or_remote_writes": false
+}

@@ -1,0 +1,15 @@
+{
+  "base": "fe1267e0cd1e35e8a816dc0556be80ec68343401",
+  "files": 3946,
+  "overlays": [
+    "scripts/generate_full_junit.py",
+    "scripts/record-verification.py",
+    "scripts/create_evidence_manifest.py",
+    "scripts/verification_evidence.py",
+    "scripts/tests/test_verification_execution.py",
+    "scripts/tests/test_platform_guards.py",
+    "scripts/tests/test_hq_installation.py"
+  ],
+  "tree": "/home/user/.cache/ag4a-engineering/verification-only",
+  "dependencies": "reuse prior locked scratch install; no providers or primary overlay"
+}

@@ -1,0 +1,31 @@
+PASS Secure WebCrypto context at exact gateway path
+PASS Unpaired proposal is disabled
+PASS Pairing derives owner/venture/scopes from server
+PASS Actual renderer private key is non-exportable
+PASS No renderer device secret was persisted
+PASS invoice-good-v1 is a real unattempted review proposal
+PASS Invalid exact-review code is refused without mutation retry
+PASS invoice-good-v1 exact plan/digest/device is visible for review
+PASS invoice-good-v1 exact approval queues but does not execute
+PASS invoice-good-v1 requires separate execution confirmation
+PASS invoice-good-v1 actual artifact content/hash is read back
+PASS invoice-discount-defect-v1 is a real unattempted review proposal
+PASS invoice-discount-defect-v1 exact plan/digest/device is visible for review
+PASS invoice-discount-defect-v1 exact approval queues but does not execute
+PASS invoice-discount-defect-v1 requires separate execution confirmation
+PASS invoice-discount-defect-v1 actual artifact content/hash is read back
+PASS invoice-docs-defect-v1 is a real unattempted review proposal
+PASS invoice-docs-defect-v1 exact plan/digest/device is visible for review
+PASS invoice-docs-defect-v1 exact approval queues but does not execute
+PASS invoice-docs-defect-v1 requires separate execution confirmation
+PASS invoice-docs-defect-v1 actual artifact content/hash is read back
+PASS Untrusted task content stays text, never HTML or authority
+PASS Canonical exact-book strings retain source and settlement limits
+PASS Scoped audit is actually read back
+locator.waitFor: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator('#proposal-error').filter({ hasText: 'Outcome requires read-back' }) to be visible
+
+    at /home/user/.cache/openbot-reference-next/workspace/OpenBot-Workspace/studio/scripts/test-gateway.cjs:66:286 {
+  name: 'TimeoutError'
+}

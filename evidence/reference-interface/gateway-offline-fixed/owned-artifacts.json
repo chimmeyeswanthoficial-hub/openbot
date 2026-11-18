@@ -1,0 +1,558 @@
+{
+  "artifacts": [
+    {
+      "task": "w9a215dbbba9d43b181c21b12b19c927d",
+      "fixture": "invoice-good-v1",
+      "sha256": "083ab6c29c846fc4cf1070ac0c784c1f927a9644b43f4f9eb347c1d05ce501d5",
+      "content": {
+        "bounded_plan": [
+          "review exact source and permission metadata",
+          "run independent fixed assertions in a fresh deny-network namespace",
+          "run actual documentation examples",
+          "read back counts/digests and stage report for human review"
+        ],
+        "brief": {
+          "acceptance": "Run independent assertions and documentation examples; report evidence for every finding.",
+          "ai_use_approved": true,
+          "destination": "local-review",
+          "fixture": "invoice-good-v1",
+          "goal": "Prove shared light invoice-good-v1",
+          "request_id": "cbfadabe-046e-42f5-a8c6-664682ddef3b",
+          "rights_ref": "owned:first-party-seed"
+        },
+        "delivery": "local-review-only; separate exact artifact review required",
+        "external_delivery": false,
+        "findings": [],
+        "fixture": "invoice-good-v1",
+        "limits": [
+          "fixed owned samples only; no arbitrary uploaded code",
+          "fixed namespace profile is not delegated cgroup/hostile-host certification",
+          "human quality/rights/delivery review remains required; no specialist-parity claim"
+        ],
+        "observed": {
+          "cases": [
+            {
+              "case": "OwnedTests.test_discount",
+              "outcome": "passed",
+              "trace": ""
+            },
+            {
+              "case": "OwnedTests.test_free",
+              "outcome": "passed",
+              "trace": ""
+            },
+            {
+              "case": "OwnedTests.test_no_discount",
+              "outcome": "passed",
+              "trace": ""
+            },
+            {
+              "case": "OwnedTests.test_reject_bool",
+              "outcome": "passed",
+              "trace": ""
+            },
+            {
+              "case": "OwnedTests.test_reject_float",
+              "outcome": "passed",
+              "trace": ""
+            },
+            {
+              "case": "OwnedTests.test_reject_negative",
+              "outcome": "passed",
+              "trace": ""
+            },
+            {
+              "case": "owned_example",
+              "outcome": "passed",
+              "trace": ""
+            }
+          ],
+          "controls": {
+            "host_environment_absent": true,
+            "namespaces": {
+              "ipc": "ipc:[4026532103]",
+              "mnt": "mnt:[4026532101]",
+              "net": "net:[4026532106]",
+              "pid": "pid:[4026532104]",
+              "user": "user:[4026532210]",
+              "uts": "uts:[4026532102]"
+            },
+            "rlimits": {
+              "AS": [
+                134217728,
+                134217728
+              ],
+              "CORE": [
+                0,
+                0
+              ],
+              "CPU": [
+                2,
+                2
+              ],
+              "FSIZE": [
+                0,
+                0
+              ],
+              "NOFILE": [
+                16,
+                16
+              ],
+              "NPROC": [
+                1,
+                1
+              ]
+            },
+            "status": {
+              "CapEff": "0000000000000000",
+              "NoNewPrivs": "1",
+              "Seccomp": "2"
+            }
+          },
+          "doctest_executed": true,
+          "environment": {
+            "network_profile": "unshared-deny-network",
+            "platform": "linux",
+            "program_scope": "bundled-owned-literals",
+            "python": "3.13.5"
+          },
+          "exit_code": 0,
+          "fixture": "invoice-good-v1",
+          "junit": "<testsuite tests=\"7\" failures=\"0\" errors=\"0\" skipped=\"0\"><testcase classname=\"owned_qa\" name=\"OwnedTests.test_discount\" time=\"6.1e-05\" /><testcase classname=\"owned_qa\" name=\"OwnedTests.test_free\" time=\"2.4e-05\" /><testcase classname=\"owned_qa\" name=\"OwnedTests.test_no_discount\" time=\"1.6e-05\" /><testcase classname=\"owned_qa\" name=\"OwnedTests.test_reject_bool\" time=\"2.8e-05\" /><testcase classname=\"owned_qa\" name=\"OwnedTests.test_reject_float\" time=\"1.9e-05\" /><testcase classname=\"owned_qa\" name=\"OwnedTests.test_reject_negative\" time=\"1.6e-05\" /><testcase classname=\"owned_qa\" name=\"owned_example\" time=\"0.000294\" /></testsuite>",
+          "runner_output": "test_discount (__main__.main.<locals>.OwnedTests.test_discount) ... ok\ntest_free (__main__.main.<locals>.OwnedTests.test_free) ... ok\ntest_no_discount (__main__.main.<locals>.OwnedTests.test_no_discount) ... ok\ntest_reject_bool (__main__.main.<locals>.OwnedTests.test_reject_bool) ... ok\ntest_reject_float (__main__.main.<locals>.OwnedTests.test_reject_float) ... ok\ntest_reject_negative (__main__.main.<locals>.OwnedTests.test_reject_negative) ... ok\ndiscounted_total (owned_example)\nDoctest: owned_example.discounted_total ... ok\n\n----------------------------------------------------------------------\nRan 7 tests in 0.001s\n\nOK\n",
+          "source_sha256": "150183f2afbfab394e3cd5064011e53251321e59a2f2807adf5a6ff35dbf58ac"
+        },
+        "process": {
+          "exit_code": 0,
+          "exit_confirmed": true,
+          "pid": 71809
+        },
+        "provider_used": false,
+        "qa_passed": true,
+        "run_id": "w9a215dbbba9d43b181c21b12b19c927d",
+        "scope": "bundled first-party invoice example, not customer software",
+        "source": "def discounted_total(unit_cents, quantity, discount_percent=0):\n    \"\"\"Integer-cent invoice example.\n\n    >>> discounted_total(1250, 2, 10)\n    2250\n    >>> discounted_total(999, 1, 100)\n    0\n    \"\"\"\n    if any(type(value) is not int for value in (unit_cents, quantity, discount_percent)):\n        raise TypeError(\"integer minor units required\")\n    if unit_cents < 0 or quantity < 0 or not 0 <= discount_percent <= 100:\n        raise ValueError(\"amount, quantity or discount out of range\")\n    return unit_cents * quantity * (100 - discount_percent) // 100\n",
+        "source_sha256": "150183f2afbfab394e3cd5064011e53251321e59a2f2807adf5a6ff35dbf58ac",
+        "verification": {
+          "brief_sha256": "a3b904d7a7a9a4502de6ab6e373a13ad8389a351bb4da2090b99b4916997f219",
+          "counts": {
+            "collected": 7,
+            "failed": 0,
+            "passed": 7,
+            "skipped": 0
+          },
+          "delivery_authorized": false,
+          "evidence_status": "ready_for_review",
+          "junit_sha256": "a3540c147051912cafd02604ae224aa6b6fc2c832905c20692e0ae4020f4f7d4",
+          "limits": "Parser did not execute tests, authenticate their origin, verify test quality, approve delivery or measure specialist parity.",
+          "required_cases": [
+            "owned_qa::OwnedTests.test_discount",
+            "owned_qa::OwnedTests.test_free",
+            "owned_qa::OwnedTests.test_no_discount",
+            "owned_qa::OwnedTests.test_reject_negative",
+            "owned_qa::OwnedTests.test_reject_float",
+            "owned_qa::OwnedTests.test_reject_bool",
+            "owned_qa::owned_example"
+          ],
+          "run_ref": "w9a215dbbba9d43b181c21b12b19c927d",
+          "runner_exit_code": 0,
+          "source_revision": "150183f2afbfab394e3cd5064011e53251321e59a2f2807adf5a6ff35dbf58ac",
+          "specialist_parity": "not_measured",
+          "unmet_cases": []
+        },
+        "worker_sha256": "d9c0a65d66cc2a70cd3108632a06436cc87da5a5e64c0cbd29b114d0915a7d70",
+        "workflow": "owned-qa-docs-v1"
+      },
+      "qualified_human_acceptance": false
+    },
+    {
+      "task": "wc4e3803e59e844dd9a356a7975cfc5cc",
+      "fixture": "invoice-discount-defect-v1",
+      "sha256": "6e88d41c0c7fff74f66d2e8c4b19e1e7074a0ba0f0e47b906b1a3470d981e4bd",
+      "content": {
+        "bounded_plan": [
+          "review exact source and permission metadata",
+          "run independent fixed assertions in a fresh deny-network namespace",
+          "run actual documentation examples",
+          "read back counts/digests and stage report for human review"
+        ],
+        "brief": {
+          "acceptance": "Run independent assertions and documentation examples; report evidence for every finding.",
+          "ai_use_approved": true,
+          "destination": "local-review",
+          "fixture": "invoice-discount-defect-v1",
+          "goal": "Prove shared light invoice-discount-defect-v1",
+          "request_id": "625bdf59-fa8e-4fca-843f-ffc3fa835a34",
+          "rights_ref": "owned:first-party-seed"
+        },
+        "delivery": "local-review-only; separate exact artifact review required",
+        "external_delivery": false,
+        "findings": [
+          {
+            "actual": "Traceback (most recent call last):\n  File \"/worker.py\", line 64, in test_discount\n    self.assertEqual(module.discounted_total(1250, 2, 10), 2250)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 2500 != 2250\n",
+            "case": "OwnedTests.test_discount",
+            "expected": "bundled independent assertions and documented examples",
+            "regression_evidence_sha256": "6067e72d71d6ad646d01cdd12bebff6e0ec162fb3219e65349d0324777dd2a91",
+            "reproduction": {
+              "case": "OwnedTests.test_discount",
+              "fixture": "invoice-discount-defect-v1",
+              "tool": "owned.qa"
+            },
+            "severity": "proposed-high; human review required"
+          },
+          {
+            "actual": "Traceback (most recent call last):\n  File \"/worker.py\", line 67, in test_free\n    self.assertEqual(module.discounted_total(999, 1, 100), 0)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 999 != 0\n",
+            "case": "OwnedTests.test_free",
+            "expected": "bundled independent assertions and documented examples",
+            "regression_evidence_sha256": "6067e72d71d6ad646d01cdd12bebff6e0ec162fb3219e65349d0324777dd2a91",
+            "reproduction": {
+              "case": "OwnedTests.test_free",
+              "fixture": "invoice-discount-defect-v1",
+              "tool": "owned.qa"
+            },
+            "severity": "proposed-high; human review required"
+          },
+          {
+            "actual": "Traceback (most recent call last):\n  File \"/usr/lib/python3.13/doctest.py\", line 2327, in runTest\n    raise self.failureException(self.format_failure(new.getvalue()))\nAssertionError: Failed doctest test for owned_example.discounted_total\n  File \"/owned_example.py\", line 1, in discounted_total\n\n----------------------------------------------------------------------\nFile \"/owned_example.py\", line 4, in owned_example.discounted_total\nFailed example:\n    discounted_total(1250, 2, 10)\nExpected:\n    2250\nGot:\n    2500\n----------------------------------------------------------------------\nFile \"/owned_example.py\", line 6, in owned_example.discounted_total\nFailed example:\n    discounted_total(999, 1, 100)\nExpected:\n    0\nGot:\n    999\n\n",
+            "case": "owned_example",
+            "expected": "bundled independent assertions and documented examples",
+            "regression_evidence_sha256": "6067e72d71d6ad646d01cdd12bebff6e0ec162fb3219e65349d0324777dd2a91",
+            "reproduction": {
+              "case": "owned_example",
+              "fixture": "invoice-discount-defect-v1",
+              "tool": "owned.qa"
+            },
+            "severity": "proposed-high; human review required"
+          }
+        ],
+        "fixture": "invoice-discount-defect-v1",
+        "limits": [
+          "fixed owned samples only; no arbitrary uploaded code",
+          "fixed namespace profile is not delegated cgroup/hostile-host certification",
+          "human quality/rights/delivery review remains required; no specialist-parity claim"
+        ],
+        "observed": {
+          "cases": [
+            {
+              "case": "OwnedTests.test_discount",
+              "outcome": "failure",
+              "trace": "Traceback (most recent call last):\n  File \"/worker.py\", line 64, in test_discount\n    self.assertEqual(module.discounted_total(1250, 2, 10), 2250)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 2500 != 2250\n"
+            },
+            {
+              "case": "OwnedTests.test_free",
+              "outcome": "failure",
+              "trace": "Traceback (most recent call last):\n  File \"/worker.py\", line 67, in test_free\n    self.assertEqual(module.discounted_total(999, 1, 100), 0)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 999 != 0\n"
+            },
+            {
+              "case": "OwnedTests.test_no_discount",
+              "outcome": "passed",
+              "trace": ""
+            },
+            {
+              "case": "OwnedTests.test_reject_bool",
+              "outcome": "passed",
+              "trace": ""
+            },
+            {
+              "case": "OwnedTests.test_reject_float",
+              "outcome": "passed",
+              "trace": ""
+            },
+            {
+              "case": "OwnedTests.test_reject_negative",
+              "outcome": "passed",
+              "trace": ""
+            },
+            {
+              "case": "owned_example",
+              "outcome": "failure",
+              "trace": "Traceback (most recent call last):\n  File \"/usr/lib/python3.13/doctest.py\", line 2327, in runTest\n    raise self.failureException(self.format_failure(new.getvalue()))\nAssertionError: Failed doctest test for owned_example.discounted_total\n  File \"/owned_example.py\", line 1, in discounted_total\n\n----------------------------------------------------------------------\nFile \"/owned_example.py\", line 4, in owned_example.discounted_total\nFailed example:\n    discounted_total(1250, 2, 10)\nExpected:\n    2250\nGot:\n    2500\n----------------------------------------------------------------------\nFile \"/owned_example.py\", line 6, in owned_example.discounted_total\nFailed example:\n    discounted_total(999, 1, 100)\nExpected:\n    0\nGot:\n    999\n\n"
+            }
+          ],
+          "controls": {
+            "host_environment_absent": true,
+            "namespaces": {
+              "ipc": "ipc:[4026532103]",
+              "mnt": "mnt:[4026532101]",
+              "net": "net:[4026532106]",
+              "pid": "pid:[4026532104]",
+              "user": "user:[4026532210]",
+              "uts": "uts:[4026532102]"
+            },
+            "rlimits": {
+              "AS": [
+                134217728,
+                134217728
+              ],
+              "CORE": [
+                0,
+                0
+              ],
+              "CPU": [
+                2,
+                2
+              ],
+              "FSIZE": [
+                0,
+                0
+              ],
+              "NOFILE": [
+                16,
+                16
+              ],
+              "NPROC": [
+                1,
+                1
+              ]
+            },
+            "status": {
+              "CapEff": "0000000000000000",
+              "NoNewPrivs": "1",
+              "Seccomp": "2"
+            }
+          },
+          "doctest_executed": true,
+          "environment": {
+            "network_profile": "unshared-deny-network",
+            "platform": "linux",
+            "program_scope": "bundled-owned-literals",
+            "python": "3.13.5"
+          },
+          "exit_code": 1,
+          "fixture": "invoice-discount-defect-v1",
+          "junit": "<testsuite tests=\"7\" failures=\"3\" errors=\"0\" skipped=\"0\"><testcase classname=\"owned_qa\" name=\"OwnedTests.test_discount\" time=\"0.000637\"><failure message=\"actual assertion/example failure\">Traceback (most recent call last):\n  File \"/worker.py\", line 64, in test_discount\n    self.assertEqual(module.discounted_total(1250, 2, 10), 2250)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 2500 != 2250\n</failure></testcase><testcase classname=\"owned_qa\" name=\"OwnedTests.test_free\" time=\"0.000317\"><failure message=\"actual assertion/example failure\">Traceback (most recent call last):\n  File \"/worker.py\", line 67, in test_free\n    self.assertEqual(module.discounted_total(999, 1, 100), 0)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 999 != 0\n</failure></testcase><testcase classname=\"owned_qa\" name=\"OwnedTests.test_no_discount\" time=\"2.4e-05\" /><testcase classname=\"owned_qa\" name=\"OwnedTests.test_reject_bool\" time=\"3.3e-05\" /><testcase classname=\"owned_qa\" name=\"OwnedTests.test_reject_float\" time=\"2e-05\" /><testcase classname=\"owned_qa\" name=\"OwnedTests.test_reject_negative\" time=\"1.6e-05\" /><testcase classname=\"owned_qa\" name=\"owned_example\" time=\"0.003488\"><failure message=\"actual assertion/example failure\">Traceback (most recent call last):\n  File \"/usr/lib/python3.13/doctest.py\", line 2327, in runTest\n    raise self.failureException(self.format_failure(new.getvalue()))\nAssertionError: Failed doctest test for owned_example.discounted_total\n  File \"/owned_example.py\", line 1, in discounted_total\n\n----------------------------------------------------------------------\nFile \"/owned_example.py\", line 4, in owned_example.discounted_total\nFailed example:\n    discounted_total(1250, 2, 10)\nExpected:\n    2250\nGot:\n    2500\n----------------------------------------------------------------------\nFile \"/owned_example.py\", line 6, in owned_example.discounted_total\nFailed example:\n    discounted_total(999, 1, 100)\nExpected:\n    0\nGot:\n    999\n\n</failure></testcase></testsuite>",
+          "runner_output": "test_discount (__main__.main.<locals>.OwnedTests.test_discount) ... FAIL\ntest_free (__main__.main.<locals>.OwnedTests.test_free) ... FAIL\ntest_no_discount (__main__.main.<locals>.OwnedTests.test_no_discount) ... ok\ntest_reject_bool (__main__.main.<locals>.OwnedTests.test_reject_bool) ... ok\ntest_reject_float (__main__.main.<locals>.OwnedTests.test_reject_float) ... ok\ntest_reject_negative (__main__.main.<locals>.OwnedTests.test_reject_negative) ... ok\ndiscounted_total (owned_example)\nDoctest: owned_example.discounted_total ... FAIL\n\n======================================================================\nFAIL: test_discount (__main__.main.<locals>.OwnedTests.test_discount)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/worker.py\", line 64, in test_discount\n    self.assertEqual(module.discounted_total(1250, 2, 10), 2250)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 2500 != 2250\n\n======================================================================\nFAIL: test_free (__main__.main.<locals>.OwnedTests.test_free)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/worker.py\", line 67, in test_free\n    self.assertEqual(module.discounted_total(999, 1, 100), 0)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 999 != 0\n\n======================================================================\nFAIL: discounted_total (owned_example)\nDoctest: owned_example.discounted_total\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/usr/lib/python3.13/doctest.py\", line 2327, in runTest\n    raise self.failureException(self.format_failure(new.getvalue()))\nAssertionError: Failed doctest test for owned_example.discounted_total\n  File \"/owned_example.py\", line 1, in discounted_total\n\n----------------------------------------------------------------------\nFile \"/owned_example.py\", line 4, in owned_example.discounted_total\nFailed example:\n    discounted_total(1250, 2, 10)\nExpected:\n    2250\nGot:\n    2500\n----------------------------------------------------------------------\nFile \"/owned_example.py\", line 6, in owned_example.discounted_total\nFailed example:\n    discounted_total(999, 1, 100)\nExpected:\n    0\nGot:\n    999\n\n\n----------------------------------------------------------------------\nRan 7 tests in 0.005s\n\nFAILED (failures=3)\n",
+          "source_sha256": "8ba555ceea33b8735c904d34266955cdf419529e2e21360b2eb7d56d2a2744b6"
+        },
+        "process": {
+          "exit_code": 1,
+          "exit_confirmed": true,
+          "pid": 71819
+        },
+        "provider_used": false,
+        "qa_passed": false,
+        "run_id": "wc4e3803e59e844dd9a356a7975cfc5cc",
+        "scope": "bundled first-party invoice example, not customer software",
+        "source": "def discounted_total(unit_cents, quantity, discount_percent=0):\n    \"\"\"Integer-cent invoice example.\n\n    >>> discounted_total(1250, 2, 10)\n    2250\n    >>> discounted_total(999, 1, 100)\n    0\n    \"\"\"\n    if any(type(value) is not int for value in (unit_cents, quantity, discount_percent)):\n        raise TypeError(\"integer minor units required\")\n    if unit_cents < 0 or quantity < 0 or not 0 <= discount_percent <= 100:\n        raise ValueError(\"amount, quantity or discount out of range\")\n    return unit_cents * quantity * 100 // 100\n",
+        "source_sha256": "8ba555ceea33b8735c904d34266955cdf419529e2e21360b2eb7d56d2a2744b6",
+        "verification": {
+          "brief_sha256": "dae5347651f7c31a187624b6cc07b0b528686aaa0c7e55222095298cfd012b8a",
+          "counts": {
+            "collected": 7,
+            "failed": 3,
+            "passed": 4,
+            "skipped": 0
+          },
+          "delivery_authorized": false,
+          "evidence_status": "needs_investigation",
+          "junit_sha256": "6067e72d71d6ad646d01cdd12bebff6e0ec162fb3219e65349d0324777dd2a91",
+          "limits": "Parser did not execute tests, authenticate their origin, verify test quality, approve delivery or measure specialist parity.",
+          "required_cases": [
+            "owned_qa::OwnedTests.test_discount",
+            "owned_qa::OwnedTests.test_free",
+            "owned_qa::OwnedTests.test_no_discount",
+            "owned_qa::OwnedTests.test_reject_negative",
+            "owned_qa::OwnedTests.test_reject_float",
+            "owned_qa::OwnedTests.test_reject_bool",
+            "owned_qa::owned_example"
+          ],
+          "run_ref": "wc4e3803e59e844dd9a356a7975cfc5cc",
+          "runner_exit_code": 1,
+          "source_revision": "8ba555ceea33b8735c904d34266955cdf419529e2e21360b2eb7d56d2a2744b6",
+          "specialist_parity": "not_measured",
+          "unmet_cases": [
+            "owned_qa::OwnedTests.test_discount",
+            "owned_qa::OwnedTests.test_free",
+            "owned_qa::owned_example"
+          ]
+        },
+        "worker_sha256": "d9c0a65d66cc2a70cd3108632a06436cc87da5a5e64c0cbd29b114d0915a7d70",
+        "workflow": "owned-qa-docs-v1"
+      },
+      "qualified_human_acceptance": false
+    },
+    {
+      "task": "wc1be2e64de254d11856813699a482e63",
+      "fixture": "invoice-docs-defect-v1",
+      "sha256": "bf2e4c722924cd4c9c5fe6f5c5aa9cdc1993a2d99fc808d1a8c51f9d4d15460d",
+      "content": {
+        "bounded_plan": [
+          "review exact source and permission metadata",
+          "run independent fixed assertions in a fresh deny-network namespace",
+          "run actual documentation examples",
+          "read back counts/digests and stage report for human review"
+        ],
+        "brief": {
+          "acceptance": "Run independent assertions and documentation examples; report evidence for every finding.",
+          "ai_use_approved": true,
+          "destination": "local-review",
+          "fixture": "invoice-docs-defect-v1",
+          "goal": "Prove shared light invoice-docs-defect-v1",
+          "request_id": "2d95a631-3fac-4810-8e57-6fef633a9f9c",
+          "rights_ref": "owned:first-party-seed"
+        },
+        "delivery": "local-review-only; separate exact artifact review required",
+        "external_delivery": false,
+        "findings": [
+          {
+            "actual": "Traceback (most recent call last):\n  File \"/usr/lib/python3.13/doctest.py\", line 2327, in runTest\n    raise self.failureException(self.format_failure(new.getvalue()))\nAssertionError: Failed doctest test for owned_example.discounted_total\n  File \"/owned_example.py\", line 1, in discounted_total\n\n----------------------------------------------------------------------\nFile \"/owned_example.py\", line 4, in owned_example.discounted_total\nFailed example:\n    discounted_total(1250, 2, 10)\nExpected:\n    2500\nGot:\n    2250\n\n",
+            "case": "owned_example",
+            "expected": "bundled independent assertions and documented examples",
+            "regression_evidence_sha256": "03bf0a7b0d97f28235a2c1c8b5b78b57da33f76468c199822be6ac5d758b5064",
+            "reproduction": {
+              "case": "owned_example",
+              "fixture": "invoice-docs-defect-v1",
+              "tool": "owned.qa"
+            },
+            "severity": "proposed-high; human review required"
+          }
+        ],
+        "fixture": "invoice-docs-defect-v1",
+        "limits": [
+          "fixed owned samples only; no arbitrary uploaded code",
+          "fixed namespace profile is not delegated cgroup/hostile-host certification",
+          "human quality/rights/delivery review remains required; no specialist-parity claim"
+        ],
+        "observed": {
+          "cases": [
+            {
+              "case": "OwnedTests.test_discount",
+              "outcome": "passed",
+              "trace": ""
+            },
+            {
+              "case": "OwnedTests.test_free",
+              "outcome": "passed",
+              "trace": ""
+            },
+            {
+              "case": "OwnedTests.test_no_discount",
+              "outcome": "passed",
+              "trace": ""
+            },
+            {
+              "case": "OwnedTests.test_reject_bool",
+              "outcome": "passed",
+              "trace": ""
+            },
+            {
+              "case": "OwnedTests.test_reject_float",
+              "outcome": "passed",
+              "trace": ""
+            },
+            {
+              "case": "OwnedTests.test_reject_negative",
+              "outcome": "passed",
+              "trace": ""
+            },
+            {
+              "case": "owned_example",
+              "outcome": "failure",
+              "trace": "Traceback (most recent call last):\n  File \"/usr/lib/python3.13/doctest.py\", line 2327, in runTest\n    raise self.failureException(self.format_failure(new.getvalue()))\nAssertionError: Failed doctest test for owned_example.discounted_total\n  File \"/owned_example.py\", line 1, in discounted_total\n\n----------------------------------------------------------------------\nFile \"/owned_example.py\", line 4, in owned_example.discounted_total\nFailed example:\n    discounted_total(1250, 2, 10)\nExpected:\n    2500\nGot:\n    2250\n\n"
+            }
+          ],
+          "controls": {
+            "host_environment_absent": true,
+            "namespaces": {
+              "ipc": "ipc:[4026532103]",
+              "mnt": "mnt:[4026532101]",
+              "net": "net:[4026532106]",
+              "pid": "pid:[4026532104]",
+              "user": "user:[4026532210]",
+              "uts": "uts:[4026532102]"
+            },
+            "rlimits": {
+              "AS": [
+                134217728,
+                134217728
+              ],
+              "CORE": [
+                0,
+                0
+              ],
+              "CPU": [
+                2,
+                2
+              ],
+              "FSIZE": [
+                0,
+                0
+              ],
+              "NOFILE": [
+                16,
+                16
+              ],
+              "NPROC": [
+                1,
+                1
+              ]
+            },
+            "status": {
+              "CapEff": "0000000000000000",
+              "NoNewPrivs": "1",
+              "Seccomp": "2"
+            }
+          },
+          "doctest_executed": true,
+          "environment": {
+            "network_profile": "unshared-deny-network",
+            "platform": "linux",
+            "program_scope": "bundled-owned-literals",
+            "python": "3.13.5"
+          },
+          "exit_code": 1,
+          "fixture": "invoice-docs-defect-v1",
+          "junit": "<testsuite tests=\"7\" failures=\"1\" errors=\"0\" skipped=\"0\"><testcase classname=\"owned_qa\" name=\"OwnedTests.test_discount\" time=\"9.2e-05\" /><testcase classname=\"owned_qa\" name=\"OwnedTests.test_free\" time=\"2.5e-05\" /><testcase classname=\"owned_qa\" name=\"OwnedTests.test_no_discount\" time=\"1.6e-05\" /><testcase classname=\"owned_qa\" name=\"OwnedTests.test_reject_bool\" time=\"3e-05\" /><testcase classname=\"owned_qa\" name=\"OwnedTests.test_reject_float\" time=\"1.9e-05\" /><testcase classname=\"owned_qa\" name=\"OwnedTests.test_reject_negative\" time=\"1.7e-05\" /><testcase classname=\"owned_qa\" name=\"owned_example\" time=\"0.001536\"><failure message=\"actual assertion/example failure\">Traceback (most recent call last):\n  File \"/usr/lib/python3.13/doctest.py\", line 2327, in runTest\n    raise self.failureException(self.format_failure(new.getvalue()))\nAssertionError: Failed doctest test for owned_example.discounted_total\n  File \"/owned_example.py\", line 1, in discounted_total\n\n----------------------------------------------------------------------\nFile \"/owned_example.py\", line 4, in owned_example.discounted_total\nFailed example:\n    discounted_total(1250, 2, 10)\nExpected:\n    2500\nGot:\n    2250\n\n</failure></testcase></testsuite>",
+          "runner_output": "test_discount (__main__.main.<locals>.OwnedTests.test_discount) ... ok\ntest_free (__main__.main.<locals>.OwnedTests.test_free) ... ok\ntest_no_discount (__main__.main.<locals>.OwnedTests.test_no_discount) ... ok\ntest_reject_bool (__main__.main.<locals>.OwnedTests.test_reject_bool) ... ok\ntest_reject_float (__main__.main.<locals>.OwnedTests.test_reject_float) ... ok\ntest_reject_negative (__main__.main.<locals>.OwnedTests.test_reject_negative) ... ok\ndiscounted_total (owned_example)\nDoctest: owned_example.discounted_total ... FAIL\n\n======================================================================\nFAIL: discounted_total (owned_example)\nDoctest: owned_example.discounted_total\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/usr/lib/python3.13/doctest.py\", line 2327, in runTest\n    raise self.failureException(self.format_failure(new.getvalue()))\nAssertionError: Failed doctest test for owned_example.discounted_total\n  File \"/owned_example.py\", line 1, in discounted_total\n\n----------------------------------------------------------------------\nFile \"/owned_example.py\", line 4, in owned_example.discounted_total\nFailed example:\n    discounted_total(1250, 2, 10)\nExpected:\n    2500\nGot:\n    2250\n\n\n----------------------------------------------------------------------\nRan 7 tests in 0.002s\n\nFAILED (failures=1)\n",
+          "source_sha256": "a4bf59fb6ff0d2a023826c12568500852f677642a434f6bfb2eed5364abe1db9"
+        },
+        "process": {
+          "exit_code": 1,
+          "exit_confirmed": true,
+          "pid": 71826
+        },
+        "provider_used": false,
+        "qa_passed": false,
+        "run_id": "wc1be2e64de254d11856813699a482e63",
+        "scope": "bundled first-party invoice example, not customer software",
+        "source": "def discounted_total(unit_cents, quantity, discount_percent=0):\n    \"\"\"Integer-cent invoice example.\n\n    >>> discounted_total(1250, 2, 10)\n    2500\n    >>> discounted_total(999, 1, 100)\n    0\n    \"\"\"\n    if any(type(value) is not int for value in (unit_cents, quantity, discount_percent)):\n        raise TypeError(\"integer minor units required\")\n    if unit_cents < 0 or quantity < 0 or not 0 <= discount_percent <= 100:\n        raise ValueError(\"amount, quantity or discount out of range\")\n    return unit_cents * quantity * (100 - discount_percent) // 100\n",
+        "source_sha256": "a4bf59fb6ff0d2a023826c12568500852f677642a434f6bfb2eed5364abe1db9",
+        "verification": {
+          "brief_sha256": "a685ace330da34a749abb878e1239b3eac15668fc9e12e22e4b71115f3976e77",
+          "counts": {
+            "collected": 7,
+            "failed": 1,
+            "passed": 6,
+            "skipped": 0
+          },
+          "delivery_authorized": false,
+          "evidence_status": "needs_investigation",
+          "junit_sha256": "03bf0a7b0d97f28235a2c1c8b5b78b57da33f76468c199822be6ac5d758b5064",
+          "limits": "Parser did not execute tests, authenticate their origin, verify test quality, approve delivery or measure specialist parity.",
+          "required_cases": [
+            "owned_qa::OwnedTests.test_discount",
+            "owned_qa::OwnedTests.test_free",
+            "owned_qa::OwnedTests.test_no_discount",
+            "owned_qa::OwnedTests.test_reject_negative",
+            "owned_qa::OwnedTests.test_reject_float",
+            "owned_qa::OwnedTests.test_reject_bool",
+            "owned_qa::owned_example"
+          ],
+          "run_ref": "wc1be2e64de254d11856813699a482e63",
+          "runner_exit_code": 1,
+          "source_revision": "a4bf59fb6ff0d2a023826c12568500852f677642a434f6bfb2eed5364abe1db9",
+          "specialist_parity": "not_measured",
+          "unmet_cases": [
+            "owned_qa::owned_example"
+          ]
+        },
+        "worker_sha256": "d9c0a65d66cc2a70cd3108632a06436cc87da5a5e64c0cbd29b114d0915a7d70",
+        "workflow": "owned-qa-docs-v1"
+      },
+      "qualified_human_acceptance": false
+    }
+  ],
+  "provider_used": false,
+  "external_delivery": false,
+  "qualified_human_acceptance": false
+}

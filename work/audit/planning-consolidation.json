@@ -1,0 +1,78 @@
+{
+  "observed_runner_utc": "2026-11-14T07:59:35.459623+00:00",
+  "purpose": "Lossless preservation before replacing stale planning/status pages and their identical docs mirrors. No donor/business/audit/run deletion.",
+  "archive": "archive/planning-before-execution-refresh.tar.xz",
+  "archive_bytes": 33652,
+  "archive_sha256": "b62b99ceb4c33292d1581ed5be4a81df5c3ffd3cb6e0b4af198a909aca619530",
+  "roundtrip_all_hashes_verified": true,
+  "files": [
+    {
+      "path": "PROJECT_STATE.md",
+      "bytes": 28017,
+      "sha256": "6615befaccd55119fa5ebc1bfee4b8b9c5780db0c845f1bf255fde41484dc729",
+      "identical_docs_mirror": true
+    },
+    {
+      "path": "PROJECT_REMAINING.md",
+      "bytes": 23231,
+      "sha256": "c31a89c870c2282da32e561fb0722f2451dbda33f103d2e4a3571eba264d50a9",
+      "identical_docs_mirror": true
+    },
+    {
+      "path": "aboutme.md",
+      "bytes": 11763,
+      "sha256": "79a232f9ff8df39d232c89e056d8881849bb6e5ca6b7df9f4aaf2880d6605411",
+      "identical_docs_mirror": true
+    },
+    {
+      "path": "FEATURES.md",
+      "bytes": 10025,
+      "sha256": "cafb774e7403066b60786e3ea6a7af5c406425fddd361038744bba69cc59fbdf",
+      "identical_docs_mirror": true
+    },
+    {
+      "path": "BLOCKERS.md",
+      "bytes": 7243,
+      "sha256": "0bf0ed49b56b1a460ae99e533b5b3f98eb4f198c5b156156b106c2e7bd42b897",
+      "identical_docs_mirror": true
+    },
+    {
+      "path": "PROJECT_MEMORY.md",
+      "bytes": 12510,
+      "sha256": "09d5438135222e9c0057304af3f512d4b58b8e098c624a540511b66801055576",
+      "identical_docs_mirror": false
+    }
+  ],
+  "budget_before": {
+    "files": 9008,
+    "bytes": 127974766,
+    "decimal_megabytes": 127.975,
+    "file_cap": 10000,
+    "byte_cap": 128000000,
+    "within_cap": true
+  },
+  "additional_history_archives": [
+    {
+      "observed_runner_utc": "2026-11-14T08:11:27.090937+00:00",
+      "reason": "Replace stale master-plan and superseded combined handover with current concise documents, retaining all original text losslessly. No source/donor/business/run/audit deletion.",
+      "archive": "archive/plan-and-handover-before-execution-refresh.tar.xz",
+      "archive_bytes": 17156,
+      "archive_sha256": "061db6d2eecb761846d3cb70e53ab39a0447d0c93beff94290da76d5f0154d6e",
+      "roundtrip_all_hashes_verified": true,
+      "files": [
+        {
+          "path": "plan.md",
+          "bytes": 36315,
+          "sha256": "5146a24aa4b2c76c7b6fa9bfa22aa8d76a77a2783fae2eaab53b16b7a2d92305",
+          "identical_docs_mirror": true
+        },
+        {
+          "path": "HANDOVER_CHECKLIST.md",
+          "bytes": 7735,
+          "sha256": "f5aa92ef5cc8a712e5dab20895b9a6fc46d0212a39a986f0f704422722976479",
+          "identical_docs_mirror": true
+        }
+      ]
+    }
+  ]
+}

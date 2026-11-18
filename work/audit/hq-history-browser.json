@@ -1,0 +1,22 @@
+{
+  "task_date": "2026-11-10",
+  "observed_runner_utc": "2026-11-14T08:57:36.780Z",
+  "passed": true,
+  "browser": "Playwright Chromium headless shell",
+  "retainedRows": 451,
+  "recoveredNotes": 225,
+  "checks": [
+    "real authenticated built UI",
+    "newest 200 rows on reload",
+    "503 shows retry without losing latest notes",
+    "two earlier-page clicks recover all 451 rows / 225 notes without duplicates",
+    "button ends at oldest entry",
+    "no JS exceptions",
+    "no external browser requests",
+    "providers still disabled; no tasks or kernel jobs created"
+  ],
+  "limits": [
+    "disposable local HTTP only, not HTTPS/proxy-cookie/hostile-tenant proof",
+    "browser --no-sandbox is a test environment flag, not workload isolation"
+  ]
+}

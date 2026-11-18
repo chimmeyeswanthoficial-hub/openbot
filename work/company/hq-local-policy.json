@@ -1,0 +1,7 @@
+{
+  "version": 1,
+  "enabled": true,
+  "egress_mode": "deny_all",
+  "auto_spend_usd": 0,
+  "allowed_actions": ["company.readiness"]
+}

@@ -1,0 +1,146 @@
+{
+  "schema": "openbot.observed-finance-browser-tests/1",
+  "engine": "chromium",
+  "base": "http://127.0.0.1:4184",
+  "results": [
+    {
+      "name": "the real integrated finance route states its no-account/no-ledger boundary",
+      "status": "passed",
+      "duration_ms": 884
+    },
+    {
+      "name": "fictional example does not calculate or imply real money without confirmation",
+      "status": "passed",
+      "duration_ms": 87
+    },
+    {
+      "name": "currency alone is insufficient and denied input is retained",
+      "status": "passed",
+      "duration_ms": 223
+    },
+    {
+      "name": "confirmed synthetic CSV is actually parsed into exact, unverified totals",
+      "status": "passed",
+      "duration_ms": 219
+    },
+    {
+      "name": "preview JSON contains integer data and explicit false authority flags",
+      "status": "passed",
+      "duration_ms": 284
+    },
+    {
+      "name": "editing CSV invalidates results, download and sign confirmation immediately",
+      "status": "passed",
+      "duration_ms": 60
+    },
+    {
+      "name": "currency or confirmation edits also invalidate already calculated output",
+      "status": "passed",
+      "duration_ms": 292
+    },
+    {
+      "name": "mixed-currency files fail closed rather than converting or ignoring a row",
+      "status": "passed",
+      "duration_ms": 114
+    },
+    {
+      "name": "malformed quotes, dates, money and duplicate required headers return no partial report",
+      "status": "passed",
+      "duration_ms": 407
+    },
+    {
+      "name": "untrusted markup, URL and formula descriptions render only as text",
+      "status": "passed",
+      "duration_ms": 108
+    },
+    {
+      "name": "a local UTF-8 CSV file is read but never automatically analysed or sent",
+      "status": "passed",
+      "duration_ms": 141
+    },
+    {
+      "name": "wrong extension and oversized files retain prior input and remove stale output",
+      "status": "passed",
+      "duration_ms": 218
+    },
+    {
+      "name": "invalid UTF-8 is refused, not silently replacement-decoded",
+      "status": "passed",
+      "duration_ms": 28
+    },
+    {
+      "name": "clearing imported data wins against an in-flight file read",
+      "status": "passed",
+      "duration_ms": 106
+    },
+    {
+      "name": "editing while a file is reading also wins over its late completion",
+      "status": "passed",
+      "duration_ms": 87
+    },
+    {
+      "name": "normal navigation retains tab-only data but optional draft saving excludes it",
+      "status": "passed",
+      "duration_ms": 231
+    },
+    {
+      "name": "reloading clears all imported financial data even with remember-drafts enabled",
+      "status": "passed",
+      "duration_ms": 630
+    },
+    {
+      "name": "the general clear-drafts action also clears the in-memory finance workspace",
+      "status": "passed",
+      "duration_ms": 377
+    },
+    {
+      "name": "all seven views fit desktop; the actual CSV preview fits a 375px viewport",
+      "status": "passed",
+      "duration_ms": 10288
+    },
+    {
+      "name": "opaque offline iframe can calculate locally with no server, storage or forms grant",
+      "status": "passed",
+      "duration_ms": 1343
+    },
+    {
+      "name": "no transaction data, upload, telemetry, model, bank or ledger request occurred",
+      "status": "passed",
+      "duration_ms": 7
+    }
+  ],
+  "requests": [
+    {
+      "url": "http://127.0.0.1:4184/",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "http://127.0.0.1:4184/api/status",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "http://127.0.0.1:4184/",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "http://127.0.0.1:4184/api/status",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "http://127.0.0.1:4184/",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "http://127.0.0.1:4184/api/status",
+      "method": "GET",
+      "body": null
+    }
+  ],
+  "page_errors": [],
+  "scope": "Synthetic, browser-only CSV preview. No bank, accounting, external provider, VM or public-release acceptance."
+}

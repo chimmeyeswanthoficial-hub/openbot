@@ -1,0 +1,9 @@
+{
+  "directory_modes": "0700",
+  "ide_installers_run": 0,
+  "models_connected": 0,
+  "observed_private_blueprint_directories": 2,
+  "private_blueprints_included_in_export": false,
+  "scope": "Actual local private blueprint files; not virtual computers.",
+  "virtual_pcs_started": 0
+}

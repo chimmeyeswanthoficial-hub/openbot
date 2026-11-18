@@ -1,0 +1,35 @@
+{
+  "android_demo_signature_only": true,
+  "api_version": "1",
+  "artifacts": {
+    "releases/OpenBot-Control-Local-android.apk": {
+      "bytes": 53589,
+      "sha256": "533ed5b781d4b04dc0420d6f60e7f994799912b60422d7b141f717af14550c56"
+    },
+    "releases/windows-x64/OpenBot-Control-Local-x64.exe": {
+      "bytes": 448512,
+      "sha256": "ebcf4927302840f5b73f85e674590538569a0150703f55393d850f149be7bcdc"
+    },
+    "releases/windows-x64/README-Windows.txt": {
+      "bytes": 2400,
+      "sha256": "577360bcee3e2a3e5cbbd9a0470cfb3d17421c50f8162b32f668cf67b62472b6"
+    },
+    "releases/windows-x64/WebView2-LICENSE.txt": {
+      "bytes": 1487,
+      "sha256": "0af8f1b807512aae39c2ac1aa4d0cae65cabecb6fd554b8439a5162a0d6eca55"
+    },
+    "releases/windows-x64/WebView2Loader.dll": {
+      "bytes": 165968,
+      "sha256": "462b36fd1be6ca9f7563466a89e57c41ef4a4def3e0a84fa885d203aea4a3aaf"
+    }
+  },
+  "ios_compiled": false,
+  "native_devices_tested": false,
+  "native_version": "0.3.0-local",
+  "public_release_authorized": false,
+  "release_keys_distributed": false,
+  "schema": "openbot.local-native-artifacts/1",
+  "shared_ui_sha256": "bb99d979376841815bc5dcfe7c942bed28b36f2b87a0b3b80d8d366e5b8b3c67",
+  "windows_unsigned": true,
+  "wire_client_version": "0.2.0"
+}

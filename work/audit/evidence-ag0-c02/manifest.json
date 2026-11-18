@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "scope": "AG0-C02 verification cleanup and JUnit provenance receipt",
+  "created_utc": "2026-11-14T16:56:18.188201+00:00",
+  "base_commit": "7079862b46a3c6ebe4ba1a329c632a07f1599d0d",
+  "python_outcomes": {
+    "passed": 586,
+    "skipped": 2,
+    "failed": 0,
+    "collected": 588
+  },
+  "designated_junit_sha256": "f45b5af62ef1a4ddfc67c5400bed228c8896b2fd0a86c6c2ae5b9daea1311963",
+  "files": [
+    {
+      "path": "full-python.xml",
+      "bytes": 2809021,
+      "sha256": "f45b5af62ef1a4ddfc67c5400bed228c8896b2fd0a86c6c2ae5b9daea1311963",
+      "mode": 438
+    }
+  ]
+}

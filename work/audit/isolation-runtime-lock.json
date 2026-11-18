@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "profile": "debian13-linux-x86_64-fixed-namespace-experiment",
+  "package": "bubblewrap",
+  "version": "0.12.0-1~deb13u1",
+  "distribution": "Debian trixie",
+  "architecture": "amd64",
+  "url": "https://deb.debian.org/debian/pool/main/b/bubblewrap/bubblewrap_0.12.0-1~deb13u1_amd64.deb",
+  "package_bytes": 56876,
+  "package_sha256": "70aca4fa8daeacb677ec00e8063eb586f08ae3d94b1f11e684370b5524c43431",
+  "binary_sha256": "573236e5328ac2ebb08f59ae3a9805b4f8d12bdef14be8af4450d5463294985f",
+  "cache_directory": ".cache/openbot-isolation/bubblewrap-0.12.0-deb13u1",
+  "binary_relative_path": "usr/bin/bwrap",
+  "provenance": "Exact version, size and SHA256 observed from this host's configured Debian package metadata; downloaded package matched; extracted binary hash recorded. This is integrity pinning, not an independent publisher/security audit.",
+  "limits": [
+    "Installed only into excluded local cache, never as root or setuid",
+    "Depends on compatible host libc/libcap/libselinux; other platforms require reviewed pins",
+    "No cgroup delegation or authenticated general runtime supplied by installing this tool",
+    "Distribution package and executable are not included in continuation source archives"
+  ]
+}

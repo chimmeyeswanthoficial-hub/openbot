@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="14" skipped="0" tests="14" time="0.478" timestamp="2026-11-14T17:17:39.839681+00:00" hostname="e2b.local"><testcase classname="services.sentinel.tests.test_economic_boundary" name="test_legacy_event_id_mapper_is_not_an_authoritative_money_writer[invoice.paid-obj0]" time="0.001"><failure message="Failed: DID NOT RAISE WebhookError">event_type = 'invoice.paid', obj = {'id': 'in_fixture', 'amount_paid': 10000}
+
+    @pytest.mark.parametrize('event_type,obj', [
+        ('invoice.paid', {'id': 'in_fixture', 'amount_paid': 10000}),
+        ('charge.refunded', {'id': 'ch_fixture', 'amount_refunded': 5000}),
+        ('invoice.paid', {'id': 'in_fixture_inr', 'currency': 'inr', 'amount_paid': 10000}),
+    ])
+    def test_legacy_event_id_mapper_is_not_an_authoritative_money_writer(event_type, obj):
+&gt;       with pytest.raises(WebhookError, match='legacy'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE WebhookError
+
+services/sentinel/tests/test_economic_boundary.py:26: Failed</failure></testcase><testcase classname="services.sentinel.tests.test_economic_boundary" name="test_legacy_event_id_mapper_is_not_an_authoritative_money_writer[charge.refunded-obj1]" time="0.001"><failure message="Failed: DID NOT RAISE WebhookError">event_type = 'charge.refunded'
+obj = {'id': 'ch_fixture', 'amount_refunded': 5000}
+
+    @pytest.mark.parametrize('event_type,obj', [
+        ('invoice.paid', {'id': 'in_fixture', 'amount_paid': 10000}),
+        ('charge.refunded', {'id': 'ch_fixture', 'amount_refunded': 5000}),
+        ('invoice.paid', {'id': 'in_fixture_inr', 'currency': 'inr', 'amount_paid': 10000}),
+    ])
+    def test_legacy_event_id_mapper_is_not_an_authoritative_money_writer(event_type, obj):
+&gt;       with pytest.raises(WebhookError, match='legacy'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE WebhookError
+
+services/sentinel/tests/test_economic_boundary.py:26: Failed</failure></testcase><testcase classname="services.sentinel.tests.test_economic_boundary" name="test_legacy_event_id_mapper_is_not_an_authoritative_money_writer[invoice.paid-obj2]" time="0.001"><failure message="Failed: DID NOT RAISE WebhookError">event_type = 'invoice.paid'
+obj = {'id': 'in_fixture_inr', 'currency': 'inr', 'amount_paid': 10000}
+
+    @pytest.mark.parametrize('event_type,obj', [
+        ('invoice.paid', {'id': 'in_fixture', 'amount_paid': 10000}),
+        ('charge.refunded', {'id': 'ch_fixture', 'amount_refunded': 5000}),
+        ('invoice.paid', {'id': 'in_fixture_inr', 'currency': 'inr', 'amount_paid': 10000}),
+    ])
+    def test_legacy_event_id_mapper_is_not_an_authoritative_money_writer(event_type, obj):
+&gt;       with pytest.raises(WebhookError, match='legacy'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE WebhookError
+
+services/sentinel/tests/test_economic_boundary.py:26: Failed</failure></testcase><testcase classname="services.sentinel.tests.test_economic_boundary" name="test_legacy_validation_refuses_nonfinite_and_boolean_money[nan]" time="0.000"><failure message="Failed: DID NOT RAISE LedgerError">value = nan
+
+    @pytest.mark.parametrize('value', [float('nan'), float('inf'), -float('inf'), True])
+    def test_legacy_validation_refuses_nonfinite_and_boolean_money(value):
+&gt;       with pytest.raises(LedgerError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE LedgerError
+
+services/sentinel/tests/test_economic_boundary.py:33: Failed</failure></testcase><testcase classname="services.sentinel.tests.test_economic_boundary" name="test_legacy_validation_refuses_nonfinite_and_boolean_money[inf]" time="0.000"><failure message="Failed: DID NOT RAISE LedgerError">value = inf
+
+    @pytest.mark.parametrize('value', [float('nan'), float('inf'), -float('inf'), True])
+    def test_legacy_validation_refuses_nonfinite_and_boolean_money(value):
+&gt;       with pytest.raises(LedgerError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE LedgerError
+
+services/sentinel/tests/test_economic_boundary.py:33: Failed</failure></testcase><testcase classname="services.sentinel.tests.test_economic_boundary" name="test_legacy_validation_refuses_nonfinite_and_boolean_money[-inf]" time="0.000"><failure message="Failed: DID NOT RAISE LedgerError">value = -inf
+
+    @pytest.mark.parametrize('value', [float('nan'), float('inf'), -float('inf'), True])
+    def test_legacy_validation_refuses_nonfinite_and_boolean_money(value):
+&gt;       with pytest.raises(LedgerError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE LedgerError
+
+services/sentinel/tests/test_economic_boundary.py:33: Failed</failure></testcase><testcase classname="services.sentinel.tests.test_economic_boundary" name="test_legacy_validation_refuses_nonfinite_and_boolean_money[True]" time="0.000"><failure message="Failed: DID NOT RAISE LedgerError">value = True
+
+    @pytest.mark.parametrize('value', [float('nan'), float('inf'), -float('inf'), True])
+    def test_legacy_validation_refuses_nonfinite_and_boolean_money(value):
+&gt;       with pytest.raises(LedgerError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE LedgerError
+
+services/sentinel/tests/test_economic_boundary.py:33: Failed</failure></testcase><testcase classname="services.sentinel.tests.test_economic_boundary" name="test_legacy_secret_alone_cannot_enable_an_unverified_ledger_writer" time="0.008"><failure message="assert 201 == 503&#10; +  where 201 = &lt;Response [201 Created]&gt;.status_code">monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x7f6a580e9480&gt;
+
+    def test_legacy_secret_alone_cannot_enable_an_unverified_ledger_writer(monkeypatch):
+        store = Store(':memory:')
+        monkeypatch.setattr(service, 'store', store)
+        secret = 'explicitly-fake-unit-signing-secret'
+        monkeypatch.setenv('STRIPE_WEBHOOK_SECRET', secret)
+        payload = json.dumps({'id': 'evt_fixture', 'type': 'invoice.paid',
+                              'data': {'object': {'id': 'in_fixture', 'amount_paid': 10000}}}).encode()
+        timestamp = int(time.time())
+        signature = hmac.new(secret.encode(), str(timestamp).encode() + b'.' + payload, hashlib.sha256).hexdigest()
+        response = TestClient(service.app).post('/webhooks/stripe', content=payload,
+                    headers={'stripe-signature': f't={timestamp},v1={signature}'})
+&gt;       assert response.status_code == 503
+E       assert 201 == 503
+E        +  where 201 = &lt;Response [201 Created]&gt;.status_code
+
+services/sentinel/tests/test_economic_boundary.py:49: AssertionError</failure></testcase><testcase classname="services.sentinel.tests.test_economic_boundary" name="test_legacy_manual_http_does_not_coerce_boolean_to_money" time="0.007"><failure message="assert 201 == 422&#10; +  where 201 = &lt;Response [201 Created]&gt;.status_code">monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x7f6a5815bbb0&gt;
+
+    def test_legacy_manual_http_does_not_coerce_boolean_to_money(monkeypatch):
+        store = Store(':memory:')
+        monkeypatch.setattr(service, 'store', store)
+        response = TestClient(service.app).post('/v1/ledger', json={
+            'venture': 'media-api', 'kind': 'revenue', 'amount_usd': True,
+            'source': 'manual', 'idempotency_key': 'bool-fixture',
+        })
+&gt;       assert response.status_code == 422
+E       assert 201 == 422
+E        +  where 201 = &lt;Response [201 Created]&gt;.status_code
+
+services/sentinel/tests/test_economic_boundary.py:61: AssertionError</failure></testcase><testcase classname="scripts.tests.test_verification_execution" name="test_generator_executes_pytest_and_preserves_real_failure_xml" time="0.006"><failure message="AssertionError: collection cannot be reported as execution&#10;assert '--collect-only' not in ['python', '-m', 'pytest', 'services/sentinel/tests', 'services/worker/tests', 'services/ledger/tests', ...]">tmp_path = PosixPath('/tmp/pytest-of-user/pytest-1/test_generator_executes_pytest0')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x7f6a5804b1d0&gt;
+
+    def test_generator_executes_pytest_and_preserves_real_failure_xml(tmp_path, monkeypatch):
+        calls = []
+        runner_fixture(monkeypatch, calls)
+        output = tmp_path / 'actual.xml'
+        generator.generate(output)
+&gt;       assert '--collect-only' not in calls[0], 'collection cannot be reported as execution'
+E       AssertionError: collection cannot be reported as execution
+E       assert '--collect-only' not in ['python', '-m', 'pytest', 'services/sentinel/tests', 'services/worker/tests', 'services/ledger/tests', ...]
+
+scripts/tests/test_verification_execution.py:50: AssertionError</failure></testcase><testcase classname="scripts.tests.test_verification_execution" name="test_generator_does_not_overwrite_existing_evidence" time="0.005"><failure message="Failed: DID NOT RAISE FileExistsError">tmp_path = PosixPath('/tmp/pytest-of-user/pytest-1/test_generator_does_not_overwr0')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x7f6a58213350&gt;
+
+    def test_generator_does_not_overwrite_existing_evidence(tmp_path, monkeypatch):
+        runner_fixture(monkeypatch, [])
+        output = tmp_path / 'preserve.xml'
+        output.write_text('original evidence')
+&gt;       with pytest.raises(FileExistsError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE FileExistsError
+
+scripts/tests/test_verification_execution.py:60: Failed</failure></testcase><testcase classname="scripts.tests.test_verification_execution" name="test_record_refuses_inconsistent_or_duplicate_case_evidence[xml0]" time="0.002"><failure message="Failed: DID NOT RAISE ValueError">tmp_path = PosixPath('/tmp/pytest-of-user/pytest-1/test_record_refuses_inconsiste0')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x7f6a58212360&gt;
+xml = '&lt;testsuites&gt;&lt;testsuite tests="2" failures="0" errors="0" skipped="0"&gt;&lt;testcase classname="x" name="a"/&gt;&lt;/testsuite&gt;&lt;/testsuites&gt;'
+
+    @pytest.mark.parametrize('xml', [
+        '&lt;testsuites&gt;&lt;testsuite tests="2" failures="0" errors="0" skipped="0"&gt;&lt;testcase classname="x" name="a"/&gt;&lt;/testsuite&gt;&lt;/testsuites&gt;',
+        '&lt;testsuites&gt;&lt;testsuite tests="2" failures="0" errors="0" skipped="0"&gt;&lt;testcase classname="x" name="a"/&gt;&lt;testcase classname="x" name="a"/&gt;&lt;/testsuite&gt;&lt;/testsuites&gt;',
+    ])
+    def test_record_refuses_inconsistent_or_duplicate_case_evidence(tmp_path, monkeypatch, xml):
+        recorder = load_script('record-verification')
+        monkeypatch.setattr(recorder, 'ROOT', tmp_path)
+        for name in ('README.md', 'PROJECT_STATE.md', 'CHANGELOG.md'):
+            (tmp_path / name).write_text('Current Python: `pass=1, skip=0, fail=0, collected=1`\n')
+        evidence = tmp_path / 'bad.xml'
+        evidence.write_text(xml)
+&gt;       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+scripts/tests/test_verification_execution.py:76: Failed</failure></testcase><testcase classname="scripts.tests.test_verification_execution" name="test_record_refuses_inconsistent_or_duplicate_case_evidence[xml1]" time="0.002"><failure message="Failed: DID NOT RAISE ValueError">tmp_path = PosixPath('/tmp/pytest-of-user/pytest-1/test_record_refuses_inconsiste1')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x7f6a580bd850&gt;
+xml = '&lt;testsuites&gt;&lt;testsuite tests="2" failures="0" errors="0" skipped="0"&gt;&lt;testcase classname="x" name="a"/&gt;&lt;testcase classname="x" name="a"/&gt;&lt;/testsuite&gt;&lt;/testsuites&gt;'
+
+    @pytest.mark.parametrize('xml', [
+        '&lt;testsuites&gt;&lt;testsuite tests="2" failures="0" errors="0" skipped="0"&gt;&lt;testcase classname="x" name="a"/&gt;&lt;/testsuite&gt;&lt;/testsuites&gt;',
+        '&lt;testsuites&gt;&lt;testsuite tests="2" failures="0" errors="0" skipped="0"&gt;&lt;testcase classname="x" name="a"/&gt;&lt;testcase classname="x" name="a"/&gt;&lt;/testsuite&gt;&lt;/testsuites&gt;',
+    ])
+    def test_record_refuses_inconsistent_or_duplicate_case_evidence(tmp_path, monkeypatch, xml):
+        recorder = load_script('record-verification')
+        monkeypatch.setattr(recorder, 'ROOT', tmp_path)
+        for name in ('README.md', 'PROJECT_STATE.md', 'CHANGELOG.md'):
+            (tmp_path / name).write_text('Current Python: `pass=1, skip=0, fail=0, collected=1`\n')
+        evidence = tmp_path / 'bad.xml'
+        evidence.write_text(xml)
+&gt;       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+scripts/tests/test_verification_execution.py:76: Failed</failure></testcase><testcase classname="scripts.tests.test_verification_execution" name="test_manifest_refuses_receipt_hash_not_matching_designated_xml" time="0.002"><failure message="Failed: DID NOT RAISE ValueError">tmp_path = PosixPath('/tmp/pytest-of-user/pytest-1/test_manifest_refuses_receipt_0')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x7f6a580bc250&gt;
+
+    def test_manifest_refuses_receipt_hash_not_matching_designated_xml(tmp_path, monkeypatch):
+        publisher = load_script('create_evidence_manifest')
+        monkeypatch.setattr(publisher, 'ROOT', tmp_path)
+        evidence = tmp_path / 'audit/evidence-ag0-c02'
+        evidence.mkdir(parents=True)
+        monkeypatch.setattr(publisher, 'EVIDENCE', evidence)
+        (evidence / 'full-python.xml').write_text(UNIT_XML)
+        (tmp_path / 'audit/verification-current.json').write_text(json.dumps({
+            'runner_timestamp': 'unit-fixture-not-a-measurement',
+            'junit_artifact': 'audit/evidence-ag0-c02/full-python.xml',
+            'junit_sha256': 'not-the-artifact-digest',
+            'python': {'passed': 1, 'failed': 1, 'skipped': 1, 'collected': 3},
+        }))
+&gt;       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+scripts/tests/test_verification_execution.py:94: Failed</failure></testcase></testsuite></testsuites>

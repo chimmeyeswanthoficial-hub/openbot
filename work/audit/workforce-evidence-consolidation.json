@@ -1,0 +1,223 @@
+{
+  "task_date": "2026-11-10",
+  "observed_runner_utc": "2026-11-14T10:21:52.757304+00:00",
+  "purpose": "Verified lossless consolidation only; no business/donor/history evidence discarded",
+  "archive": "archive/historical-metadata-before-workforce.tar.xz",
+  "archive_bytes": 44592,
+  "archive_sha256": "96d8f43338fb65c85bee653dc62c38779558d875c45d1b9f725dfb3db0f56a21",
+  "raw_bytes": 163733,
+  "all_bytes_and_modes_roundtrip_verified": true,
+  "files": [
+    {
+      "path": "audit/bot-hq-source-intake.json",
+      "bytes": 23798,
+      "sha256": "d95f4856e7fe31ab846418f9c65f283f472e45ecc142947486857ae48e49f3cb",
+      "mode": 420
+    },
+    {
+      "path": "audit/antigravity-intake.json",
+      "bytes": 16501,
+      "sha256": "71545bacdc3d837108aad1651526742cbae97623fef7e027eb973a0af2c7c4d4",
+      "mode": 420
+    },
+    {
+      "path": "audit/bot-hq-installed-source.json",
+      "bytes": 11682,
+      "sha256": "03c36e806ff0bf867d8f85c5c727353b7bf4a8a8859c49a2b629c5a7645cb18d",
+      "mode": 420
+    },
+    {
+      "path": "audit/python-handoff-resolution.json",
+      "bytes": 7689,
+      "sha256": "85bcbc9844f0462c2278dfa86dc751d4ad1487e8161e3f64e173fc5b84b2a864",
+      "mode": 420
+    },
+    {
+      "path": "audit/execution-restore.json",
+      "bytes": 6232,
+      "sha256": "4c6b1bdb07e1a0b8d5e63a8b35a1aed1b1a2edf243da6279a2fe6a77eace001c",
+      "mode": 420
+    },
+    {
+      "path": "audit/source-secret-heuristic.json",
+      "bytes": 4547,
+      "sha256": "b0fd54b485932b20d525d899df9abedb937463edf684c86f2b09fa19a33d88fd",
+      "mode": 420
+    },
+    {
+      "path": "audit/continuation-restore.json",
+      "bytes": 3760,
+      "sha256": "23bc9c795910e188d9d408b528393f6b09c386aac5d7cb356f7e295633bdd246",
+      "mode": 420
+    },
+    {
+      "path": "audit/hq-sqlite-checkpoint.json",
+      "bytes": 3039,
+      "sha256": "eb2ba65ce14db4f22b56e690edba92914edc8d8bcaa0767c0da35934cda9fdc2",
+      "mode": 420
+    },
+    {
+      "path": "audit/handoff-wal-diagnosis.json",
+      "bytes": 2419,
+      "sha256": "25cd7d871b728df7d4cf90511a096fa8f2bc221e082b99b5618055a97b66f72b",
+      "mode": 420
+    },
+    {
+      "path": "audit/hq-cleanup-preservation.json",
+      "bytes": 2122,
+      "sha256": "d39c9886fc3a2d1091d837e188de078f49a262212a40b79defb81eaf0a0d05e6",
+      "mode": 420
+    },
+    {
+      "path": "audit/cleanup.json",
+      "bytes": 2074,
+      "sha256": "bad7ae60fd715aaeed84433cf12b8e46d5d5978742d1c20647991459c6df298c",
+      "mode": 420
+    },
+    {
+      "path": "archive/PROJECT_MEMORY-before-hq-install.md",
+      "bytes": 14012,
+      "sha256": "0f5aba8a711ec18b18280feaf90fabb0131a3361c6a240852f92fe8130937181",
+      "mode": 420
+    },
+    {
+      "path": "archive/PROJECT_MEMORY-before-public-intake.md",
+      "bytes": 13441,
+      "sha256": "c140940f3639ce63d949bff2f8d7da2e4bbdf5c4057fc02fe63cd9e67dfd8947",
+      "mode": 420
+    },
+    {
+      "path": "audit/hq-history-review.json",
+      "bytes": 22378,
+      "sha256": "caf33c44df77b4d46dc4acf21cb1cc42b103de6faf35f3177adcfd4bfc0dc14e",
+      "mode": 420
+    },
+    {
+      "path": "audit/master-guide-evidence-compression.json",
+      "bytes": 16476,
+      "sha256": "2d63359b644383c75c61cad1d3111516f0c96c3635248590b9a088fd13a289d2",
+      "mode": 420
+    },
+    {
+      "path": "audit/BOT_HQ_FINAL_VERIFICATION.md",
+      "bytes": 7943,
+      "sha256": "19b76a389ebe43d08533f003ad2bd757b6a6c0895ac939c1a8ca1bf111d0d023",
+      "mode": 420
+    },
+    {
+      "path": "audit/EXECUTION_FINAL_VERIFICATION.md",
+      "bytes": 5620,
+      "sha256": "cd9201b08fa171bd9c55ad1fc6ba70a0558a7436a8d176df1019a0e7484d801e",
+      "mode": 420
+    }
+  ],
+  "recover": "tar -xJOf archive/historical-metadata-before-workforce.tar.xz ORIGINAL_PATH",
+  "historical_references": "17 exact historical originals are inside the archive, including the completed prior HQ/history and execution receipts. Current feature receipt stays raw. Recover originals by path; no historical evidence discarded.",
+  "prior_delivery_receipt": {
+    "task_date": "2026-11-10",
+    "observed_runner_utc": "2026-11-14T09:19:43.675142+00:00",
+    "archive": "openbot-continuation.tar.xz",
+    "archive_bytes": 18775312,
+    "archive_sha256": "f2962822e12b2fe4d6d3be1f784286d111b3219257a338487c82c2593fdb6d67",
+    "validation": {
+      "validated": true,
+      "regular_files": 8989,
+      "payload_bytes": 111022499,
+      "archive_sha256": "f2962822e12b2fe4d6d3be1f784286d111b3219257a338487c82c2593fdb6d67",
+      "checks": [
+        "regular files only",
+        "safe relative paths",
+        "no duplicate members",
+        "manifest file set",
+        "every payload size and SHA-256",
+        "bounded expanded size"
+      ]
+    },
+    "source_files": 8988,
+    "manifest": "audit/continuation-manifest.json",
+    "manifest_location": "inside archive only",
+    "compression": "LZMA2 preset 9 extreme; sorted relative-path payload order",
+    "omitted_entries": 27,
+    "workspace_budget": {
+      "files": 8996,
+      "bytes": 127975367,
+      "decimal_megabytes": 127.975,
+      "file_cap": 10000,
+      "byte_cap": 128000000,
+      "within_cap": true
+    },
+    "limits": [
+      "Restore dependencies/builds/auth from pinned instructions; not an offline binary installation",
+      "Retained donor code is for private owner continuity; existing notices/rights still apply",
+      "Integrity digest is not a publisher signature or malware/secret-history certification"
+    ],
+    "final_extraction": {
+      "observed_runner_utc": "2026-11-14T09:20:37.865613+00:00",
+      "final_delivered_archive_sha256": "f2962822e12b2fe4d6d3be1f784286d111b3219257a338487c82c2593fdb6d67",
+      "payload_files_extracted_and_verified": 8988,
+      "archive_only_manifest_verified": true,
+      "every_hash_size_mode_and_file_set_matches": true,
+      "all_untransformed_payloads_match_current_source": 8986,
+      "tested_candidate_runtime_config_skill_files_reconciled": 269,
+      "same_tested_locks_and_no_runtime_change": true,
+      "standalone_sqlite_integrity_and_business_fingerprints_preserved": true,
+      "hq_tasks": 1,
+      "kernel_audits": 6,
+      "export_auth_rows": {
+        "auth_sessions": 0,
+        "login_attempts": 0
+      },
+      "master_guide_sha256": "99a1bed86b3ea236da519f5268023c239925ceb25ab89c127c87bd19cad1cc78",
+      "inner_lossless_evidence_reverified": {
+        "individual_files": 11,
+        "grouped_historical_logs": 50
+      },
+      "fresh_install_scope": "Independently installed source candidate 8bed3819\u2026 on same host passed337/3/340 Python,25+26 Node,full gates,real process and HTTP browser. Final archive adds documentation/receipts/lossless evidence encodings; it is fully extracted/reconciled here, not claimed separately reinstalled.",
+      "not_transferred": [
+        "dependencies/builds/toolchains/browser/OS packages",
+        "auth/credentials",
+        "processes"
+      ],
+      "limits": [
+        "local HTTP browser only; no HTTPS/proxy-cookie/hostile tenant proof",
+        "no live model/payment/spend/send/deploy/pilot/revenue/business runner"
+      ]
+    }
+  },
+  "workspace_before": {
+    "files": 8996,
+    "bytes": 127975367,
+    "decimal_megabytes": 127.975,
+    "file_cap": 10000,
+    "byte_cap": 128000000,
+    "within_cap": true
+  },
+  "workspace_after": {
+    "files": 8985,
+    "bytes": 127901637,
+    "decimal_megabytes": 127.902,
+    "file_cap": 10000,
+    "byte_cap": 128000000,
+    "within_cap": true
+  },
+  "initial_consolidation": {
+    "originals": 13,
+    "raw_bytes": 111316,
+    "archive_bytes": 31112,
+    "archive_sha256": "c77808d77b204410be0733454ab765fd89b2a3a2a467660c791a0a508cf46a7c"
+  },
+  "auxiliary_lossless_encodings": [
+    {
+      "original_path": "uploads/Untitled document (14).pdf",
+      "original_bytes": 857243,
+      "original_sha256": "d9c6df40c191b3619eb5ef1f33734530c576b963cd69df9d7589310698cd53e0",
+      "mode": 420,
+      "retained_path": "uploads/Untitled document (14).pdf.xz",
+      "retained_bytes": 602340,
+      "retained_sha256": "aea3567858e84a7c606d198c8fb6ff32114f1b11412ff23801295574e3a30b19",
+      "exact_roundtrip_verified": true,
+      "recover": "xz -dc \"uploads/Untitled document (14).pdf.xz\" > .cache/restored-architecture.pdf",
+      "purpose": "Byte-exact encoding of original uploaded architecture PDF, not content deletion/modification; restores viewing in scratch without a duplicate durable asset."
+    }
+  ]
+}

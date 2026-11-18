@@ -1,0 +1,3 @@
+# Additional disposable PostgreSQL test driver; Python 3.13 Linux x86_64.
+# Use with requirements.handoff.lock.txt and --require-hashes --only-binary=:all:.
+psycopg2-binary==2.9.11 --hash=sha256:5c6ff3335ce08c75afaed19e08699e8aacf95d4a260b495a4a8545244fe2ceb3

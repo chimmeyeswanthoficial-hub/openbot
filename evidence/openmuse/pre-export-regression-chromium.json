@@ -1,0 +1,216 @@
+{
+  "schema": "openbot.observed-browser-tests/1",
+  "engine": "chromium",
+  "base": "http://127.0.0.1:4184",
+  "results": [
+    {
+      "name": "initial view is honest, original, and has no model or account session",
+      "status": "passed",
+      "duration_ms": 772
+    },
+    {
+      "name": "desktop screenshot and no horizontal overflow",
+      "status": "passed",
+      "duration_ms": 127
+    },
+    {
+      "name": "provider setup is information, not a fake login or key collector",
+      "status": "passed",
+      "duration_ms": 160
+    },
+    {
+      "name": "unsent composer text survives a route change",
+      "status": "passed",
+      "duration_ms": 330
+    },
+    {
+      "name": "brief intake is rule-based, local and XSS-safe",
+      "status": "passed",
+      "duration_ms": 85
+    },
+    {
+      "name": "Markdown brief download contains text, not an executed task",
+      "status": "passed",
+      "duration_ms": 243
+    },
+    {
+      "name": "a named provider creates only a cryptographically identified local blueprint",
+      "status": "passed",
+      "duration_ms": 333
+    },
+    {
+      "name": "computer and all three requested IDEs remain explicitly unprovisioned",
+      "status": "passed",
+      "duration_ms": 210
+    },
+    {
+      "name": "Unicode and markup in companion names cannot inject HTML or break digest parity",
+      "status": "passed",
+      "duration_ms": 778
+    },
+    {
+      "name": "YouTube review is private, not a public upload or invented audience choice",
+      "status": "passed",
+      "duration_ms": 213
+    },
+    {
+      "name": "downloaded social acknowledgement is explicitly not an authenticated approval",
+      "status": "passed",
+      "duration_ms": 82
+    },
+    {
+      "name": "changing any draft field invalidates the review and acknowledgement",
+      "status": "passed",
+      "duration_ms": 19
+    },
+    {
+      "name": "repeated local content is warned, not rewritten to evade restrictions",
+      "status": "passed",
+      "duration_ms": 73
+    },
+    {
+      "name": "X review exposes no auto-reply, DM, like or multi-account action",
+      "status": "passed",
+      "duration_ms": 117
+    },
+    {
+      "name": "Instagram review keeps professional-account and scoped login setup blocked",
+      "status": "passed",
+      "duration_ms": 107
+    },
+    {
+      "name": "validator failure retains the draft and never displays a successful plan",
+      "status": "passed",
+      "duration_ms": 91
+    },
+    {
+      "name": "a late response cannot approve or replace an edited draft",
+      "status": "passed",
+      "duration_ms": 71
+    },
+    {
+      "name": "browser persistence is opt-in and restored requests never become running machines",
+      "status": "passed",
+      "duration_ms": 722
+    },
+    {
+      "name": "turning browser saving off removes only the saved preview copy",
+      "status": "passed",
+      "duration_ms": 704
+    },
+    {
+      "name": "command search supports keyboard navigation without running tasks",
+      "status": "passed",
+      "duration_ms": 204
+    },
+    {
+      "name": "local text attachment is never uploaded or automatically saved",
+      "status": "passed",
+      "duration_ms": 90
+    },
+    {
+      "name": "all six views fit desktop and 375-pixel mobile widths",
+      "status": "passed",
+      "duration_ms": 3116
+    },
+    {
+      "name": "mobile navigation drawer announces state and closes after navigation",
+      "status": "passed",
+      "duration_ms": 683
+    },
+    {
+      "name": "keyboard shortcut saves a brief but never starts an agent",
+      "status": "passed",
+      "duration_ms": 202
+    },
+    {
+      "name": "opaque sandboxed offline iframe still supports local drafting",
+      "status": "passed",
+      "duration_ms": 1750
+    },
+    {
+      "name": "invalid browser storage does not fabricate state or execute markup",
+      "status": "passed",
+      "duration_ms": 3138
+    },
+    {
+      "name": "no external, provider, installer, publishing or credential request was made",
+      "status": "passed",
+      "duration_ms": 10
+    }
+  ],
+  "requests": [
+    {
+      "url": "http://127.0.0.1:4184/",
+      "method": "GET",
+      "kind": "document"
+    },
+    {
+      "url": "http://127.0.0.1:4184/api/status",
+      "method": "GET",
+      "kind": "fetch"
+    },
+    {
+      "url": "http://127.0.0.1:4184/api/companion-plan",
+      "method": "POST",
+      "kind": "fetch"
+    },
+    {
+      "url": "http://127.0.0.1:4184/api/companion-plan",
+      "method": "POST",
+      "kind": "fetch"
+    },
+    {
+      "url": "http://127.0.0.1:4184/api/social-plan",
+      "method": "POST",
+      "kind": "fetch"
+    },
+    {
+      "url": "http://127.0.0.1:4184/api/social-plan",
+      "method": "POST",
+      "kind": "fetch"
+    },
+    {
+      "url": "http://127.0.0.1:4184/api/social-plan",
+      "method": "POST",
+      "kind": "fetch"
+    },
+    {
+      "url": "http://127.0.0.1:4184/api/social-plan",
+      "method": "POST",
+      "kind": "fetch"
+    },
+    {
+      "url": "http://127.0.0.1:4184/api/social-plan",
+      "method": "POST",
+      "kind": "fetch"
+    },
+    {
+      "url": "http://127.0.0.1:4184/api/social-plan",
+      "method": "POST",
+      "kind": "fetch"
+    },
+    {
+      "url": "http://127.0.0.1:4184/",
+      "method": "GET",
+      "kind": "document"
+    },
+    {
+      "url": "http://127.0.0.1:4184/api/status",
+      "method": "GET",
+      "kind": "fetch"
+    },
+    {
+      "url": "http://127.0.0.1:4184/",
+      "method": "GET",
+      "kind": "document"
+    },
+    {
+      "url": "http://127.0.0.1:4184/api/status",
+      "method": "GET",
+      "kind": "fetch"
+    }
+  ],
+  "page_errors": [],
+  "scope": "Local preview only. No real model, account, VM, IDE or public action."
+}

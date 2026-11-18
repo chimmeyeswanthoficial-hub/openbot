@@ -1,0 +1,26 @@
+{
+  "base_commit": "fe1267e0cd1e35e8a816dc0556be80ec68343401",
+  "original_sources": [
+    {
+      "path": "services/ledger/src/webhook.py",
+      "sha256": "4b2f2213c745b5ecf29f5c5d6322fb288d1409de674d255ef98b01a874959808",
+      "bytes": 3329
+    },
+    {
+      "path": "services/sentinel/repository.py",
+      "sha256": "45fd8b9066758b8d5f358fd6259b809e1cc1e3aeca5ecea3eccca1fff633063e",
+      "bytes": 18902
+    }
+  ],
+  "phase": "after draft; independent unchanged-base repro, NOT claimed as pre-fix chronology",
+  "command": [
+    "/home/user/.cache/ag4a-engineering/work/.venv/bin/python",
+    "-m",
+    "pytest",
+    "-c",
+    "pytest.ini",
+    "--junitxml=/home/user/.cache/ag4a-engineering/baseline-arithmetic.xml"
+  ],
+  "exit": 1,
+  "fixture_sha256": "3d3c26a2e8f0a45d843577e68236b9d0ec79dbc62b94594cd41d1023ff752d1b"
+}

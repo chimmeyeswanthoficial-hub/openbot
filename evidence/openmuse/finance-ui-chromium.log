@@ -1,0 +1,10 @@
+AssertionError [ERR_ASSERTION]: The input did not match the regular expression /not be sent/. Input:
+
+'No preview calculated.\n' +
+  '\n' +
+  'Choose a source currency, check the sign convention, then preview. Nothing will be sent, reconciled or written to a ledger.'
+
+    at /home/user/.cache/openbot-release-next/workspace/OpenBot-Workspace/studio/scripts/test-finance-ui.cjs:27:255
+    at async check (/home/user/.cache/openbot-release-next/workspace/OpenBot-Workspace/studio/scripts/test-finance-ui.cjs:16:58)
+    at async /home/user/.cache/openbot-release-next/workspace/OpenBot-Workspace/studio/scripts/test-finance-ui.cjs:26:2
+Observed 0 passed; 1 failed

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light"><meta name="description" content="OpenBot companion workspace. Local drafts and explicitly paired, governed owned-QA work. No live AI teammate or computer is implied.">
+<meta http-equiv="Content-Security-Policy" content="__CSP__"><title>OpenBot · Your companions</title>
+<style>__STYLE__</style>
+</head>
+<body>
+<a href="#main" class="skip">Skip to conversation</a>
+<svg class="sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+<symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 4.5 4.5"/></symbol>
+<symbol id="i-computer" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8m-4-4v4"/></symbol>
+<symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+<symbol id="i-back" viewBox="0 0 24 24"><path d="m14 5-7 7 7 7"/></symbol>
+<symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 7h8m4 0h4M4 17h2m4 0h10"/><circle cx="14" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></symbol>
+<symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M4 17v4h16v-4"/></symbol>
+<symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5 11v1a7 7 0 0 0 14 0v-1M12 19v3m-4 0h8"/></symbol>
+<symbol id="i-send" viewBox="0 0 24 24"><path d="M12 19V5m-6 6 6-6 6 6"/></symbol>
+<symbol id="i-plug" viewBox="0 0 24 24"><path d="M8 3v5m8-5v5M6 8h12v3a6 6 0 0 1-12 0ZM12 17v5"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/></symbol>
+<symbol id="i-file" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6ZM14 3v5h4M9 12h6m-6 4h6"/></symbol>
+<symbol id="i-shield" viewBox="0 0 24 24"><path d="m12 2 8 4v6c0 5-8 10-8 10S4 17 4 12V6Z"/><path d="m8 12 3 3 5-6"/></symbol>
+<symbol id="i-social" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 10.5 6.8-4M8.6 13.5l6.8 4"/></symbol>
+<symbol id="i-finance" viewBox="0 0 24 24"><path d="M4 3v17h17M8 16v-5m5 5V6m5 10V9"/></symbol>
+<symbol id="i-chevron" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></symbol>
+</svg>
+<div class="workspace" id="workspace">
+<aside class="contact-panel" aria-label="Companions">
+ <header class="contact-header"><button class="profile-button" data-view="trust" aria-label="Workspace settings">Y</button><a class="wordmark" data-view="chat" href="#chat" aria-label="OpenBot home">openbot<span>.</span></a><div class="header-actions"><button class="icon-button mobile-search" id="mobile-search" aria-label="Search companions"><svg><use href="#i-search"/></svg></button><button class="icon-button" data-add-companion aria-label="Add companion"><svg><use href="#i-plus"/></svg></button></div></header>
+ <label class="contact-search" id="search-wrap"><svg><use href="#i-search"/></svg><span class="sr-only">Search companions</span><input type="search" id="contact-search" placeholder="Search" autocomplete="off"></label>
+ <div class="mobile-favorites" id="mobile-favorites" aria-label="Pinned companion blueprints"></div>
+ <div class="list-note">YOUR COMPANIONS <span>Local blueprints</span></div>
+ <nav class="contact-list" id="contact-list" aria-label="Companion conversations"></nav>
+ <footer class="contact-footer"><button class="footer-item" data-view="plugins"><svg><use href="#i-plug"/></svg><span>Plugins & tools</span><small>Setup</small></button><button class="footer-item" data-view="connection"><svg><use href="#i-shield"/></svg><span>Server & verified work</span><i id="gateway-dot"></i></button><button class="account-button" data-view="trust"><span class="user-circle">Y</span><span>Your workspace<small id="storage-label">This tab only</small></span><svg><use href="#i-sliders"/></svg></button></footer>
+</aside>
+<section class="conversation-panel" aria-label="Conversation workspace"><header class="conversation-header"><button class="icon-button mobile-back" id="mobile-back" aria-label="Back to companions"><svg><use href="#i-back"/></svg></button><div class="thread-heading" id="thread-heading"></div><div class="thread-header-actions"><span class="gateway-badge" id="gateway-badge">Local workspace</span><button class="icon-button" id="show-computer" aria-label="Show companion computer and routines"><svg><use href="#i-computer"/></svg></button></div></header><main id="main" tabindex="-1"></main></section>
+<aside class="details-panel" id="details-panel" aria-label="Companion computer and routines"></aside>
+</div>
+<dialog id="modal" aria-labelledby="modal-title"><div class="modal-head"><h2 id="modal-title"></h2><button class="icon-button" id="modal-close" aria-label="Close dialog"><svg><use href="#i-close"/></svg></button></div><div id="modal-body"></div></dialog>
+<input type="file" id="brief-file" accept=".txt,.md,text/plain,text/markdown" hidden><input type="file" id="finance-file" accept=".csv,text/csv" hidden>
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div><span id="announcer" class="sr-only" role="status" aria-live="polite"></span>
+<noscript><p class="noscript">JavaScript is needed for this local interface. No model, computer or account is connected automatically. Source and CLI remain available.</p></noscript>
+<script>__SCRIPT__</script>
+</body>
+</html>

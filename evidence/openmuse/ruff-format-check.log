@@ -1,0 +1,22 @@
+unformatted: File would be reformatted
+  --> .cache/openbot-release-next/workspace/OpenBot-Workspace/studio/scripts/build-web.py:12:29
+   |
+11 | script = "\n".join(
+   -     (web / name).read_text()
+   -     for name in ("finance-preview.js", "finance-workspace.js", "app.js")
+12 +     (web / name).read_text() for name in ("finance-preview.js", "finance-workspace.js", "app.js")
+13 | )
+   |
+
+unformatted: File would be reformatted
+  --> .cache/openbot-release-next/workspace/OpenBot-Workspace/studio/tests/test_finance_source.py:30:34
+   |
+29 |                 provenance = json.loads(archive.read("third_party/openmuse/PROVENANCE.json"))
+   -                 self.assertEqual(
+   -                     hashlib.sha256(notice).hexdigest(), provenance["license_sha256"]
+   -                 )
+30 +                 self.assertEqual(hashlib.sha256(notice).hexdigest(), provenance["license_sha256"])
+31 |                 for name, meta in provenance["upstream_files"].items():
+   |
+
+2 files would be reformatted, 9 files already formatted

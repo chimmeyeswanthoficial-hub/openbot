@@ -1,0 +1,571 @@
+{
+  "schema": "openbot.shared-gateway-browser-proof/1",
+  "checks": [
+    {
+      "name": "Secure WebCrypto context at exact gateway path",
+      "passed": true
+    },
+    {
+      "name": "Unpaired proposal is disabled",
+      "passed": true
+    },
+    {
+      "name": "Pairing derives owner/venture/scopes from server",
+      "passed": true
+    },
+    {
+      "name": "Actual renderer private key is non-exportable",
+      "passed": true
+    },
+    {
+      "name": "No renderer device secret was persisted",
+      "passed": true
+    },
+    {
+      "name": "invoice-good-v1 is a real unattempted review proposal",
+      "passed": true
+    },
+    {
+      "name": "Invalid exact-review code is refused without mutation retry",
+      "passed": true
+    },
+    {
+      "name": "invoice-good-v1 exact plan/digest/device is visible for review",
+      "passed": true
+    },
+    {
+      "name": "invoice-good-v1 exact approval queues but does not execute",
+      "passed": true
+    },
+    {
+      "name": "invoice-good-v1 requires separate execution confirmation",
+      "passed": true
+    },
+    {
+      "name": "invoice-good-v1 actual artifact content/hash is read back",
+      "passed": true
+    },
+    {
+      "name": "invoice-discount-defect-v1 is a real unattempted review proposal",
+      "passed": true
+    },
+    {
+      "name": "invoice-discount-defect-v1 exact plan/digest/device is visible for review",
+      "passed": true
+    },
+    {
+      "name": "invoice-discount-defect-v1 exact approval queues but does not execute",
+      "passed": true
+    },
+    {
+      "name": "invoice-discount-defect-v1 requires separate execution confirmation",
+      "passed": true
+    },
+    {
+      "name": "invoice-discount-defect-v1 actual artifact content/hash is read back",
+      "passed": true
+    },
+    {
+      "name": "invoice-docs-defect-v1 is a real unattempted review proposal",
+      "passed": true
+    },
+    {
+      "name": "invoice-docs-defect-v1 exact plan/digest/device is visible for review",
+      "passed": true
+    },
+    {
+      "name": "invoice-docs-defect-v1 exact approval queues but does not execute",
+      "passed": true
+    },
+    {
+      "name": "invoice-docs-defect-v1 requires separate execution confirmation",
+      "passed": true
+    },
+    {
+      "name": "invoice-docs-defect-v1 actual artifact content/hash is read back",
+      "passed": true
+    },
+    {
+      "name": "Untrusted task content stays text, never HTML or authority",
+      "passed": true
+    },
+    {
+      "name": "Canonical exact-book strings retain source and settlement limits",
+      "passed": true
+    },
+    {
+      "name": "Scoped audit is actually read back",
+      "passed": true
+    },
+    {
+      "name": "Uncertain response never triggers implicit mutation replay",
+      "passed": true
+    },
+    {
+      "name": "Explicit refresh recovers the one real proposal",
+      "passed": true
+    },
+    {
+      "name": "Previous uncertain proposal must be inspected before any new proposal",
+      "passed": true
+    },
+    {
+      "name": "Explicit stop is read back as cancelled, not remote kill",
+      "passed": true
+    },
+    {
+      "name": "Offline disables proposal and clearly reports stale state",
+      "passed": true
+    },
+    {
+      "name": "Reconnect uses an authoritative read, not cached approval",
+      "passed": true
+    },
+    {
+      "name": "Native pause immediately removes write freshness",
+      "passed": true
+    },
+    {
+      "name": "Native resume reads fresh signed state",
+      "passed": true
+    },
+    {
+      "name": "Real TLS API refuses consumed proof replay",
+      "passed": true
+    },
+    {
+      "name": "Real TLS API refuses proof moved to another path",
+      "passed": true
+    },
+    {
+      "name": "Real TLS API refuses a forged device signature",
+      "passed": true
+    },
+    {
+      "name": "Server viewer cannot propose or approve",
+      "passed": true
+    },
+    {
+      "name": "Other venture cannot read these owned tasks",
+      "passed": true
+    },
+    {
+      "name": "Live work has no root horizontal overflow at 320",
+      "passed": true
+    },
+    {
+      "name": "Live work has no root horizontal overflow at 390",
+      "passed": true
+    },
+    {
+      "name": "Live work has no root horizontal overflow at 768",
+      "passed": true
+    },
+    {
+      "name": "Live work has no root horizontal overflow at 1512",
+      "passed": true
+    },
+    {
+      "name": "Host-console revocation disables client mutation after read-back",
+      "passed": true
+    },
+    {
+      "name": "No cross-origin request or provider call was made",
+      "passed": true
+    },
+    {
+      "name": "No renderer page errors",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "count": 44,
+  "requests": [
+    {
+      "origin": "https://localhost:49871",
+      "path": "/control/",
+      "method": "GET"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/identity",
+      "method": "GET"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/pair",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/snapshot",
+      "method": "GET"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/tasks",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/snapshot",
+      "method": "GET"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/tasks/w9a215dbbba9d43b181c21b12b19c927d/approve",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/snapshot",
+      "method": "GET"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/tasks/w9a215dbbba9d43b181c21b12b19c927d/approve",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/snapshot",
+      "method": "GET"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/tasks/w9a215dbbba9d43b181c21b12b19c927d/execute",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/snapshot",
+      "method": "GET"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/tasks/w9a215dbbba9d43b181c21b12b19c927d/artifact",
+      "method": "GET"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/tasks",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/snapshot",
+      "method": "GET"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/tasks/wc4e3803e59e844dd9a356a7975cfc5cc/approve",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/snapshot",
+      "method": "GET"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/tasks/wc4e3803e59e844dd9a356a7975cfc5cc/execute",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/snapshot",
+      "method": "GET"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/tasks/wc4e3803e59e844dd9a356a7975cfc5cc/artifact",
+      "method": "GET"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/tasks",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/snapshot",
+      "method": "GET"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/tasks/wc1be2e64de254d11856813699a482e63/approve",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/snapshot",
+      "method": "GET"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/tasks/wc1be2e64de254d11856813699a482e63/execute",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/snapshot",
+      "method": "GET"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/tasks/wc1be2e64de254d11856813699a482e63/artifact",
+      "method": "GET"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/tasks",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/snapshot",
+      "method": "GET"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/tasks",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/snapshot",
+      "method": "GET"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/snapshot",
+      "method": "GET"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/snapshot",
+      "method": "GET"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/tasks/wbc73d065cab7449794967ed4450111e6/cancel",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/snapshot",
+      "method": "GET"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/snapshot",
+      "method": "GET"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/snapshot",
+      "method": "GET"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/snapshot",
+      "method": "GET"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/status",
+      "method": "GET"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/status",
+      "method": "GET"
+    },
+    {
+      "origin": "https://localhost:49871",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    }
+  ],
+  "errors": [],
+  "transport": "Actual HTTPS socket. Exact disposable fixture SPKI permitted for Chromium; ignoreHTTPSErrors=false. Python separately checks fixture CA/wrong host/default trust denial.",
+  "native_devices_tested": false,
+  "provider_used": false,
+  "production_authorized": false,
+  "independent_security_acceptance": false
+}

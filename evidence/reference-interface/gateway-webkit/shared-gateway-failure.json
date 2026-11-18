@@ -1,0 +1,582 @@
+{
+  "error": "Error: Host-console revocation disables client mutation after read-back: undefined\n    at check (/home/user/.cache/openbot-reference-next/workspace/OpenBot-Workspace/studio/scripts/test-gateway.cjs:17:45)\n    at /home/user/.cache/openbot-reference-next/workspace/OpenBot-Workspace/studio/scripts/test-gateway.cjs:78:93",
+  "checks": [
+    {
+      "name": "Secure WebCrypto context at exact gateway path",
+      "passed": true
+    },
+    {
+      "name": "Unpaired proposal is disabled",
+      "passed": true
+    },
+    {
+      "name": "Pairing derives owner/venture/scopes from server",
+      "passed": true
+    },
+    {
+      "name": "Actual renderer private key is non-exportable",
+      "passed": true
+    },
+    {
+      "name": "No renderer device secret was persisted",
+      "passed": true
+    },
+    {
+      "name": "invoice-good-v1 is a real unattempted review proposal",
+      "passed": true
+    },
+    {
+      "name": "Invalid exact-review code is refused without mutation retry",
+      "passed": true
+    },
+    {
+      "name": "invoice-good-v1 exact plan/digest/device is visible for review",
+      "passed": true
+    },
+    {
+      "name": "invoice-good-v1 exact approval queues but does not execute",
+      "passed": true
+    },
+    {
+      "name": "invoice-good-v1 requires separate execution confirmation",
+      "passed": true
+    },
+    {
+      "name": "invoice-good-v1 actual artifact content/hash is read back",
+      "passed": true
+    },
+    {
+      "name": "invoice-discount-defect-v1 is a real unattempted review proposal",
+      "passed": true
+    },
+    {
+      "name": "invoice-discount-defect-v1 exact plan/digest/device is visible for review",
+      "passed": true
+    },
+    {
+      "name": "invoice-discount-defect-v1 exact approval queues but does not execute",
+      "passed": true
+    },
+    {
+      "name": "invoice-discount-defect-v1 requires separate execution confirmation",
+      "passed": true
+    },
+    {
+      "name": "invoice-discount-defect-v1 actual artifact content/hash is read back",
+      "passed": true
+    },
+    {
+      "name": "invoice-docs-defect-v1 is a real unattempted review proposal",
+      "passed": true
+    },
+    {
+      "name": "invoice-docs-defect-v1 exact plan/digest/device is visible for review",
+      "passed": true
+    },
+    {
+      "name": "invoice-docs-defect-v1 exact approval queues but does not execute",
+      "passed": true
+    },
+    {
+      "name": "invoice-docs-defect-v1 requires separate execution confirmation",
+      "passed": true
+    },
+    {
+      "name": "invoice-docs-defect-v1 actual artifact content/hash is read back",
+      "passed": true
+    },
+    {
+      "name": "Untrusted task content stays text, never HTML or authority",
+      "passed": true
+    },
+    {
+      "name": "Canonical exact-book strings retain source and settlement limits",
+      "passed": true
+    },
+    {
+      "name": "Scoped audit is actually read back",
+      "passed": true
+    },
+    {
+      "name": "Uncertain response never triggers implicit mutation replay",
+      "passed": true
+    },
+    {
+      "name": "Explicit refresh recovers the one real proposal",
+      "passed": true
+    },
+    {
+      "name": "Previous uncertain proposal must be inspected before any new proposal",
+      "passed": true
+    },
+    {
+      "name": "Explicit stop is read back as cancelled, not remote kill",
+      "passed": true
+    },
+    {
+      "name": "Offline disables proposal and clearly reports stale state",
+      "passed": true
+    },
+    {
+      "name": "Reconnect uses an authoritative read, not cached approval",
+      "passed": true
+    },
+    {
+      "name": "Native pause immediately removes write freshness",
+      "passed": true
+    },
+    {
+      "name": "Native resume reads fresh signed state",
+      "passed": true
+    },
+    {
+      "name": "Real TLS API refuses consumed proof replay",
+      "passed": true
+    },
+    {
+      "name": "Real TLS API refuses proof moved to another path",
+      "passed": true
+    },
+    {
+      "name": "Real TLS API refuses a forged device signature",
+      "passed": true
+    },
+    {
+      "name": "Server viewer cannot propose or approve",
+      "passed": true
+    },
+    {
+      "name": "Other venture cannot read these owned tasks",
+      "passed": true
+    },
+    {
+      "name": "Live work has no root horizontal overflow at 320",
+      "passed": true
+    },
+    {
+      "name": "Live work has no root horizontal overflow at 390",
+      "passed": true
+    },
+    {
+      "name": "Live work has no root horizontal overflow at 768",
+      "passed": true
+    },
+    {
+      "name": "Live work has no root horizontal overflow at 1512",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "requests": [
+    {
+      "origin": "https://localhost:52783",
+      "path": "/control/",
+      "method": "GET"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/identity",
+      "method": "GET"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/pair",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/snapshot",
+      "method": "GET"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/tasks",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/snapshot",
+      "method": "GET"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/tasks/w1858d9c11f84484a80e14ba8e126e3c3/approve",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/snapshot",
+      "method": "GET"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/tasks/w1858d9c11f84484a80e14ba8e126e3c3/approve",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/snapshot",
+      "method": "GET"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/snapshot",
+      "method": "GET"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/tasks/w1858d9c11f84484a80e14ba8e126e3c3/execute",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/snapshot",
+      "method": "GET"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/tasks/w1858d9c11f84484a80e14ba8e126e3c3/artifact",
+      "method": "GET"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/tasks",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/snapshot",
+      "method": "GET"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/tasks/w4b86f030265b427da9910edb49583835/approve",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/snapshot",
+      "method": "GET"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/snapshot",
+      "method": "GET"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/tasks/w4b86f030265b427da9910edb49583835/execute",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/snapshot",
+      "method": "GET"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/tasks/w4b86f030265b427da9910edb49583835/artifact",
+      "method": "GET"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/tasks",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/snapshot",
+      "method": "GET"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/tasks/wbe404803fb9e47ce8c84f96804e93407/approve",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/snapshot",
+      "method": "GET"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/tasks/wbe404803fb9e47ce8c84f96804e93407/execute",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/snapshot",
+      "method": "GET"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/tasks/wbe404803fb9e47ce8c84f96804e93407/artifact",
+      "method": "GET"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/snapshot",
+      "method": "GET"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/tasks",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/snapshot",
+      "method": "GET"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/tasks",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/snapshot",
+      "method": "GET"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/snapshot",
+      "method": "GET"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/tasks/w29144c9311294e8e83a5a5f8f316e495/cancel",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/snapshot",
+      "method": "GET"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/snapshot",
+      "method": "GET"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/snapshot",
+      "method": "GET"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/snapshot",
+      "method": "GET"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/status",
+      "method": "GET"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/status",
+      "method": "GET"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/snapshot",
+      "method": "GET"
+    },
+    {
+      "origin": "https://localhost:52783",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    }
+  ]
+}

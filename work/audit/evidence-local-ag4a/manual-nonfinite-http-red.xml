@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="3" skipped="0" tests="3" time="0.375" timestamp="2026-11-14T17:42:57.965653+00:00" hostname="e2b.local"><testcase classname="services.sentinel.tests.test_economic_boundary" name="test_legacy_manual_http_nonfinite_is_a_clean_refusal_not_500[NaN]" time="0.008"><failure message="assert 500 == 422&#10; +  where 500 = &lt;Response [500 Internal Server Error]&gt;.status_code">monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x7fa14787d940&gt;
+literal = 'NaN'
+
+    @pytest.mark.parametrize('literal', ['NaN', 'Infinity', '-Infinity'])
+    def test_legacy_manual_http_nonfinite_is_a_clean_refusal_not_500(monkeypatch, literal):
+        store = Store(':memory:')
+        monkeypatch.setattr(service, 'store', store)
+        payload = ('{"venture":"media-api","kind":"adjustment","source":"manual",'
+                   '"idempotency_key":"bad-http-money","amount_usd":' + literal + '}')
+        try:
+            reply = TestClient(service.app, raise_server_exceptions=False).post(
+                '/v1/ledger', content=payload, headers={'content-type': 'application/json'})
+&gt;           assert reply.status_code == 422
+E           assert 500 == 422
+E            +  where 500 = &lt;Response [500 Internal Server Error]&gt;.status_code
+
+services/sentinel/tests/test_economic_boundary.py:102: AssertionError</failure></testcase><testcase classname="services.sentinel.tests.test_economic_boundary" name="test_legacy_manual_http_nonfinite_is_a_clean_refusal_not_500[Infinity]" time="0.006"><failure message="assert 500 == 422&#10; +  where 500 = &lt;Response [500 Internal Server Error]&gt;.status_code">monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x7fa14616fe10&gt;
+literal = 'Infinity'
+
+    @pytest.mark.parametrize('literal', ['NaN', 'Infinity', '-Infinity'])
+    def test_legacy_manual_http_nonfinite_is_a_clean_refusal_not_500(monkeypatch, literal):
+        store = Store(':memory:')
+        monkeypatch.setattr(service, 'store', store)
+        payload = ('{"venture":"media-api","kind":"adjustment","source":"manual",'
+                   '"idempotency_key":"bad-http-money","amount_usd":' + literal + '}')
+        try:
+            reply = TestClient(service.app, raise_server_exceptions=False).post(
+                '/v1/ledger', content=payload, headers={'content-type': 'application/json'})
+&gt;           assert reply.status_code == 422
+E           assert 500 == 422
+E            +  where 500 = &lt;Response [500 Internal Server Error]&gt;.status_code
+
+services/sentinel/tests/test_economic_boundary.py:102: AssertionError</failure></testcase><testcase classname="services.sentinel.tests.test_economic_boundary" name="test_legacy_manual_http_nonfinite_is_a_clean_refusal_not_500[-Infinity]" time="0.005"><failure message="assert 500 == 422&#10; +  where 500 = &lt;Response [500 Internal Server Error]&gt;.status_code">monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x7fa14607b1d0&gt;
+literal = '-Infinity'
+
+    @pytest.mark.parametrize('literal', ['NaN', 'Infinity', '-Infinity'])
+    def test_legacy_manual_http_nonfinite_is_a_clean_refusal_not_500(monkeypatch, literal):
+        store = Store(':memory:')
+        monkeypatch.setattr(service, 'store', store)
+        payload = ('{"venture":"media-api","kind":"adjustment","source":"manual",'
+                   '"idempotency_key":"bad-http-money","amount_usd":' + literal + '}')
+        try:
+            reply = TestClient(service.app, raise_server_exceptions=False).post(
+                '/v1/ledger', content=payload, headers={'content-type': 'application/json'})
+&gt;           assert reply.status_code == 422
+E           assert 500 == 422
+E            +  where 500 = &lt;Response [500 Internal Server Error]&gt;.status_code
+
+services/sentinel/tests/test_economic_boundary.py:102: AssertionError</failure></testcase></testsuite></testsuites>

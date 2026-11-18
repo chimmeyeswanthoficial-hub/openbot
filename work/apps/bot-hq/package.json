@@ -1,0 +1,19 @@
+{
+  "name": "grokbot",
+  "private": true,
+  "description": "OpenBot HQ: pinned, attributed Bot HQ local profile; providers disabled; independent governed company reports.",
+  "workspaces": [
+    "server",
+    "web"
+  ],
+  "scripts": {
+    "dev": "npm run start -w server",
+    "build": "npm run build -w web && npm run build -w server",
+    "start": "npm run start -w server",
+    "typecheck": "npm run typecheck -w server && npm run typecheck -w web",
+    "test:local": "node --test server/test/*.test.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

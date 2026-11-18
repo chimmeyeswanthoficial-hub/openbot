@@ -1,0 +1,15 @@
+{
+  "synthetic_public_proof_only": [
+    {
+      "path": "audit/evidence-local-ag0/count-refresh.xml",
+      "from": 384,
+      "to": 420
+    },
+    {
+      "path": "audit/evidence-local-ag0/full-python.xml",
+      "from": 384,
+      "to": 420
+    }
+  ],
+  "raw_xml_bytes_changed": false
+}

@@ -1,0 +1,46 @@
+Traceback (most recent call last):
+  File "/home/user/.cache/openbot-reference-next/workspace/OpenBot-Workspace/work/scripts/prove-control-browser.py", line 179, in <module>
+    main()
+    ~~~~^^
+  File "/home/user/.cache/openbot-reference-next/workspace/OpenBot-Workspace/work/scripts/prove-control-browser.py", line 135, in main
+    raise RuntimeError("Browser proof failed: " + node.stdout[-2500:])
+RuntimeError: Browser proof failed: ted review proposal
+PASS Invalid exact-review code is refused without mutation retry
+PASS invoice-good-v1 exact plan/digest/device is visible for review
+PASS invoice-good-v1 exact approval queues but does not execute
+PASS invoice-good-v1 requires separate execution confirmation
+PASS invoice-good-v1 actual artifact content/hash is read back
+PASS invoice-discount-defect-v1 is a real unattempted review proposal
+PASS invoice-discount-defect-v1 exact plan/digest/device is visible for review
+PASS invoice-discount-defect-v1 exact approval queues but does not execute
+PASS invoice-discount-defect-v1 requires separate execution confirmation
+PASS invoice-discount-defect-v1 actual artifact content/hash is read back
+PASS invoice-docs-defect-v1 is a real unattempted review proposal
+PASS invoice-docs-defect-v1 exact plan/digest/device is visible for review
+PASS invoice-docs-defect-v1 exact approval queues but does not execute
+PASS invoice-docs-defect-v1 requires separate execution confirmation
+PASS invoice-docs-defect-v1 actual artifact content/hash is read back
+PASS Untrusted task content stays text, never HTML or authority
+PASS Canonical exact-book strings retain source and settlement limits
+PASS Scoped audit is actually read back
+PASS Uncertain response never triggers implicit mutation replay
+PASS Explicit refresh recovers the one real proposal
+PASS Previous uncertain proposal must be inspected before any new proposal
+PASS Explicit stop is read back as cancelled, not remote kill
+PASS Offline disables proposal and clearly reports stale state
+PASS Reconnect uses an authoritative read, not cached approval
+PASS Native pause immediately removes write freshness
+PASS Native resume reads fresh signed state
+PASS Real TLS API refuses consumed proof replay
+PASS Real TLS API refuses proof moved to another path
+PASS Real TLS API refuses a forged device signature
+PASS Server viewer cannot propose or approve
+PASS Other venture cannot read these owned tasks
+PASS Live work has no root horizontal overflow at 320
+PASS Live work has no root horizontal overflow at 390
+PASS Live work has no root horizontal overflow at 768
+PASS Live work has no root horizontal overflow at 1512
+Error: Host-console revocation disables client mutation after read-back: undefined
+    at check (/home/user/.cache/openbot-reference-next/workspace/OpenBot-Workspace/studio/scripts/test-gateway.cjs:17:45)
+    at /home/user/.cache/openbot-reference-next/workspace/OpenBot-Workspace/studio/scripts/test-gateway.cjs:78:93
+

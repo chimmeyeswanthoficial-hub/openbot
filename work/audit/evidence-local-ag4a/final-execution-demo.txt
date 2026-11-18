@@ -1,0 +1,59 @@
+{
+  "observed_runner_utc": "2026-11-14T17:53:16.319445+00:00",
+  "passed": true,
+  "scope": "Actual fixed Linux subprocess and SSE pipe; no model/provider/network/payment/public deployment or hostile OS isolation.",
+  "request_id": "03787537-f8dc-427e-b59e-0abb10b37a0e",
+  "result": {
+    "characters": 38,
+    "minimal_environment": true,
+    "words": 6,
+    "worker_pid": 7450
+  },
+  "event_types": [
+    "RUN_STARTED",
+    "TOOL_CALL_START",
+    "TOOL_CALL_END",
+    "TEXT_MESSAGE_START",
+    "TEXT_MESSAGE_CONTENT",
+    "TEXT_MESSAGE_END",
+    "RUN_FINISHED"
+  ],
+  "artifact_sha256": "e22f80b4eb5b2b837173925d62bff0bb8159ab7081bcfd6b2122f783bf7e82a6",
+  "artifact_preview": {
+    "request_id": "03787537-f8dc-427e-b59e-0abb10b37a0e",
+    "result": {
+      "characters": 38,
+      "minimal_environment": true,
+      "words": 6,
+      "worker_pid": 7450
+    }
+  },
+  "restart_replay_without_execution_or_redelivery": true,
+  "outbox_rows_for_completed_request": 1,
+  "pending_review_was_not_autoapproved": true,
+  "pending_approval_id": "ap_351b133cb410",
+  "unregistered_network_tool_refused": true,
+  "cancelled_worker_exit_confirmed": true,
+  "deadline_worker_exit_confirmed": true,
+  "parent_death_probe": {
+    "actual_parent_killed": true,
+    "worker_pid": 7455,
+    "worker_exit_reaped": true,
+    "worker_termination_signal": 9,
+    "interrupted_marker_not_reexecuted": true
+  },
+  "quota": {
+    "venture": "execution-demo",
+    "limit_units": 4,
+    "used_units": 3
+  },
+  "quota_unit": "fixed execution attempts, not dollars",
+  "cost_usd": 0,
+  "providers_enabled": false,
+  "generated_state": ".cache/execution-demo-gfjn6aoj",
+  "limits": [
+    "Host-only trusted authority/owner API, not remote authentication",
+    "No arbitrary-code/tenant isolation",
+    "No external delivery or financial budget proof"
+  ]
+}

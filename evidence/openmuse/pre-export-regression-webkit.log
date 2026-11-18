@@ -1,0 +1,28 @@
+PASS initial view is honest, original, and has no model or account session
+PASS desktop screenshot and no horizontal overflow
+PASS provider setup is information, not a fake login or key collector
+PASS unsent composer text survives a route change
+PASS brief intake is rule-based, local and XSS-safe
+PASS Markdown brief download contains text, not an executed task
+PASS a named provider creates only a cryptographically identified local blueprint
+PASS computer and all three requested IDEs remain explicitly unprovisioned
+PASS Unicode and markup in companion names cannot inject HTML or break digest parity
+PASS YouTube review is private, not a public upload or invented audience choice
+PASS downloaded social acknowledgement is explicitly not an authenticated approval
+PASS changing any draft field invalidates the review and acknowledgement
+PASS repeated local content is warned, not rewritten to evade restrictions
+PASS X review exposes no auto-reply, DM, like or multi-account action
+PASS Instagram review keeps professional-account and scoped login setup blocked
+PASS validator failure retains the draft and never displays a successful plan
+PASS a late response cannot approve or replace an edited draft
+PASS browser persistence is opt-in and restored requests never become running machines
+PASS turning browser saving off removes only the saved preview copy
+PASS command search supports keyboard navigation without running tasks
+PASS local text attachment is never uploaded or automatically saved
+PASS all six views fit desktop and 375-pixel mobile widths
+PASS mobile navigation drawer announces state and closes after navigation
+PASS keyboard shortcut saves a brief but never starts an agent
+PASS opaque sandboxed offline iframe still supports local drafting
+PASS invalid browser storage does not fabricate state or execute markup
+PASS no external, provider, installer, publishing or credential request was made
+Observed 27 passed; 0 failed

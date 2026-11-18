@@ -1,0 +1,32 @@
+# Generated from the pinned substrate. See _comment below.
+_comment:
+- 'The agent-* runtimes present in the pinned OpenBot tree. This file is the verification
+  seam:'
+- with the substrate installed, `company.py` derives this list from repos/OpenBot/
+  and refuses
+- a company that names a runtime which does not exist. On a machine without the substrate
+  the
+- "list cannot be derived, so it is read from here \u2014 an inline allowlist inside\
+  \ the validator is"
+- a bypass, not a check.
+- 'Regenerate:  python -c "import pathlib,json;print(json.dumps(sorted(p.name[6:]
+  for p in pathlib.Path(''repos/OpenBot'').glob(''agent-*'') if p.is_dir()),indent=2))"'
+source: repos/OpenBot (pinned tarball, see INSTALL_LOG.md)
+generated: '2026-11-10'
+agent_impls:
+- adk
+- ag2
+- agno
+- antigravity
+- bot
+- claude-sdk
+- computer
+- crewai
+- langgraph
+- langgraph-agui
+- langroid
+- llamaindex
+- mastra
+- microsoft
+- pydantic-ai
+- strands

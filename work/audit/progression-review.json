@@ -1,0 +1,242 @@
+{
+  "schema": 1,
+  "task_date": "2026-11-10",
+  "date_note": "Authoritative task date remains separate from the observed runner UTC clock (Nov14); see audit/DATE_PROVENANCE.md. Earlier draft reasoning calling the Nov10 task date wrong was rejected; historical evidence is not rewritten.",
+  "phase": "bounded_engineering_and_primary_independent_source_gates_complete",
+  "scope": "Explicit fixed-tool rootless namespace experiment and honest default-off legacy transport; NOT completed AG1, arbitrary customer-code permission, provider activation or release.",
+  "focused": {
+    "passed": 117,
+    "namespace_cases": 46,
+    "bootstrap_cases": 24,
+    "transport_truth_cases": 43,
+    "updated_legacy_cases": 4,
+    "new_cases_over_prior_freeze": 113,
+    "python": {
+      "passed": 117,
+      "skipped": 0,
+      "failed": 0,
+      "collected": 117,
+      "junit_sha256": "e2407ac89f34fb9e78cfcb0ac79fa773c5bb2a6e0865a030735b8e1d0be1112b"
+    },
+    "actual_namespace_opt_in_cases": 10
+  },
+  "primary": {
+    "python": {
+      "passed": 578,
+      "skipped": 2,
+      "failed": 0,
+      "collected": 580,
+      "junit_sha256": "2b454c093a27753a02729a9a70430f5affdf0fa3083cd87d892faabd76c64524"
+    },
+    "lint": "pass",
+    "release_check": "pass",
+    "node_reuse": 25,
+    "node_hq": 26,
+    "typecheck_and_build": "pass",
+    "verify": {
+      "pass": 22,
+      "fail": 0,
+      "warn": 7
+    },
+    "smoke": {
+      "pass": 10,
+      "fail": 0
+    },
+    "actual_namespace_test_opt_in": true,
+    "fixed_process_demo": "pass",
+    "namespace_denials_and_real_parent_crash_demo": "pass",
+    "offline_workbench_demo": "pass; XML/consent/reviewer explicitly synthetic"
+  },
+  "independent_source_install": {
+    "status": "passed",
+    "method": "New empty source candidate, no copied dependency/toolchain/build/isolation cache. Actual pinned project installer and separate pinned namespace restore, SAME HOST. Status docs synced and full gates repeated; not final-archive reinstall or another-machine audit.",
+    "python": {
+      "passed": 578,
+      "skipped": 2,
+      "failed": 0,
+      "collected": 580,
+      "junit_sha256": "1b819f4829da87234e10f928698ba113bc878cb55910203ec4cfafa4a91c9035"
+    },
+    "actual_namespace_test_opt_in": true,
+    "lint": "pass",
+    "release_check": "pass",
+    "node_reuse": 25,
+    "node_hq": 26,
+    "typecheck_and_build": "pass",
+    "verify": {
+      "pass": 22,
+      "fail": 0,
+      "warn": 7
+    },
+    "smoke": {
+      "pass": 10,
+      "fail": 0
+    },
+    "fixed_process_demo": "pass",
+    "namespace_denials_and_real_parent_crash_demo": "pass",
+    "offline_workbench_demo": "pass; XML/consent/reviewer explicitly synthetic"
+  },
+  "final_download": "The adjacent continuation-bundle.json identifies the actual archive size/SHA, manifest and final extraction. The proof archive and tested-source inventory are included. Do not call same-host source installation a final-archive reinstall.",
+  "next_gate": "Owner Antigravity AG0 import; authorized staging with delegated per-job resource controls and independent security review before wider AG1 execution. AG2 provider account/budget only later.",
+  "limits": [
+    "No delegated cgroup enforcement, authenticated mandatory live execution hook, protected secrets/hostile-tenant boundary or independent security review",
+    "Pinned Bubblewrap uses trusted host /usr/libraries; integrity pinning is not a publisher/security audit or hermetic runtime image",
+    "No default HTTP/live provider, new social/browser/PG proof, real customer job, outbound delivery, spend, remote push/deployment or pilot enabled",
+    "Legacy cost_usd is unknown/null, reported costs unverified; stored numeric run cost0 is a legacy placeholder, not evidence of zero spend",
+    "Injected host callable timeout is advisory; no remote kill or enforced provider deadline/reservation",
+    "Same stored run cannot dispatch twice; unique scheduled occurrence and repeated/>500-run daily liability remain AG3 work",
+    "Two opt-in PostgreSQL cases remain skipped; no skip is a pass",
+    "Direct Antigravity connector unsupported; importable package is not remote IDE delivery",
+    "No background work is promised after this chat"
+  ],
+  "observed_final_review_utc": "2026-11-14T12:25:47.291059+00:00",
+  "development": {
+    "namespace_initial": "Missing-module collection red; first implementation17pass/5fail (explicit unshare-user and fixed PWD required), then22green",
+    "namespace_challenges": "Filter omissions5fail/40pass; added raw io_uring/PID1-root/resource evidence; missing-rlimit evidence1fail/45pass; final46green",
+    "bootstrap": "12fail/12pass on mode/version/shape/origin/bounds/partial destination before strict shared validator; final24green",
+    "transport": "35initial red;35green; huge-int/list-status/invalid UTF8 challenge3fail/40pass; final43truth+4updated legacy cases green",
+    "bookkeeping": "First full576pass/2skip/2fail (stale467receipt and docs); recorded actual failed JUnit, synced18root-document mirrors plus1docs index (19Markdown files total), then578/2/0/580. Guards not weakened.",
+    "install_cwd_error": "One generated-only primary reinstall accidentally used primary cwd after source copy. Its log is retained and NOT counted independent. Actual new-cwd pinned install and tool restore/gates ran separately."
+  },
+  "tested_runtime_inventory": {
+    "files": 258,
+    "canonical_inventory_sha256": "1711a296ea2d3e264c7e6b6816234c765f1e0449376db085130dbb253ce47f29",
+    "proof_member": "tested-runtime-inventory.json",
+    "primary_matches_independently_tested_source": true,
+    "roots": [
+      "apps/bot-hq/",
+      "services/",
+      "packages/",
+      "scripts/",
+      "tools/",
+      ".claude/skills/"
+    ],
+    "suffixes": [
+      ".js",
+      ".json",
+      ".md",
+      ".mjs",
+      ".py",
+      ".sh",
+      ".toml",
+      ".ts",
+      ".tsx",
+      ".txt",
+      ".yaml",
+      ".yml"
+    ],
+    "fixed": [
+      "Makefile",
+      "audit/bot-hq-runtime-lock.json",
+      "audit/isolation-runtime-lock.json",
+      "pyproject.toml",
+      "requirements.handoff.lock.txt",
+      "requirements.txt"
+    ],
+    "algorithm": "Sorted path,bytes,mode,sha256 rows serialized UTF-8 JSON sort_keys=True,separators=(comma,colon)"
+  },
+  "preservation": {
+    "baseline_selected_files": 3929,
+    "current_before_evidence_archive": 3943,
+    "unchanged_baseline_files": 3900,
+    "intentional_changed_baseline_paths": [
+      ".claude/skills/local-execution/SKILL.md",
+      ".claude/skills/project-owner/SKILL.md",
+      ".openbot/post_mortems/error_registry.jsonl",
+      "AGENTS.md",
+      "ANTIGRAVITY_WORK_ORDERS.md",
+      "BLOCKERS.md",
+      "CHANGELOG.md",
+      "CONTINUE_HERE.md",
+      "EXECUTION_SLICE.md",
+      "Makefile",
+      "NEXT_CHAT_PROMPT.txt",
+      "OUR_PROJECT.md",
+      "OWNER_CHECKLIST.md",
+      "PORTABLE_HANDOFF.md",
+      "PROJECT_BRAIN.md",
+      "PROJECT_MEMORY.md",
+      "PROJECT_REMAINING.md",
+      "PROJECT_STATE.md",
+      "README.md",
+      "SECURITY.md",
+      "audit/verification-current.json",
+      "docs/BLOCKERS.md",
+      "docs/CHANGELOG.md",
+      "docs/PROJECT_REMAINING.md",
+      "docs/PROJECT_STATE.md",
+      "docs/SECURITY.md",
+      "services/sentinel/repository.py",
+      "services/worker/src/dispatch_agui.py",
+      "services/worker/tests/test_dispatch_agui.py"
+    ],
+    "new_paths_before_evidence": [
+      "ANTIGRAVITY_START.md",
+      "DELIVERY_PLAN.md",
+      "NAMESPACE_EXPERIMENT.md",
+      "audit/isolation-runtime-lock.json",
+      "audit/progression-review.json",
+      "scripts/bootstrap-isolation.py",
+      "scripts/isolation-demo.py",
+      "scripts/tests/test_isolation_bootstrap.py",
+      "services/gateway/src/isolation.py",
+      "services/gateway/src/isolation_runtime.py",
+      "services/gateway/src/namespace_executor.py",
+      "services/gateway/src/namespace_worker.py",
+      "services/gateway/tests/test_namespace_executor.py",
+      "services/worker/tests/test_transport_truth.py"
+    ],
+    "missing_baseline_files": [],
+    "all_changed_originals_losslessly_retained": true,
+    "protected_non_registry_paths_unchanged": 18,
+    "registry_original14_exact_prefix": true,
+    "registry_appended_entries": 3,
+    "primary_business_databases_byte_unchanged": true,
+    "original_dependency_runtime_locks_and_source_provenance_receipts_unchanged": true,
+    "both_full_donor_vaults_and26references_and_active_HQ_findrepo_OpenBot_unchanged": true,
+    "primary_databases_byte_unchanged": {
+      ".openbot/hq/hq.sqlite3": "f60d69cd7d782ef3a50fd543bf13a4056047f4659bac702016a7e80c01056eac",
+      ".openbot/hq-kernel/sentinel.sqlite3": "c19818e6ebc29839d02f2814118107dde5712dab77a6b42c382204091a608d39"
+    },
+    "locks_unchanged": {
+      "requirements.handoff.lock.txt": "d2969a607315fac9bdb01f83ec524a90fa65b0ca83bbdb42e67605d587bd2e59",
+      "apps/bot-hq/package-lock.json": "1b976d2c91a153aed66a69e8c565639817ced6193af2e7c43fab4c691bb12eb8",
+      "audit/bot-hq-runtime-lock.json": "5c9b521253445c7de6d5358b3b585b1bc6a0719ffa33a30279de13c6b4a80b11"
+    },
+    "original_registry_prefix_sha256": "79196a181dd748bd98093bf4b6a5adb17b3d6994a3e5fa56f479530854ff2044",
+    "current_registry_sha256": "972e55492e74bb28e188546a8a43cd6fc25d0c3e84a79c2e725557e8d927785d",
+    "baseline_inventory_sha256": "03583d48e0b2925ef86dc4acb1b974010b6c2b4d5eed93c67a805a1cc2ae7d75",
+    "normal_cleanup_remains_cache_only": true,
+    "private_OpenDots_env_not_read_or_modified_or_exported": true,
+    "no_git_push_provider_spend_external_delivery_or_public_release": true
+  },
+  "evidence": {
+    "archive": "archive/progression-verification.tar.xz",
+    "bytes": 346216,
+    "sha256": "9d87cddcccffdc4d22986748af55258d9e4b53d84d063d24db6756fe6d3bd286",
+    "regular_members": 108,
+    "manifest": "manifest.json",
+    "every_member_hash_size_mode_roundtrip_checked": true,
+    "recover": "tar -xJOf archive/progression-verification.tar.xz MEMBER"
+  },
+  "workspace_before_final_package": {
+    "files": 3952,
+    "bytes": 91857652,
+    "decimal_megabytes": 91.858,
+    "file_cap": 10000,
+    "byte_cap": 128000000,
+    "within_cap": true
+  },
+  "documentation_mirror_correction": {
+    "observed_runner_utc": "2026-11-14T12:29:03.298203+00:00",
+    "actual_root_document_mirrors": 18,
+    "documentation_index_files": 1,
+    "total_markdown_files": 19,
+    "all18_mirrors_match_root_bytes": true,
+    "superseded_draft_wording": "First full576pass/2skip/2fail (stale467receipt and docs); recorded actual failed JUnit, synced19mirrors, then578/2/0/580. Guards not weakened.",
+    "detection": "Additional final read-only assertion incorrectly expected19root mirrors; inspection showed18+README index, no drift. Project contract tests and sync script were correct and not modified.",
+    "scope": "Data-only current receipt correction after the verified source freeze; all258 tested runtime/config/skill files remain byte-identical. Immutable proof keeps the original development trace; this field explicitly corrects its shorthand.",
+    "previous_checked_archive_sha256": "0e8a10974bf1a338a75228c73b47f70320a048fcde8fa62995ae432d8a5c0a20",
+    "previous_archive_actually_extracted": true
+  }
+}

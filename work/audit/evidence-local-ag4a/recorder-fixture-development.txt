@@ -1,0 +1,66 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+__ test_verification_recorder_derives_measurement_date_instead_of_hardcoding ___
+
+tmp_path = PosixPath('/tmp/pytest-of-user/pytest-6/test_verification_recorder_der0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f0b71665f30>
+
+    def test_verification_recorder_derives_measurement_date_instead_of_hardcoding(tmp_path, monkeypatch):
+        spec = importlib.util.spec_from_file_location("verification_recorder", ROOT / "scripts/record-verification.py")
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        monkeypatch.setattr(module, "ROOT", tmp_path)
+        for name in ("README.md", "PROJECT_STATE.md", "CHANGELOG.md"):
+            (tmp_path / name).write_text("Current Python: `pass=1, skip=0, fail=0, collected=1`\n")
+        junit = tmp_path / "result.xml"
+        junit.write_text('<testsuites><testsuite timestamp="2030-02-03T10:00:00+00:00"><testcase name="real" /></testsuite></testsuites>')
+>       receipt = module.record(junit)
+                  ^^^^^^^^^^^^^^^^^^^^
+
+scripts/tests/test_hq_installation.py:79: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+scripts/record-verification.py:20: in record
+    result = read_junit(junit)
+             ^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/tmp/pytest-of-user/pytest-6/test_verification_recorder_der0/result.xml')
+
+    def read_junit(path: Path) -> dict:
+        path = Path(path)
+        if not path.is_file() or path.is_symlink() or not 0 < path.stat().st_size <= MAX_XML_BYTES:
+            raise ValueError('expected bounded regular completed JUnit XML')
+        data = path.read_bytes()
+        if b'<!DOCTYPE' in data or b'<!ENTITY' in data:
+            raise ValueError('DTD/entity declarations are not evidence')
+        root = ET.fromstring(data)
+        suites = [root] if root.tag == 'testsuite' else list(root) if root.tag == 'testsuites' else []
+        if not suites or any(s.tag != 'testsuite' or s.find('testsuite') is not None for s in suites):
+            raise ValueError('expected flat pytest testsuites')
+        counts = {'passed': 0, 'skipped': 0, 'failed': 0, 'collected': 0}
+        names, timestamps = set(), []
+        for suite in suites:
+            cases = suite.findall('testcase')
+            failure = error = skipped = 0
+            for case in cases:
+                identity = (case.get('classname', ''), case.get('name', ''))
+                if not identity[1] or identity in names:
+                    raise ValueError('missing/duplicate testcase identity')
+                names.add(identity)
+                flags = [case.find(k) is not None for k in ('failure', 'error', 'skipped')]
+                if sum(flags) > 1:
+                    raise ValueError('contradictory testcase outcomes')
+                failure += flags[0]
+                error += flags[1]
+                skipped += flags[2]
+            expected = {'tests': len(cases), 'failures': failure, 'errors': error, 'skipped': skipped}
+            for name, value in expected.items():
+                raw = suite.get(name, '')
+                if not raw.isdecimal() or int(raw) != value:
+>                   raise ValueError('suite header differs from actual testcase outcomes')
+E                   ValueError: suite header differs from actual testcase outcomes
+
+scripts/verification_evidence.py:48: ValueError
+=========================== short test summary info ============================
+FAILED scripts/tests/test_hq_installation.py::test_verification_recorder_derives_measurement_date_instead_of_hardcoding
+1 failed in 0.05s

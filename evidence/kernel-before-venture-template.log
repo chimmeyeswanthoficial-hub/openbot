@@ -1,0 +1,26 @@
+
+==================================== ERRORS ====================================
+_______ ERROR collecting packages/venture-sdk/tests/test_venture_sdk.py ________
+packages/venture-sdk/tests/test_venture_sdk.py:16: in <module>
+    REAL = yaml.safe_load((ROOT / ".openbot/ventures/media-api/venture.yaml").read_text())
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.13/pathlib/_local.py:546: in read_text
+    return PathBase.read_text(self, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.13/pathlib/_abc.py:632: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.13/pathlib/_local.py:537: in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   FileNotFoundError: [Errno 2] No such file or directory: '/home/user/.cache/openbot-studio-next/combined-source/OpenBot-Workspace/work/.openbot/ventures/media-api/venture.yaml'
+=============================== warnings summary ===============================
+../../../../openbot-s11-s12/venv/lib/python3.13/site-packages/fastapi/testclient.py:1
+  /home/user/.cache/openbot-s11-s12/venv/lib/python3.13/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+ERROR packages/venture-sdk/tests/test_venture_sdk.py - FileNotFoundError: [Er...
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+1 warning, 1 error in 2.31s

@@ -1,0 +1,15 @@
+{
+  "accepted_real_pilot_days": 0,
+  "earlier_preservation_check": "Original files and prior ZIP verified; a guessed process command-prefix assertion failed. Correct actual process identity was then read and compared. No signal or write to the original process occurred.",
+  "kernel_and_paired_control_unchanged_files": 4188,
+  "new_work_location": "excluded .cache/openbot-release-next only; session-only, not a durable backup",
+  "original_4173_pid1802_command_observed": "python3 -m http.server 4173 --bind 0.0.0.0 --directory /home/user/openbot-control/web",
+  "original_durable_bytes": 127999912,
+  "original_durable_files_preserved": 4212,
+  "originals_deleted_or_repacked": false,
+  "prior_delivered_zip_sha256": "a7e0aec0de71e346eacd318270e85aceb52473aa665213f0b041b767f0ba3abe",
+  "prior_delivered_zip_unchanged": true,
+  "public_release": false,
+  "schema": "openbot.successor-preservation/1",
+  "task_local_date": "2026-11-10"
+}

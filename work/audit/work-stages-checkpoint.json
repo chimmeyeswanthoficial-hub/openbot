@@ -1,0 +1,31 @@
+{
+  "scope": "S02-S05 local owned-fixture implementation checkpoint, not public release",
+  "python": {
+    "passed": 1210,
+    "skipped": 0,
+    "failed": 0,
+    "collected": 1210
+  },
+  "runner_timestamp": "2026-11-15T09:30:43.498805+00:00",
+  "measurement_date": "2026-11-15",
+  "junit_sha256": "03a96f546f616c301c0a7d53c22e945f061b09fe837562d9878d664c675ea90f",
+  "junit_artifact": "audit/evidence-local-s02-s05/full-python.xml",
+  "new_cases_vs_s01": 252,
+  "s01_base_cases": 958,
+  "python_config_input_files": 122,
+  "local_stage_implementation": [
+    "S02",
+    "S03",
+    "S04",
+    "S05"
+  ],
+  "qualified_human_acceptance": false,
+  "paid_provider_activation": false,
+  "customer_code": false,
+  "external_delivery": false,
+  "client_pairing": false,
+  "production_migration": false,
+  "deployment": false,
+  "pilot_started": false,
+  "limits": "repeat/fresh reconstruction receipts are in accompanying delivery packet; those do not supply external human/security/native/provider/ops/pilot/release gates"
+}

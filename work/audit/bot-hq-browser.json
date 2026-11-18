@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "profile": "local-only",
+  "actualBrowser": "Playwright Chromium",
+  "checks": [
+    "sign-in",
+    "built UI",
+    "real kernel report and task",
+    "note save",
+    "reload persistence",
+    "no external browser requests",
+    "no JS exceptions"
+  ],
+  "kernelRun": "run_b3150e706127",
+  "providersEnabled": false,
+  "scope": "Disposable local HTTP browser flow; no remote provider or hostile OS isolation proof."
+}

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="2" skipped="0" tests="2" time="0.172" timestamp="2026-11-14T17:40:10.647177+00:00" hostname="e2b.local"><testcase classname="services.sentinel.tests.test_economic_book" name="test_constructor_refuses_borrowed_transaction_without_rolling_back_caller_data" time="0.003"><failure message="AssertionError: assert False&#10; +  where False = &lt;sqlite3.Connection object at 0x7fd0bc316a70&gt;.in_transaction&#10; +    where &lt;sqlite3.Connection object at 0x7fd0bc316a70&gt; = Store(path='/tmp/pytest-of-user/pytest-20/test_constructor_refuses_borro0/unowned.sqlite3')._conn">tmp_path = PosixPath('/tmp/pytest-of-user/pytest-20/test_constructor_refuses_borro0')
+
+    def test_constructor_refuses_borrowed_transaction_without_rolling_back_caller_data(tmp_path):
+        store = Store(str(tmp_path / 'unowned.sqlite3'))
+        store._conn.execute("INSERT INTO ledger(ts,venture,kind,amount_usd,source,idempotency_key) "
+                            "VALUES('unit','media-api','revenue',42,'manual','uncommitted-caller')")
+        try:
+            with pytest.raises(EconomicError, match='existing_transaction_not_owned'):
+                EconomicBook(store, experimental=True)
+&gt;           assert store._conn.in_transaction
+E           AssertionError: assert False
+E            +  where False = &lt;sqlite3.Connection object at 0x7fd0bc316a70&gt;.in_transaction
+E            +    where &lt;sqlite3.Connection object at 0x7fd0bc316a70&gt; = Store(path='/tmp/pytest-of-user/pytest-20/test_constructor_refuses_borro0/unowned.sqlite3')._conn
+
+services/sentinel/tests/test_economic_book.py:381: AssertionError</failure></testcase><testcase classname="services.sentinel.tests.test_economic_book" name="test_ingest_refuses_borrowed_transaction_without_rolling_back_caller_data" time="0.004"><failure message="economic.EconomicUnavailable: economic_store_unavailable">self = &lt;economic_repository.EconomicBook object at 0x7fd0bbf71bd0&gt;
+faults = True
+
+    @contextmanager
+    def _transaction(self, *, faults=False):
+        with self.store._lock:
+            cursor = None
+            commit_started = False
+            try:
+                cursor = self.store._conn.cursor()
+                if not self.pg:
+&gt;                   cursor.execute('BEGIN IMMEDIATE')
+E                   sqlite3.OperationalError: cannot start a transaction within a transaction
+
+services/sentinel/economic_repository.py:184: OperationalError
+
+The above exception was the direct cause of the following exception:
+
+book = &lt;economic_repository.EconomicBook object at 0x7fd0bbf71bd0&gt;
+
+    def test_ingest_refuses_borrowed_transaction_without_rolling_back_caller_data(book):
+        book.store._conn.execute("INSERT INTO ledger(ts,venture,kind,amount_usd,source,idempotency_key) "
+                                 "VALUES('unit','media-api','revenue',42,'manual','uncommitted-caller')")
+        try:
+            with pytest.raises(EconomicError, match='existing_transaction_not_owned'):
+&gt;               book.ingest(encoded(), scope())
+
+services/sentinel/tests/test_economic_book.py:393: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+services/sentinel/economic_repository.py:297: in ingest
+    with self._transaction(faults=True) as cursor:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/usr/local/lib/python3.13/contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;economic_repository.EconomicBook object at 0x7fd0bbf71bd0&gt;
+faults = True
+
+    @contextmanager
+    def _transaction(self, *, faults=False):
+        with self.store._lock:
+            cursor = None
+            commit_started = False
+            try:
+                cursor = self.store._conn.cursor()
+                if not self.pg:
+                    cursor.execute('BEGIN IMMEDIATE')
+                else:
+                    # Serializes concurrent writers across PG connections, not just threads.
+                    cursor.execute('LOCK TABLE economic_v1_messages IN SHARE ROW EXCLUSIVE MODE')
+                yield cursor
+                if faults:
+                    self._fault('before_commit')
+                commit_started = True
+                self.store._conn.commit()
+            except BaseException as exc:
+                with suppress(*self.db_errors):
+                    self.store._conn.rollback()
+                if isinstance(exc, self.db_errors):
+&gt;                   raise EconomicUnavailable(uncertain=commit_started) from exc
+E                   economic.EconomicUnavailable: economic_store_unavailable
+
+services/sentinel/economic_repository.py:197: EconomicUnavailable</failure></testcase></testsuite></testsuites>

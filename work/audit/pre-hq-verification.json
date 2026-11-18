@@ -1,0 +1,16 @@
+{
+  "scope": "local Python source tests; outcome snapshot, not a production certification",
+  "session_date": "2026-11-10",
+  "runner_timestamp": "2026-11-13T16:40:39.168681+00:00",
+  "junit_sha256": "81b340373d0b9b452a9019bf4cda5f1ee81e6b995c3df6063ba2f33834b8e2cf",
+  "python": {
+    "passed": 251,
+    "skipped": 2,
+    "failed": 0,
+    "collected": 253
+  },
+  "limits": [
+    "PostgreSQL tests skipped unless explicitly opted into a disposable test database",
+    "No real Bot/model/payment provider/deploy/long-duration pilot exercised"
+  ]
+}

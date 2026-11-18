@@ -1,0 +1,15 @@
+{
+  "schema": "openbot.reference-test-tools-observation/1",
+  "bwrap_sha256": "573236e5328ac2ebb08f59ae3a9805b4f8d12bdef14be8af4450d5463294985f",
+  "bwrap_excluded_path": "/home/user/.cache/openbot-reference-next/workspace/OpenBot-Workspace/work/.cache/openbot-isolation/bubblewrap-0.12.0-deb13u1/usr/bin/bwrap",
+  "bwrap_mode": "0755",
+  "media_receipt": "/home/user/.cache/openbot-s06-s10/evidence/media-tools.json",
+  "media_receipt_sha256": "87c923a8c97be6c01234ec84cc241367dd5c8f907873a544327262884b77ecbe",
+  "media_library_path": "/home/user/.cache/openbot-s06-s10/tools/ffmpeg/usr/lib/x86_64-linux-gnu",
+  "media_binary_and_library_hashes_checked": 213,
+  "system_installs": 0,
+  "new_downloads": 0,
+  "vm_started": false,
+  "services_started_by_preparation": false,
+  "tools_redistributed": false
+}

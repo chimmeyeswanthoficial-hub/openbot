@@ -1,0 +1,251 @@
+{
+  "task_date": "2026-11-10",
+  "observed_runner_utc": "2026-11-14T10:44:46.429737+00:00",
+  "status": "Complete narrow offline code + primary and independently installed source verification. Final archive extraction/reconciliation is separately recorded in the adjacent continuation-bundle receipt; not a separate reinstall of final archive.",
+  "decision": {
+    "product": "Broader governed AI work delivery, not merely an OS",
+    "first_pilot_target": "Human-led QA/documentation",
+    "second_target": "Owned-footage editing",
+    "social": "Transparent company identity with real human administrator; drafts only; no accounts connected",
+    "delegation": "Technical stewardship only; human business/account/spend/outbound/release authority unchanged"
+  },
+  "implemented": [
+    "Offline operator-attested opportunity triage and fixed clarification questions; never run/send",
+    "Bounded UTF-8 pytest-style JUnit subset: actual cases, declared-count/structure/status refusal and required-case/source/brief/run binding; never delivery approval or specialist parity",
+    "Scoped pending/exact-host-review/revocable/expiring direct feedback with atomic local audit; quoted untrusted context only, no model consumer"
+  ],
+  "source_sha256": {
+    "services/gateway/src/workbench.py": "d89d3d8fded44c9c135860e971b60f0abce5b32636eaea8d9a300d3853b03981",
+    "services/gateway/tests/test_workbench.py": "4b40eb9dade685926a8f3f0bca5b1a6b0f7fd35c95eec72a04f031aaa872781a",
+    "scripts/workforce-demo.py": "8d22c1b14e2d984661d9c196c1e3f038c865f9ae52e1ee1967806c6998fd969f",
+    "Makefile": "1da7010da347104de434b6764fcef3e06ff3980742c020934baee6362b1e6998"
+  },
+  "development": {
+    "baseline": {
+      "passed": 338,
+      "skipped": 2,
+      "failed": 0,
+      "collected": 340
+    },
+    "absent_feature": "Observed missing-module collection error",
+    "first_implementation": {
+      "passed": 58,
+      "failed": 14,
+      "cause": "SQL insert arity; repaired then72green"
+    },
+    "structural_challenge": {
+      "passed": 73,
+      "failed": 7,
+      "after": 80
+    },
+    "final_notrun_challenge": {
+      "passed": 79,
+      "failed": 1,
+      "after": 80
+    },
+    "focused_final_passed": 80,
+    "bookkeeping": "Stale outcome-count, then mirror, then new-skill-index guards refused intermediate states; recorded actual outcomes, synced mirrors and indexed skill without weakening tests. Initial count-guard raw log was overwritten by the next run (its tool output remains); retained mirror/index/SQL/structure/status logs are identified in proof manifest."
+  },
+  "primary": {
+    "python": {
+      "passed": 418,
+      "skipped": 2,
+      "failed": 0,
+      "collected": 420,
+      "junit_sha256": "32e299cd7326122cfcb9069608e8bb5069bc7d7a21814b572a78b51db12cc561"
+    },
+    "lint": "pass",
+    "release_check": "pass",
+    "node_reuse": 25,
+    "node_hq": 26,
+    "verify": {
+      "pass": 22,
+      "fail": 0,
+      "warn": 7
+    },
+    "smoke": {
+      "pass": 10,
+      "fail": 0
+    },
+    "registry": {
+      "entries": 14,
+      "problems": 0
+    },
+    "actual_fixed_process_demo": "passed; historical executor unchanged",
+    "actual_new_qa_packet": {
+      "counts": {
+        "passed": 6,
+        "failed": 0,
+        "skipped": 0,
+        "collected": 6
+      },
+      "source": "Actually executed existing media quarantine regressions, not customer work or production video proof",
+      "packet": "actual-demo.json inside evidence archive",
+      "provenance": "qa-sample-provenance.json inside evidence archive"
+    }
+  },
+  "independent_source_check": {
+    "method": "Fresh empty source copy with consistent sanitized SQLite copies; no dependency/toolchain/build copied; actual pinned installer into independent trees on the SAME host. Two source files and append-only registry updated to final status fix before final repeated gates. Not a separate host/security audit or an install from final archive.",
+    "python": {
+      "passed": 418,
+      "skipped": 2,
+      "failed": 0,
+      "collected": 420,
+      "junit_sha256": "c667f64116082df1d21dd823b7d943a322de57e6a792f5869b66b914924e8b70"
+    },
+    "lint": "pass",
+    "release_check": "pass",
+    "node_reuse": 25,
+    "node_hq": 26,
+    "verify": {
+      "pass": 22,
+      "fail": 0,
+      "warn": 7
+    },
+    "smoke": {
+      "pass": 10,
+      "fail": 0
+    },
+    "workbench_demo": "passed; synthetic consent/reviewer explicitly labelled",
+    "fixed_executor_demo": "passed",
+    "browser": "Not rerun this request: no UI runtime source changed. Prior two actual HTTP history flows remain historical, not fresh HTTPS proof."
+  },
+  "tested_runtime_inventory": {
+    "files": 245,
+    "canonical_inventory_sha256": "686bb5322b225658c54d8c620dbe236cd95a9d63ed1decddc6a70157d0ea6817",
+    "algorithm": "Sorted rows(path,bytes,mode,sha256); JSON sort_keys=True,separators=(comma,colon), UTF-8. Paths selected via scripts/handoff.py source selector, then fixed or root/suffix below. Exact inventory is inside proof archive.",
+    "fixed": [
+      "Makefile",
+      "pyproject.toml",
+      "requirements.handoff.lock.txt",
+      "requirements.txt"
+    ],
+    "roots": [
+      "apps/bot-hq/",
+      "services/",
+      "packages/",
+      "scripts/",
+      "tools/",
+      ".claude/skills/"
+    ],
+    "suffixes": [
+      ".js",
+      ".json",
+      ".md",
+      ".mjs",
+      ".py",
+      ".sh",
+      ".toml",
+      ".ts",
+      ".tsx",
+      ".txt",
+      ".yaml",
+      ".yml"
+    ],
+    "primary_matches_independently_tested_candidate": true,
+    "proof_member": "tested-runtime-inventory.json"
+  },
+  "preservation": {
+    "baseline_selected_files": 8988,
+    "baseline_manifest_sha256": "501436ff3e1e667dcdf5459055787fb031be60e0bcfcaf15914c9e678c442c8c",
+    "unchanged_original_files": 8951,
+    "modified_original_paths": [
+      ".claude/skills/README.md",
+      ".claude/skills/openbot-os/SKILL.md",
+      ".openbot/post_mortems/error_registry.jsonl",
+      "AGENTS.md",
+      "ANTIGRAVITY_WORK_ORDERS.md",
+      "CHANGELOG.md",
+      "CONTINUE_HERE.md",
+      "Makefile",
+      "NEXT_CHAT_PROMPT.txt",
+      "OUR_PROJECT.md",
+      "PORTABLE_HANDOFF.md",
+      "PROJECT_MEMORY.md",
+      "PROJECT_STATE.md",
+      "README.md",
+      "aboutme.md",
+      "audit/verification-current.json",
+      "docs/CHANGELOG.md",
+      "docs/PROJECT_STATE.md",
+      "docs/aboutme.md"
+    ],
+    "missing_raw_originals": [
+      "archive/PROJECT_MEMORY-before-hq-install.md",
+      "archive/PROJECT_MEMORY-before-public-intake.md",
+      "audit/BOT_HQ_FINAL_VERIFICATION.md",
+      "audit/EXECUTION_FINAL_VERIFICATION.md",
+      "audit/antigravity-intake.json",
+      "audit/bot-hq-installed-source.json",
+      "audit/bot-hq-source-intake.json",
+      "audit/cleanup.json",
+      "audit/continuation-restore.json",
+      "audit/execution-restore.json",
+      "audit/handoff-wal-diagnosis.json",
+      "audit/hq-cleanup-preservation.json",
+      "audit/hq-history-review.json",
+      "audit/hq-sqlite-checkpoint.json",
+      "audit/master-guide-evidence-compression.json",
+      "audit/python-handoff-resolution.json",
+      "audit/source-secret-heuristic.json",
+      "uploads/Untitled document (14).pdf"
+    ],
+    "all_missing_raw_originals_recoverable_exactly": true,
+    "recovery_receipt": "audit/workforce-evidence-consolidation.json",
+    "selected_donor_files_unchanged": 8565,
+    "selected_donor_payload_bytes": 104425273,
+    "private_omissions": "Credential/env files were not imported/read or written; source-selector fingerprint is not a credential/full-history audit",
+    "locks_unchanged": {
+      "apps/bot-hq/package-lock.json": "1b976d2c91a153aed66a69e8c565639817ced6193af2e7c43fab4c691bb12eb8",
+      "audit/bot-hq-runtime-lock.json": "5c9b521253445c7de6d5358b3b585b1bc6a0719ffa33a30279de13c6b4a80b11",
+      "requirements.handoff.lock.txt": "d2969a607315fac9bdb01f83ec524a90fa65b0ca83bbdb42e67605d587bd2e59"
+    },
+    "auxiliary_encoding_paths": [
+      "uploads/Untitled document (14).pdf"
+    ],
+    "primary_databases_byte_unchanged": {
+      ".openbot/hq-kernel/sentinel.sqlite3": "c19818e6ebc29839d02f2814118107dde5712dab77a6b42c382204091a608d39",
+      ".openbot/hq/hq.sqlite3": "f60d69cd7d782ef3a50fd543bf13a4056047f4659bac702016a7e80c01056eac"
+    },
+    "original_registry_entries": 12,
+    "original_registry_prefix_sha256": "a1f10a3df0a6a04a38d6a61482f7662387297f5561f105fb796d57c614afe78c",
+    "current_registry_entries": 14,
+    "no_git_push_or_deploy": true,
+    "prior_bundle_sha256": "f2962822e12b2fe4d6d3be1f784286d111b3219257a338487c82c2593fdb6d67"
+  },
+  "evidence": {
+    "archive": "archive/workforce-verification.tar.xz",
+    "bytes": 38904,
+    "sha256": "f6ca824bd9ad9ec86d77d6c23ea5c05cb7135d1e076cfdccc6dc679d3202126f",
+    "regular_members": 42,
+    "manifest": "manifest.json inside evidence archive",
+    "all_roundtrips_hash_size_mode_verified": true,
+    "recover": "tar -xJOf archive/workforce-verification.tar.xz MEMBER"
+  },
+  "external_checks": {
+    "linkedin_connector": "unsupported in this conversation",
+    "youtube_connector": "unsupported in this conversation",
+    "apps_connected": 0,
+    "youtube_developer_policies": "All14 fetched chunks read; no live integration or compliance certification",
+    "linkedin_legal": "Full agreement/API-terms500 and news403; official API documentation + search excerpts only, not full legal clearance",
+    "actual_listing_page": "Cohesive Upwork page retrieved: human-participation-only candidate; live availability/AI-use/eligibility not confirmed; no application",
+    "other_qa_url": "Redirected to generic directory; unverified, not counted as available work",
+    "social_api_training_rights": "Not granted by public visibility/OAuth; no platform data imported into feedback store"
+  },
+  "limits": [
+    "No real customers, contracts, settled revenue, spend, social sends/likes/comments, account creation, model training, automatic code promotion, new video provider or media rendering",
+    "Trusted host Authority/Owner conventions are not remote authentication, independent human verification, hostile-code/tenant/OS/egress isolation or tamper-proof storage",
+    "Feedback receipt labels are attestations; no consent-authentication channel, backup/export/downstream deletion system, encrypted customer storage or background expiry service implemented",
+    "JUnit source/exit/revision remain host attestations; test origin/quality and human-specialist parity not measured",
+    "Two disposable opt-in PostgreSQL tests skipped; no actual PG, provider-cost/stop, HTTPS preview, deployment, long-duration pilot or external security audit",
+    "AG1 mandatory authenticated isolation, then AG2 real provider/cost/stop and accountable human pilot/release remain blocking"
+  ],
+  "workspace_before_final_package": {
+    "files": 8988,
+    "bytes": 127739928,
+    "decimal_megabytes": 127.74,
+    "file_cap": 10000,
+    "byte_cap": 128000000,
+    "within_cap": true
+  }
+}

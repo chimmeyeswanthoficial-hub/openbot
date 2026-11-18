@@ -1,0 +1,39 @@
+{
+  "verification-only-local-gates-corrected": {
+    "command": [
+      "make",
+      "lint",
+      "release-check"
+    ],
+    "exit": 0,
+    "runner_started": "2026-11-14T17:34:23.399100+00:00",
+    "duration_s": 29.293
+  },
+  "verification-only-isolation": {
+    "command": [
+      "make",
+      "isolation-test"
+    ],
+    "exit": 0,
+    "runner_started": "2026-11-14T17:34:52.692695+00:00",
+    "duration_s": 1.218
+  },
+  "verification-only-isolation-demo": {
+    "command": [
+      "make",
+      "isolation-demo"
+    ],
+    "exit": 0,
+    "runner_started": "2026-11-14T17:34:53.911194+00:00",
+    "duration_s": 0.415
+  },
+  "verification-only-donors": {
+    "command": [
+      "make",
+      "check-mirrors"
+    ],
+    "exit": 0,
+    "runner_started": "2026-11-14T17:34:54.327305+00:00",
+    "duration_s": 0.065
+  }
+}

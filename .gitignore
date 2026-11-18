@@ -1,0 +1,26 @@
+# Cache and generated dirs
+.cache/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.venv/
+node_modules/
+
+# Private state (never commit)
+work/.openbot/private/
+work/.openbot/db/
+work/.openbot/grants/
+*.db
+*.sqlite
+
+# Build caches
+control/releases/windows-x64/build-cache/
+*.tar.xz
+openbot-continuation*
+
+# Private fixture credentials
+*.pem
+*.p12
+*.jks
+*.keystore

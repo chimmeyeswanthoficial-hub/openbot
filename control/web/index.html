@@ -1,0 +1,694 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light"><meta name="description" content="OpenBot companion workspace. Local drafts and explicitly paired, governed owned-QA work. No live AI teammate or computer is implied.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-9ZabWOTI3/VaD140m/02KYksfaGt2RSkwodBLMWRNbs='; style-src 'unsafe-inline'; img-src data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'"><title>OpenBot · Your companions</title>
+<style>:root{color-scheme:light;--bg:#fff;--panel:#fff;--line:#e9e9e7;--ink:#202124;--muted:#80817f;--accent:#6654ce;--red:#ad3434;--radius:14px;font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:#fff}*{box-sizing:border-box}body{margin:0}button,input,textarea,select{font:inherit}button,a,input,textarea,select{outline-offset:3px}button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,[tabindex]:focus-visible{outline:2px solid #7963da}button{cursor:pointer;color:inherit}button:disabled{opacity:.4;cursor:not-allowed}a{color:inherit;text-decoration:none}h1,h2,h3,p{margin:0}h1,h2,h3{line-height:1.25}h1{font-size:28px;letter-spacing:-.8px;font-weight:580}h2{font-size:19px;letter-spacing:-.35px;font-weight:600}h3{font-size:14px;font-weight:580}small{font-size:11px}.muted{color:var(--muted)}.eyebrow{font-size:9px;letter-spacing:1.5px;font-weight:600;color:#96968f}.sprite{position:absolute;width:0;height:0;overflow:hidden}.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}.skip{position:fixed;top:-70px;left:20px;z-index:100;padding:11px 16px;border-radius:7px;background:#1c1c1c;color:#fff}.skip:focus{top:12px}.workspace{height:100vh;height:100dvh;min-height:400px;display:grid;grid-template-columns:284px minmax(0,1fr) 310px;overflow:hidden}.contact-panel{min-width:0;background:#f5f5f3;border-right:1px solid #dededb;display:flex;flex-direction:column;overflow:hidden}.contact-header{height:71px;display:flex;align-items:center;padding:0 19px;gap:11px;flex-shrink:0}.wordmark{font-size:22px;letter-spacing:-1px;font-weight:650}.wordmark span{color:#8270d2}.profile-button{display:none;border:1px solid #e1e0dc;background:#eae6dd;color:#766b57;width:30px;height:30px;border-radius:50%;font-size:11px}.header-actions{margin-left:auto;display:flex;gap:6px}.icon-button{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;padding:7px;border:0;border-radius:8px;background:none;color:#777b77;flex-shrink:0}.icon-button:hover{background:#e9e9e5;color:#222}.icon-button svg,button>svg,.button svg,.footer-item>svg,.contact-search>svg{width:19px;height:19px;stroke:currentColor;stroke-width:1.55;fill:none;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}.mobile-search,.mobile-back{display:none}.contact-search{display:flex;align-items:center;gap:8px;height:34px;background:#eaeae7;border:1px solid #e3e3df;border-radius:9px;margin:0 13px 16px;padding:0 11px;color:#90918b;flex-shrink:0}.contact-search svg{width:15px;height:15px}.contact-search input{width:100%;min-width:0;border:0;background:none;outline:none;padding:0;font-size:12px;color:#30332e}.contact-search input::placeholder{color:#9b9d96}.list-note{font-size:8px;letter-spacing:1.1px;color:#999d94;margin:0 20px 9px;display:flex;justify-content:space-between}.list-note span{letter-spacing:0;font-size:9px}.contact-list{min-height:0;overflow-y:auto;flex:1;padding:0 9px 12px}.contact-row{display:flex;align-items:center;gap:11px;width:100%;padding:11px 10px;border:0;background:none;border-radius:10px;text-align:left;margin-bottom:2px;min-height:67px}.contact-row:hover{background:#eaeae6}.contact-row.active{background:#e6e6e2}.avatar{width:42px;height:42px;flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;position:relative}.avatar svg{width:100%;height:100%;overflow:visible}.contact-info{min-width:0;flex:1}.contact-title{display:flex;align-items:center;gap:6px;justify-content:space-between;font-size:12px;font-weight:550;color:#2a2c28;margin-bottom:3px}.contact-title small{font-size:9px;font-weight:400;color:#a1a39c;white-space:nowrap}.contact-snippet{display:block;font-size:11.5px;color:#898c85;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%}.mobile-favorites{display:none}.contact-footer{padding:12px 14px 14px;background:#f5f5f3;flex-shrink:0;border-top:1px solid #e9e9e4}.footer-item{display:flex;width:100%;align-items:center;gap:11px;padding:10px 8px;background:none;border:0;text-align:left;font-size:11px;border-radius:7px}.footer-item:hover{background:#eaeae5}.footer-item>svg{width:17px;height:17px;color:#72776d}.footer-item small{margin-left:auto;font-size:9px;color:#a0a298}.footer-item i{width:6px;height:6px;border-radius:50%;background:#b8bcb2;margin-left:auto}.footer-item i.connected{background:#52886b}.account-button{display:flex;align-items:center;gap:11px;background:none;border:0;text-align:left;width:100%;padding:14px 7px 0;font-size:11px}.account-button>span:nth-child(2){flex:1}.account-button small{display:block;font-size:9px;color:#96998f;margin-top:2px}.account-button>svg{width:15px;height:15px;stroke:#9da294;fill:none}.user-circle{width:29px;height:29px;background:#e6e1d6;border:3px solid #fff;border-radius:50%;font-size:10px;display:grid;place-items:center;color:#7e715a}.conversation-panel{min-width:0;display:flex;flex-direction:column;overflow:hidden;background:#fff}.conversation-header{height:71px;display:flex;align-items:center;gap:12px;padding:0 22px;border-bottom:1px solid #f0f0ed;flex-shrink:0}.thread-heading{min-width:0;flex:1;display:flex;align-items:center;gap:10px}.thread-heading .avatar{width:29px;height:29px}.thread-heading strong{font-size:12px;font-weight:550;display:block;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.thread-heading small{font-size:9px;color:#989c92;display:block;margin-top:2px}.thread-header-actions{display:flex;align-items:center;gap:12px}.gateway-badge{font-size:9px;color:#a0a398;white-space:nowrap}.gateway-badge.verified{color:#55826b}.details-panel{min-width:0;border-left:1px solid #dededb;background:#fff;overflow:auto;display:flex;flex-direction:column}.details-toolbar{height:63px;display:flex;align-items:center;padding:0 12px;gap:5px}.details-toolbar .push{margin-left:auto}.computer-preview{margin:0 16px;border:1px solid #e0e1db;background:#f2f3ef;border-radius:12px;padding:14px 11px 11px}.computer-desktop{height:161px;border-radius:6px;border:1px solid #daddd2;background:linear-gradient(145deg,#e2e5db,#eef0e7);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;color:#9aab8c;position:relative;overflow:hidden}.computer-desktop:before{content:"";position:absolute;inset:0;background-image:linear-gradient(#bcc6ae20 1px,transparent 1px),linear-gradient(90deg,#bcc6ae20 1px,transparent 1px);background-size:22px 22px}.computer-desktop>svg{width:33px;height:33px;stroke:#7a8b6b;stroke-width:1.25;fill:none;z-index:1}.computer-desktop strong{font-size:10px;font-weight:500;color:#7d8a70;z-index:1}.computer-desktop small{font-size:8px;color:#98a18e;z-index:1}.computer-dock{display:flex;justify-content:center;gap:4px;margin-top:9px}.computer-dock i{width:8px;height:8px;border-radius:2px;background:#cbd1bf}.computer-dock i:nth-child(2){background:#b6a4df}.computer-dock i:nth-child(3){background:#92b9cf}.computer-caption{text-align:center;font-size:11px;color:#999e93;padding:12px 12px 2px;overflow-wrap:anywhere}.computer-subtitle{font-size:9px;text-align:center;color:#a9ada4;margin-bottom:18px}.routine-heading{font-size:11px;color:#9ba293;padding:21px 21px 10px}.routine-row{display:flex;align-items:flex-start;gap:9px;padding:10px 21px;width:100%;background:none;border:0;text-align:left}.routine-row>svg{width:15px;height:15px;stroke:#7fa49a;fill:none;stroke-width:1.4;margin-top:2px;flex-shrink:0}.routine-row strong{font-size:11px;font-weight:500;display:block;margin-bottom:2px}.routine-row small{font-size:10px;color:#9da397;display:block}.routine-row:hover{background:#f6f7f3}.routine-footnote{font-size:9px;line-height:1.8;color:#a2a899;padding:17px 22px}.details-actions{padding:7px 20px 22px;display:grid;gap:9px}.details-actions .button{font-size:10px;min-height:34px}.details-bottom{margin-top:auto;border-top:1px solid #efefeb;padding:16px 22px;font-size:9px;line-height:1.8;color:#9fa695}.details-bottom b{font-weight:500;color:#7f8972}#main{flex:1;min-height:0;min-width:0;outline:none;overflow:auto}.thread{display:flex;flex-direction:column;height:100%;min-height:0}.message-list{overflow-y:auto;flex:1;padding:29px 27px 28px;display:flex;flex-direction:column;align-items:flex-start;gap:12px}.date-divider{align-self:center;font-size:9px;color:#a4a79d;margin-bottom:10px}.message{max-width:84%;font-size:12px;line-height:1.65;padding:12px 15px;white-space:pre-wrap;overflow-wrap:anywhere}.message.user{align-self:flex-end;background:#151515;color:#fff;border-radius:17px 17px 5px 17px}.message.system{background:#f0f0ed;color:#484c43;border-radius:5px 17px 17px 17px}.message small{display:block;font-size:8px;letter-spacing:.6px;margin-bottom:4px;color:#a1a69b}.message.user small{color:#b2b2ab}.message.system .text-button{font-size:10px;padding:8px 0 0;color:#7a6f9c}.empty-conversation{max-width:380px;align-self:center;text-align:center;margin:auto;padding:35px 0}.empty-conversation>.avatar{width:68px;height:68px;margin-bottom:24px}.empty-conversation h1{font-size:25px;letter-spacing:-.75px;line-height:1.3;margin-bottom:13px}.empty-conversation>p{font-size:12px;color:#929889;line-height:1.9}.empty-conversation .eyebrow{margin-bottom:11px}.conversation-suggestions{display:flex;gap:7px;flex-wrap:wrap;justify-content:center;margin-top:22px}.suggestion{border:1px solid #e7e8e1;background:#fff;border-radius:8px;font-size:10px;padding:7px 10px;color:#858e79}.suggestion:hover{background:#f7f8f2}.example-label{align-self:center;border:1px solid #e6e2f3;color:#9281ad;background:#fbf9ff;border-radius:7px;padding:6px 10px;font-size:9px;text-align:center}.composer-area{padding:12px 22px 14px;flex-shrink:0;background:#fff}.composer{border:1px solid #e5e6e1;border-radius:22px;padding:9px 10px;display:flex;align-items:flex-end;gap:9px;box-shadow:0 2px 8px #24261104}.composer:focus-within{border-color:#c2b4dc;box-shadow:0 0 0 2px #9e86d00a}.composer .attach{background:#f3f3f0;border:1px solid #e5e5de;border-radius:50%;width:29px;height:29px;padding:5px}.composer textarea{display:block;min-height:29px;max-height:160px;resize:vertical;flex:1;min-width:0;background:none;color:#383d30;border:0;outline:none;padding:4px 0;font-size:12px;line-height:1.6}.composer textarea::placeholder{color:#a2a697}.composer .send-button{width:30px;height:30px;background:#151515;color:#fff;border:0;display:grid;place-items:center;border-radius:50%;padding:7px}.composer .send-button svg{width:17px;height:17px}.composer-note{font-size:8px;text-align:center;color:#a7ad9c;line-height:1.8;padding-top:8px}.composer-note button{font-size:inherit;color:inherit;border:0;background:none;text-decoration:underline;padding:0 3px}.button{display:inline-flex;align-items:center;justify-content:center;gap:7px;border:1px solid #dedfd9;border-radius:8px;background:#fff;color:#525a46;padding:9px 12px;font-size:11px;line-height:1.5;min-height:36px}.button:hover{background:#f5f6f1}.button.primary{background:#181b15;color:#fff;border-color:#181b15}.button.primary:hover{background:#33382a}.button.danger{color:#a64848;border-color:#ebd4d4}.button.ghost{background:none;border-color:transparent}.button.small{padding:6px 10px;min-height:31px;font-size:10px}.button.full{width:100%}.text-button{display:inline-flex;align-items:center;gap:6px;border:0;background:none;color:#8b829d;font-size:11px;padding:4px 0}.text-button svg{width:12px;height:12px}.page{padding:30px;max-width:1200px;margin:auto}.page-header{display:flex;gap:18px;align-items:flex-start;justify-content:space-between;padding-bottom:25px;border-bottom:1px solid var(--line);margin-bottom:24px}.page-header h1{margin-top:10px}.page-header p{font-size:11px;line-height:1.85;color:#979d8e;max-width:650px;margin-top:12px}.panel{border:1px solid #e5e7dd;background:#fff;border-radius:12px;padding:20px;min-width:0}.panel h2{font-size:16px}.panel p.muted{font-size:11px;line-height:1.85;margin-top:11px}.tool-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.tool-card{border:1px solid #e4e6dc;background:#fff;text-align:left;padding:20px;border-radius:12px;display:flex;gap:15px;align-items:flex-start;min-width:0}.tool-card:hover{background:#fafbf6;border-color:#cdd3c0}.tool-card>svg{width:23px;height:23px;stroke:#949d87;stroke-width:1.4;fill:none;flex-shrink:0}.tool-card h3{font-size:13px;margin-bottom:7px}.tool-card p{font-size:10px;color:#9ca392;line-height:1.85}.tool-card small{display:inline-block;color:#a4aa9a;background:#f6f7f2;padding:3px 6px;border-radius:4px;font-size:8px;margin-top:11px}.inline-note{font-size:10px;line-height:1.9;color:#9ca492;margin:14px 0}.notice{border:1px solid #e6e6d9;background:#fbfbf5;color:#8b8e75;border-radius:8px;font-size:11px;line-height:1.85;padding:13px 16px;margin:15px 0}.status-pill{font-size:9px;color:#859477}.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.field,label:not(.contact-search):not(.finance-confirm):not(.check-row):not(.setting-row){font-size:11px;color:#7f8973}label:not(.contact-search):not(.finance-confirm):not(.check-row):not(.setting-row){display:block;margin-top:16px}input:not([type=checkbox]):not([type=file]):not(#contact-search),textarea:not(#brief-input),select{display:block;width:100%;min-width:0;border:1px solid #e0e4d7;background:#fdfefa;color:#4d5941;border-radius:7px;padding:10px 11px;font-size:12px;margin-top:7px}textarea:not(#brief-input){min-height:98px;resize:vertical;line-height:1.8}input[type=checkbox]{accent-color:#6c8260;flex-shrink:0}.check-row,.setting-row{display:flex;align-items:flex-start;gap:9px;font-size:11px;color:#8b937f;line-height:1.85;margin:15px 0}.check-row input,.setting-row input{margin-top:4px}.check-row small{color:#a2ac94;margin-left:auto;font-size:9px;white-space:nowrap}.form-error{font-size:11px;color:#b46868;line-height:1.8;margin:12px 0;overflow-wrap:anywhere}.form-error:empty{display:none}fieldset{border:1px solid #e7eada;border-radius:8px;margin:19px 0;padding:7px 12px}legend{font-size:10px;color:#9ba588;padding:0 5px}.actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:18px}.trust-grid,.social-layout{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.trust-grid ul{padding-left:16px;font-size:11px;line-height:2;color:#98a18a}.trust-grid .panel+.panel{margin-top:0}.source-card{margin-bottom:16px;display:flex;align-items:flex-start;gap:24px;justify-content:space-between}.source-card p{font-size:11px;line-height:1.85;color:#95a085;margin-top:10px;max-width:600px}.source-card .button{flex-shrink:0}.code-block,pre{display:block;font:10px/1.8 ui-monospace,Consolas,monospace;background:#f6f8f0;color:#889773;padding:12px;border:1px solid #e3e9d7;border-radius:7px;white-space:pre-wrap;overflow-wrap:anywhere;margin-top:13px}.digest{font:10px/1.9 ui-monospace,Consolas,monospace;background:#f7f8f2;border:1px solid #e7ebdd;color:#8e9e77;padding:13px;border-radius:8px;overflow-wrap:anywhere;margin:14px 0}.task-list{display:grid;gap:11px;margin-top:18px}.task-card{border:1px solid #e5e9db;border-radius:10px;padding:17px}.task-card h3{font-size:12px;overflow-wrap:anywhere}.task-meta{font-size:9px;color:#a0ad8c;margin-top:7px;overflow-wrap:anywhere}.task-status{display:inline-block;background:#f3f7eb;border:1px solid #e6edd9;color:#91a174;padding:3px 7px;border-radius:5px;font-size:9px;margin:9px 0}.book-rows{font-size:11px;line-height:2.1;color:#90a070}.social-result ul{font-size:11px;line-height:1.9;color:#94a17d;padding-left:17px}.social-result li{margin:8px 0}.platforms{display:flex;gap:6px;margin:18px 0}.platforms button.active{background:#ecefe4;border-color:#c6d0b6}.pulse-icon{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border:1px solid #e0e8d2;background:#f5f8ed;border-radius:10px;color:#9bac80}.pulse-icon svg{width:18px;height:18px;stroke:currentColor;stroke-width:1.4;fill:none}dialog{border:1px solid #e1e4d8;border-radius:15px;box-shadow:0 25px 90px #18220c23;background:#fff;width:490px;max-width:calc(100vw - 28px);max-height:calc(100dvh - 40px);overflow:auto;padding:22px;color:#566447}dialog::backdrop{background:#19210c3b;backdrop-filter:blur(3px)}.modal-head{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:15px}.modal-head h2{font-size:19px;letter-spacing:-.4px}.modal-head .icon-button{margin:-5px -6px -5px 0}.modal-copy{font-size:11px;line-height:1.85;color:#9cab88}.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:100;max-width:min(540px,calc(100vw - 30px));padding:12px 17px;border:1px solid #d7e1c4;background:#fbfef5;color:#81975e;font-size:11px;line-height:1.8;border-radius:9px;box-shadow:0 5px 25px #18300012}.noscript{padding:30px}.workspace.no-details{grid-template-columns:284px minmax(0,1fr)}.workspace.no-details>.details-panel{display:none}.workspace.plugin-view{grid-template-columns:284px minmax(0,1fr)}.workspace.plugin-view>.details-panel{display:none}.workspace.plugin-view #show-computer{display:none}.contact-empty{padding:25px 12px;color:#a6b095;font-size:11px}.review-list{font-size:11px;color:#9fae87;line-height:1.9;padding-left:18px}.finance-boundary{display:flex;align-items:center;gap:20px;border:1px solid #e0e7d6;background:#f8faf3;border-radius:10px;padding:13px 16px;margin-bottom:20px}.finance-boundary p{font-size:10px;color:#a0ac8c;line-height:1.85}.finance-boundary .status-pill{white-space:nowrap}.finance-layout{display:grid;grid-template-columns:minmax(270px,.9fr) minmax(0,1.2fr);gap:19px;align-items:start}.finance-input-heading{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;margin-bottom:13px}.finance-input-heading .text-button{font-size:10px}.finance-input code,.finance-attribution code{font-size:10px;overflow-wrap:anywhere}.finance-input textarea{font:10px/1.9 ui-monospace,Consolas,monospace;min-height:165px;max-height:400px}.finance-file-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.finance-file-row .inline-note{flex:1;min-width:130px;font-size:9px}.finance-confirm{display:flex;align-items:flex-start;gap:9px;border-top:1px solid #e4ebd6;padding-top:16px;margin-top:18px;font-size:10px;line-height:1.9;color:#a1af8c}.finance-confirm input{margin-top:5px}.finance-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:16px}.finance-empty{min-height:300px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:15px}.finance-empty .pulse-icon{margin-bottom:22px}.finance-empty p{font-size:11px;color:#a2b18b;line-height:1.9;max-width:320px;margin-top:12px}.finance-result-header{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap}.finance-result-header h2{font-size:20px;margin:9px 0 7px}.finance-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid #e4ebd8;background:#f8fbf2;border-radius:9px;margin:23px 0 16px}.finance-metrics>div{padding:15px 11px;min-width:0;overflow-wrap:anywhere}.finance-metrics>div+div{border-left:1px solid #e4ebd8}.finance-metrics span{display:block;font-size:9px;color:#a5b68d;margin-bottom:8px}.finance-metrics strong{display:block;font-size:16px;font-weight:550;letter-spacing:-.4px;color:#8ea96a;font-variant-numeric:tabular-nums}.finance-metrics small{display:block;font-size:8px;line-height:1.8;color:#afbd9a;margin-top:8px}.finance-warning{font-size:9px;line-height:1.95;padding:11px 13px;border-left:2px solid #d8caa9;background:#fffdf7;color:#b2a27f;border-radius:4px;margin:12px 0}.finance-section{margin-top:25px;border-top:1px solid #ebefdf;padding-top:18px}.finance-section h3{font-size:12px;margin-bottom:15px}.finance-bars{display:grid;gap:13px}.finance-category>div:first-child{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:10px;color:#acbd92;margin-bottom:7px}.finance-category span{overflow-wrap:anywhere;min-width:0}.finance-category b{font-weight:450;flex-shrink:0}.finance-bar{height:4px;background:#f1f6e8;border-radius:3px;overflow:hidden}.finance-bar span{display:block;height:100%;background:#becea6;max-width:100%;border-radius:3px}.finance-table-wrap{overflow-x:auto;max-width:100%;border:1px solid #ebf0e1;border-radius:7px}.finance-table{border-collapse:collapse;width:100%;min-width:480px;table-layout:fixed;font-size:9px}.finance-table th{text-align:left;background:#fcfef8;color:#bccaa5;padding:10px;font-weight:450}.finance-table td{border-top:1px solid #f0f4e8;color:#a8b98c;padding:10px;line-height:1.8;overflow-wrap:anywhere;white-space:pre-wrap;vertical-align:top}.finance-table th:first-child{width:94px}.finance-table th:last-child{width:125px}.finance-attribution{font-size:9px;line-height:1.9;color:#bfcca9;margin-top:20px}
+/* The reference's white/black contrast remains the primary palette. Muted labels
+   are overridden below to maintain readable contrast, including financial text. */
+.muted,.inline-note,.composer-note,.contact-snippet,.thread-heading small,.page-header p,.tool-card p,.source-card p,.modal-copy,.contact-title small{color:#7b7f77}.finance-boundary p,.finance-confirm,.finance-empty p,.finance-attribution,.finance-category>div:first-child,.finance-table td,.finance-table th{color:#777f6d}.finance-metrics strong{color:#46543b}.finance-metrics span,.finance-metrics small{color:#7f8b72}.finance-warning{color:#8f7d59}.eyebrow,.list-note,.routine-heading,.routine-row small,.routine-footnote,.details-bottom,.computer-subtitle{color:#92988b}
+@media(min-width:1700px){.workspace{grid-template-columns:310px minmax(0,1fr) 350px}.workspace.no-details,.workspace.plugin-view{grid-template-columns:310px minmax(0,1fr)}.contact-row{padding:13px 12px}.message-list{padding:40px 44px}.composer-area{padding-left:32px;padding-right:32px}.computer-desktop{height:190px}}
+@media(max-width:1150px){.workspace,.workspace.no-details,.workspace.plugin-view{grid-template-columns:258px minmax(0,1fr)}.details-panel{display:none}.workspace.show-details>.details-panel{display:flex;position:fixed;inset:0 0 0 auto;width:310px;z-index:20;box-shadow:-30px 0 70px #18200c10}.finance-layout,.social-layout{grid-template-columns:1fr}.gateway-badge{display:none}.conversation-header{padding:0 17px}.message-list{padding-left:22px;padding-right:22px}.finance-metrics strong{font-size:17px}}
+@media(max-width:760px){.workspace,.workspace.no-details,.workspace.plugin-view{display:block;height:100dvh;min-height:0}.contact-panel{height:100%;border-right:0;background:#fff}.contact-header{height:71px;padding:env(safe-area-inset-top,0) 22px 0;gap:14px}.wordmark{font-size:19px;display:none}.profile-button{display:inline-grid;place-items:center}.header-actions{gap:10px}.header-actions .icon-button{border:1px solid #f2f2ee;box-shadow:0 2px 7px #24291c07;width:34px;height:34px;border-radius:50%;color:#393f32}.mobile-search{display:inline-flex}.contact-search{display:none;margin:0 22px 14px;background:#f5f6f1;height:37px}.contact-panel.searching .contact-search{display:flex}.mobile-favorites{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;padding:15px 18px 19px}.favorite{border:0;background:none;display:flex;align-items:center;flex-direction:column;gap:9px;min-width:0;padding:0}.favorite .avatar{width:60px;height:60px}.favorite span:last-child{font-size:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;color:#8d9385}.list-note{font-size:8px;margin:2px 25px 10px}.list-note span{font-size:8px}.contact-list{padding:0 14px}.contact-row{padding:12px 8px;min-height:73px;gap:13px;border-radius:11px}.contact-title{font-size:12px;margin-bottom:4px}.contact-title small{font-size:9px}.contact-snippet{font-size:10.5px}.contact-row .avatar{width:38px;height:38px}.contact-row.pinned-desktop{display:none}.contact-panel.searching .contact-row.pinned-desktop{display:flex}.contact-row.active{background:none}.contact-footer{background:#fff;padding:9px 22px calc(10px + env(safe-area-inset-bottom,0px));border-top:1px solid #f2f3ed}.contact-footer .account-button{display:none}.footer-item{font-size:10px;padding:7px 0}.footer-item>svg{width:15px;height:15px}.conversation-panel{display:none;height:100%}.workspace.show-thread .contact-panel{display:none}.workspace.show-thread .conversation-panel{display:flex}.conversation-header{height:69px;padding:env(safe-area-inset-top,0) 15px 0;gap:9px}.mobile-back{display:inline-flex;width:26px;margin-left:-6px}.thread-heading .avatar{width:29px;height:29px}.thread-heading strong{font-size:11px}.thread-heading small{font-size:8px}.thread-header-actions{gap:2px}.thread-header-actions .icon-button{width:28px;height:28px}.message-list{padding:20px 18px;gap:12px}.message{max-width:90%;font-size:12px;padding:11px 13px}.empty-conversation{max-width:300px;padding:25px 7px}.empty-conversation h1{font-size:24px}.empty-conversation>.avatar{width:62px;height:62px}.empty-conversation>p{font-size:11px}.composer-area{padding:8px 13px calc(10px + env(safe-area-inset-bottom,0px))}.composer textarea{font-size:12px}.composer-note{font-size:7.5px}.composer{padding:9px 10px;gap:8px}.workspace.show-details>.details-panel{display:flex;position:fixed;inset:0;width:100%;z-index:30;border:0;box-shadow:none;padding:env(safe-area-inset-top,0px) 12px env(safe-area-inset-bottom,0px)}.details-toolbar{height:65px}.computer-preview{max-width:450px;width:calc(100% - 32px);align-self:center}.computer-desktop{height:200px}.details-bottom{margin-top:25px}.page{padding:23px 18px}.page-header{gap:10px;padding-bottom:21px;flex-direction:column}.page-header h1{font-size:25px}.page-header p{font-size:11px}.panel{padding:17px}.tool-grid,.trust-grid,.social-layout{grid-template-columns:1fr}.tool-card{padding:18px}.source-card{flex-direction:column;gap:15px}.form-grid{grid-template-columns:1fr;gap:0}.toast{font-size:10px;bottom:18px}.finance-boundary{flex-direction:column;align-items:flex-start;gap:7px}.finance-layout{grid-template-columns:1fr;gap:14px}.finance-metrics{grid-template-columns:1fr}.finance-metrics>div+div{border-left:0;border-top:1px solid #e4ebd8}.finance-metrics strong{font-size:20px}.finance-metrics>div{padding:12px 15px}.finance-result-header h2{font-size:20px}.finance-empty{min-height:230px}.finance-file-row .inline-note{min-width:100%;margin:6px 0}.finance-actions{gap:5px}.finance-input-heading .text-button{font-size:9px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+/* Neutral light reference palette, stronger reading contrast, original artwork. */
+:root{--muted:#64685f}
+.contact-title{font-size:13px}.contact-title small,.contact-snippet,.list-note,.list-note span,.footer-item small,.account-button small,.thread-heading small,.gateway-badge{color:#686d62}
+.thread-heading strong{font-size:13px}.message{font-size:13px}.message small,.date-divider{color:#646b5c}
+.eyebrow,.empty-conversation>p,.suggestion,.composer-note,.composer textarea::placeholder{color:#676e5e}
+.computer-caption,.computer-subtitle,.routine-heading,.routine-row small,.routine-footnote,.details-bottom,.details-bottom b,.computer-desktop strong,.computer-desktop small{color:#636d58}
+.routine-row strong{font-size:12px}.routine-row small{font-size:11px}.routine-footnote,.details-bottom{font-size:10px}
+.page-header p,.panel p.muted,.tool-card p,.tool-card small,.inline-note,.notice,.source-card p,.trust-grid ul,.review-list,.check-row,.setting-row,.task-meta,.task-status,pre,.digest,.finance-warning,.finance-attribution,.finance-boundary p,.finance-table th,.finance-metrics span,.finance-metrics small{color:#616b55}
+.page-header p,.panel p.muted,.tool-card p,.source-card p,.trust-grid ul,.review-list,.check-row,.setting-row{font-size:12px}
+.inline-note{font-size:11px}.button{font-size:12px}.button.small{font-size:11px}.field,label:not(.contact-search):not(.finance-confirm):not(.check-row):not(.setting-row){font-size:12px;color:#59664b}.form-error{color:#a23636}
+@media(max-width:760px){.workspace{height:100vh;height:100dvh}.contact-title{font-size:13px}.contact-snippet{font-size:11px}.favorite span:last-child{color:#666d5e}.contact-panel.searching .mobile-favorites{display:none}.header-actions .icon-button{width:44px;height:44px}.mobile-back,.thread-header-actions .icon-button{width:44px;height:44px}.thread-heading strong{font-size:13px}.thread-heading small{font-size:10px}.footer-item{min-height:44px;font-size:11px}.composer .icon-button,.composer .send-button{width:36px;height:36px}.composer-note{font-size:9px}.details-toolbar .icon-button{width:44px;height:44px}}
+</style>
+</head>
+<body>
+<a href="#main" class="skip">Skip to conversation</a>
+<svg class="sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+<symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 4.5 4.5"/></symbol>
+<symbol id="i-computer" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8m-4-4v4"/></symbol>
+<symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+<symbol id="i-back" viewBox="0 0 24 24"><path d="m14 5-7 7 7 7"/></symbol>
+<symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 7h8m4 0h4M4 17h2m4 0h10"/><circle cx="14" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></symbol>
+<symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M4 17v4h16v-4"/></symbol>
+<symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5 11v1a7 7 0 0 0 14 0v-1M12 19v3m-4 0h8"/></symbol>
+<symbol id="i-send" viewBox="0 0 24 24"><path d="M12 19V5m-6 6 6-6 6 6"/></symbol>
+<symbol id="i-plug" viewBox="0 0 24 24"><path d="M8 3v5m8-5v5M6 8h12v3a6 6 0 0 1-12 0ZM12 17v5"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/></symbol>
+<symbol id="i-file" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6ZM14 3v5h4M9 12h6m-6 4h6"/></symbol>
+<symbol id="i-shield" viewBox="0 0 24 24"><path d="m12 2 8 4v6c0 5-8 10-8 10S4 17 4 12V6Z"/><path d="m8 12 3 3 5-6"/></symbol>
+<symbol id="i-social" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 10.5 6.8-4M8.6 13.5l6.8 4"/></symbol>
+<symbol id="i-finance" viewBox="0 0 24 24"><path d="M4 3v17h17M8 16v-5m5 5V6m5 10V9"/></symbol>
+<symbol id="i-chevron" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></symbol>
+</svg>
+<div class="workspace" id="workspace">
+<aside class="contact-panel" aria-label="Companions">
+ <header class="contact-header"><button class="profile-button" data-view="trust" aria-label="Workspace settings">Y</button><a class="wordmark" data-view="chat" href="#chat" aria-label="OpenBot home">openbot<span>.</span></a><div class="header-actions"><button class="icon-button mobile-search" id="mobile-search" aria-label="Search companions"><svg><use href="#i-search"/></svg></button><button class="icon-button" data-add-companion aria-label="Add companion"><svg><use href="#i-plus"/></svg></button></div></header>
+ <label class="contact-search" id="search-wrap"><svg><use href="#i-search"/></svg><span class="sr-only">Search companions</span><input type="search" id="contact-search" placeholder="Search" autocomplete="off"></label>
+ <div class="mobile-favorites" id="mobile-favorites" aria-label="Pinned companion blueprints"></div>
+ <div class="list-note">YOUR COMPANIONS <span>Local blueprints</span></div>
+ <nav class="contact-list" id="contact-list" aria-label="Companion conversations"></nav>
+ <footer class="contact-footer"><button class="footer-item" data-view="plugins"><svg><use href="#i-plug"/></svg><span>Plugins & tools</span><small>Setup</small></button><button class="footer-item" data-view="connection"><svg><use href="#i-shield"/></svg><span>Server & verified work</span><i id="gateway-dot"></i></button><button class="account-button" data-view="trust"><span class="user-circle">Y</span><span>Your workspace<small id="storage-label">This tab only</small></span><svg><use href="#i-sliders"/></svg></button></footer>
+</aside>
+<section class="conversation-panel" aria-label="Conversation workspace"><header class="conversation-header"><button class="icon-button mobile-back" id="mobile-back" aria-label="Back to companions"><svg><use href="#i-back"/></svg></button><div class="thread-heading" id="thread-heading"></div><div class="thread-header-actions"><span class="gateway-badge" id="gateway-badge">Local workspace</span><button class="icon-button" id="show-computer" aria-label="Show companion computer and routines"><svg><use href="#i-computer"/></svg></button></div></header><main id="main" tabindex="-1"></main></section>
+<aside class="details-panel" id="details-panel" aria-label="Companion computer and routines"></aside>
+</div>
+<dialog id="modal" aria-labelledby="modal-title"><div class="modal-head"><h2 id="modal-title"></h2><button class="icon-button" id="modal-close" aria-label="Close dialog"><svg><use href="#i-close"/></svg></button></div><div id="modal-body"></div></dialog>
+<input type="file" id="brief-file" accept=".txt,.md,text/plain,text/markdown" hidden><input type="file" id="finance-file" accept=".csv,text/csv" hidden>
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div><span id="announcer" class="sr-only" role="status" aria-live="polite"></span>
+<noscript><p class="noscript">JavaScript is needed for this local interface. No model, computer or account is connected automatically. Source and CLI remain available.</p></noscript>
+<script>/*
+ * SPDX-License-Identifier: MIT
+ * CSV scanner/report structure adapted from CopilotKit/OpenMuse (canonical openfuse),
+ * apps/server/src/engine/finance.ts at a4944f4c471d3dc93b8bfc060b5da309b5216ab2.
+ * Copyright (c) 2026 OpenMuse contributors. Full notice and exact reviewed source:
+ * studio/third_party/openmuse/. OpenBot modifications: browser-only execution,
+ * explicit source currency/sign confirmation, exact integer minor units, duplicate
+ * disclosure, Gregorian dates, bounded input, and no ledger/account authority.
+ *
+ * MIT License
+ * Copyright (c) 2026 OpenMuse contributors
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+(function (root, factory) {
+  'use strict';
+  const api = factory();
+  if (typeof module === 'object' && module.exports) module.exports = api;
+  else Object.defineProperty(root, 'OpenBotFinance', {value: api, writable: false, configurable: false});
+})(typeof globalThis === 'object' ? globalThis : this, function () {
+  'use strict';
+  const MAX_CSV_BYTES = 500000;
+  const MAX_TRANSACTIONS = 5000;
+  const MAX_ROW_MINOR = 1000000000000n;
+  // Only these tested two-decimal currencies. No inferred currency or FX conversion.
+  const CURRENCIES = Object.freeze(['INR', 'USD', 'EUR', 'GBP']);
+  const CONVENTION = 'positive_expenses_negative_income';
+  const required = ['date', 'description', 'amount', 'category'];
+
+  function checkCurrency(currency) {
+    if (!CURRENCIES.includes(currency)) throw new Error('Choose INR, USD, EUR or GBP. No currency conversion is available.');
+  }
+  function checkOptions(options) {
+    if (!options || typeof options !== 'object' || Array.isArray(options) ||
+        Object.keys(options).sort().join(',') !== 'amountConvention,currency,singleCurrencyConfirmed' ||
+        options.singleCurrencyConfirmed !== true || options.amountConvention !== CONVENTION) {
+      throw new Error('Confirm one source currency and positive expenses / negative income before previewing.');
+    }
+    checkCurrency(options.currency);
+  }
+  function parseAmountMinor(source) {
+    if (typeof source !== 'string' || source.length > 32) throw new Error('Transaction amount is out of range or not plain decimal text.');
+    const match = /^([+-]?)(\d+)(?:\.(\d{1,2}))?$/.exec(source);
+    if (!match) throw new Error('Use a plain amount with at most two decimal places; no symbols, exponents or thousands separators.');
+    const magnitude = BigInt(match[2]) * 100n + BigInt((match[3] || '').padEnd(2, '0'));
+    if (magnitude > MAX_ROW_MINOR) throw new Error('Transaction amount is out of range.');
+    return Number(match[1] === '-' ? -magnitude : magnitude);
+  }
+  function addMinor(a, b) {
+    const result = a + b;
+    if (!Number.isSafeInteger(result)) throw new Error('Aggregate amount is outside exact integer limits.');
+    return result;
+  }
+  function isoDate(value) {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
+    const year = Number(value.slice(0, 4)), month = Number(value.slice(5, 7)), day = Number(value.slice(8, 10));
+    if (year < 1 || month < 1 || month > 12) return false;
+    const leap = year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0);
+    return day >= 1 && day <= [31, leap ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month - 1];
+  }
+
+  // Adapted upstream scanner: reject non-delimiters after closing quotes, preserve
+  // quoted multiline fields and escaped quotes, and support CR, LF and CRLF.
+  function scanCsv(csv) {
+    if (typeof csv !== 'string') throw new Error('CSV must be text.');
+    if (new TextEncoder().encode(csv).byteLength > MAX_CSV_BYTES) throw new Error('Import at most 500 KB of transaction CSV.');
+    if (/[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]/.test(csv)) throw new Error('Binary or control characters are not accepted in CSV.');
+    if (csv.charCodeAt(0) === 0xfeff) csv = csv.slice(1);
+    const rows = [];
+    let row = [], cell = '', quoted = false;
+    for (let i = 0; i <= csv.length; i++) {
+      const c = csv[i];
+      if (c === '"') {
+        if (quoted && csv[i + 1] === '"') {cell += '"'; i++;}
+        else if (!quoted && cell.length) throw new Error('Invalid quoted CSV field.');
+        else {
+          quoted = !quoted;
+          if (!quoted) {
+            const next = csv[i + 1];
+            if (next !== undefined && next !== ',' && next !== '\n' && next !== '\r') throw new Error('Invalid quoted CSV field.');
+          }
+        }
+      } else if (!quoted && (c === ',' || c === '\r' || c === '\n' || c === undefined)) {
+        row.push(cell); cell = '';
+        if (c !== ',') {
+          if (row.some(v => v.trim())) rows.push(row);
+          if (rows.length > MAX_TRANSACTIONS + 1) throw new Error('Import between 1 and 5,000 transactions.');
+          row = [];
+          if (c === '\r' && csv[i + 1] === '\n') i++;
+        }
+      } else if (c !== undefined) cell += c;
+    }
+    if (quoted) throw new Error('CSV has an unclosed quoted field.');
+    return rows;
+  }
+
+  function analyzeSpending(csv, options) {
+    checkOptions(options);
+    const rows = scanCsv(csv);
+    const header = rows.shift()?.map(v => v.trim().toLowerCase());
+    if (!header || !required.every(v => header.includes(v))) throw new Error('CSV needs date,description,amount,category columns.');
+    if ([...required, 'currency'].some(name => header.includes(name) && header.indexOf(name) !== header.lastIndexOf(name))) {
+      throw new Error('CSV has a duplicate required or currency column.');
+    }
+    if (!rows.length || rows.length > MAX_TRANSACTIONS) throw new Error('Import between 1 and 5,000 transactions.');
+    const currency = options.currency;
+    const grouped = new Map(), seen = new Set();
+    let spending = 0, income = 0, duplicates = 0, from = null, to = null;
+    const transactions = rows.map((row, index) => {
+      if (row.length !== header.length) throw new Error(`Row ${index + 2} has the wrong number of columns.`);
+      const get = name => row[header.indexOf(name)]?.trim() ?? '';
+      const date = get('date');
+      if (!isoDate(date)) throw new Error(`Row ${index + 2} needs a valid Gregorian ISO date (YYYY-MM-DD).`);
+      if (header.includes('currency') && get('currency') !== currency) throw new Error(`Row ${index + 2} currency does not match the chosen source currency. No mixing or FX conversion.`);
+      const amount = parseAmountMinor(get('amount'));
+      const description = get('description'), category = get('category') || 'Uncategorized';
+      const fingerprint = JSON.stringify([date, description, amount, category, currency]);
+      if (seen.has(fingerprint)) duplicates++;
+      else seen.add(fingerprint);
+      if (amount > 0) {
+        spending = addMinor(spending, amount);
+        grouped.set(category, addMinor(grouped.get(category) || 0, amount));
+      } else if (amount < 0) income = addMinor(income, -amount);
+      if (from === null || date < from) from = date;
+      if (to === null || date > to) to = date;
+      return {id: `row-${index + 2}`, date, description, category, amount_minor: amount};
+    });
+    return {
+      schema: 'openbot.finance-preview/1',
+      scope: 'unreconciled_user_supplied_csv_preview',
+      currency, unit: 'integer_minor_units_1_100', amount_convention: CONVENTION,
+      ledger_writes: false, bank_connected: false, earnings_verified: false, permission_to_spend: false,
+      income_minor: income, spending_minor: spending, net_import_minor: addMinor(income, -spending),
+      count: transactions.length, duplicate_rows: duplicates, period: {from, to},
+      categories: [...grouped].map(([name, amount_minor]) => ({name, amount_minor})).sort((a, b) => b.amount_minor - a.amount_minor || a.name.localeCompare(b.name)),
+      transactions,
+      limitations: [
+        'User-supplied, unreconciled data; amounts and classifications may be wrong or incomplete.',
+        'Positive amounts are treated as expenses; negative amounts as income, including refunds or transfers the source may misclassify.',
+        'Exact duplicate rows are counted, disclosed and retained; not automatically removed.',
+        'Net imported is income minus expenses in this file, not a bank balance, profit, settled earnings or permission to spend.',
+        'No currency inference, exchange rates, external account access, model call or ledger write.'
+      ]
+    };
+  }
+  function formatMinor(value, currency) {
+    checkCurrency(currency);
+    if (!Number.isSafeInteger(value)) throw new Error('Only exact safe integer minor units can be formatted.');
+    const digits = String(Math.abs(value)).padStart(3, '0');
+    const whole = digits.slice(0, -2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    return `${currency} ${value < 0 ? '-' : ''}${whole}.${digits.slice(-2)}`;
+  }
+  return Object.freeze({analyzeSpending, parseAmountMinor, formatMinor, MAX_CSV_BYTES, MAX_TRANSACTIONS, CURRENCIES, CONVENTION});
+});
+
+/* Original OpenBot UI for the attributed OpenMuse-derived read-only CSV module.
+ * No CSV content is sent to a server, model, browser storage or accounting ledger.
+ */
+(() => {
+  'use strict';
+  function create({esc, icon, toast, download, refresh, chooseFile = () => document.querySelector('#finance-file').click()}) {
+    const api = window.OpenBotFinance;
+    const fresh = () => ({csv:'', currency:'', confirmed:false, report:null, error:'', busy:false, hint:'No file selected. Paste CSV or choose a local file.'});
+    let state = fresh(), readEpoch = 0;
+    const short = (value, limit = 100) => value.length > limit ? value.slice(0, limit) + '…' : value;
+    const empty = () => '<div class="finance-empty"><span class="pulse-icon">'+icon('file')+'</span><h3>No preview calculated.</h3><p>Choose a source currency, check the sign convention, then preview. Nothing will be sent, reconciled or written to a ledger.</p></div>';
+    function result() {
+      const r = state.report;
+      if (!r) return empty();
+      const money = value => esc(api.formatMinor(value, r.currency));
+      const max = r.categories[0]?.amount_minor || 1;
+      return `<div class="finance-result-header"><div><div class="eyebrow">UNRECONCILED FILE PREVIEW</div><h2>${r.count.toLocaleString('en-US')} imported rows</h2><p class="muted">${esc(r.period.from)} to ${esc(r.period.to)} · ${esc(r.currency)} only · duplicates retained</p></div><button class="button small" id="finance-download">${icon('download')}Preview JSON</button></div><div class="finance-metrics"><div><span>Imported expenses</span><strong>${money(r.spending_minor)}</strong></div><div><span>Imported income</span><strong>${money(r.income_minor)}</strong></div><div><span>Net imported</span><strong>${money(r.net_import_minor)}</strong><small>Income minus expenses · not a balance</small></div></div><p class="finance-warning">This is not a bank balance, profit, settled earnings, tax calculation, verified revenue or permission to spend. Refunds, transfers, missing rows and source classifications can make these totals misleading.</p>${r.duplicate_rows ? `<p class="finance-warning" id="finance-duplicates">${r.duplicate_rows.toLocaleString('en-US')} exact duplicate row${r.duplicate_rows===1?'':'s'} found. They are included in the totals, not silently removed.</p>` : '<p class="inline-note" id="finance-duplicates">No exact duplicate date/description/amount/category rows found. This is not reconciliation or fraud detection.</p>'}<section class="finance-section" aria-label="Imported expense categories"><h3>Expenses by source category</h3>${r.categories.length ? `<div class="finance-bars">${r.categories.slice(0,10).map(c=>`<div class="finance-category"><div><span>${esc(short(c.name,80))}</span><b>${money(c.amount_minor)}</b></div><div class="finance-bar" aria-hidden="true"><span style="width:${Math.max(0.2, c.amount_minor/max*100).toFixed(2)}%"></span></div></div>`).join('')}</div><p class="inline-note">${r.categories.length>10?'Largest 10 of '+r.categories.length+' categories shown. ':''}Categories come from the file, not an AI or accounting determination.</p>` : '<p class="muted">No positive expense amounts in this file.</p>'}</section><section class="finance-section"><h3>Imported transaction preview</h3><p class="inline-note">Showing ${Math.min(50,r.count)} of ${r.count} rows. Descriptions/categories are truncated on screen. A JSON download includes all imported rows and may contain sensitive data.</p><div class="finance-table-wrap" role="region" aria-label="Imported transaction rows" tabindex="0"><table class="finance-table"><thead><tr><th scope="col">Date</th><th scope="col">Description</th><th scope="col">Category</th><th scope="col">Amount</th></tr></thead><tbody>${r.transactions.slice(0,50).map(t=>`<tr><td>${esc(t.date)}</td><td>${esc(short(t.description))}</td><td>${esc(short(t.category,60))}</td><td>${money(t.amount_minor)}</td></tr>`).join('')}</tbody></table></div><p class="inline-note">Positive expense / negative income, exactly as confirmed. Preview JSON uses integer minor units (one hundredth of the selected currency), not floating-point ledger entries.</p></section>`;
+    }
+    function view(heading) {
+      return `<div class="page finance-page">${heading('LOCAL FILE. NO ACCOUNT CONNECTION.','Understand a spending CSV.','A read-only preview adapted from OpenMuse. Your file stays in this browser tab, even if draft saving is enabled. It never changes the accounting ledger.')}<section class="finance-boundary" aria-label="Financial preview boundaries"><span class="status-pill">Read-only · no bank connection</span><p>No model, upload, currency conversion, accounting import, verified earnings or spend authority. Use only data you are allowed to inspect on this device.</p></section><div class="finance-layout"><section class="panel finance-input" aria-labelledby="finance-input-title"><div class="finance-input-heading"><h2 id="finance-input-title">Bring your own CSV</h2><button class="text-button" id="finance-sample">Try fictional example</button></div><p class="muted">Required columns: <code>date,description,amount,category</code>. ISO dates; plain amounts with up to two decimals. Optional <code>currency</code> must match your selection.</p><label for="finance-csv">Transaction CSV<textarea id="finance-csv" rows="9" maxlength="500000" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="date,description,amount,category&#10;2026-10-01,Coffee,10.10,Food" aria-describedby="finance-limit">${esc(state.csv)}</textarea></label><div class="finance-file-row"><button class="button small" id="finance-choose">${icon('file')}Choose local CSV</button><p id="finance-hint" class="inline-note" role="status">${esc(state.hint)}</p></div><p class="inline-note" id="finance-limit">At most 500,000 UTF-8 bytes and 5,000 transactions. No amount symbols, thousands separators or mixed currencies. No file is automatically analysed or saved.</p><label for="finance-currency">Source currency<select id="finance-currency"><option value="">Choose explicitly</option>${api.CURRENCIES.map(c=>`<option value="${c}"${state.currency===c?' selected':''}>${c} · two-decimal amounts</option>`).join('')}</select></label><label class="finance-confirm"><input type="checkbox" id="finance-confirm"${state.confirmed?' checked':''}><span>I checked that the entire CSV uses only the selected currency, <b>positive expenses</b> and <b>negative income</b>. This confirms the preview convention, not the correctness or settlement of the source data.</span></label><p class="form-error" id="finance-error" role="alert">${esc(state.error)}</p><div class="finance-actions"><button class="button primary" id="finance-analyze"${state.busy?' disabled':''}>Preview spending</button><button class="button ghost" id="finance-clear">Clear imported data</button></div><p class="inline-note">Tab memory only. Reloading clears this feature; enabling “Remember drafts” does not save transaction data. Clearing a tab cannot promise secure memory or device erasure.</p></section><section class="panel finance-output" id="finance-results" aria-label="Unreconciled CSV results" aria-live="polite">${result()}</section></div><p class="finance-attribution">CSV parser adapted from CopilotKit/OpenMuse, MIT · pinned source and full notice are in <code>studio/third_party/openmuse/</code>. This preview is not a bank, bookkeeping service or financial adviser.</p></div>`;
+    }
+    function invalidate() {
+      readEpoch++;
+      state.report = null; state.error = ''; state.busy = false;
+      const results = document.querySelector('#finance-results');
+      if (results) results.innerHTML = empty(); // Static first-party markup only.
+      const error = document.querySelector('#finance-error');
+      if (error) error.textContent = '';
+      const button = document.querySelector('#finance-analyze');
+      if (button) button.disabled = false;
+    }
+    function input(target) {
+      if (!['finance-csv','finance-currency','finance-confirm'].includes(target.id)) return false;
+      invalidate();
+      if (target.id === 'finance-confirm') state.confirmed = target.checked === true;
+      else {
+        if (target.id === 'finance-csv') state.csv = target.value;
+        else state.currency = target.value;
+        state.confirmed = false;
+        const confirm = document.querySelector('#finance-confirm');
+        if (confirm) confirm.checked = false;
+      }
+      state.hint = 'Tab memory only. Input changed; preview must be recalculated.';
+      const hint = document.querySelector('#finance-hint');
+      if (hint) hint.textContent = state.hint;
+      return true;
+    }
+    function clear() {readEpoch++; state = fresh();}
+    function click(id) {
+      if (id === 'finance-choose') chooseFile();
+      else if (id === 'finance-sample') {
+        clear();
+        state.csv = 'date,description,amount,category\n2026-10-01,Fictional salary,-1000.00,Income\n2026-10-02,Fictional groceries,120.25,Food\n2026-10-03,Fictional train ticket,29.75,Travel\n2026-10-03,Fictional groceries,120.25,Food';
+        state.hint = 'Fictional example, not money received. Choose a currency and check the convention.';
+        refresh();
+      } else if (id === 'finance-clear') {
+        clear(); refresh(); toast('Imported CSV and preview cleared from this tab. No ledger, source file or account was modified. This is not a secure-erasure claim.');
+      } else if (id === 'finance-analyze') {
+        if (state.busy) return true;
+        state.report = null; state.error = '';
+        try {
+          state.report = api.analyzeSpending(state.csv, {currency:state.currency, amountConvention:api.CONVENTION, singleCurrencyConfirmed:state.confirmed});
+          state.hint = 'Preview calculated locally. Data is unverified; no upload, account or ledger action.';
+        } catch (error) {
+          state.error = error.message;
+          state.hint = 'Input retained. No preview, upload or account action succeeded.';
+        }
+        refresh();
+      } else if (id === 'finance-download') {
+        if (state.report) {
+          if (download('OpenBot-unreconciled-spending-preview.json',state.report) !== false) toast('Preview JSON download requested with all imported rows. Treat it as sensitive, unverified source data; no accounting or bank action occurred.');
+        }
+      } else return false;
+      return true;
+    }
+    async function readFile(target) {
+      const file = target.files?.[0]; target.value = '';
+      if (!file) return;
+      invalidate();
+      const epoch = readEpoch;
+      state.confirmed = false;
+      if (file.size > api.MAX_CSV_BYTES || !/\.csv$/i.test(file.name)) {
+        state.error = 'Choose a .csv file no larger than 500,000 UTF-8 bytes. Nothing was uploaded.';
+        state.hint = 'Selected file refused; previous text retained. No upload occurred.';
+        refresh(); return;
+      }
+      state.busy = true; state.hint = 'Reading the selected file locally…'; refresh();
+      try {
+        const bytes = await file.arrayBuffer();
+        const text = new TextDecoder('utf-8',{fatal:true}).decode(bytes);
+        if (epoch !== readEpoch) return; // Clear/edit/new selection wins over late reads.
+        state.csv = text;
+        state.hint = 'File read locally, not uploaded or analysed. Choose a currency and check the convention.';
+      } catch (_) {
+        if (epoch !== readEpoch) return;
+        state.error = 'Could not read a valid UTF-8 CSV. No preview or upload succeeded; existing input is retained.';
+      } finally {
+        if (epoch === readEpoch) {state.busy = false; refresh();}
+      }
+    }
+    return Object.freeze({view, input, click, readFile, clear});
+  }
+  Object.defineProperty(window,'OpenBotSpendingWorkspace',{value:Object.freeze({create}),writable:false,configurable:false});
+})();
+
+/* OpenBot first-party adapter to API v1 / wire client v0.2.0.
+ * Fixed-owned QA only. No provider keys, persistent device key or proxy authority.
+ * A displayed companion NEVER selects a server actor, venture, role or budget.
+ */
+(function (root, factory) {
+  'use strict';
+  const api = factory();
+  if (typeof module === 'object' && module.exports) module.exports = api;
+  else Object.defineProperty(root, 'OpenBotGateway', {value: api, writable: false});
+})(typeof globalThis === 'object' ? globalThis : this, function () {
+  'use strict';
+  const HEX = /^[a-f0-9]{64}$/, DEVICE = /^[A-Za-z0-9_-]{32}$/, TASK = /^w[a-f0-9]{32}$/;
+  const UUID = /^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}$/;
+  const scopes = new Set(['read', 'propose', 'approve', 'execute', 'cancel', 'revoke-self']);
+  const fixtures = Object.freeze(['invoice-good-v1', 'invoice-discount-defect-v1', 'invoice-docs-defect-v1']);
+  const empty = () => ({status: {}, tasks: [], audit: [], exact_book: {summary: {}, postings: []}});
+  const bytes = text => new TextEncoder().encode(text);
+  const b64 = value => btoa(String.fromCharCode(...new Uint8Array(value)))
+    .replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+  const canonical = value => value === null || typeof value !== 'object' ? JSON.stringify(value)
+    : Array.isArray(value) ? '[' + value.map(canonical).join(',') + ']'
+    : '{' + Object.keys(value).sort().map(k => JSON.stringify(k) + ':' + canonical(value[k])).join(',') + '}';
+  async function digest(text, crypto) {
+    return Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256', bytes(text))), v => v.toString(16).padStart(2, '0')).join('');
+  }
+  function liveLocation(location) {
+    return location?.protocol === 'https:' && location.pathname === '/control/' && !location.search
+      && typeof location.origin === 'string' && location.origin.startsWith('https://');
+  }
+  function allowed(method, path) {
+    return method === 'GET' && /^\/api\/v1\/(snapshot|status|tasks|audit|exact-book|session|tasks\/w[a-f0-9]{32}(?:\/artifact)?)$/.test(path)
+      || method === 'POST' && /^\/api\/v1\/(tasks|session\/revoke|tasks\/w[a-f0-9]{32}\/(?:approve|execute|cancel))$/.test(path);
+  }
+  class Session {
+    #keys = null; #transport; #crypto; #now; #online; #notify;
+    #epoch = 0; #seen = null; #observed = 0;
+    constructor({location = globalThis.location, transport = globalThis.fetch?.bind(globalThis),
+      crypto = globalThis.crypto, now = () => performance.now(),
+      online = () => globalThis.navigator?.onLine !== false, changed = () => {}} = {}) {
+      this.enabled = liveLocation(location); this.origin = this.enabled ? location.origin : null;
+      this.server = null; this.pairing = null; this.snapshot = empty();
+      this.busy = false; this.error = ''; this.ttl = 15;
+      this.#transport = transport; this.#crypto = crypto; this.#now = now;
+      this.#online = online; this.#notify = changed;
+    }
+    fresh() {
+      const age = this.#seen === null ? -1 : this.#now() - this.#seen;
+      return Boolean(this.enabled && this.server && this.pairing && this.#keys && this.#online()
+        && age >= 0 && age < this.ttl * 1000 && this.#observed + age / 1000 < this.pairing.expires);
+    }
+    can(scope) { return this.fresh() && !this.busy && this.pairing.scopes.includes(scope); }
+    info() {
+      return Object.freeze({enabled: this.enabled, origin: this.origin, server: this.server,
+        pairing: this.pairing ? {...this.pairing, scopes: [...this.pairing.scopes]} : null,
+        fresh: this.fresh(), busy: this.busy, error: this.error,
+        key_storage: 'non-exportable private key in renderer memory only', production_connection: false});
+    }
+    invalidate(reason = 'Session read-back is stale.') {
+      this.#epoch++; this.#seen = null; this.error = reason; this.#notify();
+    }
+    forget() {
+      this.invalidate('Session forgotten locally. Revoke on the trusted server if needed.');
+      this.pairing = null; this.#keys = null; this.snapshot = empty(); this.#notify();
+    }
+    #check(value) {
+      if (!value || value.api_version !== '1' || !HEX.test(value.server_id)
+        || this.server && value.server_id !== this.server || !Number.isInteger(value.observed_at)
+        || value.fresh_for_seconds !== 15 || value.source !== 'local_authenticated_server')
+        throw Error('Server identity or version mismatch; no authority assumed.');
+      return value;
+    }
+    async #request(method, path, body, headers = {}, timeout = 15000) {
+      if (!this.enabled) throw Error('Use the owner-approved HTTPS gateway /control/ page. This preview has no execution route.');
+      const controller = new AbortController(), timer = setTimeout(() => controller.abort(), timeout);
+      try {
+        const response = await this.#transport(path, {method,
+          headers: {Accept: 'application/json', ...(body !== undefined ? {'Content-Type': 'application/json'} : {}), ...headers},
+          body, credentials: 'omit', cache: 'no-store', redirect: 'error', referrerPolicy: 'no-referrer', signal: controller.signal});
+        let value;
+        try { value = await response.json(); }
+        catch (_) { throw Error('Versioned JSON response required. Outcome may need read-back.'); }
+        if (!response.ok) throw Error(typeof value.detail === 'string' ? value.detail : 'Request refused; no automatic retry.');
+        return this.#check(value);
+      } finally { clearTimeout(timer); }
+    }
+    async identify() {
+      if (!this.enabled || this.busy) return false;
+      const epoch = this.#epoch;
+      try {
+        const r = await this.#request('GET', '/api/v1/identity');
+        if (epoch !== this.#epoch) return false;
+        if (r.data?.client_version !== '0.2.0' || r.data.tls_required !== true
+          || r.data.public_or_production_release !== false || r.data.mode !== 'local_owned_fixture'
+          || !HEX.test(r.data.client_sha256)) throw Error('Unsupported identity contract.');
+        this.server = r.server_id; this.error = ''; this.#notify(); return true;
+      } catch (error) { if (epoch === this.#epoch) this.invalidate(error.message); throw error; }
+    }
+    async pair(code, label) {
+      if (!this.server || this.busy || typeof code !== 'string' || !/^[A-Za-z0-9_-]{43}$/.test(code)
+        || typeof label !== 'string' || !label.trim() || label.length > 64 || /[\x00-\x1f\x7f]/.test(label))
+        throw Error('A valid one-use host-console pairing code and device label are required.');
+      if (!this.#crypto?.subtle) throw Error('Secure WebCrypto context required.');
+      this.#epoch++; const epoch = this.#epoch;
+      this.busy = true; this.#seen = null; this.pairing = null; this.#keys = null; this.#notify();
+      try {
+        const keys = await this.#crypto.subtle.generateKey({name: 'ECDSA', namedCurve: 'P-256'}, false, ['sign', 'verify']);
+        const public_key = b64(await this.#crypto.subtle.exportKey('spki', keys.publicKey));
+        const signature = b64(await this.#crypto.subtle.sign({name: 'ECDSA', hash: 'SHA-256'}, keys.privateKey,
+          bytes('openbot.pair/1\n' + this.server + '\n' + code)));
+        if (epoch !== this.#epoch) throw Error('Pairing cancelled before dispatch. No pairing request sent.');
+        const r = await this.#request('POST', '/api/v1/pair', JSON.stringify({code, public_key, signature, label: label.trim(), client_version: '0.2.0'}));
+        if (epoch !== this.#epoch) throw Error('Pairing response became stale; inspect/revoke the server session before retrying.');
+        const p = r.data;
+        if (!p || !DEVICE.test(p.device) || !['owner', 'viewer'].includes(p.role) || typeof p.venture !== 'string'
+          || !p.venture || !Array.isArray(p.scopes) || !p.scopes.includes('read') || new Set(p.scopes).size !== p.scopes.length
+          || p.scopes.some(s => !scopes.has(s)) || p.role === 'viewer' && p.scopes.some(s => !['read', 'revoke-self'].includes(s))
+          || !Number.isInteger(p.expires) || p.expires <= r.observed_at) throw Error('Invalid server-derived device scope.');
+        this.#keys = keys; this.pairing = {device: p.device, role: p.role, venture: p.venture, scopes: [...p.scopes], expires: p.expires};
+        this.error = '';
+      } catch (error) { this.pairing = null; this.#keys = null; this.error = error.message; throw error; }
+      finally { this.busy = false; this.#notify(); }
+      return this.refresh();
+    }
+    async #signed(method, path, body) {
+      if (!allowed(method, path) || !this.pairing || !this.#keys) throw Error('Pair this device and use a fixed versioned route.');
+      const epoch = this.#epoch, keys = this.#keys, device = this.pairing.device;
+      const raw = body === undefined ? '' : JSON.stringify(body), bodyHash = await digest(raw, this.#crypto);
+      if (epoch !== this.#epoch) throw Error('Session changed before challenge; request not sent.');
+      const challenge = await this.#request('POST', '/api/v1/challenge', JSON.stringify({device, method, path, body_sha256: bodyHash, api_version: '1'}));
+      const c = challenge.data, expected = ['openbot.control-request/1', this.server, device, c?.id, method, path, bodyHash, String(c?.expires)].join('\n');
+      if (!c || !DEVICE.test(c.id) || c.message !== expected || !Number.isInteger(c.expires)
+        || c.expires <= challenge.observed_at || c.expires > challenge.observed_at + 60) throw Error('Exact request/challenge binding refused.');
+      if (epoch !== this.#epoch || this.pairing?.device !== device) throw Error('Session changed before signing; request not sent.');
+      const signature = await this.#crypto.subtle.sign({name: 'ECDSA', hash: 'SHA-256'}, keys.privateKey, bytes(c.message));
+      if (signature.byteLength !== 64) throw Error('This WebView lacks the required P-256 signature format.');
+      if (epoch !== this.#epoch) throw Error('Session changed before dispatch; request not sent.');
+      const reply = await this.#request(method, path, method === 'GET' ? undefined : raw,
+        {'Content-Type': 'application/json', 'X-OpenBot-Device': device, 'X-OpenBot-Challenge': c.id, 'X-OpenBot-Signature': b64(signature)}, 30000);
+      if (epoch !== this.#epoch || this.pairing?.device !== device)
+        throw Error('Late response discarded. Read back the server outcome; never resend implicitly.');
+      return reply;
+    }
+    async refresh() {
+      if (!this.pairing || this.busy) return false;
+      const epoch = this.#epoch; this.busy = true; this.#notify();
+      try {
+        const r = await this.#signed('GET', '/api/v1/snapshot'), s = r.data;
+        if (epoch !== this.#epoch) return false;
+        if (!s || s.status?.execution_mode !== 'fixed_owned_qa_only' || s.status.paid_provider_enabled !== false
+          || s.status.customer_execution_enabled !== false || !Array.isArray(s.tasks) || s.tasks.length > 100
+          || s.tasks.some(t => !TASK.test(t?.id)) || !Array.isArray(s.audit) || !s.exact_book)
+          throw Error('Incomplete or unsupported authoritative snapshot.');
+        this.snapshot = s; this.ttl = r.fresh_for_seconds; this.#observed = r.observed_at;
+        this.#seen = this.#now(); this.error = ''; return true;
+      } catch (error) { if (epoch === this.#epoch) { this.#seen = null; this.error = error.message; } return false; }
+      finally { this.busy = false; this.#notify(); }
+    }
+    async #mutate(scope, path, body) {
+      if (!this.can(scope)) throw Error('Fresh authenticated scope required. No action sent.');
+      this.busy = true; this.#notify();
+      try { const r = await this.#signed('POST', path, body); this.error = ''; return r.data; }
+      catch (error) { this.error = 'Unknown/refused outcome; no automatic retry. ' + error.message; throw error; }
+      finally { this.#seen = null; this.busy = false; this.#notify(); }
+    }
+    async propose(value) {
+      const fields = ['acceptance', 'ai_use_approved', 'destination', 'fixture', 'goal', 'request_id', 'rights_ref'];
+      if (!value || Object.keys(value).sort().join(',') !== fields.join(',') || !fixtures.includes(value.fixture)
+        || value.destination !== 'local-review' || value.rights_ref !== 'owned:first-party-seed' || value.ai_use_approved !== true
+        || !UUID.test(value.request_id) || [value.goal, value.acceptance].some(s => typeof s !== 'string' || !s.trim() || s.length > 512 || /[\x00-\x1f\x7f]/.test(s)))
+        throw Error('Exact owned-sample intake and rights/method confirmation required. No actor, role, account or venture is accepted from the UI.');
+      return this.#mutate('propose', '/api/v1/tasks', value);
+    }
+    async taskAction(action, id, expected, code) {
+      if (!TASK.test(id) || !['approve', 'execute', 'cancel'].includes(action) || action !== 'cancel' && !HEX.test(expected))
+        throw Error('Exact task/digest required.');
+      const current = this.snapshot.tasks.find(t => t.id === id);
+      if (!current || action !== 'cancel' && current.spec_digest !== expected
+        || action === 'approve' && current.status !== 'review' || action === 'execute' && current.status !== 'queued'
+        || action === 'cancel' && !['review', 'queued', 'running'].includes(current.status)) throw Error('Current exact server task required.');
+      if (action === 'approve' && (this.pairing?.role !== 'owner' || typeof code !== 'string' || !/^[A-Za-z0-9_-]{43}$/.test(code)))
+        throw Error('Separate owner host-console reauthentication required.');
+      const body = action === 'cancel' ? {} : action === 'approve' ? {digest: expected, reauth_code: code} : {digest: expected};
+      return this.#mutate(action, '/api/v1/tasks/' + id + '/' + action, body);
+    }
+    async artifact(id) {
+      if (!this.can('read') || !TASK.test(id)) throw Error('Fresh scoped read required.');
+      const epoch = this.#epoch; this.busy = true; this.#notify();
+      try {
+        const r = await this.#signed('GET', '/api/v1/tasks/' + id + '/artifact'), a = r.data;
+        if (!a || !HEX.test(a.sha256) || a.external_delivery !== false || !a.content
+          || await digest(canonical(a.content), this.#crypto) !== a.sha256) throw Error('Verified local artifact content required.');
+        if (epoch !== this.#epoch) throw Error('Late artifact discarded.');
+        return a;
+      } catch (error) { this.#seen = null; this.error = error.message; throw error; }
+      finally { this.busy = false; this.#notify(); }
+    }
+    async revoke() { const r = await this.#mutate('revoke-self', '/api/v1/session/revoke', {}); this.forget(); return r; }
+  }
+  return Object.freeze({Session, liveLocation, allowed, fixtures});
+});
+
+/* Original OpenBot reference-style UI. Role avatars are original SVG lettering,
+ * not copied reference artwork. No model reply, PC, schedule or account is invented.
+ */
+(() => {
+ 'use strict';
+ const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>Array.from(r.querySelectorAll(s));
+ const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ const icon=name=>`<svg aria-hidden="true"><use href="#i-${name}"/></svg>`;
+ const roles=[
+  {id:'chief',name:'Chief of Staff',initials:'CS',color:'#9061eb',shape:23,role:'builder',purpose:'Turn your priorities into clear, reviewable work.'},
+  {id:'ea',name:'EA',initials:'EA',color:'#2ba5df',shape:17,role:'analyst',purpose:'Organize briefs, meeting notes and your next steps.'},
+  {id:'inbox',name:'Inbox Manager',initials:'IM',color:'#25b875',shape:23,role:'researcher',purpose:'Plan inbox workflows. No mailbox is connected.'},
+  {id:'sales',name:'Sales Outbound',initials:'SO',color:'#20aaa2',shape:17,role:'creator',purpose:'Prepare a reviewed outreach brief. Nothing is sent.'},
+  {id:'talent',name:'Talent Scout',initials:'TS',color:'#98633a',shape:25,role:'researcher',purpose:'Define role criteria and a responsible research brief.'},
+  {id:'growth',name:'Growth Marketer',initials:'GM',color:'#f09420',shape:20,role:'creator',purpose:'Draft campaign ideas without fake engagement or posts.'},
+  {id:'support',name:'Customer Support',initials:'SU',color:'#ee3762',shape:19,role:'researcher',purpose:'Plan useful support answers. No customer inbox is connected.'},
+  {id:'expenses',name:'Expense Manager',initials:'EX',color:'#db69b9',shape:15,role:'analyst',purpose:'Preview a transaction CSV without changing the ledger.'},
+  {id:'invoices',name:'Invoice Collector',initials:'IN',color:'#7361d4',shape:18,role:'analyst',purpose:'Review document requirements. No vendor account is connected.'},
+  {id:'home',name:'Apartment Hunter',initials:'AH',color:'#41b882',shape:26,role:'researcher',purpose:'Capture your preferences. No property site or reservation is connected.'}
+ ];
+ const nativeHost=/OpenBotNative\//.test(navigator.userAgent)||location.protocol==='about:';
+ const KEY='openbot.workspace.local-drafts.v2',LEGACY='openbot.studio.local-drafts.v1';
+ const secret=/(?:\bsk-[A-Za-z0-9_-]{20,}|\bBearer\s+\S{16,}|-----BEGIN [A-Z ]*PRIVATE KEY-----|\bAKIA[A-Z0-9]{16}\b)/i;
+ const blankSocial=()=>({platform:'x',text:'',title:'',media_kind:'none',asset_sha256:'',rights_ref:'',ai_disclosure:'needs_review',made_for_kids:'needs_review'});
+ const initial=()=>({view:'chat',selected:'chief',custom:[],briefs:[],drafts:{},routines:{},remember:false,social:blankSocial(),socialHistory:[],socialPlan:null,socialAck:false,example:false,mobileThread:false,details:false,detailsHidden:false});
+ let state=initial(),status=null,toastTimer,modalKind='',legacyPresent=false,pendingProposal=null,briefReadEpoch=0;
+ const gateway=new window.OpenBotGateway.Session({changed:()=>{renderAuthority();if(state.view==='work')renderWorkOnly();}});
+ const spending=window.OpenBotSpendingWorkspace.create({esc,icon,toast,download,chooseFile:()=>{if(nativeHost)toast('File selection is disabled in this native test shell. Paste allowed CSV text instead.');else $('#finance-file').click();},refresh:()=>{if(state.view==='finance')render();}});
+ const views={chat:'Conversation',plugins:'Plugins & tools',social:'Social desk',finance:'Spending preview',library:'Brief library',connection:'Server & session',work:'Verified work',trust:'Workspace settings'};
+ function companions(){return [...roles,...state.custom];}
+ function selected(){return companions().find(c=>c.id===state.selected)||roles[0];}
+ function avatar(c,size=''){return `<span class="avatar"${size?` style="width:${size}px;height:${size}px"`:''} aria-hidden="true"><svg viewBox="0 0 64 64"><rect x="4" y="4" width="56" height="56" rx="${c.shape||20}" fill="${esc(c.color)}" transform="rotate(-5 32 32)"/><circle cx="51" cy="14" r="4.5" fill="white" opacity=".25"/><text x="32" y="38" text-anchor="middle" fill="white" style="font:550 ${c.initials.length>1?'17':'23'}px -apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;letter-spacing:-.5px">${esc(c.initials)}</text></svg></span>`;}
+ function uuid(){return globalThis.crypto?.randomUUID?.()||'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g,c=>{const r=crypto.getRandomValues(new Uint8Array(1))[0]&15;return(c==='x'?r:r&3|8).toString(16);});}
+ function safeText(v,limit=12000){return typeof v==='string'&&v.length<=limit&&!secret.test(v)&&!/[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]/.test(v);}
+ function restore(){try{legacyPresent=Boolean(localStorage.getItem(LEGACY));const raw=localStorage.getItem(KEY);if(!raw)return;if(raw.length>250000)throw Error();const d=JSON.parse(raw);if(d.schema!==2||d.remember!==true||!Array.isArray(d.custom)||d.custom.length>24||!Array.isArray(d.briefs)||d.briefs.length>100||!d.routines||typeof d.routines!=='object')throw Error();
+  for(const c of d.custom)if(!/^[a-f0-9-]{36}$/.test(c.id)||!safeText(c.name,64)||!c.name.trim()||!['builder','researcher','creator','analyst'].includes(c.role)||c.color!=='#7d8ca5'||!Array.isArray(c.ide_tools)||c.ide_tools.some(v=>!['claude_code','antigravity','t3_code'].includes(v))||!['unconfigured','openai','xai','meta_or_local'].includes(c.provider))throw Error();
+  const ids=new Set([...roles,...d.custom].map(c=>c.id));for(const b of d.briefs)if(!/^[a-f0-9-]{36}$/.test(b.id)||!ids.has(b.companion)||!safeText(b.text)||typeof b.created!=='string')throw Error();
+  for(const [key,r]of Object.entries(d.routines))if(!/^[a-z0-9_-]{1,60}$/.test(key)||!safeText(r.name,64)||!/^\d{2}:\d{2}$/.test(r.time)||!safeText(r.zone,64))throw Error();
+  state={...initial(),custom:d.custom.map(c=>({id:c.id,name:c.name,role:c.role,provider:c.provider,ide_tools:c.ide_tools,initials:Array.from(c.name)[0].toUpperCase(),color:'#7d8ca5',shape:20,purpose:'Custom local blueprint · not connected',plan:null})),briefs:d.briefs,routines:d.routines,remember:true};
+ }catch(_){toast('Saved drafts could not be verified. Using tab memory; no authority or running companion was restored.');}}
+ function save(){try{if(!state.remember){localStorage.removeItem(KEY);renderAuthority();return;}const raw=JSON.stringify({schema:2,remember:true,custom:state.custom.map(({plan,...c})=>c),briefs:state.briefs,routines:state.routines});if(raw.length>250000)throw Error();localStorage.setItem(KEY,raw);}catch(_){state.remember=false;toast('Browser storage is unavailable or full. No successful save is claimed; drafts remain in this tab.');}renderAuthority();}
+ function toast(message){const n=$('#toast');clearTimeout(toastTimer);n.textContent=message;n.hidden=false;toastTimer=setTimeout(()=>{n.hidden=true;},6500);$('#announcer').textContent=message;}
+ function download(name,value,type='application/json'){if(nativeHost){toast('Downloads are disabled in this native test shell. Use the shared browser interface for exports. Nothing was saved to disk.');return false;}const raw=typeof value==='string'?value:JSON.stringify(value,null,2)+'\n';const url=URL.createObjectURL(new Blob([raw],{type}));const a=document.createElement('a');a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),30000);return true;}
+ function showModal(title,html,kind=''){modalKind=kind;$('#modal-title').textContent=title;$('#modal-body').innerHTML=html;if(!$('#modal').open)$('#modal').showModal();}
+ function closeModal(){if(modalKind==='pair'&&gateway.busy)gateway.invalidate('Pairing dialog closed while a request may be in flight. Inspect/revoke the session on the server before retrying.');for(const id of ['pair-code','reauth-code']){const input=$('#'+id);if(input)input.value='';}$('#modal').close();modalKind='';}
+ function heading(eyebrow,title,copy,action=''){return `<div class="page-header"><div><div class="eyebrow">${eyebrow}</div><h1>${title}</h1><p>${copy}</p></div>${action}</div>`;}
+ function go(view){if(!Object.hasOwn(views,view))view='chat';state.view=view;state.mobileThread=true;state.details=false;try{history.replaceState(null,'','#'+view);}catch(_){}render();$('#main').focus({preventScroll:true});}
+ function choose(id){if(!companions().some(c=>c.id===id))return;state.selected=id;state.view='chat';state.mobileThread=true;state.example=false;state.details=false;render();}
+ function renderContacts(){const query=$('#contact-search').value.trim().toLowerCase();const all=companions().filter(c=>c.name.toLowerCase().includes(query));$('#contact-list').innerHTML=all.length?all.map((c,i)=>{const last=state.briefs.filter(b=>b.companion===c.id).at(-1);return `<button class="contact-row ${state.view==='chat'&&c.id===state.selected?'active':''} ${roles.slice(0,3).some(r=>r.id===c.id)?'pinned-desktop':''}" data-companion="${esc(c.id)}"${c.id===state.selected?' aria-current="true"':''}>${avatar(c)}<span class="contact-info"><span class="contact-title">${esc(c.name)}<small>${last?'Draft':'Blueprint'}</small></span><span class="contact-snippet">${esc(last?last.text:'Not connected · '+c.purpose)}</span></span></button>`;}).join(''):'<p class="contact-empty">No matching companions. Try another name.</p>';$('#mobile-favorites').innerHTML=roles.slice(0,3).map(c=>`<button class="favorite" data-companion="${c.id}">${avatar(c)}<span>${esc(c.name)}</span></button>`).join('');}
+ function renderAuthority(){const i=gateway.info();const b=$('#gateway-badge');if(!b)return;b.textContent=i.enabled?(i.fresh?'Authenticated owned-QA':i.pairing?'Stale · read only':'Pairing required'):'Local workspace';b.classList.toggle('verified',i.fresh);const wa=$('#work-authority');if(wa)wa.textContent=i.fresh?'Fresh authenticated snapshot. Actions still require their specific server scope.':i.enabled?'Not paired, stale or unavailable. Mutations are disabled until a fresh authenticated read-back.':'This planning preview cannot execute. Use the owner-selected HTTPS gateway /control/ page and pair a scoped session.';$('#gateway-dot').classList.toggle('connected',i.fresh);$('#storage-label').textContent=state.remember?'Browser drafts saved':'This tab only';for(const button of $$('[data-requires]'))button.disabled=!gateway.can(button.dataset.requires);}
+ function renderDetails(){const c=selected();$('#details-panel').innerHTML=`<div class="details-toolbar"><button class="icon-button" id="hide-details" aria-label="Hide computer details">${icon('back')}</button><span class="push"></span><button class="icon-button" id="download-companion" aria-label="Download companion request">${icon('download')}</button><button class="icon-button" id="computer-settings" aria-label="Computer requirements">${icon('sliders')}</button><button class="icon-button" id="close-details" aria-label="Close computer details">${icon('close')}</button></div><div class="computer-preview"><div class="computer-desktop">${icon('computer')}<strong>No computer connected</strong><small>Blueprint only · not a live screen</small></div><div class="computer-dock" aria-hidden="true"><i></i><i></i><i></i></div></div><p class="computer-caption">${esc(c.name)}’s computer</p><p class="computer-subtitle">0 allocated PCs · no IDE session</p><h2 class="routine-heading">Routines</h2>${['Morning briefing','Inbox cleanup','Weekly team update'].map((name,index)=>{const r=state.routines[c.id+'_'+index];return `<button class="routine-row" data-routine="${index}">${icon('clock')}<span><strong>${esc(r?.name||name)}</strong><small>${r?esc(r.time+' · '+r.zone)+' · request only':'Not scheduled · plan a routine'}</small></span></button>`;}).join('')}<p class="routine-footnote">Routine plans are local requests. No email is read, scheduled job created or background agent started.</p><div class="details-actions"><button class="button" id="computer-settings-secondary">Plan this computer</button><button class="button" data-view="work">${icon('shield')}Open verified owned-QA work</button></div><div class="details-bottom"><b>Clear permissions. Real evidence.</b><br>Companion names never grant server roles. No model, mailbox, social account or VM is connected by this screen.</div>`;}
+ function renderChat(){const c=selected(),briefs=state.briefs.filter(b=>b.companion===c.id);let messages='';if(state.example){messages=`<p class="example-label">FICTIONAL DESIGN EXAMPLE · NOT ACTUAL MESSAGES OR COMPLETED WORK</p><div class="date-divider">Example conversation</div><div class="message user">What is the latest on our example project?</div><div class="message system"><small>EXAMPLE RESPONSE · NOT A MODEL CALL</small>The sample project notes mention two priorities: review the release checklist and prepare an update for the team.</div><div class="message user">Draft the update for me to review.</div><div class="message system"><small>EXAMPLE DRAFT · NOTHING WAS SENT</small>Here is a draft to review. In the real workflow, exact content, destination and account approval must be checked before any external action.</div><button class="text-button" id="leave-example">Return to my local drafts</button>`;}
+  else if(briefs.length)messages=`<div class="date-divider">Local work briefs · not AI chat</div>`+briefs.map(b=>`<div class="message user">${esc(b.text)}</div><div class="message system"><small>LOCAL INTAKE CHECKLIST · NOT AN AI RESPONSE</small>Your brief is saved ${state.remember?'in this browser':'in this tab'}. It has not been sent to a model or assigned to a running agent.\n\nDefine the expected result and evidence, then choose the appropriate permission boundary.<br><button class="text-button" data-view="work">Review bounded owned-QA work ${icon('chevron')}</button></div>`).join('');
+  else messages=`<div class="empty-conversation">${avatar(c)}<div class="eyebrow">YOUR SPACE TO MAKE THINGS HAPPEN</div><h1>A little clarity.<br>A lot of possibility.</h1><p>${esc(c.purpose)}<br>This is a local blueprint. A model is not connected yet.</p><div class="conversation-suggestions"><button class="suggestion" id="focus-composer">Write a work brief</button><button class="suggestion" id="view-example">See design example</button><button class="suggestion" data-view="connection">Connect a trusted server</button></div></div>`;
+  return `<div class="thread"><section class="message-list" aria-label="${esc(c.name)} local conversation">${messages}</section><div class="composer-area"><div class="composer"><button class="icon-button attach" id="attach-menu" aria-label="Add attachment or task">${icon('plus')}</button><label class="sr-only" for="brief-input">Message ${esc(c.name)} — local work brief</label><textarea id="brief-input" rows="1" maxlength="12000" placeholder="Message ${esc(c.name)}" spellcheck="true">${esc(state.drafts[c.id]||'')}</textarea><button class="send-button" id="save-brief" aria-label="Save local work brief">${icon('send')}</button><button class="icon-button" id="voice-info" aria-label="Voice availability">${icon('mic')}</button></div><p class="composer-note">Local brief, not live AI chat. No message is sent to a model.<button data-view="trust">Build & trust</button></p></div></div>`;
+ }
+ function renderPlugins(){return `<div class="page">${heading('A THOUGHTFUL TOOLBOX.','Useful tools. Explicit connections.','Plan locally, or use one narrowly scoped authenticated owned-QA workflow. An installed-looking icon is never proof of an account or service connection.')}<div class="tool-grid">${[
+  ['work','shield','Verified owned-QA','Propose, separately review, execute and read back fixed owned samples through the real kernel.','HTTPS pairing required'],['social','social','Social desk','Review your own X, Instagram or YouTube draft. No publishing, OAuth, likes or DMs.','Draft-only'],['finance','finance','Spending preview','An attributed OpenMuse CSV parser. Local, exact integer amounts. No bank or ledger write.','Browser-only'],['library','file','Brief library','Keep your own work briefs and download Markdown. No model replies or assigned work invented.','Local drafts'],['connection','plug','Server & session','Server-derived scopes, one-use device proofs and exact reauthentication. No provider keys in the UI.','Memory-only device key'],['trust','sliders','Build, source & settings','Current-source download, honest release status, local data controls and third-party attribution.','Not publicly released']
+ ].map(([view,ico,title,copy,tag])=>`<button class="tool-card" data-view="${view}">${icon(ico)}<span><h3>${title}</h3><p>${copy}</p><small>${tag}</small></span></button>`).join('')}</div></div>`;}
+ function renderLibrary(){return `<div class="page">${heading('HUMAN IDEAS. STILL YOURS.','Your brief library.','These are local human briefs, not model answers, completed work or execution grants.')}<div class="task-list">${state.briefs.length?[...state.briefs].reverse().map(b=>`<article class="task-card"><h3>${esc(b.text.slice(0,160))}${b.text.length>160?'…':''}</h3><p class="task-meta">${esc(companions().find(c=>c.id===b.companion)?.name||'Local companion')} · ${state.remember?'browser saved':'this tab only'}</p><div class="actions"><button class="button small" data-download-brief="${b.id}">${icon('download')}Markdown</button></div></article>`).join(''):'<p class="inline-note">No work briefs yet. Select a companion and write one. Nothing will be sent to a model.</p>'}</div></div>`;}
+ function renderConnection(){const i=gateway.info();return `<div class="page">${heading('THE SERVER DECIDES AUTHORITY.','A real connection. A narrow scope.','This client speaks the existing API v1 / wire-client 0.2.0 protocol. The companion shown in the chat does not choose your actor, venture, role or permissions.')}<div class="trust-grid"><section class="panel"><h2>${i.enabled?'Approved HTTPS gateway page':'Local/offline workspace'}</h2><p class="muted">${i.enabled?'The browser platform validates TLS. A one-use code from your trusted host console pairs a scoped memory-only P-256 device key.':'To connect, the owner must deploy this exact client at the chosen HTTPS gateway’s /control/ path. In native test apps, use the native Server / Session selector. The public planning preview does not proxy privileged routes.'}</p>${i.enabled?`<div class="digest">Origin: ${esc(i.origin)}<br>Server: ${esc(i.server||'Not identified')}<br>State: ${i.fresh?'Fresh authenticated read-back':i.pairing?'Stale/read-only':'Not paired'}</div>`:''}${i.pairing?`<p class="inline-note">Server-defined role: <b>${esc(i.pairing.role)}</b> · venture: ${esc(i.pairing.venture)}<br>Device: <code>${esc(i.pairing.device)}</code><br>Scopes: ${esc(i.pairing.scopes.join(', '))}</p>`:''}<p class="form-error" id="gateway-error">${esc(i.error)}</p><div class="actions"><button class="button primary" id="pair-device"${!i.enabled||!i.server||i.busy?' disabled':''}>${i.pairing?'Pair another session':'Pair device'}</button><button class="button" id="refresh-server"${!i.pairing||i.busy?' disabled':''}>Refresh read-back</button><button class="button danger" id="revoke-session" data-requires="revoke-self">Revoke session</button></div></section><section class="panel"><h2>What this does—and does not do</h2><ul class="review-list"><li>Fixed first-party invoice QA/documentation samples only; local review destination and zero provider exposure.</li><li>Proposal ≠ approval. A separate host-console exact-review code and a separate execution request are required.</li><li>Read-back freshness, expiry, scoped proofs, replay rejection and server revocation remain enforced.</li><li>No model, bank, real PC/IDE, mailbox, social publisher, production server or real customer job was connected by this code.</li><li>Private keys are non-exportable but renderer-memory-only, not a hardware keystore.</li></ul><button class="button" data-view="work">Open verified work</button></section></div><p class="notice">Do not paste API keys, passwords, cookies or production secrets here or in chat. Only the short-lived fixture/owner-server console code belongs in the pairing dialog.</p></div>`;}
+ function renderWork(){const i=gateway.info(),tasks=gateway.snapshot.tasks||[];return `<div class="page">${heading('SIGNED DEVICE REQUEST. SEPARATE EXACT REVIEW.','Verified owned-QA work.','A genuine Studio → HTTPS → device proof → kernel governance → fixed sample → artifact read-back path. This is not autonomous chat or production acceptance.',`<button class="button primary" id="new-qa" data-requires="propose">${icon('plus')}Propose owned QA</button>`)}<p class="notice" id="work-authority">${i.fresh?'Fresh authenticated snapshot. Actions still require their specific server scope.':i.enabled?'Not paired, stale or unavailable. Mutations are disabled until a fresh authenticated read-back.':'This planning preview cannot execute. Use the owner-selected HTTPS gateway /control/ page and pair a scoped session.'}</p><div class="actions"><button class="button" data-view="connection">Server & session</button><button class="button" id="refresh-server"${!i.pairing||i.busy?' disabled':''}>Refresh read-back</button></div>${i.error?`<p class="form-error">${esc(i.error)}</p>`:''}<div class="task-list">${tasks.length?tasks.map(t=>`<article class="task-card" data-task="${esc(t.id)}"><h3>${esc(t.plan?.intake?.goal||t.routine||'Owned QA task')}</h3><p class="task-meta">${esc(t.id)} · ${esc(t.plan?.intake?.fixture||'owned sample')} · local review only</p><span class="task-status">${esc(t.status)}</span><div class="digest">Exact plan SHA-256<br>${esc(t.spec_digest||'Not prepared')}</div><p class="inline-note">${t.status==='completed'?'Server reports completion. Read back the artifact; this is not qualified human acceptance.':'No permission is inferred from the plan, this label or a checkbox.'}</p><div class="actions"><button class="button small" data-task-detail="${esc(t.id)}">Exact record</button>${t.status==='review'?`<button class="button small primary" data-approve="${esc(t.id)}" data-requires="approve">Review & reauthenticate</button>`:''}${t.status==='queued'?`<button class="button small primary" data-execute="${esc(t.id)}" data-requires="execute">Request execution</button>`:''}${t.status==='completed'?`<button class="button small" data-artifact="${esc(t.id)}" data-requires="read">Read back artifact</button>`:''}${['review','queued','running'].includes(t.status)?`<button class="button small" data-cancel="${esc(t.id)}" data-requires="cancel">Request stop</button>`:''}</div></article>`).join(''):'<section class="panel"><h3>No authoritative task records loaded.</h3><p class="inline-note">Local chat briefs do not become server work automatically. Pair, refresh, and explicitly propose a fixed owned sample.</p></section>'}</div>${i.pairing?`<details class="panel"><summary>Scoped audit read-back · ${gateway.snapshot.audit.length} records</summary><pre id="server-audit">${esc(JSON.stringify(gateway.snapshot.audit,null,2))}</pre></details><details class="panel"><summary>Canonical exact-book source · not a bank balance or settled earnings</summary><p class="inline-note">Last scoped server read-back, not the imported spending CSV. Integer minor-unit strings are shown without conversion to floating-point money. This is not permission to spend.</p><pre id="server-book">${esc(JSON.stringify(gateway.snapshot.exact_book,null,2))}</pre></details>`:''}<p class="inline-note">Unknown/refused write outcome? Refresh and inspect the server. No implicit replay, approval, execution or provider retry is performed.</p></div>`;}
+ function renderWorkOnly(){if(state.view==='work'){$('#main').innerHTML=renderWork();renderAuthority();}}
+ function renderTrust(){return `<div class="page">${heading('ONE SHARED INTERFACE. HONEST STATUS.','Your workspace. Your boundaries.','The supplied reference now guides the light three-column desktop layout and the companion-list / conversation mobile flow. Shared HTML is bundled for Windows, Android and iOS; OS chrome, signing and device acceptance are separate.')}<section class="panel source-card"><div><h2>One current-source workspace</h2><p>The clean source includes the kernel, shared UI, native shell source, notices, tests, roadmap and separate owner/Antigravity instructions. It is not a runtime backup, native release signature or public-product approval.</p></div>${status?.source_download_available?`<a class="button primary" href="/source.zip" download="OpenBot-Workspace-current-source.zip">${icon('download')}Download current source</a>`:'<button class="button" disabled>Source ZIP not attached here</button>'}</section><div class="trust-grid"><section class="panel"><h2>Local data controls</h2><label class="setting-row"><input type="checkbox" id="remember-drafts"${state.remember?' checked':''}><span>Remember non-secret work briefs, custom blueprint requests and routine requests in this browser. Off by default; unencrypted, not authenticated approvals. Never stores financial CSV imports, device keys, pairing/review codes or authoritative task receipts.</span></label><p class="inline-note">${legacyPresent?'Earlier Studio v1 browser data was detected and left untouched. It is not silently imported or deleted.':''} Restored requests are unvalidated; no running service is recreated. Native test shells block file selection/downloads and may block browser storage. Paste permitted text for local work; use the browser for file imports/exports.</p><button class="button danger small" id="clear-drafts">Clear this interface’s local drafts</button></section><section class="panel"><h2>What is real?</h2><ul class="review-list"><li>Local briefs, requests, social review and the attributed OpenMuse read-only CSV parser.</li><li>Authenticated fixed-owned QA integration when this exact client is served by the gateway; local disposable HTTPS evidence is not production pairing.</li><li>Windows unsigned test build / Android demo-signed test build only when measured package receipts exist. iOS needs Mac/Xcode; browser WebKit is not iPhone acceptance.</li><li>0 connected model teammates, real PCs, IDE sessions or social accounts are implied.</li></ul></section><section class="panel"><h2>Useful reuse, not everything copied</h2><p class="muted">OpenMuse’s MIT CSV parser/test vectors are actually adapted. OpenDots/Rakazo/Bot HQ remain at their recorded selective-review/adoption boundaries. The reference-inspired interface and letter avatars are original. No closed source, branded artwork or service entitlement is copied.</p><p class="inline-note">Unintegrated upstream reference code is not an installed agent runtime. Exact notices and selected hashes are recorded in the source handoff.</p></section><section class="panel"><h2>Public release remains blocked</h2><p class="muted">R01–R13 are tracked in PUBLIC_RELEASE_ROADMAP.md. Real providers/hosts/PCs/social, native devices/signing, independent security, witnessed operations, protected evaluation, the real 1–6-month pilot including 30 consecutive observed days, and human release remain gates.</p><p class="inline-note">Accepted real observed pilot days: <b>0</b>. Engineering is done in active sessions; no claim of unattended background progress.</p></section></div></div>`;}
+ const socialFields={text:'social-text',title:'social-title',media_kind:'social-media',asset_sha256:'social-asset',rights_ref:'social-rights',ai_disclosure:'social-ai',made_for_kids:'social-audience'};
+ function readSocial(){for(const [field,id]of Object.entries(socialFields)){const n=$('#'+id);if(n)state.social[field]=n.value;}}
+ function invalidateSocial(){state.socialPlan=null;state.socialAck=false;const out=$('#social-result');if(out)out.innerHTML='<p class="inline-note">Not reviewed. A changed draft invalidates the previous checklist.</p>';}
+ function renderSocial(){const d=state.social;return `<div class="page">${heading('DRAFT FIRST. NO PUBLIC ACTION.','Your social desk.','Review your own content and missing setup. This is not OAuth, platform approval, an automated reply, a post, or a guarantee against account restrictions.')}<div class="social-layout"><section class="panel"><div class="platforms">${['x','instagram','youtube'].map(p=>`<button class="button small ${d.platform===p?'active':''}" data-platform="${p}">${p==='x'?'X':p==='instagram'?'Instagram':'YouTube'}</button>`).join('')}</div><label>Draft text<textarea id="social-text" maxlength="12000">${esc(d.text)}</textarea></label><label>Title<input id="social-title" maxlength="400" value="${esc(d.title)}"></label><div class="form-grid"><label>Media<select id="social-media">${['none','image','video'].map(v=>`<option${d.media_kind===v?' selected':''}>${v}</option>`).join('')}</select></label><label>AI disclosure<select id="social-ai">${['needs_review','original','synthetic'].map(v=>`<option${d.ai_disclosure===v?' selected':''}>${v}</option>`).join('')}</select></label></div><label>Owned asset SHA-256<input id="social-asset" maxlength="64" value="${esc(d.asset_sha256)}"></label><label>Rights/consent reference<input id="social-rights" maxlength="200" value="${esc(d.rights_ref)}"></label><label>Made for children?<select id="social-audience">${['needs_review','yes','no'].map(v=>`<option${d.made_for_kids===v?' selected':''}>${v}</option>`).join('')}</select></label><p class="form-error" id="social-error"></p><div class="actions"><button class="button primary" id="review-social">Review local draft</button></div></section><section class="panel social-result" id="social-result">${socialResult()}</section></div></div>`;}
+ function socialResult(){const p=state.socialPlan;if(!p)return '<h2>Before anything goes out.</h2><p class="inline-note">Not reviewed. No account is connected, and no external-write route exists in this draft planner.</p>';return `<h2>Local checklist, not publishing approval</h2><p class="notice">No account connected · external writes disabled · no ban guarantee</p><ul>${p.requirements.map(v=>`<li>${esc(v.replaceAll('_',' '))}</li>`).join('')}</ul>${p.duplicate_risk?'<p class="notice">Duplicate risk. Do not reword it to evade platform restrictions.</p>':''}<pre>${esc(JSON.stringify(p.metadata_preview,null,2))}</pre><p class="inline-note">YouTube previews explicitly use private visibility. X AI replies need separate platform approval. Instagram account/login/scope requirements remain unfulfilled.</p><label class="check-row"><input type="checkbox" id="social-ack"${state.socialAck?' checked':''}><span>I read this checklist. This local acknowledgement is not an authenticated approval.</span></label><button class="button" id="download-review"${state.socialAck?'':' disabled'}>Download non-authorizing review</button>`;}
+ async function api(path,body){if(gateway.enabled||!/^https?:$/.test(location.protocol)||location.hostname==='openbot-offline.invalid')throw Error('Local planning validator unavailable in this host. Use the included CLI; no successful validation is claimed.');const c=new AbortController(),timer=setTimeout(()=>c.abort(),5000);try{const r=await fetch(path,{method:'POST',credentials:'omit',cache:'no-store',headers:{'Content-Type':'application/json'},body:JSON.stringify(body),signal:c.signal});const v=await r.json();if(!r.ok)throw Error(typeof v.error==='string'?v.error.replaceAll('_',' '):'Draft refused');return v;}catch(error){if(error instanceof TypeError||error.name==='AbortError')throw Error('Local validator unavailable. Draft retained; nothing was sent to a provider or published.');throw error;}finally{clearTimeout(timer);}}
+ function canonical(v){if(v===null||typeof v!=='object')return JSON.stringify(v);if(Array.isArray(v))return '['+v.map(canonical).join(',')+']';return '{'+Object.keys(v).sort().map(k=>JSON.stringify(k)+':'+canonical(v[k])).join(',')+'}';}
+ async function verifyPlan(p,schema){if(!p||p.schema!==schema||p.authority!=='planning_only'||!/^[a-f0-9]{64}$/.test(p.sha256))throw Error('Invalid plan contract');if(schema==='openbot.social-review/1'&&(p.account_connected!==false||p.external_write_enabled!==false||p.transport_request!==null||p.no_ban_guarantee!==false))throw Error('Unexpected publishing capability refused');if(schema==='openbot.companion-blueprint/1'&&(p.vm_started!==false||p.model_connected!==false||p.execution_authorized!==false))throw Error('Unexpected execution capability refused');const base=Object.fromEntries(Object.entries(p).filter(([k])=>k!=='sha256'));const raw=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(canonical(base)));if(Array.from(new Uint8Array(raw),b=>b.toString(16).padStart(2,'0')).join('')!==p.sha256)throw Error('Plan integrity mismatch');return p;}
+ async function reviewSocial(){readSocial();const serialized=canonical(state.social);state.socialPlan=null;state.socialAck=false;$('#social-error').textContent='';$('#review-social').disabled=true;try{const p=await verifyPlan(await api('/api/social-plan',{draft:{...state.social},history:state.socialHistory}), 'openbot.social-review/1');if(canonical(state.social)!==serialized){toast('Draft changed while validating; the late review was discarded.');return;}state.socialPlan=p;state.socialHistory=[{...state.social},...state.socialHistory].slice(0,32);if(state.view==='social')$('#social-result').innerHTML=socialResult();}catch(error){if($('#social-error'))$('#social-error').textContent=error.message;}finally{if($('#review-social'))$('#review-social').disabled=false;}}
+ function render(){const c=selected();$('#workspace').className='workspace'+(state.mobileThread?' show-thread':'')+(state.details?' show-details':'')+(state.detailsHidden?' no-details':'')+(state.view!=='chat'?' plugin-view':'');$('#thread-heading').innerHTML=state.view==='chat'?`${avatar(c,29)}<span><strong>${esc(c.name)}</strong><small>${state.example?'Fictional design example':'Local blueprint · model not connected'}</small></span>`:`<span><strong>${esc(views[state.view])}</strong><small>${state.view==='work'?'Authenticated fixed-owned scope only':'Explicit boundaries · no automatic connections'}</small></span>`;$('#show-computer').setAttribute('aria-expanded',String(state.details||matchMedia('(min-width:1151px)').matches&&!state.detailsHidden&&state.view==='chat'));$('#main').setAttribute('aria-label',views[state.view]);$('#main').innerHTML={chat:renderChat,plugins:renderPlugins,social:renderSocial,finance:()=>spending.view(heading),library:renderLibrary,connection:renderConnection,work:renderWork,trust:renderTrust}[state.view]();renderContacts();renderDetails();renderAuthority();}
+ function saveBrief(){const input=$('#brief-input');if(!input)return;const text=input.value.trim();if(!text)return;if(!safeText(text)||state.briefs.length>=100){toast('Brief refused: possible credentials, invalid text, more than 12,000 characters or 100 saved briefs. Nothing was sent.');return;}state.briefs.push({id:uuid(),companion:state.selected,text,created:new Date().toISOString()});state.drafts[state.selected]='';state.example=false;save();render();const list=$('.message-list');list.scrollTop=list.scrollHeight;$('#brief-input').focus();}
+ function companionDialog(){showModal('Meet your next companion.',`<p class="modal-copy">Create a local blueprint request. This does not log in, install software, start a PC or create a running AI assistant.</p><label>Name<input id="companion-name" maxlength="64" autocomplete="off" required placeholder="e.g. Atlas"></label><div class="form-grid"><label>Specialty<select id="companion-role">${['builder','researcher','creator','analyst'].map(v=>`<option>${v}</option>`).join('')}</select></label><label>Requested model<select id="companion-provider"><option value="unconfigured">Decide later</option><option value="openai">OpenAI API</option><option value="xai">xAI / Grok API</option><option value="meta_or_local">Meta / local model</option></select></label></div><fieldset><legend>Tools for a future real computer</legend>${[['claude_code','Claude Code'],['antigravity','Antigravity IDE'],['t3_code','T3 Code']].map(([id,label])=>`<label class="check-row"><input type="checkbox" name="ide_tools" value="${id}" checked><span>${label}</span><small>Not installed</small></label>`).join('')}</fieldset><p class="form-error" id="companion-error"></p><button class="button primary full" id="create-companion">Create local blueprint</button>`);}
+ async function createCompanion(){const name=$('#companion-name').value.trim(),role=$('#companion-role').value,provider=$('#companion-provider').value,ide_tools=$$('input[name="ide_tools"]:checked').map(n=>n.value);if(!name||!safeText(name,64)||/[\x00-\x1f]/.test(name)||state.custom.length>=24){$('#companion-error').textContent='Use a non-secret name, 1–64 characters. At most 24 custom blueprints.';return;}const request={name,role,provider,ide_tools};const c={id:uuid(),name,role,provider,ide_tools,initials:Array.from(name)[0].toUpperCase(),color:'#7d8ca5',shape:20,purpose:'Custom local blueprint · not connected',plan:null};state.custom.push(c);save();closeModal();choose(c.id);toast('Local request created. No bot, model, PC or IDE was started.');try{const p=await verifyPlan(await api('/api/companion-plan',request),'openbot.companion-blueprint/1');c.plan=p;toast('Planning hash verified. This is not execution or installation approval.');}catch(_){/* The visible request remains unvalidated; no invented success. */}}
+ function requestFor(c){return {name:c.name,role:c.role,provider:c.provider||'unconfigured',ide_tools:c.ide_tools||['claude_code','antigravity','t3_code']};}
+ function computerDialog(){showModal('A real computer needs a real boundary.',`<p class="modal-copy">${esc(selected().name)} has no VM or IDE session. A folder, a screenshot placeholder or a requested tool name is not a PC.</p><ul class="review-list"><li>Owner-selected VM host, pinned guest OS, architecture and explicit cost caps.</li><li>Separate guest/disk/network identity, no shared admin key or writable host repository.</li><li>Measured CPU/RAM/PIDs/disk/egress and cross-bot secret/file isolation.</li><li>Reviewed, compatible Claude Code, Antigravity and T3 Code installers/authentication.</li><li>Kill/expiry/orphan cleanup, image updates and restore evidence.</li></ul><button class="button full" id="download-companion">Download unvalidated computer request</button>`);}
+ function routineDialog(index){const c=selected(),key=c.id+'_'+index,r=state.routines[key]||{name:['Morning briefing','Inbox cleanup','Weekly team update'][index],time:['08:00','18:00','09:00'][index],zone:'Asia/Kolkata'};showModal('Plan a routine. Do not schedule it.',`<p class="modal-copy">This saves a local request only. No cron, mailbox, model, background agent or account is connected.</p><label>Name<input id="routine-name" maxlength="64" value="${esc(r.name)}"></label><label>Requested local time<input id="routine-time" type="time" value="${r.time}"></label><label>Time zone<input id="routine-zone" maxlength="64" value="${esc(r.zone)}"></label><p class="form-error" id="routine-error"></p><button class="button primary" id="save-routine" data-key="${key}">Save request & download JSON</button>`);}
+ function pairDialog(){if(!gateway.enabled||!gateway.server)return;showModal('Pair this device, not a companion role.',`<p class="modal-copy">Use a short-lived one-use code from the trusted host console. Never use a model key, account password or payment credential. Origin: <b>${esc(gateway.origin)}</b></p><div class="digest">Server: ${esc(gateway.server)}</div><label>Device label<input id="device-label" maxlength="64" value="OpenBot workspace session" autocomplete="off"></label><label>One-time pairing code<input id="pair-code" type="password" minlength="43" maxlength="43" autocomplete="off" spellcheck="false"></label><p class="inline-note">Non-exportable P-256 private key, in renderer memory only. Reload needs a fresh pairing grant. No hardware-keystore claim.</p><p class="form-error" id="pair-error"></p><button class="button primary full" id="pair-submit">Pair device</button>`,'pair');}
+ function newQADialog(){if(!gateway.can('propose'))return;if(pendingProposal){showModal('Read back the previous proposal first.',`<p class="modal-copy">A prior proposal outcome was uncertain. Do not automatically resend it or reuse its request ID with changed content. Refresh the server, inspect task records, then explicitly decide whether to create a new proposal.</p><div class="digest">Request ID: ${esc(pendingProposal.request_id)}</div><div class="actions"><button class="button" id="inspect-prior-proposal">Refresh & inspect</button><button class="button" id="ack-new-proposal">I inspected the outcome; start a new proposal</button></div>`);return;}showModal('Propose fixed owned-QA work.',`<p class="modal-copy">This creates a server proposal, not approval. Actor, venture, scope, catalog and budget authority come from the trusted server—not the selected companion name.</p><label>Bundled first-party sample<select id="fixture">${window.OpenBotGateway.fixtures.map(v=>`<option>${v}</option>`).join('')}</select></label><label>Goal<input id="goal" maxlength="512" value="Validate the owned invoice sample"></label><label>Acceptance criteria<textarea id="acceptance" maxlength="512">Run independent assertions and documentation examples; report evidence for every finding.</textarea></label><label class="check-row"><input id="rights" type="checkbox"><span>I have testing rights for this first-party sample and approve this bounded AI-assisted QA/documentation method.</span></label><div class="digest">Destination: local-review · maximum provider exposure: USD 0.00<br>No customer program, external delivery, custom shell or provider call.</div><p class="form-error" id="proposal-error"></p><button class="button primary full" id="propose-submit">Create server proposal</button>`);}
+ function task(id){return gateway.snapshot.tasks.find(t=>t.id===id);}
+ function approvalDialog(id){const t=task(id);if(!t||!gateway.can('approve'))return;showModal('Review and reauthenticate this exact plan.',`<p class="modal-copy">A pairing code is not an approval code. Obtain a fresh owner host-console code bound to this device, task and exact digest. Editing any plan requires a new proposal.</p><pre>${esc(JSON.stringify(t.plan,null,2))}</pre><div class="digest">Task: ${esc(t.id)}<br>Device: ${esc(gateway.pairing.device)}<br>Exact SHA-256: ${esc(t.spec_digest)}</div><label>One-use exact-review code<input id="reauth-code" type="password" minlength="43" maxlength="43" autocomplete="off" spellcheck="false"></label><p class="form-error" id="approval-error"></p><button class="button primary full" id="approve-submit" data-id="${esc(t.id)}" data-digest="${esc(t.spec_digest)}">Approve this exact plan</button>`,'approval');}
+ async function mutate(fn,message){try{await fn();const fresh=gateway.pairing?await gateway.refresh():true;toast(fresh?message:'Request response received, but authoritative read-back failed. Refresh and inspect before acting.');}catch(error){toast('Read-back required; no automatic retry. '+error.message);await gateway.refresh();}if(['work','connection'].includes(state.view))render();}
+ async function artifactDialog(id){try{const a=await gateway.artifact(id);showModal('Server-verified local artifact.',`<p class="modal-copy">Content/audit read-back through the scoped kernel. No external delivery. Completion does not mean defect-free, human-accepted or production-released.</p><div class="digest">SHA-256: ${esc(a.sha256)}</div><pre>${esc(JSON.stringify(a.content,null,2))}</pre>`);}catch(error){toast('Artifact unavailable: '+error.message);}}
+ document.addEventListener('click',async event=>{const b=event.target.closest('button,a');if(!b)return;
+  if(spending.click(b.id)){event.preventDefault();return;}
+  if(b.dataset.view){event.preventDefault();if($('#modal').open)closeModal();go(b.dataset.view);return;}
+  if(b.dataset.companion){choose(b.dataset.companion);return;}
+  if(b.hasAttribute('data-add-companion')){companionDialog();return;}
+  if(b.dataset.routine!==undefined){routineDialog(Number(b.dataset.routine));return;}
+  if(b.dataset.platform){readSocial();state.social.platform=b.dataset.platform;invalidateSocial();render();return;}
+  if(b.dataset.downloadBrief){const v=state.briefs.find(v=>v.id===b.dataset.downloadBrief);if(v)download('OpenBot-work-brief.md','# Local work brief\n\n'+v.text+'\n\nHuman brief. Not an AI answer, assigned job or execution grant.\n','text/markdown');return;}
+  if(b.dataset.taskDetail){const t=task(b.dataset.taskDetail);if(t)showModal('Exact authoritative task record.',`<p class="modal-copy">Last scoped server read-back. Refresh before acting.</p><pre>${esc(JSON.stringify(t,null,2))}</pre>`);return;}
+  if(b.dataset.approve){approvalDialog(b.dataset.approve);return;}
+  if(b.dataset.execute){const t=task(b.dataset.execute);if(t)showModal('Request this separate execution?',`<p class="modal-copy">Request one governed owned-QA execution. The kernel rechecks exact catalog, source, approval, expiry and limits. No provider or external delivery.</p><div class="digest">${esc(t.spec_digest)}</div><button class="button primary full" id="confirm-execute" data-id="${esc(t.id)}" data-digest="${esc(t.spec_digest)}">Request execution</button>`);return;}
+  if(b.dataset.artifact){await artifactDialog(b.dataset.artifact);return;}
+  if(b.dataset.cancel){const id=b.dataset.cancel;await mutate(()=>gateway.taskAction('cancel',id),'Stop request read back. This is not a remote kill or financial settlement claim.');return;}
+  switch(b.id){
+   case 'modal-close':closeModal();break;
+   case 'mobile-search':$('.contact-panel').classList.toggle('searching');if($('.contact-panel').classList.contains('searching'))$('#contact-search').focus();break;
+   case 'mobile-back':state.mobileThread=false;state.details=false;render();break;
+   case 'show-computer':if(matchMedia('(min-width:1151px)').matches)state.detailsHidden=!state.detailsHidden;else state.details=!state.details;render();break;
+   case 'hide-details':case 'close-details':state.details=false;state.detailsHidden=true;render();break;
+   case 'focus-composer':$('#brief-input')?.focus();break;
+   case 'save-brief':saveBrief();break;
+   case 'view-example':state.example=true;render();break;
+   case 'leave-example':state.example=false;render();break;
+   case 'voice-info':showModal('Voice is not connected.', '<p class="modal-copy">The microphone button is a setup affordance, not an active recorder or voice agent. This build does not request microphone access, send audio, make calls or synthesize a live teammate. Voice requires separate implementation, consent and native acceptance.</p>');break;
+   case 'attach-menu':showModal('Add something useful.',`<p class="modal-copy">Local attachments are not uploaded or automatically assigned.</p><div class="actions"><button class="button" id="choose-brief">${icon('file')}Read local .txt / .md</button><button class="button" id="modal-owned-qa">${icon('shield')}Propose owned QA</button><button class="button" data-view="social">${icon('social')}Review a social draft</button></div>`);break;
+   case 'choose-brief':closeModal();if(nativeHost)toast('File selection is disabled in this native test shell. Paste an allowed work brief instead.');else $('#brief-file').click();break;
+   case 'modal-owned-qa':closeModal();go('work');newQADialog();break;
+   case 'create-companion':await createCompanion();break;
+   case 'computer-settings':case 'computer-settings-secondary':computerDialog();break;
+   case 'download-companion':{const c=selected();if(download(c.plan?'OpenBot-companion-blueprint.json':'OpenBot-companion-request-unvalidated.json',c.plan||requestFor(c)))toast(c.plan?'Planning blueprint download requested; not installation/execution approval.':'Unvalidated request download requested. No PC, provider or IDE was started.');break;}
+   case 'save-routine':{const name=$('#routine-name').value.trim(),time=$('#routine-time').value,zone=$('#routine-zone').value.trim();try{if(!name||!safeText(name,64)||!/^([01]\d|2[0-3]):[0-5]\d$/.test(time)||!safeText(zone,64))throw Error();new Intl.DateTimeFormat('en',{timeZone:zone});state.routines[b.dataset.key]={name,time,zone};save();download('OpenBot-routine-request-not-scheduled.json',{schema:'openbot.routine-request/1',companion:state.selected,name,requested_time:time,time_zone:zone,scheduler_connected:false,execution_authorized:false});closeModal();renderDetails();toast(nativeHost?'Routine request saved in tab memory. Native downloads are disabled; no job was scheduled.':'Routine request saved; JSON download requested. No job was scheduled.');}catch(_){$('#routine-error').textContent='Use a non-secret name, a valid local time and an IANA time zone.';}break;}
+   case 'review-social':await reviewSocial();break;
+   case 'download-review':if(state.socialPlan&&state.socialAck)download('OpenBot-social-review-not-publishing-approval.json',{plan:state.socialPlan,local_review_acknowledgement:true,authenticated_approver:null,execution_authorized:false});break;
+   case 'pair-device':pairDialog();break;
+   case 'pair-submit':{const code=$('#pair-code').value,label=$('#device-label').value;$('#pair-code').value='';b.disabled=true;try{const fresh=await gateway.pair(code,label);closeModal();render();toast(fresh?'Server-defined device scope read back. No model or companion account was connected.':'Pairing succeeded but read-back is unavailable. Mutations remain disabled; refresh before acting.');}catch(error){if($('#pair-error'))$('#pair-error').textContent=error.message;else toast(error.message);}finally{if($('#pair-submit'))$('#pair-submit').disabled=false;}break;}
+   case 'refresh-server':await gateway.refresh();render();break;
+   case 'revoke-session':await mutate(()=>gateway.revoke(),'Session revoked on the server.');break;
+   case 'new-qa':newQADialog();break;
+   case 'inspect-prior-proposal':closeModal();await gateway.refresh();go('work');break;
+   case 'ack-new-proposal':pendingProposal=null;closeModal();newQADialog();break;
+   case 'propose-submit':{if(!$('#rights').checked){$('#proposal-error').textContent='Explicit testing-rights and method consent are required.';break;}const body={request_id:uuid(),fixture:$('#fixture').value,goal:$('#goal').value,acceptance:$('#acceptance').value,rights_ref:'owned:first-party-seed',ai_use_approved:true,destination:'local-review'};pendingProposal=body;b.disabled=true;try{await gateway.propose(body);pendingProposal=null;closeModal();const fresh=await gateway.refresh();go('work');toast(fresh?'Server proposal read back. Separate exact review and execution are still required.':'Proposal response received, but read-back failed. Refresh and inspect; do not resubmit automatically.');}catch(error){if($('#proposal-error'))$('#proposal-error').textContent='Outcome requires read-back; no retry. '+error.message;else toast(error.message);}finally{if($('#propose-submit'))$('#propose-submit').disabled=false;}break;}
+   case 'approve-submit':{const code=$('#reauth-code').value,id=b.dataset.id,digest=b.dataset.digest;$('#reauth-code').value='';closeModal();await mutate(()=>gateway.taskAction('approve',id,digest,code),'Exact approval read back. Execution is a separate request.');break;}
+   case 'confirm-execute':{const id=b.dataset.id,digest=b.dataset.digest;closeModal();await mutate(()=>gateway.taskAction('execute',id,digest),'Execution outcome read back. Inspect the local artifact; no human acceptance is implied.');break;}
+   case 'clear-drafts':showModal('Clear this interface’s local drafts?',`<p class="modal-copy">Remove this interface’s briefs, custom blueprints, routine requests and in-memory financial imports. Previous Studio v1 storage, source files, real accounts and server tasks are not deleted. This is not secure erasure.</p><div class="actions"><button class="button danger" id="confirm-clear">Clear these local drafts</button><button class="button" id="modal-close-secondary">Keep drafts</button></div>`);break;
+   case 'modal-close-secondary':closeModal();break;
+   case 'confirm-clear':spending.clear();briefReadEpoch++;state=initial();state.view='trust';state.mobileThread=true;save();closeModal();render();toast('This interface’s local drafts cleared. Source files, historical v1 storage and server records were not touched.');break;
+  }
+ });
+ document.addEventListener('input',event=>{const t=event.target;if(spending.input(t))return;if(t.id==='contact-search')renderContacts();if(t.id==='brief-input'){briefReadEpoch++;state.drafts[state.selected]=t.value;}if(Object.values(socialFields).includes(t.id)){readSocial();invalidateSocial();}});
+ document.addEventListener('change',async event=>{const t=event.target;if(t.id==='finance-file'){await spending.readFile(t);return;}if(spending.input(t))return;if(t.id==='remember-drafts'){state.remember=t.checked;save();toast(state.remember?'Non-secret browser drafts enabled. Financial imports and device/review keys/codes are excluded.':'Browser saving disabled; current tab drafts remain.');}if(t.id==='social-ack'){state.socialAck=t.checked;$('#download-review').disabled=!t.checked;}if(Object.values(socialFields).includes(t.id)){readSocial();invalidateSocial();}if(t.id==='brief-file'&&t.files.length){const file=t.files[0],epoch=++briefReadEpoch,companion=state.selected;t.value='';if(file.size>32768||!(/\.(txt|md)$/i.test(file.name))){toast('Choose a .txt or .md brief no larger than 32 KiB.');return;}try{const text=new TextDecoder('utf-8',{fatal:true}).decode(await file.arrayBuffer());if(!safeText(text))throw Error();if(epoch!==briefReadEpoch||companion!==state.selected||state.view!=='chat'){toast('Late file read discarded because the draft, companion or view changed.');return;}state.drafts[companion]=text;go('chat');$('#brief-input').focus();toast('Read locally into the composer. Not saved, uploaded or sent.');}catch(_){toast('File refused: invalid UTF-8, binary text, possible credentials or more than 12,000 characters.');}}});
+ document.addEventListener('submit',event=>event.preventDefault());
+ document.addEventListener('keydown',event=>{if(event.key==='Escape'&&$('#modal').open){event.preventDefault();closeModal();return;}if(event.key==='Escape'&&state.details&&!$('#modal').open){state.details=false;render();$('#show-computer').focus();}if((event.ctrlKey||event.metaKey)&&event.key==='Enter'&&event.target.id==='brief-input'){event.preventDefault();saveBrief();}});
+ $('#modal').addEventListener('cancel',()=>{if(modalKind==='pair'&&gateway.busy)gateway.invalidate('Pairing UI cancelled; inspect server sessions before retrying.');});
+ window.openbotBack=()=>{if($('#modal').open){closeModal();return true;}if(state.details){state.details=false;render();return true;}if(state.view!=='chat'){go('chat');return true;}if(state.mobileThread){state.mobileThread=false;render();return true;}return false;};
+ addEventListener('openbotpause',()=>{for(const id of ['reauth-code','pair-code']){const code=$('#'+id);if(code)code.value='';}gateway.invalidate('App paused; fresh authenticated read-back required.');});
+ addEventListener('openbotresume',()=>{void gateway.refresh();});addEventListener('offline',()=>gateway.invalidate('Offline; mutations disabled.'));addEventListener('online',()=>{void gateway.refresh();});
+ document.addEventListener('visibilitychange',()=>{if(document.hidden)gateway.invalidate('Backgrounded; mutations disabled.');else void gateway.refresh();});
+ setInterval(()=>{if(gateway.enabled&&gateway.pairing&&!document.hidden&&!gateway.busy)void gateway.refresh();},10000);
+ setInterval(renderAuthority,1000);
+ async function observe(){if(gateway.enabled){try{await gateway.identify();if(state.view==='connection')render();}catch(_){}}else if(/^https?:$/.test(location.protocol)&&location.hostname!=='openbot-offline.invalid'){try{const c=new AbortController(),timer=setTimeout(()=>c.abort(),4000);let response;try{response=await fetch('/api/status',{credentials:'omit',cache:'no-store',signal:c.signal});}finally{clearTimeout(timer);}const v=await response.json();if(response.ok&&v.schema==='openbot.studio-preview/1'&&v.model_connected===false&&v.public_writes_enabled===false&&v.vm_started===false&&v.private_store_exposed===false){status=v;if(state.view==='trust')render();}}catch(_){}}}
+ // Read-only status used by tests and diagnostics; no key, code, grant or authority hook.
+ Object.defineProperty(window,'OpenBotWorkspace',{value:Object.freeze({version:'0.5.0-reference',get connection(){return gateway.info();},get taskCount(){return gateway.snapshot.tasks.length;}}),writable:false});
+ restore();const route=location.hash.slice(1);if(Object.hasOwn(views,route)&&route!=='chat'){state.view=route;state.mobileThread=true;}render();void observe();
+})();
+</script>
+</body>
+</html>

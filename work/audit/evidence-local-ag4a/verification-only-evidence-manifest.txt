@@ -1,0 +1,156 @@
+{
+  "schema": 2,
+  "scope": "verified artifact binding; pair with real runner logs/source inventory",
+  "base_commit": "fe1267e0cd1e35e8a816dc0556be80ec68343401",
+  "receipt_artifact": "audit/verification-current.json",
+  "receipt_sha256": "d5f7482a17c0acc66e846062f094eaf9e0c841ebf93a096e4839aedc8bea5c03",
+  "python_outcomes": {
+    "passed": 594,
+    "skipped": 2,
+    "failed": 0,
+    "collected": 596
+  },
+  "runner_timestamp": "2026-11-14T17:33:13.851534+00:00",
+  "designated_junit": "full-python.xml",
+  "designated_junit_sha256": "9b9dae4a2ff1ce9063e8bb454f706efb1b086d0f5ef89763cf588f4fa0ce4789",
+  "files": [
+    {
+      "path": "count-refresh.xml",
+      "bytes": 87082,
+      "sha256": "59c062c028c9728b7d1df515e8e71a91bcd0e4133d21202355eac848baa153b4",
+      "mode": 384
+    },
+    {
+      "path": "freeze.xml",
+      "bytes": 85913,
+      "sha256": "fd487348c36214c019510a37a46d8f579f1528e88fcb375d87c564a01d269436",
+      "mode": 420
+    },
+    {
+      "path": "full-python.xml",
+      "bytes": 85913,
+      "sha256": "9b9dae4a2ff1ce9063e8bb454f706efb1b086d0f5ef89763cf588f4fa0ce4789",
+      "mode": 384
+    },
+    {
+      "path": "verification-only-contract.txt",
+      "bytes": 99,
+      "sha256": "dc1976e4eb9c1d963277876d4eed6a1348333c745ddd0e0b0a90c7f5d4425b1f",
+      "mode": 420
+    },
+    {
+      "path": "verification-only-corrected-exits.json",
+      "bytes": 822,
+      "sha256": "11af4bb3f37bbdec4299e801d9b7a0c9df0edc9874be2aaba3bf97729f2736bd",
+      "mode": 420
+    },
+    {
+      "path": "verification-only-count-refresh.txt",
+      "bytes": 3056,
+      "sha256": "973676422a44acc977fb3395cca95d7f8cb4b96a26fb76a77c130d3d01593f46",
+      "mode": 420
+    },
+    {
+      "path": "verification-only-dependency-correction.json",
+      "bytes": 327,
+      "sha256": "0eef77d6ce9f6685a8daf2a6ae588b46c8b5bf58153506aade0d49cda32e6825",
+      "mode": 420
+    },
+    {
+      "path": "verification-only-donors.txt",
+      "bytes": 445,
+      "sha256": "f90004c5e869262dfd27132210f80ecdf7ee59ff89a2685cc3d96b0364cd82dd",
+      "mode": 420
+    },
+    {
+      "path": "verification-only-final-exits.json",
+      "bytes": 727,
+      "sha256": "eb74b491327a9bc03243cc77fe3e064d30428e302b2e812d792dee118cb8082c",
+      "mode": 420
+    },
+    {
+      "path": "verification-only-first-exits.json",
+      "bytes": 38,
+      "sha256": "30ace09f74041c335efe778665a48a3b05a7cbc1b00479d0e25d3ff118530bcd",
+      "mode": 420
+    },
+    {
+      "path": "verification-only-freeze.txt",
+      "bytes": 1267,
+      "sha256": "b39b1713832b7dc347cdd2690d27ff3b27774c8d284f50a4691743b0ec1a8b66",
+      "mode": 420
+    },
+    {
+      "path": "verification-only-full-python.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "mode": 420
+    },
+    {
+      "path": "verification-only-full-python.txt",
+      "bytes": 1679,
+      "sha256": "6852f9c51cdc4e5bf4bcf33f11c44385c5bdd6a28c87c135d9049671bbd8fce2",
+      "mode": 420
+    },
+    {
+      "path": "verification-only-isolation-demo.txt",
+      "bytes": 4339,
+      "sha256": "a2f778e8204cad28340e0f39014babfa5fa3e66496b9112064505810ae310fbc",
+      "mode": 420
+    },
+    {
+      "path": "verification-only-isolation.txt",
+      "bytes": 811,
+      "sha256": "1831cd73bf9b3b527355e1c7661bd4b00eda1179ff7e05a15a436e4b576bfd7e",
+      "mode": 420
+    },
+    {
+      "path": "verification-only-lint.txt",
+      "bytes": 67,
+      "sha256": "325ac1c160b0dda3921cca377c38d0f4ba4f7200209e694484deeb3cc46acd25",
+      "mode": 420
+    },
+    {
+      "path": "verification-only-local-gates-corrected.txt",
+      "bytes": 9150,
+      "sha256": "59f737bda2bd9828cf56ae2084c7f310a2d1c2e53e6aa0addc1bcb7ea6ddfc9a",
+      "mode": 420
+    },
+    {
+      "path": "verification-only-local-gates.txt",
+      "bytes": 6121,
+      "sha256": "fe5aa045af1a700ee8d692034805dc22ddab37dca3ecb0bd949ce15f31fae034",
+      "mode": 420
+    },
+    {
+      "path": "verification-only-record-count.txt",
+      "bytes": 58,
+      "sha256": "1ecdb432a0095c66d7542e25b1b4a53e19e6f1722a3fe43ed69f80668b170b4f",
+      "mode": 420
+    },
+    {
+      "path": "verification-only-record-full.txt",
+      "bytes": 58,
+      "sha256": "21a4abc96ecec6bb1dfeeccbd320d8e00d23db2471cdbf1beedd8b2d7f9e71f1",
+      "mode": 420
+    },
+    {
+      "path": "verification-only-setup.json",
+      "bytes": 550,
+      "sha256": "9a81519144c35f46b503056773d4cf1cd0632d770fa9d69a93c34bdbfd194ab9",
+      "mode": 420
+    },
+    {
+      "path": "verification-only-sync-count.txt",
+      "bytes": 23,
+      "sha256": "f042bbe76934c9f0d2f94880f82aae44df181b815ec0bfcf428e41b42493f7f1",
+      "mode": 420
+    },
+    {
+      "path": "verification-only-sync-full.txt",
+      "bytes": 23,
+      "sha256": "f042bbe76934c9f0d2f94880f82aae44df181b815ec0bfcf428e41b42493f7f1",
+      "mode": 420
+    }
+  ]
+}

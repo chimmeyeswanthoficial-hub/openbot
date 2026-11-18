@@ -1,0 +1,18 @@
+{
+  "baseline-lint": {
+    "command": [
+      "make",
+      "lint"
+    ],
+    "exit": 2
+  },
+  "baseline-python": {
+    "command": [
+      "/home/user/.cache/ag4a-engineering/work/.venv/bin/python",
+      "-m",
+      "pytest",
+      "--junitxml=/home/user/.cache/ag4a-engineering/baseline-python.xml"
+    ],
+    "exit": 0
+  }
+}

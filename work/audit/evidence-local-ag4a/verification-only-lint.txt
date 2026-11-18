@@ -1,0 +1,2 @@
+python3 -m ruff check services packages scripts
+All checks passed!

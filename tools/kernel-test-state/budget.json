@@ -1,0 +1,10 @@
+{
+  "fixture_only": true,
+  "date": "2026-11-10",
+  "company_day_cap_usd": 20.0,
+  "company_month_cap_usd": 300.0,
+  "spent_today_usd": 0.0,
+  "spent_month_usd": 0.0,
+  "auto_spend_usd": 0.0,
+  "note": "Synthetic isolated local test input. Not an operating budget, real expenditure, pilot observation, spending authorization or approval. Do not run services with this fixture."
+}

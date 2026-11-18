@@ -1,0 +1,28 @@
+{
+  "openbot-current": {
+    "repo": "https://github.com/chimmeyeswanthoficial-hub/openbot",
+    "commit": "a67fb041763bdfd16ed8b77f0ad24edd8e154f20",
+    "mode": "reviewed first-party intake; pre-intake rollback archive retained"
+  },
+  "findrepo": {
+    "repo": "https://github.com/chimmeyeswanthoficial-hub/findrepo",
+    "commit": "4d512682b8e30cfcbda2a7f74f44ae76df9ed77a",
+    "mode": "local zero-dependency CLI and skill installed; local safety patches; no hooks/global init"
+  },
+  "bot-hq": {
+    "repo": "https://github.com/nickvasilescu/bot-hq",
+    "commit": "decf9a215cddd8792a5f20f4a11a87d4dffa6d15",
+    "mode": "selected queue code port; no branded art, provider host, dependencies or deployment"
+  },
+  "rea": {
+    "repo": "https://github.com/morluto/rea",
+    "commit": "cdc4541ef707f256f83abe5018df01a25182cf0b",
+    "mode": "skill v62 + references installed; runtime/MCP/providers not installed"
+  },
+  "pdf": {
+    "path": "uploads/Untitled document (14).pdf",
+    "sha256": "d9c6df40c191b3619eb5ef1f33734530c576b963cd69df9d7589310698cd53e0",
+    "pages_reviewed": 3,
+    "embedded_images": 8
+  }
+}

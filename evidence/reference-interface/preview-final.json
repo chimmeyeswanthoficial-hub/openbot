@@ -1,0 +1,11 @@
+{
+  "bytes": 127185,
+  "current_built_html_sha256": "bb99d979376841815bc5dcfe7c942bed28b36f2b87a0b3b80d8d366e5b8b3c67",
+  "exact_current_payload": true,
+  "http_status": 200,
+  "native_device_proof": false,
+  "preview": "OpenBot light interface preview",
+  "public_release": false,
+  "runner_url": "http://127.0.0.1:4184/",
+  "served_sha256": "bb99d979376841815bc5dcfe7c942bed28b36f2b87a0b3b80d8d366e5b8b3c67"
+}

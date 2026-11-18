@@ -1,0 +1,15 @@
+{
+  "synthetic_public_proof_only": [
+    {
+      "path": "count-refresh.xml",
+      "from": 384,
+      "to": 420
+    },
+    {
+      "path": "full-python.xml",
+      "from": 384,
+      "to": 420
+    }
+  ],
+  "raw_xml_bytes_changed": false
+}

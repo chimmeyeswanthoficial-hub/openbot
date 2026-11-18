@@ -1,0 +1,71 @@
+
+> typecheck
+> npm run typecheck -w server && npm run typecheck -w web
+
+
+> typecheck
+> tsc -p tsconfig.json --noEmit
+
+
+> typecheck
+> tsc -p tsconfig.json --noEmit
+
+
+> build
+> npm run build -w web && npm run build -w server
+
+
+> build
+> vite build
+
+vite v8.3.6 building client environment for production...
+transforming...
+✓ 2284 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.40 kB │ gzip:   0.28 kB
+dist/assets/index-DA3Kzjwq.css   85.76 kB │ gzip:  15.09 kB
+dist/assets/rfb-xHgMEWMb.js     187.37 kB │ gzip:  56.52 kB
+dist/assets/index-BBlSj6c5.js   427.21 kB │ gzip: 130.17 kB
+
+✓ built in 890ms
+
+> build
+> tsc -p tsconfig.json
+
+..............................                                           [100%]
+30 passed in 0.32s
+✔ earlier pages merge without duplicates and terminate at the first retained entry (1.948518ms)
+✔ streamed edits outrank older page bodies and late older events (1.42334ms)
+✔ new snapshot keeps events arriving after its revision watermark (0.481188ms)
+✔ reconnect discards a gapped old window and offers a contiguous latest cursor (1.55632ms)
+✔ late old-generation snapshots and pages cannot resurrect reset history (0.321766ms)
+✔ late clear events do not erase newer streamed rows or a newer generation (0.162032ms)
+✔ out-of-order latest snapshots cannot roll back the latest accepted revision (0.234817ms)
+✔ duplicate or mismatched earlier responses cannot move the cursor or mix generations (0.160373ms)
+✔ generation advance resets loading, stale cursors, errors and loaded claims (0.995017ms)
+✔ health truthfully reports disabled providers and no Hermes readiness claim (31.841557ms)
+✔ unauthenticated host refuses operational API requests (5.742585ms)
+✔ bad code and cross-origin login are refused (3.763057ms)
+✔ explicit local code signs in an owner; session is HttpOnly (7.71733ms)
+✔ roster mutations are stored without provisioning any engine (4.139801ms)
+✔ one useful company-report task runs through the actual Python kernel and persists receipts (128.381998ms)
+✔ client arguments cannot become shell, network, budget or file targets (3.517785ms)
+✔ unknown bots cannot start a kernel job (0.854048ms)
+✔ upstream dangerous routes are unmounted, not merely hidden by UI (3.672074ms)
+✔ chat is a truthful local note, never a pretend model response (4.045532ms)
+✔ skill bodies are stored as inert data, not executed (2.158525ms)
+✔ state and request idempotency survive a new app instance (5.388493ms)
+✔ static app has no donor artwork URLs and API misses do not return HTML (9.468092ms)
+✔ owned transcript pages recover every retained entry once with bounded cursors (128.991396ms)
+✔ history rejects malformed, duplicated, unbounded and unversioned cursor queries (8.353144ms)
+✔ history binds earlier pages to the conversation generation and refuses cross-owner reads (6.887971ms)
+✔ logout invalidates the session (1.122633ms)
+ℹ tests 26
+ℹ suites 0
+ℹ pass 26
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 630.764791

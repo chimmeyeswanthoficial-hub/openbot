@@ -1,0 +1,327 @@
+{
+  "schema": "openbot.shared-offline-viewer-proof/1",
+  "checks": [
+    {
+      "name": "chromium light three-column UI uses original SVG role avatars",
+      "passed": true
+    },
+    {
+      "name": "chromium offline has no pairing, private key or claimed server authority",
+      "passed": true
+    },
+    {
+      "name": "chromium offline briefs work without a forms or storage sandbox grant",
+      "passed": true
+    },
+    {
+      "name": "chromium microphone cannot imply an active recorder",
+      "passed": true
+    },
+    {
+      "name": "chromium native Back hook closes dialog",
+      "passed": true
+    },
+    {
+      "name": "chromium offline proposal button is disabled",
+      "passed": true
+    },
+    {
+      "name": "chromium offline cannot collect pairing codes",
+      "passed": true
+    },
+    {
+      "name": "chromium offline exact CSV calculation works without server",
+      "passed": true
+    },
+    {
+      "name": "chromium plugins fits 320",
+      "passed": true
+    },
+    {
+      "name": "chromium finance fits 320",
+      "passed": true
+    },
+    {
+      "name": "chromium social fits 320",
+      "passed": true
+    },
+    {
+      "name": "chromium library fits 320",
+      "passed": true
+    },
+    {
+      "name": "chromium connection fits 320",
+      "passed": true
+    },
+    {
+      "name": "chromium work fits 320",
+      "passed": true
+    },
+    {
+      "name": "chromium trust fits 320",
+      "passed": true
+    },
+    {
+      "name": "chromium plugins fits 390",
+      "passed": true
+    },
+    {
+      "name": "chromium finance fits 390",
+      "passed": true
+    },
+    {
+      "name": "chromium social fits 390",
+      "passed": true
+    },
+    {
+      "name": "chromium library fits 390",
+      "passed": true
+    },
+    {
+      "name": "chromium connection fits 390",
+      "passed": true
+    },
+    {
+      "name": "chromium work fits 390",
+      "passed": true
+    },
+    {
+      "name": "chromium trust fits 390",
+      "passed": true
+    },
+    {
+      "name": "chromium plugins fits 768",
+      "passed": true
+    },
+    {
+      "name": "chromium finance fits 768",
+      "passed": true
+    },
+    {
+      "name": "chromium social fits 768",
+      "passed": true
+    },
+    {
+      "name": "chromium library fits 768",
+      "passed": true
+    },
+    {
+      "name": "chromium connection fits 768",
+      "passed": true
+    },
+    {
+      "name": "chromium work fits 768",
+      "passed": true
+    },
+    {
+      "name": "chromium trust fits 768",
+      "passed": true
+    },
+    {
+      "name": "chromium plugins fits 1512",
+      "passed": true
+    },
+    {
+      "name": "chromium finance fits 1512",
+      "passed": true
+    },
+    {
+      "name": "chromium social fits 1512",
+      "passed": true
+    },
+    {
+      "name": "chromium library fits 1512",
+      "passed": true
+    },
+    {
+      "name": "chromium connection fits 1512",
+      "passed": true
+    },
+    {
+      "name": "chromium work fits 1512",
+      "passed": true
+    },
+    {
+      "name": "chromium trust fits 1512",
+      "passed": true
+    },
+    {
+      "name": "chromium native and release gaps remain explicit",
+      "passed": true
+    },
+    {
+      "name": "chromium skip link has a visible focus state",
+      "passed": true
+    },
+    {
+      "name": "webkit light three-column UI uses original SVG role avatars",
+      "passed": true
+    },
+    {
+      "name": "webkit offline has no pairing, private key or claimed server authority",
+      "passed": true
+    },
+    {
+      "name": "webkit offline briefs work without a forms or storage sandbox grant",
+      "passed": true
+    },
+    {
+      "name": "webkit microphone cannot imply an active recorder",
+      "passed": true
+    },
+    {
+      "name": "webkit native Back hook closes dialog",
+      "passed": true
+    },
+    {
+      "name": "webkit offline proposal button is disabled",
+      "passed": true
+    },
+    {
+      "name": "webkit offline cannot collect pairing codes",
+      "passed": true
+    },
+    {
+      "name": "webkit offline exact CSV calculation works without server",
+      "passed": true
+    },
+    {
+      "name": "webkit plugins fits 320",
+      "passed": true
+    },
+    {
+      "name": "webkit finance fits 320",
+      "passed": true
+    },
+    {
+      "name": "webkit social fits 320",
+      "passed": true
+    },
+    {
+      "name": "webkit library fits 320",
+      "passed": true
+    },
+    {
+      "name": "webkit connection fits 320",
+      "passed": true
+    },
+    {
+      "name": "webkit work fits 320",
+      "passed": true
+    },
+    {
+      "name": "webkit trust fits 320",
+      "passed": true
+    },
+    {
+      "name": "webkit plugins fits 390",
+      "passed": true
+    },
+    {
+      "name": "webkit finance fits 390",
+      "passed": true
+    },
+    {
+      "name": "webkit social fits 390",
+      "passed": true
+    },
+    {
+      "name": "webkit library fits 390",
+      "passed": true
+    },
+    {
+      "name": "webkit connection fits 390",
+      "passed": true
+    },
+    {
+      "name": "webkit work fits 390",
+      "passed": true
+    },
+    {
+      "name": "webkit trust fits 390",
+      "passed": true
+    },
+    {
+      "name": "webkit plugins fits 768",
+      "passed": true
+    },
+    {
+      "name": "webkit finance fits 768",
+      "passed": true
+    },
+    {
+      "name": "webkit social fits 768",
+      "passed": true
+    },
+    {
+      "name": "webkit library fits 768",
+      "passed": true
+    },
+    {
+      "name": "webkit connection fits 768",
+      "passed": true
+    },
+    {
+      "name": "webkit work fits 768",
+      "passed": true
+    },
+    {
+      "name": "webkit trust fits 768",
+      "passed": true
+    },
+    {
+      "name": "webkit plugins fits 1512",
+      "passed": true
+    },
+    {
+      "name": "webkit finance fits 1512",
+      "passed": true
+    },
+    {
+      "name": "webkit social fits 1512",
+      "passed": true
+    },
+    {
+      "name": "webkit library fits 1512",
+      "passed": true
+    },
+    {
+      "name": "webkit connection fits 1512",
+      "passed": true
+    },
+    {
+      "name": "webkit work fits 1512",
+      "passed": true
+    },
+    {
+      "name": "webkit trust fits 1512",
+      "passed": true
+    },
+    {
+      "name": "webkit native and release gaps remain explicit",
+      "passed": true
+    },
+    {
+      "name": "webkit skip link has a visible focus state",
+      "passed": true
+    },
+    {
+      "name": "No page errors in either browser",
+      "passed": true
+    },
+    {
+      "name": "No network requests from opaque offline workspace",
+      "passed": true
+    }
+  ],
+  "count": 78,
+  "errors": [],
+  "requests": [],
+  "engines": [
+    "Chromium",
+    "Linux WebKit"
+  ],
+  "iframe_sandbox": "allow-scripts",
+  "native_devices_tested": false,
+  "full_accessibility_acceptance": false
+}

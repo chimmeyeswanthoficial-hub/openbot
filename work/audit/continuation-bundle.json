@@ -1,0 +1,120 @@
+{
+  "task_date": "2026-11-10",
+  "observed_runner_utc": "2026-11-14T12:29:56.568606+00:00",
+  "archive": "openbot-continuation.tar.xz",
+  "archive_bytes": 20491328,
+  "archive_sha256": "1180754618e0460f7e676e4359822b1881479c2aa5c3b80f24a6c6f9497b7d93",
+  "validation": {
+    "validated": true,
+    "regular_files": 3945,
+    "payload_bytes": 72506571,
+    "archive_sha256": "1180754618e0460f7e676e4359822b1881479c2aa5c3b80f24a6c6f9497b7d93",
+    "checks": [
+      "regular files only",
+      "safe relative paths",
+      "no duplicate members",
+      "manifest file set",
+      "every payload size and SHA-256",
+      "bounded expanded size"
+    ]
+  },
+  "source_files": 3944,
+  "manifest": "audit/continuation-manifest.json",
+  "manifest_location": "inside archive only",
+  "compression": "LZMA2 preset 9 extreme; sorted relative-path payload order",
+  "omitted_entries": 27,
+  "workspace_budget": {
+    "files": 3952,
+    "bytes": 92230145,
+    "decimal_megabytes": 92.23,
+    "file_cap": 10000,
+    "byte_cap": 128000000,
+    "within_cap": true
+  },
+  "limits": [
+    "Restore dependencies/builds/auth from pinned instructions; not an offline binary installation",
+    "Retained donor code is for private owner continuity; existing notices/rights still apply",
+    "Integrity digest is not a publisher signature or malware/secret-history certification"
+  ],
+  "final_extraction": {
+    "observed_runner_utc": "2026-11-14T12:30:05.373474+00:00",
+    "actually_extracted": true,
+    "authoritative_task_date": "2026-11-10",
+    "runner_clock_not_substituted_for_task_date": true,
+    "payload_files": 3944,
+    "manifest_files": 1,
+    "manifest_sha256": "54e4804b3303a3681cd8acc2675bbb1e33d030b63581f2b4bcff25f725ba3092",
+    "every_payload_size_sha256_mode_and_exact_file_set_verified": true,
+    "untransformed_payload_files_match_primary": 3942,
+    "tested_runtime_config_skill_files_match_primary_and_independently_installed_source": 258,
+    "tested_runtime_inventory_sha256": "1711a296ea2d3e264c7e6b6816234c765f1e0449376db085130dbb253ce47f29",
+    "new_proof_archive_members_verified": 108,
+    "older_cleanup_proof_members_verified": 69,
+    "all_changed_pre_feature_originals_recovered_exactly": true,
+    "donor_source_vaults": {
+      "rakazo": {
+        "archive_sha256": "2c3d84e3772d16d3d207a49ebde9e62b07783fc8a18997290b37499d5c39bf6a",
+        "original_files_actually_recovered": 4899,
+        "all_original_hashes_sizes_modes_and_exact_set_match_pre_retirement_baseline": true,
+        "curated_reference_copies_verified": 14,
+        "private_env_included": false
+      },
+      "OpenDots": {
+        "archive_sha256": "5309c1c13aa7aff6355e973ba778d0aa6ed39073ea39a0915e0e877df56f8d7c",
+        "original_files_actually_recovered": 187,
+        "all_original_hashes_sizes_modes_and_exact_set_match_pre_retirement_baseline": true,
+        "curated_reference_copies_verified": 12,
+        "private_env_included": false
+      }
+    },
+    "all_5086_sources_actually_restored_from_final_download": true,
+    "databases": {
+      ".openbot/hq/hq.sqlite3": {
+        "logical_business_sha256": "70a1761329d63c1fcbb8bae1e1346331b70e4addf3ea18906610a7c30403b29d",
+        "table_counts": {
+          "approvals": 0,
+          "bots": 1,
+          "compactions": 0,
+          "composio_sessions": 0,
+          "computers": 0,
+          "hq_jobs": 1,
+          "llm_items": 0,
+          "memories": 0,
+          "memory_jobs": 0,
+          "pending_turns": 0,
+          "policies": 0,
+          "routines": 0,
+          "rows": 3,
+          "screens": 0,
+          "skills": 0,
+          "tasks": 1,
+          "users": 1
+        },
+        "authentication_rows": {
+          "auth_sessions": 0,
+          "login_attempts": 0
+        },
+        "integrity": "ok"
+      },
+      ".openbot/hq-kernel/sentinel.sqlite3": {
+        "logical_business_sha256": "2715167e2263ff2d3f45e5642b6c33c98073ef0b01bd0a22452db2eb56437a7f",
+        "table_counts": {
+          "approvals": 0,
+          "audit": 6,
+          "ledger": 0,
+          "runs": 1
+        },
+        "authentication_rows": {},
+        "integrity": "ok"
+      }
+    },
+    "original_dependency_locks_unchanged": true,
+    "primary_protected_non_registry_paths_byte_mode_unchanged": 18,
+    "registry_original14_exact_byte_prefix_preserved": true,
+    "registry_current_entries": 17,
+    "older_metadata_originals_recovered_exactly": 17,
+    "uploaded_pdf_recovered_exactly": true,
+    "credentials_and_retired_loose_trees_not_reintroduced": true,
+    "scope": "Actual final download extraction and nested proof/donor/business reconciliation. Independent pinned installation/full gates ran in a new empty SAME-HOST source candidate with byte-identical tested runtime. NOT a second-machine review, final-archive reinstall or production certification."
+  }
+}

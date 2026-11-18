@@ -1,0 +1,31 @@
+{
+  "schema": "openbot.first-party-tools/1",
+  "tools": {
+    "owned.qa": {
+      "capabilities": [
+        "owned-sample-read",
+        "local-artifact-write"
+      ],
+      "license": {
+        "path": "LICENSE",
+        "sha256": "32cc10119059c0782a73295d362595957867b9e331974aea7198f515ec29e09b"
+      },
+      "origin": "first-party",
+      "source": [
+        {
+          "path": "services/gateway/src/qa_workflow.py",
+          "sha256": "7597c77a2fb3fcbb9b4d41bcdcc5a9e78039dd0f92bd30bf16bccfd71cbaadfa"
+        },
+        {
+          "path": "services/gateway/src/qa_fixture_worker.py",
+          "sha256": "d9c0a65d66cc2a70cd3108632a06436cc87da5a5e64c0cbd29b114d0915a7d70"
+        },
+        {
+          "path": "services/gateway/src/qa_catalog.py",
+          "sha256": "3d7e331cf452ef546007eead9ccfdfd9b4245e102f1dd2b8cac847ebf145a0b1"
+        }
+      ],
+      "version": "1.0.0"
+    }
+  }
+}

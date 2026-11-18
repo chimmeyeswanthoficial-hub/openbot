@@ -1,0 +1,9 @@
+{
+  "version": "v24.22.3",
+  "platform": "linux-x64",
+  "url": "https://nodejs.org/dist/v24.22.3/node-v24.22.3-linux-x64.tar.xz",
+  "sha256": "4f2b175a6d53a5c617a80dba2676238a0688cef28c6da4eba35c7d844e66fcfb",
+  "checksum_source": "https://nodejs.org/dist/v24.22.3/SHASUMS256.txt",
+  "runtime_cache": ".cache/openbot-toolchains/node-v24.22.3-linux-x64",
+  "scope": "Official TLS download and matching SHA-256; not a separate signature/build attestation; cache is not persisted in snapshots"
+}

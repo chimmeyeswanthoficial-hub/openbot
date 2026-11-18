@@ -1,0 +1,193 @@
+python3 -m ruff check services packages scripts
+All checks passed!
+bash scripts/verify.sh
+
+[1m1. Artifacts present[0m
+  [32mPASS[0m  plan.md
+  [32mPASS[0m  aboutme.md
+  [32mPASS[0m  disadvantages.md
+  [32mPASS[0m  advantages.md
+  [32mPASS[0m  FEATURES.md
+  [32mPASS[0m  BLOCKERS.md
+  [32mPASS[0m  STACK_DECISIONS.md
+  [32mPASS[0m  INSTALL_LOG.md
+  [32mPASS[0m  company/company.yaml
+
+[1m2. Governance layer[0m
+  [32mPASS[0m  test suite (every service): 900 passed
+  [32mPASS[0m  post-mortem ledger: 17 entries, 0 problem(s)
+  [32mPASS[0m  company definition operable: roles=6 duties=6 prohibitions=10
+  [32mPASS[0m  every venture manifest is operable (1 venture(s))
+  [32mPASS[0m  upstream markers match patches/OPENBOT-OS.md
+  [32mPASS[0m  ruff clean
+  [32mPASS[0m  runtime deps importable (fastapi, pydantic, yaml, uvicorn)
+  [32mPASS[0m  docs/ mirrors the root documents
+
+[1m3. Routines: budgeted, bounded, unattended[0m
+  PASS  6 routines, 0 problem(s)
+
+[1m4. Workspace budget (your snapshot is capped)[0m
+  PASS  74.2 MB / 128 MB, 3991 / 10,000 files
+
+[1m5. Substrate (needs the VPS — expected to fail here)[0m
+  [32mPASS[0m  the API boots from a clean database and answers /healthz: {"ok":true,"store":"ok","policies":["media-api"],"audit_rows":0,"db":":memory:","console":true,"ui_token_required":false}
+  [33mWARN[0m  docker absent: OpenBot computers/supervisor cannot start (BLOCKERS B1)
+  [33mWARN[0m  sentinel not running (start it: services/sentinel/uvicorn app:app --port 8090)
+  [33mWARN[0m  OpenBot dependencies absent (bun install)
+  [33mWARN[0m  OpenBot .env absent: no Intelligence project or model key (BLOCKERS B4/B5)
+
+[1m6. Unattended-readiness (the honest part)[0m
+  [33mWARN[0m  model + payment accounts missing by design — nothing model-driven can run yet (C4)
+  [33mWARN[0m  no git history in repos/ (tarball install) — upstream-merge has nothing to rebase (B3)
+  [33mWARN[0m  dead-man's switch not installed (B10)
+  [32mPASS[0m  every script is executable
+  [32mPASS[0m  kill switch refuses an unknown argument and leaves state untouched
+
+[1mSummary[0m
+  22 pass, 0 fail, 7 warn
+
+[32mLocal measured checks passed.[0m Not an unattended-readiness or public-release approval.
+WARNs and ADOPTION_REVIEW.md include both unfinished code and environment blockers. Re-run after changes.
+python3 -m pytest
+........................................................................ [  7%]
+........................................................................ [ 15%]
+..................................................................ssss.. [ 23%]
+........................................................................ [ 31%]
+.........................................ss............................. [ 39%]
+........................................................................ [ 47%]
+........................................................................ [ 55%]
+........................................................................ [ 63%]
+........................................................................ [ 71%]
+........................................................................ [ 79%]
+........................................................................ [ 87%]
+........................................................................ [ 95%]
+..........................................                               [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/fastapi/testclient.py:1
+  /home/user/.cache/ag4a-engineering/work/.venv/lib/python3.13/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+900 passed, 6 skipped, 1 warning in 11.12s
+node --test tools/findrepo/test/*.test.mjs packages/bot-hq-queue/*.test.mjs
+✔ same bot executes one turn at a time, preserving order (1.974745ms)
+✔ different bots do not wait for one another (1.272156ms)
+✔ failure reaches caller but does not poison subsequent turns (0.591137ms)
+✔ closing refuses new work but drains existing work without claiming cancellation (0.390835ms)
+✔ invalid bot identity and callback are rejected (0.271932ms)
+✔ default research does not read gh auth or send inherited tokens (88.018664ms)
+✔ environment auth requires explicit opt-in and still does not invoke gh (65.444559ms)
+✔ authenticated responses are not written to shared public cache (64.367115ms)
+✔ init cannot mutate project instructions by default (41.614214ms)
+✔ extractKeywords strips filler words (3.953803ms)
+✔ stem matches word variants (0.534796ms)
+✔ active, licensed, relevant repo scores high (1.030229ms)
+✔ archived and stale repos are penalised (0.636185ms)
+✔ off-topic mega repo does not beat on-topic repo (0.377162ms)
+✔ awesome lists are detected and demoted (0.270252ms)
+✔ explain produces warnings (0.362899ms)
+✔ buildRepoQueries applies filters (0.473558ms)
+✔ mergeAndRank dedupes and sorts (0.55673ms)
+✔ isSkillRepo (0.634101ms)
+✔ parseArgs (0.336545ms)
+✔ isAwesomeList rejects keyword-stuffed repos (0.373895ms)
+✔ auto-mode block is idempotent and removable (0.391522ms)
+✔ detectStack reads manifests (2.433374ms)
+✔ multi-language filter and momentum (0.244179ms)
+✔ short keywords match whole words only (0.22181ms)
+ℹ tests 25
+ℹ suites 0
+ℹ pass 25
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 478.690397
+bash scripts/bot-hq.sh test
+
+> typecheck
+> npm run typecheck -w server && npm run typecheck -w web
+
+
+> typecheck
+> tsc -p tsconfig.json --noEmit
+
+
+> typecheck
+> tsc -p tsconfig.json --noEmit
+
+
+> build
+> npm run build -w web && npm run build -w server
+
+
+> build
+> vite build
+
+vite v8.3.6 building client environment for production...
+transforming...
+✓ 2284 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.40 kB │ gzip:   0.28 kB
+dist/assets/index-DA3Kzjwq.css   85.76 kB │ gzip:  15.09 kB
+dist/assets/rfb-xHgMEWMb.js     187.37 kB │ gzip:  56.52 kB
+dist/assets/index-BBlSj6c5.js   427.21 kB │ gzip: 130.17 kB
+
+✓ built in 541ms
+
+> build
+> tsc -p tsconfig.json
+
+..............................                                           [100%]
+30 passed in 0.28s
+✔ earlier pages merge without duplicates and terminate at the first retained entry (2.042343ms)
+✔ streamed edits outrank older page bodies and late older events (0.236844ms)
+✔ new snapshot keeps events arriving after its revision watermark (0.210385ms)
+✔ reconnect discards a gapped old window and offers a contiguous latest cursor (0.22334ms)
+✔ late old-generation snapshots and pages cannot resurrect reset history (0.237185ms)
+✔ late clear events do not erase newer streamed rows or a newer generation (0.151499ms)
+✔ out-of-order latest snapshots cannot roll back the latest accepted revision (0.177602ms)
+✔ duplicate or mismatched earlier responses cannot move the cursor or mix generations (0.144545ms)
+✔ generation advance resets loading, stale cursors, errors and loaded claims (0.208626ms)
+✔ health truthfully reports disabled providers and no Hermes readiness claim (28.699301ms)
+✔ unauthenticated host refuses operational API requests (2.669194ms)
+✔ bad code and cross-origin login are refused (2.358918ms)
+✔ explicit local code signs in an owner; session is HttpOnly (5.685477ms)
+✔ roster mutations are stored without provisioning any engine (3.733339ms)
+✔ one useful company-report task runs through the actual Python kernel and persists receipts (118.449784ms)
+✔ client arguments cannot become shell, network, budget or file targets (3.277332ms)
+✔ unknown bots cannot start a kernel job (0.793876ms)
+✔ upstream dangerous routes are unmounted, not merely hidden by UI (3.139184ms)
+✔ chat is a truthful local note, never a pretend model response (3.094943ms)
+✔ skill bodies are stored as inert data, not executed (1.959004ms)
+✔ state and request idempotency survive a new app instance (4.255399ms)
+✔ static app has no donor artwork URLs and API misses do not return HTML (7.141975ms)
+✔ owned transcript pages recover every retained entry once with bounded cursors (75.375277ms)
+✔ history rejects malformed, duplicated, unbounded and unversioned cursor queries (5.154572ms)
+✔ history binds earlier pages to the conversation generation and refuses cross-owner reads (4.484416ms)
+✔ logout invalidates the session (0.893818ms)
+ℹ tests 26
+ℹ suites 0
+ℹ pass 26
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 477.677101
+bash scripts/smoke.sh
+== booting a clean control plane on :8099 with /tmp/openbot-smoke-t6JYUC.db
+  PASS service answers /healthz
+  PASS seed wrote through the validated paths
+  PASS pnl arithmetic net=98.0 gross=79.98 contribution=46.77
+  PASS revenue is arithmetic from rows (replay ignored)
+  PASS a routine sending mail is gated
+  PASS cross-venture write is denied
+  PASS cloud metadata is denied
+  PASS approval resolves once (200 then 409)
+  PASS console renders
+  PASS overview carries company + routines
+
+SMOKE PASS — the control plane works end to end on a clean database.
+
+release-check: local gates green. Not a public-release approval; see STRATEGY_ADDENDUM.md.

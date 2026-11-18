@@ -1,0 +1,93 @@
+{
+  "error": "locator.waitFor: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator('#modal[open]') to be hidden\n    65 × locator resolved to visible <dialog open=\"\" id=\"modal\" aria-labelledby=\"modal-title\">…</dialog>\n\n    at propose (/home/user/.cache/openbot-reference-next/workspace/OpenBot-Workspace/studio/scripts/test-gateway.cjs:39:310)\n    at async /home/user/.cache/openbot-reference-next/workspace/OpenBot-Workspace/studio/scripts/test-gateway.cjs:42:13",
+  "checks": [
+    {
+      "name": "Secure WebCrypto context at exact gateway path",
+      "passed": true
+    },
+    {
+      "name": "Unpaired proposal is disabled",
+      "passed": true
+    },
+    {
+      "name": "Pairing derives owner/venture/scopes from server",
+      "passed": true
+    },
+    {
+      "name": "Actual renderer private key is non-exportable",
+      "passed": true
+    },
+    {
+      "name": "No renderer device secret was persisted",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "requests": [
+    {
+      "origin": "https://localhost:46365",
+      "path": "/control/",
+      "method": "GET"
+    },
+    {
+      "origin": "https://localhost:46365",
+      "path": "/api/v1/identity",
+      "method": "GET"
+    },
+    {
+      "origin": "https://localhost:46365",
+      "path": "/api/v1/pair",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:46365",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:46365",
+      "path": "/api/v1/snapshot",
+      "method": "GET"
+    },
+    {
+      "origin": "https://localhost:46365",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:46365",
+      "path": "/api/v1/tasks",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:46365",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:46365",
+      "path": "/api/v1/snapshot",
+      "method": "GET"
+    },
+    {
+      "origin": "https://localhost:46365",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:46365",
+      "path": "/api/v1/snapshot",
+      "method": "GET"
+    },
+    {
+      "origin": "https://localhost:46365",
+      "path": "/api/v1/challenge",
+      "method": "POST"
+    },
+    {
+      "origin": "https://localhost:46365",
+      "path": "/api/v1/snapshot",
+      "method": "GET"
+    }
+  ]
+}

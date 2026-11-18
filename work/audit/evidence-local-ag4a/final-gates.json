@@ -1,0 +1,117 @@
+{
+  "environment": {
+    "fixed_namespace_opt_in": true,
+    "postgres_write_opt_in": false,
+    "postgres_dsn_used": false,
+    "sentinel_db": ":memory:",
+    "provider_secret_used": false
+  },
+  "checks": {
+    "final-freeze": {
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "--junitxml=audit/evidence-local-ag4a/freeze.xml"
+      ],
+      "exit": 0,
+      "runner_started": "2026-11-14T17:52:22.816769+00:00",
+      "duration_s": 10.744,
+      "log": "final-freeze.txt",
+      "log_sha256": "8a2fa0290ac54d2561d4cb15d3f8ee6f3cf554625911aef8c4ae343375bafbba"
+    },
+    "final-contract": {
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "services/sentinel/tests/test_contract.py"
+      ],
+      "exit": 0,
+      "runner_started": "2026-11-14T17:52:33.561599+00:00",
+      "duration_s": 1.318,
+      "log": "final-contract.txt",
+      "log_sha256": "7c87ff231193266922c0097127c7e08f9d169966f2b14c91da04881335c7ffec"
+    },
+    "final-local-gates": {
+      "command": [
+        "make",
+        "lint",
+        "release-check"
+      ],
+      "exit": 0,
+      "runner_started": "2026-11-14T17:52:34.880108+00:00",
+      "duration_s": 37.795,
+      "log": "final-local-gates.txt",
+      "log_sha256": "10013568598e0a8ae9fa7516caa26f974f069415ab59971a02816611219bc5f4"
+    },
+    "final-isolation": {
+      "command": [
+        "make",
+        "isolation-test"
+      ],
+      "exit": 0,
+      "runner_started": "2026-11-14T17:53:12.675396+00:00",
+      "duration_s": 1.167,
+      "log": "final-isolation.txt",
+      "log_sha256": "c5873280042e36f2ae16482b5673004cb12f1f44dbf9de029fc3b8cf563801f3"
+    },
+    "final-isolation-demo": {
+      "command": [
+        "make",
+        "isolation-demo"
+      ],
+      "exit": 0,
+      "runner_started": "2026-11-14T17:53:13.843181+00:00",
+      "duration_s": 0.415,
+      "log": "final-isolation-demo.txt",
+      "log_sha256": "25e6bba456d4b1fc627f12125ce62a118269016c02b6d5dbdeea7ed70ce37b22"
+    },
+    "final-economic-demo": {
+      "command": [
+        "python",
+        "scripts/economic-demo.py",
+        "--output",
+        "/home/user/.cache/ag4a-engineering/economic-readback-final.json"
+      ],
+      "exit": 0,
+      "runner_started": "2026-11-14T17:53:14.258973+00:00",
+      "duration_s": 1.468,
+      "log": "final-economic-demo.txt",
+      "log_sha256": "2dd546f813b793bc737b66ce2ad2968820b8fcf0a644a4444b37fd9a42ee15cc"
+    },
+    "final-workforce-demo": {
+      "command": [
+        "make",
+        "workforce-demo"
+      ],
+      "exit": 0,
+      "runner_started": "2026-11-14T17:53:15.727232+00:00",
+      "duration_s": 0.115,
+      "log": "final-workforce-demo.txt",
+      "log_sha256": "68001a19807bd83e63664a81807408431fe0379b6d49146d103ce7787031aef1"
+    },
+    "final-execution-demo": {
+      "command": [
+        "python",
+        "scripts/execution-demo.py"
+      ],
+      "exit": 0,
+      "runner_started": "2026-11-14T17:53:15.842281+00:00",
+      "duration_s": 0.516,
+      "log": "final-execution-demo.txt",
+      "log_sha256": "ce26129c044c795bb00e465e24792dc722484b90d080882be0a5926b49562bb0"
+    },
+    "final-donors": {
+      "command": [
+        "make",
+        "check-mirrors"
+      ],
+      "exit": 0,
+      "runner_started": "2026-11-14T17:53:16.358579+00:00",
+      "duration_s": 0.068,
+      "log": "final-donors.txt",
+      "log_sha256": "f90004c5e869262dfd27132210f80ecdf7ee59ff89a2685cc3d96b0364cd82dd"
+    }
+  }
+}

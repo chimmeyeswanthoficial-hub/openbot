@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="8" skipped="0" tests="10" time="0.082" timestamp="2026-11-14T17:47:16.783791+00:00" hostname="e2b.local"><testcase classname="test_arithmetic_contract" name="test_linked_100_dollar_sale_must_not_be_counted_three_times[order0]" time="0.003"><failure message="AssertionError: assert 30000 == 10000&#10; +  where 30000 = total(Store(path='/tmp/pytest-of-user/pytest-24/test_linked_100_dollar_sale_mu0/base.sqlite3'), 'revenue')">tmp_path = PosixPath('/tmp/pytest-of-user/pytest-24/test_linked_100_dollar_sale_mu0')
+order = (0, 1, 2)
+
+    @pytest.mark.parametrize('order', list(itertools.permutations(range(3))))
+    def test_linked_100_dollar_sale_must_not_be_counted_three_times(tmp_path, order):
+        store = Store(str(tmp_path / 'base.sqlite3'))
+        try:
+            ingest(store, [CASES['sales'][index] for index in order])
+&gt;           assert total(store, 'revenue') == 10000
+E           AssertionError: assert 30000 == 10000
+E            +  where 30000 = total(Store(path='/tmp/pytest-of-user/pytest-24/test_linked_100_dollar_sale_mu0/base.sqlite3'), 'revenue')
+
+test_arithmetic_contract.py:26: AssertionError</failure></testcase><testcase classname="test_arithmetic_contract" name="test_linked_100_dollar_sale_must_not_be_counted_three_times[order1]" time="0.002"><failure message="AssertionError: assert 30000 == 10000&#10; +  where 30000 = total(Store(path='/tmp/pytest-of-user/pytest-24/test_linked_100_dollar_sale_mu1/base.sqlite3'), 'revenue')">tmp_path = PosixPath('/tmp/pytest-of-user/pytest-24/test_linked_100_dollar_sale_mu1')
+order = (0, 2, 1)
+
+    @pytest.mark.parametrize('order', list(itertools.permutations(range(3))))
+    def test_linked_100_dollar_sale_must_not_be_counted_three_times(tmp_path, order):
+        store = Store(str(tmp_path / 'base.sqlite3'))
+        try:
+            ingest(store, [CASES['sales'][index] for index in order])
+&gt;           assert total(store, 'revenue') == 10000
+E           AssertionError: assert 30000 == 10000
+E            +  where 30000 = total(Store(path='/tmp/pytest-of-user/pytest-24/test_linked_100_dollar_sale_mu1/base.sqlite3'), 'revenue')
+
+test_arithmetic_contract.py:26: AssertionError</failure></testcase><testcase classname="test_arithmetic_contract" name="test_linked_100_dollar_sale_must_not_be_counted_three_times[order2]" time="0.002"><failure message="AssertionError: assert 30000 == 10000&#10; +  where 30000 = total(Store(path='/tmp/pytest-of-user/pytest-24/test_linked_100_dollar_sale_mu2/base.sqlite3'), 'revenue')">tmp_path = PosixPath('/tmp/pytest-of-user/pytest-24/test_linked_100_dollar_sale_mu2')
+order = (1, 0, 2)
+
+    @pytest.mark.parametrize('order', list(itertools.permutations(range(3))))
+    def test_linked_100_dollar_sale_must_not_be_counted_three_times(tmp_path, order):
+        store = Store(str(tmp_path / 'base.sqlite3'))
+        try:
+            ingest(store, [CASES['sales'][index] for index in order])
+&gt;           assert total(store, 'revenue') == 10000
+E           AssertionError: assert 30000 == 10000
+E            +  where 30000 = total(Store(path='/tmp/pytest-of-user/pytest-24/test_linked_100_dollar_sale_mu2/base.sqlite3'), 'revenue')
+
+test_arithmetic_contract.py:26: AssertionError</failure></testcase><testcase classname="test_arithmetic_contract" name="test_linked_100_dollar_sale_must_not_be_counted_three_times[order3]" time="0.002"><failure message="AssertionError: assert 30000 == 10000&#10; +  where 30000 = total(Store(path='/tmp/pytest-of-user/pytest-24/test_linked_100_dollar_sale_mu3/base.sqlite3'), 'revenue')">tmp_path = PosixPath('/tmp/pytest-of-user/pytest-24/test_linked_100_dollar_sale_mu3')
+order = (1, 2, 0)
+
+    @pytest.mark.parametrize('order', list(itertools.permutations(range(3))))
+    def test_linked_100_dollar_sale_must_not_be_counted_three_times(tmp_path, order):
+        store = Store(str(tmp_path / 'base.sqlite3'))
+        try:
+            ingest(store, [CASES['sales'][index] for index in order])
+&gt;           assert total(store, 'revenue') == 10000
+E           AssertionError: assert 30000 == 10000
+E            +  where 30000 = total(Store(path='/tmp/pytest-of-user/pytest-24/test_linked_100_dollar_sale_mu3/base.sqlite3'), 'revenue')
+
+test_arithmetic_contract.py:26: AssertionError</failure></testcase><testcase classname="test_arithmetic_contract" name="test_linked_100_dollar_sale_must_not_be_counted_three_times[order4]" time="0.002"><failure message="AssertionError: assert 30000 == 10000&#10; +  where 30000 = total(Store(path='/tmp/pytest-of-user/pytest-24/test_linked_100_dollar_sale_mu4/base.sqlite3'), 'revenue')">tmp_path = PosixPath('/tmp/pytest-of-user/pytest-24/test_linked_100_dollar_sale_mu4')
+order = (2, 0, 1)
+
+    @pytest.mark.parametrize('order', list(itertools.permutations(range(3))))
+    def test_linked_100_dollar_sale_must_not_be_counted_three_times(tmp_path, order):
+        store = Store(str(tmp_path / 'base.sqlite3'))
+        try:
+            ingest(store, [CASES['sales'][index] for index in order])
+&gt;           assert total(store, 'revenue') == 10000
+E           AssertionError: assert 30000 == 10000
+E            +  where 30000 = total(Store(path='/tmp/pytest-of-user/pytest-24/test_linked_100_dollar_sale_mu4/base.sqlite3'), 'revenue')
+
+test_arithmetic_contract.py:26: AssertionError</failure></testcase><testcase classname="test_arithmetic_contract" name="test_linked_100_dollar_sale_must_not_be_counted_three_times[order5]" time="0.002"><failure message="AssertionError: assert 30000 == 10000&#10; +  where 30000 = total(Store(path='/tmp/pytest-of-user/pytest-24/test_linked_100_dollar_sale_mu5/base.sqlite3'), 'revenue')">tmp_path = PosixPath('/tmp/pytest-of-user/pytest-24/test_linked_100_dollar_sale_mu5')
+order = (2, 1, 0)
+
+    @pytest.mark.parametrize('order', list(itertools.permutations(range(3))))
+    def test_linked_100_dollar_sale_must_not_be_counted_three_times(tmp_path, order):
+        store = Store(str(tmp_path / 'base.sqlite3'))
+        try:
+            ingest(store, [CASES['sales'][index] for index in order])
+&gt;           assert total(store, 'revenue') == 10000
+E           AssertionError: assert 30000 == 10000
+E            +  where 30000 = total(Store(path='/tmp/pytest-of-user/pytest-24/test_linked_100_dollar_sale_mu5/base.sqlite3'), 'revenue')
+
+test_arithmetic_contract.py:26: AssertionError</failure></testcase><testcase classname="test_arithmetic_contract" name="test_cumulative_20_and_50_dollar_refunds_must_total_50_not_70[order0]" time="0.003"><failure message="AssertionError: assert 7000 == 5000&#10; +  where 7000 = total(Store(path='/tmp/pytest-of-user/pytest-24/test_cumulative_20_and_50_doll0/base.sqlite3'), 'refund')">tmp_path = PosixPath('/tmp/pytest-of-user/pytest-24/test_cumulative_20_and_50_doll0')
+order = (0, 1)
+
+    @pytest.mark.parametrize('order', [(0, 1), (1, 0)])
+    def test_cumulative_20_and_50_dollar_refunds_must_total_50_not_70(tmp_path, order):
+        store = Store(str(tmp_path / 'base.sqlite3'))
+        try:
+            ingest(store, [CASES['sales'][0], *(CASES['refunds'][index] for index in order)])
+&gt;           assert total(store, 'refund') == 5000
+E           AssertionError: assert 7000 == 5000
+E            +  where 7000 = total(Store(path='/tmp/pytest-of-user/pytest-24/test_cumulative_20_and_50_doll0/base.sqlite3'), 'refund')
+
+test_arithmetic_contract.py:35: AssertionError</failure></testcase><testcase classname="test_arithmetic_contract" name="test_cumulative_20_and_50_dollar_refunds_must_total_50_not_70[order1]" time="0.003"><failure message="AssertionError: assert 7000 == 5000&#10; +  where 7000 = total(Store(path='/tmp/pytest-of-user/pytest-24/test_cumulative_20_and_50_doll1/base.sqlite3'), 'refund')">tmp_path = PosixPath('/tmp/pytest-of-user/pytest-24/test_cumulative_20_and_50_doll1')
+order = (1, 0)
+
+    @pytest.mark.parametrize('order', [(0, 1), (1, 0)])
+    def test_cumulative_20_and_50_dollar_refunds_must_total_50_not_70(tmp_path, order):
+        store = Store(str(tmp_path / 'base.sqlite3'))
+        try:
+            ingest(store, [CASES['sales'][0], *(CASES['refunds'][index] for index in order)])
+&gt;           assert total(store, 'refund') == 5000
+E           AssertionError: assert 7000 == 5000
+E            +  where 7000 = total(Store(path='/tmp/pytest-of-user/pytest-24/test_cumulative_20_and_50_doll1/base.sqlite3'), 'refund')
+
+test_arithmetic_contract.py:35: AssertionError</failure></testcase><testcase classname="test_arithmetic_contract" name="test_control_two_genuinely_distinct_equal_price_sales_still_count_twice" time="0.002" /><testcase classname="test_arithmetic_contract" name="test_control_exact_event_replay_already_worked_in_the_base" time="0.002" /></testsuite></testsuites>

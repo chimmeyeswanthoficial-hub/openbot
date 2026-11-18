@@ -1,0 +1,40 @@
+Note: /home/user/.cache/openbot-reference-next/workspace/OpenBot-Workspace/control/native/android/src/dev/openbot/controlpreview/MainActivity.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+.......+...+++++++++++++++++++++++++++++++++++++++*..+...+...+......+++++++++++++++++++++++++++++++++++++++*...+.......+.....+............+...+....+.....+......+...+............+.......+......+.........+.....+.......+...+...........+......+...+.+.....+......+......+.......+...+........+....+.....+.+...........+.........++++++
+...+.........+...+.....+...+.+......+...+..............+.+++++++++++++++++++++++++++++++++++++++*...+.....+....+..+...+.+.....+......+...+.+.........+...+..+...+....+++++++++++++++++++++++++++++++++++++++*..+.........+....+..+....+.........+.........+...........+.....................+.+.....+....+........+......+.+...+.................+.+...+......+...+.....+.........................+.....+.............+.....+...+....+..+......+..........+..............+.+.....+.........+....+..+.......+...++++++
+-----
+Verifies
+Verified using v1 scheme (JAR signing): false
+Verified using v2 scheme (APK Signature Scheme v2): false
+Verified using v3 scheme (APK Signature Scheme v3): true
+Verified using v3.1 scheme (APK Signature Scheme v3.1): false
+Verified using v4 scheme (APK Signature Scheme v4): false
+Verified for SourceStamp: false
+Number of signers: 1
+Signer #1 certificate DN: C=IN, O=Local Preview, OU=Not a release key, CN=OpenBot Local Demo Only
+Signer #1 certificate SHA-256 digest: 132a0d33eacd39271fb85fcd54787a8367839cbbe7f336f54a2c144c2985ae22
+Signer #1 certificate SHA-1 digest: 4e35b49e91349ef110a12b553b556b2255eec57e
+Signer #1 certificate MD5 digest: dacb9ccc7d5bc4900dc6fc18695f50c0
+Signer #1 key algorithm: RSA
+Signer #1 key size (bits): 2048
+Signer #1 public key SHA-256 digest: 15b6d66181b7db812458611902d0734543f79b3609b69fffd692cdaebd803528
+Signer #1 public key SHA-1 digest: 3f36d2fd8831646464e4de81a86364b719af58ee
+Signer #1 public key MD5 digest: 4f78e1d03e4c54881f0ee0601aea2d6e
+package: name='dev.openbot.controlpreview' versionCode='3' versionName='0.3.0-local' platformBuildVersionName='15' platformBuildVersionCode='35' compileSdkVersion='35' compileSdkVersionCodename='15'
+sdkVersion:'28'
+targetSdkVersion:'35'
+uses-permission: name='android.permission.INTERNET'
+application-label:'OpenBot Test'
+application-icon-160:'res/drawable/ic_launcher.xml'
+application: label='OpenBot Test' icon='res/drawable/ic_launcher.xml'
+launchable-activity: name='dev.openbot.controlpreview.MainActivity'  label='' icon=''
+feature-group: label=''
+  uses-feature: name='android.hardware.faketouch'
+  uses-implied-feature: name='android.hardware.faketouch' reason='default feature for all apps'
+main
+supports-screens: 'small' 'normal' 'large' 'xlarge'
+supports-any-density: 'true'
+locales: '--_--'
+densities: '160'
+Built DEMO-KEY-SIGNED sideload preview: /home/user/.cache/openbot-reference-next/workspace/OpenBot-Workspace/control/releases/OpenBot-Control-Local-android.apk
+Not a Play Store release. Not device-tested by this build script.

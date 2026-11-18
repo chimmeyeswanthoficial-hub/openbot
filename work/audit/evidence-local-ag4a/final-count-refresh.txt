@@ -1,0 +1,92 @@
+...................................F.................................... [  7%]
+........................................................................ [ 15%]
+..................................................................ssss.. [ 23%]
+........................................................................ [ 31%]
+........................................Fss............................. [ 39%]
+........................................................................ [ 47%]
+........................................................................ [ 55%]
+........................................................................ [ 63%]
+........................................................................ [ 71%]
+........................................................................ [ 79%]
+........................................................................ [ 87%]
+........................................................................ [ 95%]
+..........................................                               [100%]
+=================================== FAILURES ===================================
+__________ test_no_document_claims_a_test_count_the_suite_contradicts __________
+
+    def test_no_document_claims_a_test_count_the_suite_contradicts():
+        """Check the CURRENT structured outcome snapshot, not dated historical prose.
+    
+        The former guard equated collected with passed, forcing false arithmetic when
+        PostgreSQL/substrate cases skipped. Now a JUnit-derived receipt, its arithmetic,
+        actual collection and each document's explicitly current row must all agree.
+        This validates a snapshot's consistency, not runtime/security completeness.
+        """
+        receipt = json.loads(_read("audit/verification-current.json"))["python"]
+        counts = tuple(receipt[k] for k in ("passed", "skipped", "failed", "collected"))
+        _assert_outcomes(*counts)
+>       assert counts[-1] == _collected(), "regenerate the JUnit receipt after suite changes"
+E       AssertionError: regenerate the JUnit receipt after suite changes
+E       assert 596 == 906
+E        +  where 906 = _collected()
+
+services/sentinel/tests/test_contract.py:145: AssertionError
+___________________ test_stripe_webhook_flow_and_idempotency ___________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f8f09a33460>
+
+    def test_stripe_webhook_flow_and_idempotency(monkeypatch):
+        import hashlib
+        import hmac
+        import json
+        import time
+    
+        import app as mod
+        client = TestClient(mod.app)
+        secret = "whsec_test_secret"
+        monkeypatch.setenv("STRIPE_WEBHOOK_SECRET", secret)
+    
+        ts = int(time.time())
+        payload = json.dumps({
+            "id": "evt_hook_test_001",
+            "type": "invoice.paid",
+            "data": {
+                "object": {
+                    "id": "in_test_001",
+                    "amount_paid": 5000,
+                    "metadata": {"venture": "media-api"},
+                }
+            }
+        }).encode("utf-8")
+        sig = f"t={ts},v1={hmac.new(secret.encode(), f'{ts}.'.encode() + payload, hashlib.sha256).hexdigest()}"
+    
+        # 1. Valid webhook creates ledger row (201)
+        r1 = client.post("/webhooks/stripe", content=payload, headers={"Stripe-Signature": sig})
+>       assert r1.status_code == 201
+E       assert 503 == 201
+E        +  where 503 = <Response [503 Service Unavailable]>.status_code
+
+services/sentinel/tests/test_public.py:144: AssertionError
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/fastapi/testclient.py:1
+  /home/user/.cache/ag4a-engineering/work/.venv/lib/python3.13/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED services/sentinel/tests/test_contract.py::test_no_document_claims_a_test_count_the_suite_contradicts
+FAILED services/sentinel/tests/test_public.py::test_stripe_webhook_flow_and_idempotency
+2 failed, 898 passed, 6 skipped, 1 warning in 10.09s
+{
+  "python": {
+    "passed": 898,
+    "skipped": 6,
+    "failed": 2,
+    "collected": 906
+  },
+  "runner_timestamp": "2026-11-14T17:50:30.092208+00:00",
+  "measurement_date": "2026-11-14",
+  "junit_sha256": "b3ad49980989ef4a1a4197e3ba138ef17f7440fc2d8a418d5acb1d77bb515982",
+  "exit_code": 1,
+  "junit_artifact": "/home/user/.cache/ag4a-engineering/work/audit/evidence-local-ag4a/count-refresh.xml"
+}

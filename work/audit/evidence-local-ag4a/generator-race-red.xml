@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="0.051" timestamp="2026-11-14T17:31:56.716561+00:00" hostname="e2b.local"><testcase classname="scripts.tests.test_verification_execution" name="test_generator_refuses_a_competing_file_created_after_initial_check" time="0.003"><failure message="Failed: DID NOT RAISE FileExistsError">tmp_path = PosixPath('/tmp/pytest-of-user/pytest-7/test_generator_refuses_a_compe0')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x7f457210a060&gt;
+
+    def test_generator_refuses_a_competing_file_created_after_initial_check(tmp_path, monkeypatch):
+        runner_fixture(monkeypatch, [])
+        output = tmp_path / 'race.xml'
+        original_mkdir = Path.mkdir
+        def competing_mkdir(path, *args, **kwargs):
+            original_mkdir(path, *args, **kwargs)
+            output.write_text('concurrent original evidence')
+        monkeypatch.setattr(Path, 'mkdir', competing_mkdir)
+&gt;       with pytest.raises(FileExistsError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE FileExistsError
+
+scripts/tests/test_verification_execution.py:107: Failed</failure></testcase></testsuite></testsuites>

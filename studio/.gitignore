@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.cache/
+.venv/
+node_modules/
+.env
+.env.local
+*.db
+*.sqlite*
+private-blueprints/

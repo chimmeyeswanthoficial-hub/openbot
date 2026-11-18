@@ -1,0 +1,7 @@
+{
+  "prior_entries": 9,
+  "new_entries": 10,
+  "preceding_rows_byte_preserved": true,
+  "prior_bytes_sha256": "6c3b4f2fdb23a2f043c48cf1d1dbad76afc4a1c56b247868abebc78a676c2b9d",
+  "rule_ref": "scripts/tests/test_handoff.py::test_wal_snapshot_is_closed_redacted_and_stable_before_packaging"
+}

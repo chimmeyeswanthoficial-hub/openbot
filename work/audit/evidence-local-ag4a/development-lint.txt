@@ -1,0 +1,102 @@
+python3 -m ruff check services packages scripts
+I001 [*] Import block is un-sorted or un-formatted
+  --> scripts/tests/test_platform_guards.py:11:1
+   |
+ 9 |   executor refusal before state creation. They do NOT certify native Windows/macOS.
+10 |   """
+11 | / from __future__ import annotations
+12 | |
+13 | | import importlib
+14 | | import json
+15 | | import os
+16 | | import sys
+17 | | from unittest.mock import MagicMock
+18 | |
+19 | | import pytest
+20 | |
+21 | | import hq_readiness as hq
+22 | | import isolation
+23 | | from local_executor import Authority
+24 | | from namespace_executor import NamespaceExecutor
+   | |________________________________________________^
+25 |
+26 |   REQUEST_ID = "90a22229-e876-4937-b683-265b3bdb0819"
+   |
+help: Organize imports
+   |
+18 |
+   - import pytest
+   -
+19 | import hq_readiness as hq
+20 | import isolation
+21 + import pytest
+22 | from local_executor import Authority
+   |
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> services/ledger/tests/test_economic.py:2:1
+  |
+1 |   """Pure canonical normalization: no provider, real event, money or database."""
+2 | / from __future__ import annotations
+3 | |
+4 | | import json
+5 | | from dataclasses import asdict
+6 | |
+7 | | import pytest
+8 | | from economic import MAX_BODY_BYTES, MAX_MINOR, EconomicError, Scope, prepare_event
+9 | | from economic_fixtures import charge, checkout, encoded, event, intent, invoice, refund, scope, snapshot
+  | |________________________________________________________________________________________________________^
+help: Organize imports
+   |
+8  | from economic import MAX_BODY_BYTES, MAX_MINOR, EconomicError, Scope, prepare_event
+   - from economic_fixtures import charge, checkout, encoded, event, intent, invoice, refund, scope, snapshot
+9  + from economic_fixtures import (
+10 +     charge,
+11 +     checkout,
+12 +     encoded,
+13 +     event,
+14 +     intent,
+15 +     invoice,
+16 +     refund,
+17 +     scope,
+18 +     snapshot,
+19 + )
+20 |
+   |
+
+F401 [*] `dataclasses.asdict` imported but unused
+  --> services/sentinel/economic_repository.py:14:25
+   |
+12 | from collections import defaultdict
+13 | from contextlib import contextmanager, suppress
+14 | from dataclasses import asdict, replace
+   |                         ^^^^^^
+15 | from datetime import UTC, datetime
+   |
+help: Remove unused import: `dataclasses.asdict`
+   |
+13 | from contextlib import contextmanager, suppress
+   - from dataclasses import asdict, replace
+14 + from dataclasses import replace
+15 | from datetime import UTC, datetime
+   |
+
+F401 [*] `json` imported but unused
+  --> services/sentinel/tests/test_economic_book.py:8:8
+   |
+ 7 | import itertools
+ 8 | import json
+   |        ^^^^
+ 9 | import multiprocessing
+10 | import os
+   |
+help: Remove unused import: `json`
+  |
+7 | import itertools
+  - import json
+8 | import multiprocessing
+  |
+
+Found 4 errors.
+[*] 4 fixable with `--fix`.
+make: *** [Makefile:24: lint] Error 1

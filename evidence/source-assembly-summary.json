@@ -1,0 +1,24 @@
+{
+  "collection_correction": "Retained reviewed non-secret venture declaration required by existing SDK tests; runtime state, budgets/grants/DB remain omitted.",
+  "copy_bytes": 65692177,
+  "copy_file_count": 4208,
+  "declarative_source_exceptions": [
+    ".openbot/routines/health-sweep.md",
+    ".openbot/routines/incident-watch.md",
+    ".openbot/routines/ledger-sync.md",
+    ".openbot/routines/scout-daily.md",
+    ".openbot/routines/support-triage.md",
+    ".openbot/routines/weekly-review.md",
+    ".openbot/ventures/media-api/venture.yaml"
+  ],
+  "input_kernel": "S11-S12 exact paired kernel successor",
+  "kernel_source_tree_sha256_before_filter": "6d50ec0cff0089d81681e5a71ca14ca8f1932c170b78e248ea3bcf4b5c165e47",
+  "omission_counts": {
+    "generated_or_dependency_cache": 265,
+    "historical_archive_or_owner_upload": 14,
+    "private_runtime_state_not_source": 9
+  },
+  "paired_control_sha256": "d887784c0fa612dff9fc87a2c4ac4954770b77ddc87669cb8eb57eb81d131a19",
+  "schema": "openbot.source-assembly/1",
+  "scope": "Source handoff, not runtime backup or release. Originals untouched. Filtering changes full-tree identity; no claim of exact frozen 4172-file equivalence."
+}

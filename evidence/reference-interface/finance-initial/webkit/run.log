@@ -1,0 +1,31 @@
+PASS the real integrated finance route states its no-account/no-ledger boundary
+PASS fictional example does not calculate or imply real money without confirmation
+PASS currency alone is insufficient and denied input is retained
+PASS confirmed synthetic CSV is actually parsed into exact, unverified totals
+PASS preview JSON contains integer data and explicit false authority flags
+PASS editing CSV invalidates results, download and sign confirmation immediately
+PASS currency or confirmation edits also invalidate already calculated output
+PASS mixed-currency files fail closed rather than converting or ignoring a row
+PASS malformed quotes, dates, money and duplicate required headers return no partial report
+PASS untrusted markup, URL and formula descriptions render only as text
+PASS a local UTF-8 CSV file is read but never automatically analysed or sent
+PASS wrong extension and oversized files retain prior input and remove stale output
+PASS invalid UTF-8 is refused, not silently replacement-decoded
+PASS clearing imported data wins against an in-flight file read
+PASS editing while a file is reading also wins over its late completion
+PASS normal navigation retains tab-only data but optional draft saving excludes it
+PASS reloading clears all imported financial data even with remember-drafts enabled
+PASS the general clear-drafts action also clears the in-memory finance workspace
+PASS all eight views fit desktop; the actual CSV preview fits a 375px viewport
+PASS opaque offline iframe can calculate locally with no server, storage or forms grant
+AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
++ actual - expected
+
++ [
++   "null is not an object (evaluating 'b.textContent=i.enabled?(i.fresh?'Authenticated owned-QA':i.pairing?'Stale · read only':'Pairing required'):'Local workspace'')"
++ ]
+- []
+    at /home/user/.cache/openbot-reference-next/workspace/OpenBot-Workspace/studio/scripts/test-finance-ui.cjs:103:335
+    at check (/home/user/.cache/openbot-reference-next/workspace/OpenBot-Workspace/studio/scripts/test-finance-ui.cjs:16:64)
+    at /home/user/.cache/openbot-reference-next/workspace/OpenBot-Workspace/studio/scripts/test-finance-ui.cjs:102:8
+Observed 20 passed; 1 failed

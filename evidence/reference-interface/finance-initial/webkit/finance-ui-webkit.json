@@ -1,0 +1,149 @@
+{
+  "schema": "openbot.observed-finance-browser-tests/1",
+  "engine": "webkit",
+  "base": "http://127.0.0.1:4184",
+  "results": [
+    {
+      "name": "the real integrated finance route states its no-account/no-ledger boundary",
+      "status": "passed",
+      "duration_ms": 1082
+    },
+    {
+      "name": "fictional example does not calculate or imply real money without confirmation",
+      "status": "passed",
+      "duration_ms": 241
+    },
+    {
+      "name": "currency alone is insufficient and denied input is retained",
+      "status": "passed",
+      "duration_ms": 105
+    },
+    {
+      "name": "confirmed synthetic CSV is actually parsed into exact, unverified totals",
+      "status": "passed",
+      "duration_ms": 340
+    },
+    {
+      "name": "preview JSON contains integer data and explicit false authority flags",
+      "status": "passed",
+      "duration_ms": 53
+    },
+    {
+      "name": "editing CSV invalidates results, download and sign confirmation immediately",
+      "status": "passed",
+      "duration_ms": 155
+    },
+    {
+      "name": "currency or confirmation edits also invalidate already calculated output",
+      "status": "passed",
+      "duration_ms": 723
+    },
+    {
+      "name": "mixed-currency files fail closed rather than converting or ignoring a row",
+      "status": "passed",
+      "duration_ms": 170
+    },
+    {
+      "name": "malformed quotes, dates, money and duplicate required headers return no partial report",
+      "status": "passed",
+      "duration_ms": 879
+    },
+    {
+      "name": "untrusted markup, URL and formula descriptions render only as text",
+      "status": "passed",
+      "duration_ms": 216
+    },
+    {
+      "name": "a local UTF-8 CSV file is read but never automatically analysed or sent",
+      "status": "passed",
+      "duration_ms": 338
+    },
+    {
+      "name": "wrong extension and oversized files retain prior input and remove stale output",
+      "status": "passed",
+      "duration_ms": 219
+    },
+    {
+      "name": "invalid UTF-8 is refused, not silently replacement-decoded",
+      "status": "passed",
+      "duration_ms": 70
+    },
+    {
+      "name": "clearing imported data wins against an in-flight file read",
+      "status": "passed",
+      "duration_ms": 234
+    },
+    {
+      "name": "editing while a file is reading also wins over its late completion",
+      "status": "passed",
+      "duration_ms": 173
+    },
+    {
+      "name": "normal navigation retains tab-only data but optional draft saving excludes it",
+      "status": "passed",
+      "duration_ms": 601
+    },
+    {
+      "name": "reloading clears all imported financial data even with remember-drafts enabled",
+      "status": "passed",
+      "duration_ms": 725
+    },
+    {
+      "name": "the general clear-drafts action also clears the in-memory finance workspace",
+      "status": "passed",
+      "duration_ms": 2091
+    },
+    {
+      "name": "all eight views fit desktop; the actual CSV preview fits a 375px viewport",
+      "status": "passed",
+      "duration_ms": 7475
+    },
+    {
+      "name": "opaque offline iframe can calculate locally with no server, storage or forms grant",
+      "status": "passed",
+      "duration_ms": 1811
+    },
+    {
+      "name": "no transaction data, upload, telemetry, model, bank or ledger request occurred",
+      "status": "failed",
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ [\n+   \"null is not an object (evaluating 'b.textContent=i.enabled?(i.fresh?'Authenticated owned-QA':i.pairing?'Stale · read only':'Pairing required'):'Local workspace'')\"\n+ ]\n- []\n    at /home/user/.cache/openbot-reference-next/workspace/OpenBot-Workspace/studio/scripts/test-finance-ui.cjs:103:335\n    at check (/home/user/.cache/openbot-reference-next/workspace/OpenBot-Workspace/studio/scripts/test-finance-ui.cjs:16:64)\n    at /home/user/.cache/openbot-reference-next/workspace/OpenBot-Workspace/studio/scripts/test-finance-ui.cjs:102:8",
+      "duration_ms": 26
+    }
+  ],
+  "requests": [
+    {
+      "url": "http://127.0.0.1:4184/",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "http://127.0.0.1:4184/api/status",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "http://127.0.0.1:4184/",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "http://127.0.0.1:4184/api/status",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "http://127.0.0.1:4184/",
+      "method": "GET",
+      "body": null
+    },
+    {
+      "url": "http://127.0.0.1:4184/api/status",
+      "method": "GET",
+      "body": null
+    }
+  ],
+  "page_errors": [
+    "null is not an object (evaluating 'b.textContent=i.enabled?(i.fresh?'Authenticated owned-QA':i.pairing?'Stale · read only':'Pairing required'):'Local workspace'')"
+  ],
+  "scope": "Synthetic, browser-only CSV preview. No bank, accounting, external provider, VM or public-release acceptance."
+}

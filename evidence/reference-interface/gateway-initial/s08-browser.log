@@ -1,0 +1,14 @@
+PASS Secure WebCrypto context at exact gateway path
+PASS Unpaired proposal is disabled
+PASS Pairing derives owner/venture/scopes from server
+PASS Actual renderer private key is non-exportable
+PASS No renderer device secret was persisted
+locator.waitFor: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator('#modal[open]') to be hidden
+    65 × locator resolved to visible <dialog open="" id="modal" aria-labelledby="modal-title">…</dialog>
+
+    at propose (/home/user/.cache/openbot-reference-next/workspace/OpenBot-Workspace/studio/scripts/test-gateway.cjs:39:310)
+    at async /home/user/.cache/openbot-reference-next/workspace/OpenBot-Workspace/studio/scripts/test-gateway.cjs:42:13 {
+  name: 'TimeoutError'
+}

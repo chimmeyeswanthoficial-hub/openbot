@@ -1,0 +1,2 @@
+BLOCKED: iOS compilation requires macOS with Xcode and the iOS SDK.
+No .ipa or simulator .app was built here. Source code is not an installer.

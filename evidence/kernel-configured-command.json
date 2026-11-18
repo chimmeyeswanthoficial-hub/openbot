@@ -1,0 +1,10 @@
+{
+  "command": [
+    "/home/user/.cache/openbot-s11-s12/venv/bin/python",
+    "-m",
+    "pytest",
+    "--junitxml=/home/user/.cache/openbot-studio-next/evidence/clean-kernel-configured.xml"
+  ],
+  "profile": "source-only copy with explicit synthetic worker state, locked bwrap + namespace opt-in, locked real media; PostgreSQL disabled, no provider/account/VM",
+  "exit_code": 0
+}

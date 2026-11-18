@@ -1,0 +1,34 @@
+{
+  "verification-only-freeze": {
+    "command": [
+      "python",
+      "-m",
+      "pytest",
+      "--junitxml=audit/evidence-local-ag0/freeze.xml"
+    ],
+    "exit": 0,
+    "runner_started": "2026-11-14T17:33:36.112595+00:00",
+    "duration_s": 7.245
+  },
+  "verification-only-contract": {
+    "command": [
+      "python",
+      "-m",
+      "pytest",
+      "services/sentinel/tests/test_contract.py"
+    ],
+    "exit": 0,
+    "runner_started": "2026-11-14T17:33:43.357860+00:00",
+    "duration_s": 1.423
+  },
+  "verification-only-local-gates": {
+    "command": [
+      "make",
+      "lint",
+      "release-check"
+    ],
+    "exit": 2,
+    "runner_started": "2026-11-14T17:33:44.781314+00:00",
+    "duration_s": 23.224
+  }
+}

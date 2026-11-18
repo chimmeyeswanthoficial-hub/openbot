@@ -1,0 +1,5 @@
+bash scripts/mirror-upstreams.sh --check
+OpenBot: no git history (vendored tree); see .openbot/state/upstream.json
+OpenDots: archived source; SHA-256 matches catalogue; archive/donor-sources/OpenDots.tar.xz; not an upstream commit verification
+rakazo: archived source; SHA-256 matches catalogue; archive/donor-sources/rakazo.tar.xz; not an upstream commit verification
+Report only: no network calls, no files or remotes changed, nothing pushed.

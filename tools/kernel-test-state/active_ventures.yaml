@@ -1,0 +1,6 @@
+# Synthetic local regression input only. Not an operating grant or production state.
+ventures:
+  - slug: media-api
+    status: discovery
+    owner: ceo
+    paused: false

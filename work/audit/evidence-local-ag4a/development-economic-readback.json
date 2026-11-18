@@ -1,0 +1,2095 @@
+{
+  "mode": "SYNTHETIC_OFFLINE_ONLY",
+  "fixture_record_clock_not_measurement": "2000-01-01T00:00:00+00:00",
+  "host_scope": {
+    "account": "acct_fixture",
+    "venture": "media-api",
+    "livemode": false,
+    "api_version": "2024-06-20",
+    "account_mode": "own"
+  },
+  "generated_disposable_state": ".cache/economic-demo-hvmjxrml",
+  "linked_sale": {
+    "outcomes": [
+      {
+        "status": "recorded",
+        "reason": "canonical_capture_or_refund_not_bank_settlement",
+        "event_id": "evt_linked_0",
+        "message_created": true,
+        "created_postings": 1,
+        "reconciled_messages": 0,
+        "remaining_awaiting_capture": 0
+      },
+      {
+        "status": "recorded",
+        "reason": "canonical_capture_or_refund_not_bank_settlement",
+        "event_id": "evt_linked_1",
+        "message_created": true,
+        "created_postings": 0,
+        "reconciled_messages": 0,
+        "remaining_awaiting_capture": 0
+      },
+      {
+        "status": "recorded",
+        "reason": "canonical_capture_or_refund_not_bank_settlement",
+        "event_id": "evt_linked_2",
+        "message_created": true,
+        "created_postings": 0,
+        "reconciled_messages": 0,
+        "remaining_awaiting_capture": 0
+      },
+      {
+        "status": "recorded",
+        "reason": "canonical_capture_or_refund_not_bank_settlement",
+        "event_id": "evt_linked_3",
+        "message_created": true,
+        "created_postings": 0,
+        "reconciled_messages": 0,
+        "remaining_awaiting_capture": 0
+      },
+      {
+        "status": "recorded",
+        "reason": "canonical_capture_or_refund_not_bank_settlement",
+        "event_id": "evt_linked_4",
+        "message_created": true,
+        "created_postings": 0,
+        "reconciled_messages": 0,
+        "remaining_awaiting_capture": 0
+      }
+    ],
+    "read_back": {
+      "summary": {
+        "mode": "synthetic_test",
+        "currency": "usd",
+        "posting_count": 1,
+        "capture_minor": 10000,
+        "refund_minor": 0,
+        "net_captured_minor": 10000,
+        "unresolved_messages": 0,
+        "awaiting_capture_messages": 0,
+        "bank_settlement_verified": false,
+        "legacy_rows_excluded": true
+      },
+      "messages": [
+        {
+          "event_id": "evt_linked_0",
+          "event_type": "invoice.paid",
+          "payload_sha256": "36f40e516614c188f02a94b9fdb2b0c85ab9fa6babf8459025548e72b33bff05",
+          "status": "recorded",
+          "reason": "canonical_capture_or_refund_not_bank_settlement",
+          "dependency_id": ""
+        },
+        {
+          "event_id": "evt_linked_1",
+          "event_type": "payment_intent.succeeded",
+          "payload_sha256": "36f39b930237a7fdb1a687991fe114dba8290dc7a32be71b9515ecf3b1e25c12",
+          "status": "recorded",
+          "reason": "canonical_capture_or_refund_not_bank_settlement",
+          "dependency_id": ""
+        },
+        {
+          "event_id": "evt_linked_2",
+          "event_type": "checkout.session.completed",
+          "payload_sha256": "9054e2e0efe735589098b94559b3e01422fd60df313fd0d3d456608e2ade0e84",
+          "status": "recorded",
+          "reason": "canonical_capture_or_refund_not_bank_settlement",
+          "dependency_id": ""
+        },
+        {
+          "event_id": "evt_linked_3",
+          "event_type": "charge.succeeded",
+          "payload_sha256": "5fcaddf46e46068267b3ef686e4d26d175b8c703967f911cd50df3987754f50e",
+          "status": "recorded",
+          "reason": "canonical_capture_or_refund_not_bank_settlement",
+          "dependency_id": ""
+        },
+        {
+          "event_id": "evt_linked_4",
+          "event_type": "charge.captured",
+          "payload_sha256": "276761d7438494d9edc548335ee0f5c60c38117953dfb229a1d3c5ca6c6e673c",
+          "status": "recorded",
+          "reason": "canonical_capture_or_refund_not_bank_settlement",
+          "dependency_id": ""
+        }
+      ],
+      "postings": [
+        {
+          "kind": "capture",
+          "economic_id": "ch_sale",
+          "amount_minor": 10000,
+          "currency": "usd",
+          "parent_id": "",
+          "payment_intent_id": "pi_sale",
+          "first_event_id": "evt_linked_0"
+        }
+      ],
+      "transitions": [
+        {
+          "seq": 1,
+          "account": "acct_fixture",
+          "event_id": "evt_linked_0",
+          "status": "recorded",
+          "reason": "canonical_capture_or_refund_not_bank_settlement",
+          "recorded_at": "2000-01-01T00:00:00+00:00"
+        },
+        {
+          "seq": 2,
+          "account": "acct_fixture",
+          "event_id": "evt_linked_1",
+          "status": "recorded",
+          "reason": "canonical_capture_or_refund_not_bank_settlement",
+          "recorded_at": "2000-01-01T00:00:00+00:00"
+        },
+        {
+          "seq": 3,
+          "account": "acct_fixture",
+          "event_id": "evt_linked_2",
+          "status": "recorded",
+          "reason": "canonical_capture_or_refund_not_bank_settlement",
+          "recorded_at": "2000-01-01T00:00:00+00:00"
+        },
+        {
+          "seq": 4,
+          "account": "acct_fixture",
+          "event_id": "evt_linked_3",
+          "status": "recorded",
+          "reason": "canonical_capture_or_refund_not_bank_settlement",
+          "recorded_at": "2000-01-01T00:00:00+00:00"
+        },
+        {
+          "seq": 5,
+          "account": "acct_fixture",
+          "event_id": "evt_linked_4",
+          "status": "recorded",
+          "reason": "canonical_capture_or_refund_not_bank_settlement",
+          "recorded_at": "2000-01-01T00:00:00+00:00"
+        }
+      ],
+      "links": [
+        {
+          "event_id": "evt_linked_0",
+          "kind": "capture",
+          "economic_id": "ch_sale"
+        },
+        {
+          "event_id": "evt_linked_1",
+          "kind": "capture",
+          "economic_id": "ch_sale"
+        },
+        {
+          "event_id": "evt_linked_2",
+          "kind": "capture",
+          "economic_id": "ch_sale"
+        },
+        {
+          "event_id": "evt_linked_3",
+          "kind": "capture",
+          "economic_id": "ch_sale"
+        },
+        {
+          "event_id": "evt_linked_4",
+          "kind": "capture",
+          "economic_id": "ch_sale"
+        }
+      ],
+      "sqlite_quick_check": "ok"
+    }
+  },
+  "refund_results": [
+    {
+      "status": "recorded",
+      "reason": "canonical_capture_or_refund_not_bank_settlement",
+      "event_id": "evt_snapshot20",
+      "message_created": true,
+      "created_postings": 1,
+      "reconciled_messages": 0,
+      "remaining_awaiting_capture": 0
+    },
+    {
+      "status": "recorded",
+      "reason": "canonical_capture_or_refund_not_bank_settlement",
+      "event_id": "evt_snapshot50",
+      "message_created": true,
+      "created_postings": 1,
+      "reconciled_messages": 0,
+      "remaining_awaiting_capture": 0
+    },
+    {
+      "status": "recorded",
+      "reason": "canonical_capture_or_refund_not_bank_settlement",
+      "event_id": "evt_refund_duplicate",
+      "message_created": true,
+      "created_postings": 0,
+      "reconciled_messages": 0,
+      "remaining_awaiting_capture": 0
+    }
+  ],
+  "refunds_read_back": {
+    "summary": {
+      "mode": "synthetic_test",
+      "currency": "usd",
+      "posting_count": 3,
+      "capture_minor": 10000,
+      "refund_minor": 5000,
+      "net_captured_minor": 5000,
+      "unresolved_messages": 0,
+      "awaiting_capture_messages": 0,
+      "bank_settlement_verified": false,
+      "legacy_rows_excluded": true
+    },
+    "messages": [
+      {
+        "event_id": "evt_linked_0",
+        "event_type": "invoice.paid",
+        "payload_sha256": "36f40e516614c188f02a94b9fdb2b0c85ab9fa6babf8459025548e72b33bff05",
+        "status": "recorded",
+        "reason": "canonical_capture_or_refund_not_bank_settlement",
+        "dependency_id": ""
+      },
+      {
+        "event_id": "evt_linked_1",
+        "event_type": "payment_intent.succeeded",
+        "payload_sha256": "36f39b930237a7fdb1a687991fe114dba8290dc7a32be71b9515ecf3b1e25c12",
+        "status": "recorded",
+        "reason": "canonical_capture_or_refund_not_bank_settlement",
+        "dependency_id": ""
+      },
+      {
+        "event_id": "evt_linked_2",
+        "event_type": "checkout.session.completed",
+        "payload_sha256": "9054e2e0efe735589098b94559b3e01422fd60df313fd0d3d456608e2ade0e84",
+        "status": "recorded",
+        "reason": "canonical_capture_or_refund_not_bank_settlement",
+        "dependency_id": ""
+      },
+      {
+        "event_id": "evt_linked_3",
+        "event_type": "charge.succeeded",
+        "payload_sha256": "5fcaddf46e46068267b3ef686e4d26d175b8c703967f911cd50df3987754f50e",
+        "status": "recorded",
+        "reason": "canonical_capture_or_refund_not_bank_settlement",
+        "dependency_id": ""
+      },
+      {
+        "event_id": "evt_linked_4",
+        "event_type": "charge.captured",
+        "payload_sha256": "276761d7438494d9edc548335ee0f5c60c38117953dfb229a1d3c5ca6c6e673c",
+        "status": "recorded",
+        "reason": "canonical_capture_or_refund_not_bank_settlement",
+        "dependency_id": ""
+      },
+      {
+        "event_id": "evt_refund_duplicate",
+        "event_type": "refund.created",
+        "payload_sha256": "37401665d1790b7b0eb0222b4f83a52586aab26fc8833fa5d075218806c1bf4d",
+        "status": "recorded",
+        "reason": "canonical_capture_or_refund_not_bank_settlement",
+        "dependency_id": "ch_sale"
+      },
+      {
+        "event_id": "evt_snapshot20",
+        "event_type": "charge.refunded",
+        "payload_sha256": "41e28a1698f2a976b2c98218ee78eac8564e928b4491b25094f64258119a15c9",
+        "status": "recorded",
+        "reason": "canonical_capture_or_refund_not_bank_settlement",
+        "dependency_id": "ch_sale"
+      },
+      {
+        "event_id": "evt_snapshot50",
+        "event_type": "charge.refunded",
+        "payload_sha256": "4dadc5b3374cff81e057e97d7dc8f7f76c711822cadca98c3a7704d0ab901855",
+        "status": "recorded",
+        "reason": "canonical_capture_or_refund_not_bank_settlement",
+        "dependency_id": "ch_sale"
+      }
+    ],
+    "postings": [
+      {
+        "kind": "capture",
+        "economic_id": "ch_sale",
+        "amount_minor": 10000,
+        "currency": "usd",
+        "parent_id": "",
+        "payment_intent_id": "pi_sale",
+        "first_event_id": "evt_linked_0"
+      },
+      {
+        "kind": "refund",
+        "economic_id": "re_first",
+        "amount_minor": 2000,
+        "currency": "usd",
+        "parent_id": "ch_sale",
+        "payment_intent_id": "pi_sale",
+        "first_event_id": "evt_snapshot20"
+      },
+      {
+        "kind": "refund",
+        "economic_id": "re_second",
+        "amount_minor": 3000,
+        "currency": "usd",
+        "parent_id": "ch_sale",
+        "payment_intent_id": "pi_sale",
+        "first_event_id": "evt_snapshot50"
+      }
+    ],
+    "transitions": [
+      {
+        "seq": 1,
+        "account": "acct_fixture",
+        "event_id": "evt_linked_0",
+        "status": "recorded",
+        "reason": "canonical_capture_or_refund_not_bank_settlement",
+        "recorded_at": "2000-01-01T00:00:00+00:00"
+      },
+      {
+        "seq": 2,
+        "account": "acct_fixture",
+        "event_id": "evt_linked_1",
+        "status": "recorded",
+        "reason": "canonical_capture_or_refund_not_bank_settlement",
+        "recorded_at": "2000-01-01T00:00:00+00:00"
+      },
+      {
+        "seq": 3,
+        "account": "acct_fixture",
+        "event_id": "evt_linked_2",
+        "status": "recorded",
+        "reason": "canonical_capture_or_refund_not_bank_settlement",
+        "recorded_at": "2000-01-01T00:00:00+00:00"
+      },
+      {
+        "seq": 4,
+        "account": "acct_fixture",
+        "event_id": "evt_linked_3",
+        "status": "recorded",
+        "reason": "canonical_capture_or_refund_not_bank_settlement",
+        "recorded_at": "2000-01-01T00:00:00+00:00"
+      },
+      {
+        "seq": 5,
+        "account": "acct_fixture",
+        "event_id": "evt_linked_4",
+        "status": "recorded",
+        "reason": "canonical_capture_or_refund_not_bank_settlement",
+        "recorded_at": "2000-01-01T00:00:00+00:00"
+      },
+      {
+        "seq": 6,
+        "account": "acct_fixture",
+        "event_id": "evt_snapshot20",
+        "status": "recorded",
+        "reason": "canonical_capture_or_refund_not_bank_settlement",
+        "recorded_at": "2000-01-01T00:00:00+00:00"
+      },
+      {
+        "seq": 7,
+        "account": "acct_fixture",
+        "event_id": "evt_snapshot50",
+        "status": "recorded",
+        "reason": "canonical_capture_or_refund_not_bank_settlement",
+        "recorded_at": "2000-01-01T00:00:00+00:00"
+      },
+      {
+        "seq": 8,
+        "account": "acct_fixture",
+        "event_id": "evt_refund_duplicate",
+        "status": "recorded",
+        "reason": "canonical_capture_or_refund_not_bank_settlement",
+        "recorded_at": "2000-01-01T00:00:00+00:00"
+      }
+    ],
+    "links": [
+      {
+        "event_id": "evt_linked_0",
+        "kind": "capture",
+        "economic_id": "ch_sale"
+      },
+      {
+        "event_id": "evt_linked_1",
+        "kind": "capture",
+        "economic_id": "ch_sale"
+      },
+      {
+        "event_id": "evt_linked_2",
+        "kind": "capture",
+        "economic_id": "ch_sale"
+      },
+      {
+        "event_id": "evt_linked_3",
+        "kind": "capture",
+        "economic_id": "ch_sale"
+      },
+      {
+        "event_id": "evt_linked_4",
+        "kind": "capture",
+        "economic_id": "ch_sale"
+      },
+      {
+        "event_id": "evt_refund_duplicate",
+        "kind": "refund",
+        "economic_id": "re_first"
+      },
+      {
+        "event_id": "evt_snapshot20",
+        "kind": "refund",
+        "economic_id": "re_first"
+      },
+      {
+        "event_id": "evt_snapshot50",
+        "kind": "refund",
+        "economic_id": "re_first"
+      },
+      {
+        "event_id": "evt_snapshot50",
+        "kind": "refund",
+        "economic_id": "re_second"
+      }
+    ],
+    "sqlite_quick_check": "ok"
+  },
+  "reconciliation_match": {
+    "mode": "synthetic_test",
+    "currency": "usd",
+    "posting_count": 3,
+    "capture_minor": 10000,
+    "refund_minor": 5000,
+    "net_captured_minor": 5000,
+    "unresolved_messages": 0,
+    "awaiting_capture_messages": 0,
+    "bank_settlement_verified": false,
+    "legacy_rows_excluded": true,
+    "statement_fixture_drift_minor": 0,
+    "statement_fixture_matches": true
+  },
+  "unexplained_drift_reported_not_adjusted": {
+    "mode": "synthetic_test",
+    "currency": "usd",
+    "posting_count": 3,
+    "capture_minor": 10000,
+    "refund_minor": 5000,
+    "net_captured_minor": 5000,
+    "unresolved_messages": 0,
+    "awaiting_capture_messages": 0,
+    "bank_settlement_verified": false,
+    "legacy_rows_excluded": true,
+    "statement_fixture_drift_minor": 1000,
+    "statement_fixture_matches": false
+  },
+  "cumulative_only_outcome": {
+    "status": "unresolved",
+    "reason": "unresolved_cumulative_snapshot",
+    "event_id": "evt_incomplete_snapshot",
+    "message_created": true,
+    "created_postings": 0,
+    "reconciled_messages": 0,
+    "remaining_awaiting_capture": 0
+  },
+  "unresolved_read_back": {
+    "summary": {
+      "mode": "synthetic_test",
+      "currency": "usd",
+      "posting_count": 3,
+      "capture_minor": 10000,
+      "refund_minor": 5000,
+      "net_captured_minor": 5000,
+      "unresolved_messages": 1,
+      "awaiting_capture_messages": 0,
+      "bank_settlement_verified": false,
+      "legacy_rows_excluded": true
+    },
+    "messages": [
+      {
+        "event_id": "evt_incomplete_snapshot",
+        "event_type": "charge.refunded",
+        "payload_sha256": "5a22b843d490b5267e10b7e243433e3ec3d2455fd49a358a008b912884f5ff4b",
+        "status": "unresolved",
+        "reason": "unresolved_cumulative_snapshot",
+        "dependency_id": ""
+      },
+      {
+        "event_id": "evt_linked_0",
+        "event_type": "invoice.paid",
+        "payload_sha256": "36f40e516614c188f02a94b9fdb2b0c85ab9fa6babf8459025548e72b33bff05",
+        "status": "recorded",
+        "reason": "canonical_capture_or_refund_not_bank_settlement",
+        "dependency_id": ""
+      },
+      {
+        "event_id": "evt_linked_1",
+        "event_type": "payment_intent.succeeded",
+        "payload_sha256": "36f39b930237a7fdb1a687991fe114dba8290dc7a32be71b9515ecf3b1e25c12",
+        "status": "recorded",
+        "reason": "canonical_capture_or_refund_not_bank_settlement",
+        "dependency_id": ""
+      },
+      {
+        "event_id": "evt_linked_2",
+        "event_type": "checkout.session.completed",
+        "payload_sha256": "9054e2e0efe735589098b94559b3e01422fd60df313fd0d3d456608e2ade0e84",
+        "status": "recorded",
+        "reason": "canonical_capture_or_refund_not_bank_settlement",
+        "dependency_id": ""
+      },
+      {
+        "event_id": "evt_linked_3",
+        "event_type": "charge.succeeded",
+        "payload_sha256": "5fcaddf46e46068267b3ef686e4d26d175b8c703967f911cd50df3987754f50e",
+        "status": "recorded",
+        "reason": "canonical_capture_or_refund_not_bank_settlement",
+        "dependency_id": ""
+      },
+      {
+        "event_id": "evt_linked_4",
+        "event_type": "charge.captured",
+        "payload_sha256": "276761d7438494d9edc548335ee0f5c60c38117953dfb229a1d3c5ca6c6e673c",
+        "status": "recorded",
+        "reason": "canonical_capture_or_refund_not_bank_settlement",
+        "dependency_id": ""
+      },
+      {
+        "event_id": "evt_refund_duplicate",
+        "event_type": "refund.created",
+        "payload_sha256": "37401665d1790b7b0eb0222b4f83a52586aab26fc8833fa5d075218806c1bf4d",
+        "status": "recorded",
+        "reason": "canonical_capture_or_refund_not_bank_settlement",
+        "dependency_id": "ch_sale"
+      },
+      {
+        "event_id": "evt_snapshot20",
+        "event_type": "charge.refunded",
+        "payload_sha256": "41e28a1698f2a976b2c98218ee78eac8564e928b4491b25094f64258119a15c9",
+        "status": "recorded",
+        "reason": "canonical_capture_or_refund_not_bank_settlement",
+        "dependency_id": "ch_sale"
+      },
+      {
+        "event_id": "evt_snapshot50",
+        "event_type": "charge.refunded",
+        "payload_sha256": "4dadc5b3374cff81e057e97d7dc8f7f76c711822cadca98c3a7704d0ab901855",
+        "status": "recorded",
+        "reason": "canonical_capture_or_refund_not_bank_settlement",
+        "dependency_id": "ch_sale"
+      }
+    ],
+    "postings": [
+      {
+        "kind": "capture",
+        "economic_id": "ch_sale",
+        "amount_minor": 10000,
+        "currency": "usd",
+        "parent_id": "",
+        "payment_intent_id": "pi_sale",
+        "first_event_id": "evt_linked_0"
+      },
+      {
+        "kind": "refund",
+        "economic_id": "re_first",
+        "amount_minor": 2000,
+        "currency": "usd",
+        "parent_id": "ch_sale",
+        "payment_intent_id": "pi_sale",
+        "first_event_id": "evt_snapshot20"
+      },
+      {
+        "kind": "refund",
+        "economic_id": "re_second",
+        "amount_minor": 3000,
+        "currency": "usd",
+        "parent_id": "ch_sale",
+        "payment_intent_id": "pi_sale",
+        "first_event_id": "evt_snapshot50"
+      }
+    ],
+    "transitions": [
+      {
+        "seq": 1,
+        "account": "acct_fixture",
+        "event_id": "evt_linked_0",
+        "status": "recorded",
+        "reason": "canonical_capture_or_refund_not_bank_settlement",
+        "recorded_at": "2000-01-01T00:00:00+00:00"
+      },
+      {
+        "seq": 2,
+        "account": "acct_fixture",
+        "event_id": "evt_linked_1",
+        "status": "recorded",
+        "reason": "canonical_capture_or_refund_not_bank_settlement",
+        "recorded_at": "2000-01-01T00:00:00+00:00"
+      },
+      {
+        "seq": 3,
+        "account": "acct_fixture",
+        "event_id": "evt_linked_2",
+        "status": "recorded",
+        "reason": "canonical_capture_or_refund_not_bank_settlement",
+        "recorded_at": "2000-01-01T00:00:00+00:00"
+      },
+      {
+        "seq": 4,
+        "account": "acct_fixture",
+        "event_id": "evt_linked_3",
+        "status": "recorded",
+        "reason": "canonical_capture_or_refund_not_bank_settlement",
+        "recorded_at": "2000-01-01T00:00:00+00:00"
+      },
+      {
+        "seq": 5,
+        "account": "acct_fixture",
+        "event_id": "evt_linked_4",
+        "status": "recorded",
+        "reason": "canonical_capture_or_refund_not_bank_settlement",
+        "recorded_at": "2000-01-01T00:00:00+00:00"
+      },
+      {
+        "seq": 6,
+        "account": "acct_fixture",
+        "event_id": "evt_snapshot20",
+        "status": "recorded",
+        "reason": "canonical_capture_or_refund_not_bank_settlement",
+        "recorded_at": "2000-01-01T00:00:00+00:00"
+      },
+      {
+        "seq": 7,
+        "account": "acct_fixture",
+        "event_id": "evt_snapshot50",
+        "status": "recorded",
+        "reason": "canonical_capture_or_refund_not_bank_settlement",
+        "recorded_at": "2000-01-01T00:00:00+00:00"
+      },
+      {
+        "seq": 8,
+        "account": "acct_fixture",
+        "event_id": "evt_refund_duplicate",
+        "status": "recorded",
+        "reason": "canonical_capture_or_refund_not_bank_settlement",
+        "recorded_at": "2000-01-01T00:00:00+00:00"
+      },
+      {
+        "seq": 9,
+        "account": "acct_fixture",
+        "event_id": "evt_incomplete_snapshot",
+        "status": "unresolved",
+        "reason": "unresolved_cumulative_snapshot",
+        "recorded_at": "2000-01-01T00:00:00+00:00"
+      }
+    ],
+    "links": [
+      {
+        "event_id": "evt_linked_0",
+        "kind": "capture",
+        "economic_id": "ch_sale"
+      },
+      {
+        "event_id": "evt_linked_1",
+        "kind": "capture",
+        "economic_id": "ch_sale"
+      },
+      {
+        "event_id": "evt_linked_2",
+        "kind": "capture",
+        "economic_id": "ch_sale"
+      },
+      {
+        "event_id": "evt_linked_3",
+        "kind": "capture",
+        "economic_id": "ch_sale"
+      },
+      {
+        "event_id": "evt_linked_4",
+        "kind": "capture",
+        "economic_id": "ch_sale"
+      },
+      {
+        "event_id": "evt_refund_duplicate",
+        "kind": "refund",
+        "economic_id": "re_first"
+      },
+      {
+        "event_id": "evt_snapshot20",
+        "kind": "refund",
+        "economic_id": "re_first"
+      },
+      {
+        "event_id": "evt_snapshot50",
+        "kind": "refund",
+        "economic_id": "re_first"
+      },
+      {
+        "event_id": "evt_snapshot50",
+        "kind": "refund",
+        "economic_id": "re_second"
+      }
+    ],
+    "sqlite_quick_check": "ok"
+  },
+  "out_of_order_restart": {
+    "before_restart": {
+      "summary": {
+        "mode": "synthetic_test",
+        "currency": "usd",
+        "posting_count": 0,
+        "capture_minor": 0,
+        "refund_minor": 0,
+        "net_captured_minor": 0,
+        "unresolved_messages": 1,
+        "awaiting_capture_messages": 1,
+        "bank_settlement_verified": false,
+        "legacy_rows_excluded": true
+      },
+      "messages": [
+        {
+          "event_id": "evt_refund_created",
+          "event_type": "refund.created",
+          "payload_sha256": "b1a01de5aa32f76b20d4a697783e89ee0965ffa6b7ce3efb074fd3195191d2fa",
+          "status": "awaiting_capture",
+          "reason": "capture_required",
+          "dependency_id": "ch_sale"
+        }
+      ],
+      "postings": [],
+      "transitions": [
+        {
+          "seq": 1,
+          "account": "acct_fixture",
+          "event_id": "evt_refund_created",
+          "status": "awaiting_capture",
+          "reason": "capture_required",
+          "recorded_at": "2000-01-01T00:00:00+00:00"
+        }
+      ],
+      "links": [],
+      "sqlite_quick_check": "ok"
+    },
+    "capture_arrival": {
+      "status": "recorded",
+      "reason": "canonical_capture_or_refund_not_bank_settlement",
+      "event_id": "evt_invoice_paid",
+      "message_created": true,
+      "created_postings": 2,
+      "reconciled_messages": 1,
+      "remaining_awaiting_capture": 0
+    },
+    "after_restart": {
+      "summary": {
+        "mode": "synthetic_test",
+        "currency": "usd",
+        "posting_count": 2,
+        "capture_minor": 10000,
+        "refund_minor": 2000,
+        "net_captured_minor": 8000,
+        "unresolved_messages": 0,
+        "awaiting_capture_messages": 0,
+        "bank_settlement_verified": false,
+        "legacy_rows_excluded": true
+      },
+      "messages": [
+        {
+          "event_id": "evt_invoice_paid",
+          "event_type": "invoice.paid",
+          "payload_sha256": "44904b73477b76ac5cdecc859e3dce85f9ad309886f5675a7f0a463ee7dce236",
+          "status": "recorded",
+          "reason": "canonical_capture_or_refund_not_bank_settlement",
+          "dependency_id": ""
+        },
+        {
+          "event_id": "evt_refund_created",
+          "event_type": "refund.created",
+          "payload_sha256": "b1a01de5aa32f76b20d4a697783e89ee0965ffa6b7ce3efb074fd3195191d2fa",
+          "status": "recorded",
+          "reason": "canonical_capture_or_refund_not_bank_settlement",
+          "dependency_id": "ch_sale"
+        }
+      ],
+      "postings": [
+        {
+          "kind": "capture",
+          "economic_id": "ch_sale",
+          "amount_minor": 10000,
+          "currency": "usd",
+          "parent_id": "",
+          "payment_intent_id": "pi_sale",
+          "first_event_id": "evt_invoice_paid"
+        },
+        {
+          "kind": "refund",
+          "economic_id": "re_first",
+          "amount_minor": 2000,
+          "currency": "usd",
+          "parent_id": "ch_sale",
+          "payment_intent_id": "pi_sale",
+          "first_event_id": "evt_refund_created"
+        }
+      ],
+      "transitions": [
+        {
+          "seq": 1,
+          "account": "acct_fixture",
+          "event_id": "evt_refund_created",
+          "status": "awaiting_capture",
+          "reason": "capture_required",
+          "recorded_at": "2000-01-01T00:00:00+00:00"
+        },
+        {
+          "seq": 2,
+          "account": "acct_fixture",
+          "event_id": "evt_invoice_paid",
+          "status": "recorded",
+          "reason": "canonical_capture_or_refund_not_bank_settlement",
+          "recorded_at": "2000-01-01T00:00:00+00:00"
+        },
+        {
+          "seq": 3,
+          "account": "acct_fixture",
+          "event_id": "evt_refund_created",
+          "status": "recorded",
+          "reason": "canonical_capture_or_refund_not_bank_settlement",
+          "recorded_at": "2000-01-01T00:00:00+00:00"
+        }
+      ],
+      "links": [
+        {
+          "event_id": "evt_invoice_paid",
+          "kind": "capture",
+          "economic_id": "ch_sale"
+        },
+        {
+          "event_id": "evt_refund_created",
+          "kind": "refund",
+          "economic_id": "re_first"
+        }
+      ],
+      "sqlite_quick_check": "ok"
+    }
+  },
+  "additive_legacy_migration": {
+    "default_constructor_refusal": "explicit_disposable_experiment_required",
+    "legacy_before": [
+      {
+        "seq": 1,
+        "ts": "2026-11-14T17:45:37Z",
+        "venture": "media-api",
+        "kind": "revenue",
+        "amount_usd": 42.0,
+        "source": "manual",
+        "external_id": null,
+        "idempotency_key": "synthetic-unverified-legacy-row",
+        "meta": {}
+      }
+    ],
+    "legacy_after": [
+      {
+        "seq": 1,
+        "ts": "2026-11-14T17:45:37Z",
+        "venture": "media-api",
+        "kind": "revenue",
+        "amount_usd": 42.0,
+        "source": "manual",
+        "external_id": null,
+        "idempotency_key": "synthetic-unverified-legacy-row",
+        "meta": {}
+      }
+    ],
+    "canonical": {
+      "summary": {
+        "mode": "synthetic_test",
+        "currency": "usd",
+        "posting_count": 1,
+        "capture_minor": 10000,
+        "refund_minor": 0,
+        "net_captured_minor": 10000,
+        "unresolved_messages": 0,
+        "awaiting_capture_messages": 0,
+        "bank_settlement_verified": false,
+        "legacy_rows_excluded": true
+      },
+      "messages": [
+        {
+          "event_id": "evt_invoice_paid",
+          "event_type": "invoice.paid",
+          "payload_sha256": "44904b73477b76ac5cdecc859e3dce85f9ad309886f5675a7f0a463ee7dce236",
+          "status": "recorded",
+          "reason": "canonical_capture_or_refund_not_bank_settlement",
+          "dependency_id": ""
+        }
+      ],
+      "postings": [
+        {
+          "kind": "capture",
+          "economic_id": "ch_sale",
+          "amount_minor": 10000,
+          "currency": "usd",
+          "parent_id": "",
+          "payment_intent_id": "pi_sale",
+          "first_event_id": "evt_invoice_paid"
+        }
+      ],
+      "transitions": [
+        {
+          "seq": 1,
+          "account": "acct_fixture",
+          "event_id": "evt_invoice_paid",
+          "status": "recorded",
+          "reason": "canonical_capture_or_refund_not_bank_settlement",
+          "recorded_at": "2000-01-01T00:00:00+00:00"
+        }
+      ],
+      "links": [
+        {
+          "event_id": "evt_invoice_paid",
+          "kind": "capture",
+          "economic_id": "ch_sale"
+        }
+      ],
+      "sqlite_quick_check": "ok"
+    },
+    "rollback_means_opening_preserved_fixture_copy_not_deleting_history": true
+  },
+  "independent_process_races": [
+    {
+      "case": "same_message",
+      "workers": [
+        {
+          "participant": 0,
+          "pid": 5265,
+          "status": "recorded",
+          "reason": "canonical_capture_or_refund_not_bank_settlement",
+          "event_id": "evt_invoice_paid",
+          "message_created": true,
+          "created_postings": 1,
+          "reconciled_messages": 0,
+          "remaining_awaiting_capture": 0
+        },
+        {
+          "participant": 1,
+          "pid": 5266,
+          "status": "recorded",
+          "reason": "canonical_capture_or_refund_not_bank_settlement",
+          "event_id": "evt_invoice_paid",
+          "message_created": false,
+          "created_postings": 0,
+          "reconciled_messages": 0,
+          "remaining_awaiting_capture": 0
+        },
+        {
+          "participant": 2,
+          "pid": 5267,
+          "status": "recorded",
+          "reason": "canonical_capture_or_refund_not_bank_settlement",
+          "event_id": "evt_invoice_paid",
+          "message_created": false,
+          "created_postings": 0,
+          "reconciled_messages": 0,
+          "remaining_awaiting_capture": 0
+        },
+        {
+          "participant": 3,
+          "pid": 5268,
+          "status": "recorded",
+          "reason": "canonical_capture_or_refund_not_bank_settlement",
+          "event_id": "evt_invoice_paid",
+          "message_created": false,
+          "created_postings": 0,
+          "reconciled_messages": 0,
+          "remaining_awaiting_capture": 0
+        }
+      ],
+      "worker_exit_codes": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "read_back": {
+        "summary": {
+          "mode": "synthetic_test",
+          "currency": "usd",
+          "posting_count": 1,
+          "capture_minor": 10000,
+          "refund_minor": 0,
+          "net_captured_minor": 10000,
+          "unresolved_messages": 0,
+          "awaiting_capture_messages": 0,
+          "bank_settlement_verified": false,
+          "legacy_rows_excluded": true
+        },
+        "messages": [
+          {
+            "event_id": "evt_invoice_paid",
+            "event_type": "invoice.paid",
+            "payload_sha256": "44904b73477b76ac5cdecc859e3dce85f9ad309886f5675a7f0a463ee7dce236",
+            "status": "recorded",
+            "reason": "canonical_capture_or_refund_not_bank_settlement",
+            "dependency_id": ""
+          }
+        ],
+        "postings": [
+          {
+            "kind": "capture",
+            "economic_id": "ch_sale",
+            "amount_minor": 10000,
+            "currency": "usd",
+            "parent_id": "",
+            "payment_intent_id": "pi_sale",
+            "first_event_id": "evt_invoice_paid"
+          }
+        ],
+        "transitions": [
+          {
+            "seq": 1,
+            "account": "acct_fixture",
+            "event_id": "evt_invoice_paid",
+            "status": "recorded",
+            "reason": "canonical_capture_or_refund_not_bank_settlement",
+            "recorded_at": "2000-01-01T00:00:00+00:00"
+          }
+        ],
+        "links": [
+          {
+            "event_id": "evt_invoice_paid",
+            "kind": "capture",
+            "economic_id": "ch_sale"
+          }
+        ],
+        "sqlite_quick_check": "ok"
+      }
+    },
+    {
+      "case": "linked_notifications",
+      "workers": [
+        {
+          "participant": 0,
+          "pid": 5273,
+          "status": "recorded",
+          "reason": "canonical_capture_or_refund_not_bank_settlement",
+          "event_id": "evt_race_0",
+          "message_created": true,
+          "created_postings": 0,
+          "reconciled_messages": 0,
+          "remaining_awaiting_capture": 0
+        },
+        {
+          "participant": 1,
+          "pid": 5274,
+          "status": "recorded",
+          "reason": "canonical_capture_or_refund_not_bank_settlement",
+          "event_id": "evt_race_1",
+          "message_created": true,
+          "created_postings": 1,
+          "reconciled_messages": 0,
+          "remaining_awaiting_capture": 0
+        },
+        {
+          "participant": 2,
+          "pid": 5275,
+          "status": "recorded",
+          "reason": "canonical_capture_or_refund_not_bank_settlement",
+          "event_id": "evt_race_2",
+          "message_created": true,
+          "created_postings": 0,
+          "reconciled_messages": 0,
+          "remaining_awaiting_capture": 0
+        },
+        {
+          "participant": 3,
+          "pid": 5276,
+          "status": "recorded",
+          "reason": "canonical_capture_or_refund_not_bank_settlement",
+          "event_id": "evt_race_3",
+          "message_created": true,
+          "created_postings": 0,
+          "reconciled_messages": 0,
+          "remaining_awaiting_capture": 0
+        }
+      ],
+      "worker_exit_codes": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "read_back": {
+        "summary": {
+          "mode": "synthetic_test",
+          "currency": "usd",
+          "posting_count": 1,
+          "capture_minor": 10000,
+          "refund_minor": 0,
+          "net_captured_minor": 10000,
+          "unresolved_messages": 0,
+          "awaiting_capture_messages": 0,
+          "bank_settlement_verified": false,
+          "legacy_rows_excluded": true
+        },
+        "messages": [
+          {
+            "event_id": "evt_race_0",
+            "event_type": "invoice.paid",
+            "payload_sha256": "ffab42927a2b5ba94eb5ad15258d4423f32ee2cd899504810a79b8801e91739a",
+            "status": "recorded",
+            "reason": "canonical_capture_or_refund_not_bank_settlement",
+            "dependency_id": ""
+          },
+          {
+            "event_id": "evt_race_1",
+            "event_type": "payment_intent.succeeded",
+            "payload_sha256": "4636ce5c2809c22ebde9369d5a0d1fe0d25f7bac830243f11b8c751688d12dc6",
+            "status": "recorded",
+            "reason": "canonical_capture_or_refund_not_bank_settlement",
+            "dependency_id": ""
+          },
+          {
+            "event_id": "evt_race_2",
+            "event_type": "checkout.session.completed",
+            "payload_sha256": "d9b8aef7496ff9cf4288ebec5f08e33c6f5abdb76753c73d41a0aba770381e5d",
+            "status": "recorded",
+            "reason": "canonical_capture_or_refund_not_bank_settlement",
+            "dependency_id": ""
+          },
+          {
+            "event_id": "evt_race_3",
+            "event_type": "charge.succeeded",
+            "payload_sha256": "bd8ab85cba5821065587f8ed4d9559bbcd506d804759149d2bb0e0b07c7d537a",
+            "status": "recorded",
+            "reason": "canonical_capture_or_refund_not_bank_settlement",
+            "dependency_id": ""
+          }
+        ],
+        "postings": [
+          {
+            "kind": "capture",
+            "economic_id": "ch_sale",
+            "amount_minor": 10000,
+            "currency": "usd",
+            "parent_id": "",
+            "payment_intent_id": "pi_sale",
+            "first_event_id": "evt_race_1"
+          }
+        ],
+        "transitions": [
+          {
+            "seq": 1,
+            "account": "acct_fixture",
+            "event_id": "evt_race_1",
+            "status": "recorded",
+            "reason": "canonical_capture_or_refund_not_bank_settlement",
+            "recorded_at": "2000-01-01T00:00:00+00:00"
+          },
+          {
+            "seq": 2,
+            "account": "acct_fixture",
+            "event_id": "evt_race_3",
+            "status": "recorded",
+            "reason": "canonical_capture_or_refund_not_bank_settlement",
+            "recorded_at": "2000-01-01T00:00:00+00:00"
+          },
+          {
+            "seq": 3,
+            "account": "acct_fixture",
+            "event_id": "evt_race_2",
+            "status": "recorded",
+            "reason": "canonical_capture_or_refund_not_bank_settlement",
+            "recorded_at": "2000-01-01T00:00:00+00:00"
+          },
+          {
+            "seq": 4,
+            "account": "acct_fixture",
+            "event_id": "evt_race_0",
+            "status": "recorded",
+            "reason": "canonical_capture_or_refund_not_bank_settlement",
+            "recorded_at": "2000-01-01T00:00:00+00:00"
+          }
+        ],
+        "links": [
+          {
+            "event_id": "evt_race_0",
+            "kind": "capture",
+            "economic_id": "ch_sale"
+          },
+          {
+            "event_id": "evt_race_1",
+            "kind": "capture",
+            "economic_id": "ch_sale"
+          },
+          {
+            "event_id": "evt_race_2",
+            "kind": "capture",
+            "economic_id": "ch_sale"
+          },
+          {
+            "event_id": "evt_race_3",
+            "kind": "capture",
+            "economic_id": "ch_sale"
+          }
+        ],
+        "sqlite_quick_check": "ok"
+      }
+    },
+    {
+      "case": "refund_duplicates",
+      "workers": [
+        {
+          "participant": 0,
+          "pid": 5281,
+          "status": "recorded",
+          "reason": "canonical_capture_or_refund_not_bank_settlement",
+          "event_id": "evt_race_0",
+          "message_created": true,
+          "created_postings": 0,
+          "reconciled_messages": 0,
+          "remaining_awaiting_capture": 0
+        },
+        {
+          "participant": 1,
+          "pid": 5282,
+          "status": "recorded",
+          "reason": "canonical_capture_or_refund_not_bank_settlement",
+          "event_id": "evt_race_1",
+          "message_created": true,
+          "created_postings": 0,
+          "reconciled_messages": 0,
+          "remaining_awaiting_capture": 0
+        },
+        {
+          "participant": 2,
+          "pid": 5283,
+          "status": "recorded",
+          "reason": "canonical_capture_or_refund_not_bank_settlement",
+          "event_id": "evt_race_2",
+          "message_created": true,
+          "created_postings": 1,
+          "reconciled_messages": 0,
+          "remaining_awaiting_capture": 0
+        },
+        {
+          "participant": 3,
+          "pid": 5284,
+          "status": "recorded",
+          "reason": "canonical_capture_or_refund_not_bank_settlement",
+          "event_id": "evt_race_3",
+          "message_created": true,
+          "created_postings": 0,
+          "reconciled_messages": 0,
+          "remaining_awaiting_capture": 0
+        }
+      ],
+      "worker_exit_codes": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "read_back": {
+        "summary": {
+          "mode": "synthetic_test",
+          "currency": "usd",
+          "posting_count": 2,
+          "capture_minor": 10000,
+          "refund_minor": 2000,
+          "net_captured_minor": 8000,
+          "unresolved_messages": 0,
+          "awaiting_capture_messages": 0,
+          "bank_settlement_verified": false,
+          "legacy_rows_excluded": true
+        },
+        "messages": [
+          {
+            "event_id": "evt_invoice_paid",
+            "event_type": "invoice.paid",
+            "payload_sha256": "44904b73477b76ac5cdecc859e3dce85f9ad309886f5675a7f0a463ee7dce236",
+            "status": "recorded",
+            "reason": "canonical_capture_or_refund_not_bank_settlement",
+            "dependency_id": ""
+          },
+          {
+            "event_id": "evt_race_0",
+            "event_type": "refund.created",
+            "payload_sha256": "c48066b5ecf726eaed80daf565f51b5358f9100e2fa7ae1d58c4d72b48f0d609",
+            "status": "recorded",
+            "reason": "canonical_capture_or_refund_not_bank_settlement",
+            "dependency_id": "ch_sale"
+          },
+          {
+            "event_id": "evt_race_1",
+            "event_type": "refund.created",
+            "payload_sha256": "064358d254570cf3c4f14c9582a6f5bac60bb86e077452bf98c6a32860438c44",
+            "status": "recorded",
+            "reason": "canonical_capture_or_refund_not_bank_settlement",
+            "dependency_id": "ch_sale"
+          },
+          {
+            "event_id": "evt_race_2",
+            "event_type": "refund.created",
+            "payload_sha256": "3e3cb034ccb22079e7945f29583c35c1c4a2034ebe5e2de729972d5346d9d072",
+            "status": "recorded",
+            "reason": "canonical_capture_or_refund_not_bank_settlement",
+            "dependency_id": "ch_sale"
+          },
+          {
+            "event_id": "evt_race_3",
+            "event_type": "refund.created",
+            "payload_sha256": "c56dc4535d1ff6188123c8562d000755e8f7cb7c0e7ad1795a8138406f4e0ee4",
+            "status": "recorded",
+            "reason": "canonical_capture_or_refund_not_bank_settlement",
+            "dependency_id": "ch_sale"
+          }
+        ],
+        "postings": [
+          {
+            "kind": "capture",
+            "economic_id": "ch_sale",
+            "amount_minor": 10000,
+            "currency": "usd",
+            "parent_id": "",
+            "payment_intent_id": "pi_sale",
+            "first_event_id": "evt_invoice_paid"
+          },
+          {
+            "kind": "refund",
+            "economic_id": "re_first",
+            "amount_minor": 2000,
+            "currency": "usd",
+            "parent_id": "ch_sale",
+            "payment_intent_id": "pi_sale",
+            "first_event_id": "evt_race_2"
+          }
+        ],
+        "transitions": [
+          {
+            "seq": 1,
+            "account": "acct_fixture",
+            "event_id": "evt_invoice_paid",
+            "status": "recorded",
+            "reason": "canonical_capture_or_refund_not_bank_settlement",
+            "recorded_at": "2000-01-01T00:00:00+00:00"
+          },
+          {
+            "seq": 2,
+            "account": "acct_fixture",
+            "event_id": "evt_race_2",
+            "status": "recorded",
+            "reason": "canonical_capture_or_refund_not_bank_settlement",
+            "recorded_at": "2000-01-01T00:00:00+00:00"
+          },
+          {
+            "seq": 3,
+            "account": "acct_fixture",
+            "event_id": "evt_race_0",
+            "status": "recorded",
+            "reason": "canonical_capture_or_refund_not_bank_settlement",
+            "recorded_at": "2000-01-01T00:00:00+00:00"
+          },
+          {
+            "seq": 4,
+            "account": "acct_fixture",
+            "event_id": "evt_race_1",
+            "status": "recorded",
+            "reason": "canonical_capture_or_refund_not_bank_settlement",
+            "recorded_at": "2000-01-01T00:00:00+00:00"
+          },
+          {
+            "seq": 5,
+            "account": "acct_fixture",
+            "event_id": "evt_race_3",
+            "status": "recorded",
+            "reason": "canonical_capture_or_refund_not_bank_settlement",
+            "recorded_at": "2000-01-01T00:00:00+00:00"
+          }
+        ],
+        "links": [
+          {
+            "event_id": "evt_invoice_paid",
+            "kind": "capture",
+            "economic_id": "ch_sale"
+          },
+          {
+            "event_id": "evt_race_0",
+            "kind": "refund",
+            "economic_id": "re_first"
+          },
+          {
+            "event_id": "evt_race_1",
+            "kind": "refund",
+            "economic_id": "re_first"
+          },
+          {
+            "event_id": "evt_race_2",
+            "kind": "refund",
+            "economic_id": "re_first"
+          },
+          {
+            "event_id": "evt_race_3",
+            "kind": "refund",
+            "economic_id": "re_first"
+          }
+        ],
+        "sqlite_quick_check": "ok"
+      }
+    },
+    {
+      "case": "conflicting_amounts",
+      "workers": [
+        {
+          "participant": 0,
+          "pid": 5289,
+          "status": "conflict",
+          "code": "economic_properties_conflict"
+        },
+        {
+          "participant": 1,
+          "pid": 5290,
+          "status": "conflict",
+          "code": "economic_properties_conflict"
+        },
+        {
+          "participant": 2,
+          "pid": 5291,
+          "status": "recorded",
+          "reason": "canonical_capture_or_refund_not_bank_settlement",
+          "event_id": "evt_race_2",
+          "message_created": true,
+          "created_postings": 1,
+          "reconciled_messages": 0,
+          "remaining_awaiting_capture": 0
+        },
+        {
+          "participant": 3,
+          "pid": 5292,
+          "status": "recorded",
+          "reason": "canonical_capture_or_refund_not_bank_settlement",
+          "event_id": "evt_race_3",
+          "message_created": true,
+          "created_postings": 0,
+          "reconciled_messages": 0,
+          "remaining_awaiting_capture": 0
+        }
+      ],
+      "worker_exit_codes": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "read_back": {
+        "summary": {
+          "mode": "synthetic_test",
+          "currency": "usd",
+          "posting_count": 1,
+          "capture_minor": 20000,
+          "refund_minor": 0,
+          "net_captured_minor": 20000,
+          "unresolved_messages": 0,
+          "awaiting_capture_messages": 0,
+          "bank_settlement_verified": false,
+          "legacy_rows_excluded": true
+        },
+        "messages": [
+          {
+            "event_id": "evt_race_2",
+            "event_type": "charge.succeeded",
+            "payload_sha256": "67ac62f773850548873bf35ac3bec3458ea1eb49bad1a70f1fdc26a90ddc7d77",
+            "status": "recorded",
+            "reason": "canonical_capture_or_refund_not_bank_settlement",
+            "dependency_id": ""
+          },
+          {
+            "event_id": "evt_race_3",
+            "event_type": "charge.succeeded",
+            "payload_sha256": "bcff1b2a65fb5203139700b635b93c348cae2691a5a4f66ea30245ca7585dde3",
+            "status": "recorded",
+            "reason": "canonical_capture_or_refund_not_bank_settlement",
+            "dependency_id": ""
+          }
+        ],
+        "postings": [
+          {
+            "kind": "capture",
+            "economic_id": "ch_sale",
+            "amount_minor": 20000,
+            "currency": "usd",
+            "parent_id": "",
+            "payment_intent_id": "pi_sale",
+            "first_event_id": "evt_race_2"
+          }
+        ],
+        "transitions": [
+          {
+            "seq": 1,
+            "account": "acct_fixture",
+            "event_id": "evt_race_2",
+            "status": "recorded",
+            "reason": "canonical_capture_or_refund_not_bank_settlement",
+            "recorded_at": "2000-01-01T00:00:00+00:00"
+          },
+          {
+            "seq": 2,
+            "account": "acct_fixture",
+            "event_id": "evt_race_3",
+            "status": "recorded",
+            "reason": "canonical_capture_or_refund_not_bank_settlement",
+            "recorded_at": "2000-01-01T00:00:00+00:00"
+          }
+        ],
+        "links": [
+          {
+            "event_id": "evt_race_2",
+            "kind": "capture",
+            "economic_id": "ch_sale"
+          },
+          {
+            "event_id": "evt_race_3",
+            "kind": "capture",
+            "economic_id": "ch_sale"
+          }
+        ],
+        "sqlite_quick_check": "ok"
+      }
+    }
+  ],
+  "actual_process_deaths": [
+    {
+      "stage": "before_message",
+      "actual_abrupt_child_exit": 79,
+      "pid": 5297,
+      "before_same_id_retry": {
+        "summary": {
+          "mode": "synthetic_test",
+          "currency": "usd",
+          "posting_count": 0,
+          "capture_minor": 0,
+          "refund_minor": 0,
+          "net_captured_minor": 0,
+          "unresolved_messages": 0,
+          "awaiting_capture_messages": 0,
+          "bank_settlement_verified": false,
+          "legacy_rows_excluded": true
+        },
+        "messages": [],
+        "postings": [],
+        "transitions": [],
+        "links": [],
+        "sqlite_quick_check": "ok"
+      },
+      "same_id_retry": {
+        "status": "recorded",
+        "reason": "canonical_capture_or_refund_not_bank_settlement",
+        "event_id": "evt_invoice_paid",
+        "message_created": true,
+        "created_postings": 1,
+        "reconciled_messages": 0,
+        "remaining_awaiting_capture": 0
+      },
+      "after_same_id_retry": {
+        "summary": {
+          "mode": "synthetic_test",
+          "currency": "usd",
+          "posting_count": 1,
+          "capture_minor": 10000,
+          "refund_minor": 0,
+          "net_captured_minor": 10000,
+          "unresolved_messages": 0,
+          "awaiting_capture_messages": 0,
+          "bank_settlement_verified": false,
+          "legacy_rows_excluded": true
+        },
+        "messages": [
+          {
+            "event_id": "evt_invoice_paid",
+            "event_type": "invoice.paid",
+            "payload_sha256": "44904b73477b76ac5cdecc859e3dce85f9ad309886f5675a7f0a463ee7dce236",
+            "status": "recorded",
+            "reason": "canonical_capture_or_refund_not_bank_settlement",
+            "dependency_id": ""
+          }
+        ],
+        "postings": [
+          {
+            "kind": "capture",
+            "economic_id": "ch_sale",
+            "amount_minor": 10000,
+            "currency": "usd",
+            "parent_id": "",
+            "payment_intent_id": "pi_sale",
+            "first_event_id": "evt_invoice_paid"
+          }
+        ],
+        "transitions": [
+          {
+            "seq": 1,
+            "account": "acct_fixture",
+            "event_id": "evt_invoice_paid",
+            "status": "recorded",
+            "reason": "canonical_capture_or_refund_not_bank_settlement",
+            "recorded_at": "2000-01-01T00:00:00+00:00"
+          }
+        ],
+        "links": [
+          {
+            "event_id": "evt_invoice_paid",
+            "kind": "capture",
+            "economic_id": "ch_sale"
+          }
+        ],
+        "sqlite_quick_check": "ok"
+      }
+    },
+    {
+      "stage": "after_message",
+      "actual_abrupt_child_exit": 79,
+      "pid": 5298,
+      "before_same_id_retry": {
+        "summary": {
+          "mode": "synthetic_test",
+          "currency": "usd",
+          "posting_count": 0,
+          "capture_minor": 0,
+          "refund_minor": 0,
+          "net_captured_minor": 0,
+          "unresolved_messages": 0,
+          "awaiting_capture_messages": 0,
+          "bank_settlement_verified": false,
+          "legacy_rows_excluded": true
+        },
+        "messages": [],
+        "postings": [],
+        "transitions": [],
+        "links": [],
+        "sqlite_quick_check": "ok"
+      },
+      "same_id_retry": {
+        "status": "recorded",
+        "reason": "canonical_capture_or_refund_not_bank_settlement",
+        "event_id": "evt_invoice_paid",
+        "message_created": true,
+        "created_postings": 1,
+        "reconciled_messages": 0,
+        "remaining_awaiting_capture": 0
+      },
+      "after_same_id_retry": {
+        "summary": {
+          "mode": "synthetic_test",
+          "currency": "usd",
+          "posting_count": 1,
+          "capture_minor": 10000,
+          "refund_minor": 0,
+          "net_captured_minor": 10000,
+          "unresolved_messages": 0,
+          "awaiting_capture_messages": 0,
+          "bank_settlement_verified": false,
+          "legacy_rows_excluded": true
+        },
+        "messages": [
+          {
+            "event_id": "evt_invoice_paid",
+            "event_type": "invoice.paid",
+            "payload_sha256": "44904b73477b76ac5cdecc859e3dce85f9ad309886f5675a7f0a463ee7dce236",
+            "status": "recorded",
+            "reason": "canonical_capture_or_refund_not_bank_settlement",
+            "dependency_id": ""
+          }
+        ],
+        "postings": [
+          {
+            "kind": "capture",
+            "economic_id": "ch_sale",
+            "amount_minor": 10000,
+            "currency": "usd",
+            "parent_id": "",
+            "payment_intent_id": "pi_sale",
+            "first_event_id": "evt_invoice_paid"
+          }
+        ],
+        "transitions": [
+          {
+            "seq": 1,
+            "account": "acct_fixture",
+            "event_id": "evt_invoice_paid",
+            "status": "recorded",
+            "reason": "canonical_capture_or_refund_not_bank_settlement",
+            "recorded_at": "2000-01-01T00:00:00+00:00"
+          }
+        ],
+        "links": [
+          {
+            "event_id": "evt_invoice_paid",
+            "kind": "capture",
+            "economic_id": "ch_sale"
+          }
+        ],
+        "sqlite_quick_check": "ok"
+      }
+    },
+    {
+      "stage": "after_postings",
+      "actual_abrupt_child_exit": 79,
+      "pid": 5299,
+      "before_same_id_retry": {
+        "summary": {
+          "mode": "synthetic_test",
+          "currency": "usd",
+          "posting_count": 0,
+          "capture_minor": 0,
+          "refund_minor": 0,
+          "net_captured_minor": 0,
+          "unresolved_messages": 0,
+          "awaiting_capture_messages": 0,
+          "bank_settlement_verified": false,
+          "legacy_rows_excluded": true
+        },
+        "messages": [],
+        "postings": [],
+        "transitions": [],
+        "links": [],
+        "sqlite_quick_check": "ok"
+      },
+      "same_id_retry": {
+        "status": "recorded",
+        "reason": "canonical_capture_or_refund_not_bank_settlement",
+        "event_id": "evt_invoice_paid",
+        "message_created": true,
+        "created_postings": 1,
+        "reconciled_messages": 0,
+        "remaining_awaiting_capture": 0
+      },
+      "after_same_id_retry": {
+        "summary": {
+          "mode": "synthetic_test",
+          "currency": "usd",
+          "posting_count": 1,
+          "capture_minor": 10000,
+          "refund_minor": 0,
+          "net_captured_minor": 10000,
+          "unresolved_messages": 0,
+          "awaiting_capture_messages": 0,
+          "bank_settlement_verified": false,
+          "legacy_rows_excluded": true
+        },
+        "messages": [
+          {
+            "event_id": "evt_invoice_paid",
+            "event_type": "invoice.paid",
+            "payload_sha256": "44904b73477b76ac5cdecc859e3dce85f9ad309886f5675a7f0a463ee7dce236",
+            "status": "recorded",
+            "reason": "canonical_capture_or_refund_not_bank_settlement",
+            "dependency_id": ""
+          }
+        ],
+        "postings": [
+          {
+            "kind": "capture",
+            "economic_id": "ch_sale",
+            "amount_minor": 10000,
+            "currency": "usd",
+            "parent_id": "",
+            "payment_intent_id": "pi_sale",
+            "first_event_id": "evt_invoice_paid"
+          }
+        ],
+        "transitions": [
+          {
+            "seq": 1,
+            "account": "acct_fixture",
+            "event_id": "evt_invoice_paid",
+            "status": "recorded",
+            "reason": "canonical_capture_or_refund_not_bank_settlement",
+            "recorded_at": "2000-01-01T00:00:00+00:00"
+          }
+        ],
+        "links": [
+          {
+            "event_id": "evt_invoice_paid",
+            "kind": "capture",
+            "economic_id": "ch_sale"
+          }
+        ],
+        "sqlite_quick_check": "ok"
+      }
+    },
+    {
+      "stage": "before_commit",
+      "actual_abrupt_child_exit": 79,
+      "pid": 5300,
+      "before_same_id_retry": {
+        "summary": {
+          "mode": "synthetic_test",
+          "currency": "usd",
+          "posting_count": 0,
+          "capture_minor": 0,
+          "refund_minor": 0,
+          "net_captured_minor": 0,
+          "unresolved_messages": 0,
+          "awaiting_capture_messages": 0,
+          "bank_settlement_verified": false,
+          "legacy_rows_excluded": true
+        },
+        "messages": [],
+        "postings": [],
+        "transitions": [],
+        "links": [],
+        "sqlite_quick_check": "ok"
+      },
+      "same_id_retry": {
+        "status": "recorded",
+        "reason": "canonical_capture_or_refund_not_bank_settlement",
+        "event_id": "evt_invoice_paid",
+        "message_created": true,
+        "created_postings": 1,
+        "reconciled_messages": 0,
+        "remaining_awaiting_capture": 0
+      },
+      "after_same_id_retry": {
+        "summary": {
+          "mode": "synthetic_test",
+          "currency": "usd",
+          "posting_count": 1,
+          "capture_minor": 10000,
+          "refund_minor": 0,
+          "net_captured_minor": 10000,
+          "unresolved_messages": 0,
+          "awaiting_capture_messages": 0,
+          "bank_settlement_verified": false,
+          "legacy_rows_excluded": true
+        },
+        "messages": [
+          {
+            "event_id": "evt_invoice_paid",
+            "event_type": "invoice.paid",
+            "payload_sha256": "44904b73477b76ac5cdecc859e3dce85f9ad309886f5675a7f0a463ee7dce236",
+            "status": "recorded",
+            "reason": "canonical_capture_or_refund_not_bank_settlement",
+            "dependency_id": ""
+          }
+        ],
+        "postings": [
+          {
+            "kind": "capture",
+            "economic_id": "ch_sale",
+            "amount_minor": 10000,
+            "currency": "usd",
+            "parent_id": "",
+            "payment_intent_id": "pi_sale",
+            "first_event_id": "evt_invoice_paid"
+          }
+        ],
+        "transitions": [
+          {
+            "seq": 1,
+            "account": "acct_fixture",
+            "event_id": "evt_invoice_paid",
+            "status": "recorded",
+            "reason": "canonical_capture_or_refund_not_bank_settlement",
+            "recorded_at": "2000-01-01T00:00:00+00:00"
+          }
+        ],
+        "links": [
+          {
+            "event_id": "evt_invoice_paid",
+            "kind": "capture",
+            "economic_id": "ch_sale"
+          }
+        ],
+        "sqlite_quick_check": "ok"
+      }
+    },
+    {
+      "stage": "after_commit",
+      "actual_abrupt_child_exit": 79,
+      "pid": 5301,
+      "before_same_id_retry": {
+        "summary": {
+          "mode": "synthetic_test",
+          "currency": "usd",
+          "posting_count": 1,
+          "capture_minor": 10000,
+          "refund_minor": 0,
+          "net_captured_minor": 10000,
+          "unresolved_messages": 0,
+          "awaiting_capture_messages": 0,
+          "bank_settlement_verified": false,
+          "legacy_rows_excluded": true
+        },
+        "messages": [
+          {
+            "event_id": "evt_invoice_paid",
+            "event_type": "invoice.paid",
+            "payload_sha256": "44904b73477b76ac5cdecc859e3dce85f9ad309886f5675a7f0a463ee7dce236",
+            "status": "recorded",
+            "reason": "canonical_capture_or_refund_not_bank_settlement",
+            "dependency_id": ""
+          }
+        ],
+        "postings": [
+          {
+            "kind": "capture",
+            "economic_id": "ch_sale",
+            "amount_minor": 10000,
+            "currency": "usd",
+            "parent_id": "",
+            "payment_intent_id": "pi_sale",
+            "first_event_id": "evt_invoice_paid"
+          }
+        ],
+        "transitions": [
+          {
+            "seq": 1,
+            "account": "acct_fixture",
+            "event_id": "evt_invoice_paid",
+            "status": "recorded",
+            "reason": "canonical_capture_or_refund_not_bank_settlement",
+            "recorded_at": "2000-01-01T00:00:00+00:00"
+          }
+        ],
+        "links": [
+          {
+            "event_id": "evt_invoice_paid",
+            "kind": "capture",
+            "economic_id": "ch_sale"
+          }
+        ],
+        "sqlite_quick_check": "ok"
+      },
+      "same_id_retry": {
+        "status": "recorded",
+        "reason": "canonical_capture_or_refund_not_bank_settlement",
+        "event_id": "evt_invoice_paid",
+        "message_created": false,
+        "created_postings": 0,
+        "reconciled_messages": 0,
+        "remaining_awaiting_capture": 0
+      },
+      "after_same_id_retry": {
+        "summary": {
+          "mode": "synthetic_test",
+          "currency": "usd",
+          "posting_count": 1,
+          "capture_minor": 10000,
+          "refund_minor": 0,
+          "net_captured_minor": 10000,
+          "unresolved_messages": 0,
+          "awaiting_capture_messages": 0,
+          "bank_settlement_verified": false,
+          "legacy_rows_excluded": true
+        },
+        "messages": [
+          {
+            "event_id": "evt_invoice_paid",
+            "event_type": "invoice.paid",
+            "payload_sha256": "44904b73477b76ac5cdecc859e3dce85f9ad309886f5675a7f0a463ee7dce236",
+            "status": "recorded",
+            "reason": "canonical_capture_or_refund_not_bank_settlement",
+            "dependency_id": ""
+          }
+        ],
+        "postings": [
+          {
+            "kind": "capture",
+            "economic_id": "ch_sale",
+            "amount_minor": 10000,
+            "currency": "usd",
+            "parent_id": "",
+            "payment_intent_id": "pi_sale",
+            "first_event_id": "evt_invoice_paid"
+          }
+        ],
+        "transitions": [
+          {
+            "seq": 1,
+            "account": "acct_fixture",
+            "event_id": "evt_invoice_paid",
+            "status": "recorded",
+            "reason": "canonical_capture_or_refund_not_bank_settlement",
+            "recorded_at": "2000-01-01T00:00:00+00:00"
+          }
+        ],
+        "links": [
+          {
+            "event_id": "evt_invoice_paid",
+            "kind": "capture",
+            "economic_id": "ch_sale"
+          }
+        ],
+        "sqlite_quick_check": "ok"
+      }
+    }
+  ],
+  "fixture_databases": [
+    {
+      "path": ".cache/economic-demo-hvmjxrml/crash-after_commit.sqlite3",
+      "bytes": 102400,
+      "sha256": "ccbb0a31af600010305af13971e41e76c926ea22d835b17e12807d70c4ba2a6e"
+    },
+    {
+      "path": ".cache/economic-demo-hvmjxrml/crash-after_message.sqlite3",
+      "bytes": 102400,
+      "sha256": "ccbb0a31af600010305af13971e41e76c926ea22d835b17e12807d70c4ba2a6e"
+    },
+    {
+      "path": ".cache/economic-demo-hvmjxrml/crash-after_postings.sqlite3",
+      "bytes": 102400,
+      "sha256": "ccbb0a31af600010305af13971e41e76c926ea22d835b17e12807d70c4ba2a6e"
+    },
+    {
+      "path": ".cache/economic-demo-hvmjxrml/crash-before_commit.sqlite3",
+      "bytes": 102400,
+      "sha256": "ccbb0a31af600010305af13971e41e76c926ea22d835b17e12807d70c4ba2a6e"
+    },
+    {
+      "path": ".cache/economic-demo-hvmjxrml/crash-before_message.sqlite3",
+      "bytes": 102400,
+      "sha256": "ccbb0a31af600010305af13971e41e76c926ea22d835b17e12807d70c4ba2a6e"
+    },
+    {
+      "path": ".cache/economic-demo-hvmjxrml/legacy-additive.sqlite3",
+      "bytes": 102400,
+      "sha256": "9240e0beb69f695e6345a703b7b0cc19bd44862ea8bbe584360a77fc66ab4db5"
+    },
+    {
+      "path": ".cache/economic-demo-hvmjxrml/legacy-before-migration.sqlite3",
+      "bytes": 49152,
+      "sha256": "aceaa818c35acda12a447b96e3a9e80e574f0f0ce04a8109559936da61c6ca29"
+    },
+    {
+      "path": ".cache/economic-demo-hvmjxrml/linked-and-refunds.sqlite3",
+      "bytes": 102400,
+      "sha256": "afcd677639b54f09588121ea9f89ae1d12c3b02abc94c8b83e5876284be40c2b"
+    },
+    {
+      "path": ".cache/economic-demo-hvmjxrml/out-of-order.sqlite3",
+      "bytes": 102400,
+      "sha256": "b7db13087fae9f8009b91422e60cd1774b1f17e618e7e19c337e28de1edfb481"
+    },
+    {
+      "path": ".cache/economic-demo-hvmjxrml/race-conflicting_amounts.sqlite3",
+      "bytes": 102400,
+      "sha256": "dbde3f7515c5227acafe1cf78fc70aa98234ba694423e028dfe031b55fe7c8e1"
+    },
+    {
+      "path": ".cache/economic-demo-hvmjxrml/race-linked_notifications.sqlite3",
+      "bytes": 102400,
+      "sha256": "29aeefa5f9efa4fbf9c5a7c8a4c0574dda887213a4f7ac9a6f610cae9cd9e8d4"
+    },
+    {
+      "path": ".cache/economic-demo-hvmjxrml/race-refund_duplicates.sqlite3",
+      "bytes": 102400,
+      "sha256": "d506e49edfd4f5629b12d203bbd4e3c62224b9b1d7c53cae601bac0428d0a653"
+    },
+    {
+      "path": ".cache/economic-demo-hvmjxrml/race-same_message.sqlite3",
+      "bytes": 102400,
+      "sha256": "ccbb0a31af600010305af13971e41e76c926ea22d835b17e12807d70c4ba2a6e"
+    }
+  ],
+  "passed": true,
+  "runner_reported_utc": "2026-11-14T17:45:39.307504+00:00",
+  "bank_settlement_verified": false,
+  "providers_enabled": false,
+  "production_ready": false,
+  "external_money_or_customer_code": false,
+  "production_migration": false,
+  "limits": [
+    "Trusted synthetic processes only; not hostile-code isolation or authentication proof",
+    "No live provider, fees/disputes/payouts/FX or real revenue recognition",
+    "SQLite observed here; PostgreSQL requires separate disposable opt-in execution",
+    "Exact integer USD fixture book excludes unverified legacy REAL rows"
+  ]
+}

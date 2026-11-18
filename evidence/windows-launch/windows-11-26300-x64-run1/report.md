@@ -1,8 +1,7 @@
 # Windows Native Launch Diagnostic Record — Run 1
 
-**Date & Time:** 2026-11-18T18:49:00+05:30  
-**Host Platform:** Windows 10 Home Single Language (Windows 11 Build `26300.9974`, DisplayVersion `26H2`, Architecture `X64`)  
 **Run Identifier:** `windows-11-26300-x64-run1`  
+**Host Platform:** Windows 10 Home Single Language (Windows 11 Build `26300.9974`, DisplayVersion `26H2`, Architecture `X64`)  
 **Target Executable:** `control/releases/windows-x64/OpenBot-Control-Local-x64.exe`  
 **Status:** Native launch blocked by Windows NT Loader (`0xc000007b`); root cause unproved  
 
@@ -35,44 +34,63 @@ $proc = Start-Process -FilePath $exe -PassThru
   - **Window Title:** `OpenBot-Control-Local-x64.exe - Application Error`
   - **Window Text:** `The application was unable to start correctly (0xc000007b). Click OK to close the application.`
   - **Window Controls:** System error icon (Red circle with white X), single `OK` button.
-- **Evidence Images:**
-  - `error.png`: Cropped, sanitized capture of the modal error dialog.
+- **Evidence Images & Provenance:**
+  - `error.png`: Cropped capture of the modal error dialog.
   - `desktop-context.png`: Uncropped desktop screen capture showing the dialog in context with the runner environment.
+  - **Capture Timing:** Screen captured at approximately `2026-11-18T17:17:00+05:30` when the binary was launched via PowerShell.
 
 ---
 
 ## 3. Bounded System Event Queries
 
-### Application Error Channel
-* **Query:** `Get-WinEvent -FilterHashtable @{LogName='Application'; ProviderName='Application Error'} -MaxEvents 5`
-* **Query Timestamp:** `2026-11-18T18:49:00+05:30`
-* **Matching Events for Target:** Exactly `0`.
-* **Detail:** Windows Application Error crash logging is invoked when an unhandled user-mode exception occurs in a running process. Because `0xc000007b` (`STATUS_INVALID_IMAGE_FORMAT`) is raised by the NT loader during early process initialization, CSRSS presents the HardError modal dialog and the process terminates before application error logging is reached.
+Queries performed across the bounded time window surrounding the launch attempts:
+* **Time Window:** `2026-11-18T17:00:00+05:30` to `2026-11-18T19:45:00+05:30`
+
+### Application Channel
+* **Channel Status:** Accessible; returned 179 total events across the host during this 2h45m window.
+* **Filter:** `ProviderName='Application Error'` and keyword search `Message like '*OpenBot*'`.
+* **Matching Records for Target:** Exactly `0`.
+* **Qualification:** Standard user-mode crash reporting (`WerFault.exe` / `Application Error`) was not invoked. This is consistent with early loader failure where process initialization is aborted by `ntdll` before user-mode exception handling or crash reporting is established.
 
 ### Code Integrity Channel
-* **Query:** `Get-WinEvent -FilterHashtable @{LogName='Microsoft-Windows-CodeIntegrity/Operational'} -MaxEvents 5`
-* **Query Timestamp:** `2026-11-18T18:49:15+05:30`
-* **Matching Events for Target:** Exactly `0`.
-* **Detail:** No signature policy enforcement violations, revoked binary blocks, or CodeIntegrity rejections were logged for `OpenBot-Control-Local-x64.exe`.
+* **Channel Status:** `Microsoft-Windows-CodeIntegrity/Operational` is enabled (`IsEnabled=true`, 1,465 lifetime records).
+* **Events in Window:** Exactly `0` total events logged in this channel during the 2h45m window.
+* **Qualification:** No signature policy enforcement violations, revoked driver/binary blocks, or integrity check failures were recorded for `OpenBot-Control-Local-x64.exe` during the launch window.
 
 ---
 
 ## 4. Loader and Debugger Tracing Analysis
 
-- **Debugger Trace (`DEBUG_ONLY_THIS_PROCESS`):**
-  - Process creation (`CREATE_PROCESS`) succeeds, mapping image base at `0x7ff6e7800000`.
-  - Initial system DLL `ntdll.dll` maps at `0x7ffbc5550000`.
-  - Initial thread starts at `ntdll!RtlUserThreadStart` (`0x7ffbc5619c30`).
-  - Execution fails inside `ntdll` with `STATUS_INVALID_IMAGE_FORMAT` (0xc000007b), triggering `ntdll!RtlRaiseStatus(0xc000007b)` and immediate `EXIT_PROCESS` (exit code `0xc000007b`).
-  - Application entry point `wWinMain` (`0x13d0`) is **not reached**.
-  - No user application code, `startWebView()`, or `WebView2Loader.dll` dynamic `LoadLibraryExW` call was executed.
+### Harness & Execution
+* **Debugger Harness:** `tools/windows-debug-trace.py` (committed Python script utilizing Win32 `DEBUG_ONLY_THIS_PROCESS` via `ctypes`).
+* **Raw Trace Artifact:** `evidence/windows-launch/windows-11-26300-x64-run1/debug-trace.json`.
+* **Execution Timestamp:** `2026-11-18T19:43:12+05:30`.
+
+### Debugger Observations
+1. **`CREATE_PROCESS_DEBUG_EVENT` (Event #1):**
+   - Image base mapped at: `0x7ff6c6d50000` (ASLR base for this process run).
+   - Expected Entry Point: `PE AddressOfEntryPoint RVA 0x13d0` (resolved virtual address: `0x7ff6c6d513d0`).
+   - *Note on Entry Point Label:* `0x13d0` is the PE entry point RVA pointing to CRT startup code (`WinMainCRTStartup`). The source-level application function `wWinMain` is a distinct later stage and was not reached.
+2. **`LOAD_DLL_DEBUG_EVENT` (Event #2):**
+   - Mapped DLL: `C:\Windows\System32\ntdll.dll` at base `0x7ffbc5550000`.
+3. **`EXIT_PROCESS_DEBUG_EVENT` (Event #3):**
+   - Exit code: `0xc000007b` (`STATUS_INVALID_IMAGE_FORMAT`).
+   - No `CREATE_THREAD_DEBUG_EVENT` or user-mode entry was observed.
+   - Entry point arrived: `false`.
+
+### Diagnostic Limitations
+* The Win32 debugger trace captures only modules successfully mapped by the NT loader prior to termination.
+* Observing that only `ntdll.dll` mapped (and not even `kernel32.dll`) narrows the failure to the earliest static dependency resolution or PE directory parsing phase in `ntdll.dll`.
+* It does **not** pinpoint which specific imported module, PE header attribute, relocation table entry, or TLS directory structure caused `ntdll` to raise `STATUS_INVALID_IMAGE_FORMAT`.
 
 ---
 
 ## 5. Distinction Between Observations and Hypotheses
 
 Per `WINDOWS_LOADER_REVIEW.md`:
-1. **Established Fact:** The native x64 executable fails process initialization on Windows 11 Build 26300 with `0xc000007b` / `STATUS_INVALID_IMAGE_FORMAT`.
+1. **Established Facts:**
+   - The native x64 executable fails process initialization on Windows 11 Build 26300 with `0xc000007b` / `STATUS_INVALID_IMAGE_FORMAT`.
+   - The failure occurs inside `ntdll.dll` before `kernel32.dll` is mapped and before `PE AddressOfEntryPoint RVA 0x13d0` is reached.
 2. **Unproved Hypotheses:**
    - Whether MinGW-w64 PE32+ relocation/TLS directory formatting, CET (Control-flow Enforcement Technology), or CRT static linkage is the specific cause of kernel loader rejection.
    - Whether an MSVC toolchain build will resolve the failure (MSVC compilation is a diagnostic experiment, not an established requirement).

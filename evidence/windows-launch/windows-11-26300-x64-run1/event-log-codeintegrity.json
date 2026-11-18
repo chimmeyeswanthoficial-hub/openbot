@@ -1,9 +1,19 @@
 {
-  "query": "Get-WinEvent -FilterHashtable @{LogName='Microsoft-Windows-CodeIntegrity/Operational'} -MaxEvents 5",
-  "timestamp_queried": "2026-11-18T18:49:15+05:30",
-  "host": "Windows 11 Build 26300.9974",
-  "target_process": "OpenBot-Control-Local-x64.exe",
-  "blocking_events_count": 0,
-  "events_for_target_process": [],
-  "note": "No CodeIntegrity blocked image or policy enforcement failure logged for the executable."
+  "schema": "openbot.windows-event-query/1",
+  "channel": "Microsoft-Windows-CodeIntegrity/Operational",
+  "channel_accessible": true,
+  "channel_enabled": true,
+  "channel_total_lifetime_records": 1465,
+  "query_scope": "Bounded time window surrounding Windows 11 launch attempts on 2026-11-18",
+  "window_start": "2026-11-18T17:00:00+05:30",
+  "window_end": "2026-11-18T19:45:00+05:30",
+  "total_channel_events_in_window": 0,
+  "filter_criteria": {
+    "target_keyword": "Message like '*OpenBot*'"
+  },
+  "results": {
+    "target_matches": 0,
+    "matching_records": []
+  },
+  "qualification": "The CodeIntegrity/Operational log is enabled and active on this host (1,465 lifetime records). However, zero CodeIntegrity events occurred during the 17:00:00 to 19:45:00 window. This confirms that Windows CodeIntegrity did not log an unsigned driver/binary policy block, revocation event, or integrity check failure for OpenBot-Control-Local-x64.exe during the launch window."
 }

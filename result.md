@@ -60,3 +60,12 @@ not the larger byte count in the preserved imported report.
 Current EXE and Android APK bytes are unchanged; iOS is source only. No native
 acceptance was awarded. R01-R13 external gates remain in PUBLIC_RELEASE_ROADMAP.md.
 Public release false; accepted genuinely observed pilot days **0**.
+
+### Follow-up diagnostic update (Windows 11 host)
+
+- **Screenshots Delivered & Verified:** `error.png` and `desktop-context.png` are present in `evidence/windows-launch/windows-11-26300-x64-run1/` confirming the physical modal dialog `OpenBot-Control-Local-x64.exe - Application Error` with `0xc000007b`.
+- **Committed Debugger Trace:** Win32 debugger harness `tools/windows-debug-trace.py` was executed and committed alongside raw trace `debug-trace.json`. The trace confirms process creation at base `0x7ff6c6d50000`, `ntdll.dll` mapping at `0x7ffbc5550000`, and immediate exit code `0xc000007b` before `kernel32.dll` maps or `PE AddressOfEntryPoint RVA 0x13d0` is reached.
+- **Root Cause & Failing Module:** Unverified/unproved. The debugger trace establishes that failure occurs in early NT loader initialization, but does not identify the specific rejected module or header defect.
+- **Pull Request #1:** Pull Request #1 into `main` is created and open at `https://github.com/chimmeyeswanthoficial-hub/openbot/pull/1`.
+- **Release Status:** Retained strictly fail-closed: public release `false`; accepted pilot days `0`.
+

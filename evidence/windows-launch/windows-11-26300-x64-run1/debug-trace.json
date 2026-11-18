@@ -1,0 +1,53 @@
+{
+  "diagnostic_limitations": "Trace captures only modules successfully mapped by NT loader before termination. A trace with only ntdll.dll mapped narrows the failure to initial static dependency resolution or PE directory/header verification, but does not identify the specific rejected image or parser failure.",
+  "end_time": "2026-11-18T19:43:12.753844+05:30",
+  "entry_point_address_expected": "0x7ff6c6d513d0",
+  "entry_point_reached": false,
+  "events": [
+    {
+      "entry_point_rva_address": "0x7ff6c6d513d0",
+      "event_code": 3,
+      "event_name": "CREATE_PROCESS_DEBUG_EVENT",
+      "image_base": "0x7ff6c6d50000",
+      "image_path": "<USERPROFILE>/Downloads/openbot/OpenBot-Workspace-Light-Complete/OpenBot-Workspace/control/releases/windows-x64/OpenBot-Control-Local-x64.exe",
+      "pid": 11584,
+      "sequence": 1,
+      "tid": 16988
+    },
+    {
+      "dll_base": "0x7ffbc5550000",
+      "dll_path": "C:/Windows/System32/ntdll.dll",
+      "event_code": 6,
+      "event_name": "LOAD_DLL_DEBUG_EVENT",
+      "pid": 11584,
+      "sequence": 2,
+      "tid": 16988
+    },
+    {
+      "event_code": 5,
+      "event_name": "EXIT_PROCESS_DEBUG_EVENT",
+      "exit_code": "0xc000007b",
+      "pid": 11584,
+      "sequence": 3,
+      "tid": 16988
+    }
+  ],
+  "executable": "<USERPROFILE>/Downloads/openbot/OpenBot-Workspace-Light-Complete/OpenBot-Workspace/control/releases/windows-x64/OpenBot-Control-Local-x64.exe",
+  "harness": "tools/windows-debug-trace.py",
+  "loaded_modules_before_termination": [
+    {
+      "base": "0x7ff6c6d50000",
+      "path": "<USERPROFILE>/Downloads/openbot/OpenBot-Workspace-Light-Complete/OpenBot-Workspace/control/releases/windows-x64/OpenBot-Control-Local-x64.exe",
+      "type": "main_executable"
+    },
+    {
+      "base": "0x7ffbc5550000",
+      "path": "C:/Windows/System32/ntdll.dll",
+      "type": "dll"
+    }
+  ],
+  "process_exit_code": "0xc000007b",
+  "schema": "openbot.windows-debug-trace/1",
+  "start_time": "2026-11-18T19:43:12.738790+05:30",
+  "total_events_recorded": 3
+}

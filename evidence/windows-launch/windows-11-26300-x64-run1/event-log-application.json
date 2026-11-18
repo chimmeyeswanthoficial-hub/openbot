@@ -1,9 +1,19 @@
 {
-  "query": "Get-WinEvent -FilterHashtable @{LogName='Application'; ProviderName='Application Error'} -MaxEvents 5",
-  "timestamp_queried": "2026-11-18T18:49:00+05:30",
-  "host": "Windows 11 Build 26300.9974",
-  "target_process": "OpenBot-Control-Local-x64.exe",
-  "matching_events_count": 0,
-  "events_for_target_process": [],
-  "note": "0xc000007b image format failure occurs during NT process initialization before user code execution, so no Application Error crash record is logged."
+  "schema": "openbot.windows-event-query/1",
+  "channel": "Application",
+  "channel_accessible": true,
+  "query_scope": "Bounded time window surrounding Windows 11 launch attempts on 2026-11-18",
+  "window_start": "2026-11-18T17:00:00+05:30",
+  "window_end": "2026-11-18T19:45:00+05:30",
+  "total_channel_events_in_window": 179,
+  "filter_criteria": {
+    "provider_application_error": "ProviderName='Application Error'",
+    "target_keyword": "Message like '*OpenBot*'"
+  },
+  "results": {
+    "provider_application_error_matches": 0,
+    "target_keyword_matches": 0,
+    "matching_records": []
+  },
+  "qualification": "Query executed via Get-WinEvent across the bounded 2h45m window. Application channel was fully accessible and returned 179 total system/app events, but zero records matched Provider 'Application Error' or mentioned 'OpenBot'. This limited query indicates standard user-mode crash reporting (WerFault/Application Error) was not triggered for this launch, consistent with NT loader termination before user-mode fault handling is established."
 }

@@ -1,0 +1,14 @@
+{
+  "current_source_license": "PolyForm-Noncommercial-1.0.0 at daab0074f48c6531a42791d7a18ffd4d7c54d184",
+  "git_blob_matches_contents_api": true,
+  "historical_tag": "v0.1.11",
+  "license_bytes": 11358,
+  "license_git_blob": "d645695673349e3947e8e5ae42332d0ac3164cd7",
+  "license_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+  "license_spdx": "Apache-2.0",
+  "repository": "nightly-labs/openbot",
+  "resolved_commit": "e9cae2ac7c83936a6e7d22c820e9d7ec0726d880",
+  "schema": "openbot.upstream-license-recheck/1",
+  "scope": "Verified historical LICENSE bytes only, no historical runtime/module audit, dependency/NOTICE clearance, testing or code adoption. This does not relicense newer source. No license purchase/contact or commercial integration.",
+  "tag_object": "80c7363795d25b60a9f68f0f3898ceea7fa16467"
+}

@@ -1,0 +1,17 @@
+test_01_paths_are_canonical_and_relative (test_workspace.MaintenanceContracts.test_01_paths_are_canonical_and_relative) ... ok
+test_02_budget_ignores_only_generated_locations (test_workspace.MaintenanceContracts.test_02_budget_ignores_only_generated_locations) ... ok
+test_03_reference_hash_mismatch_refused (test_workspace.MaintenanceContracts.test_03_reference_hash_mismatch_refused) ... ok
+test_04_restore_refuses_existing_destination_without_writing (test_workspace.MaintenanceContracts.test_04_restore_refuses_existing_destination_without_writing) ... ok
+test_05_restore_refuses_symlink_destination (test_workspace.MaintenanceContracts.test_05_restore_refuses_symlink_destination) ... ok
+test_06_file_restore_checks_hash_mode_and_time (test_workspace.MaintenanceContracts.test_06_file_restore_checks_hash_mode_and_time) ... ok
+test_07_wrong_original_hash_refused (test_workspace.MaintenanceContracts.test_07_wrong_original_hash_refused) ... ok
+test_08_zip_layout_reconstructs_all_container_bytes (test_workspace.MaintenanceContracts.test_08_zip_layout_reconstructs_all_container_bytes) ... ok
+test_09_overlap_and_unknown_transform_refused (test_workspace.MaintenanceContracts.test_09_overlap_and_unknown_transform_refused) ... ok
+test_10_xz_container_restores_without_extracting_members (test_workspace.MaintenanceContracts.test_10_xz_container_restores_without_extracting_members) ... ok
+test_11_vault_tamper_refused_before_git_or_restore (test_workspace.MaintenanceContracts.test_11_vault_tamper_refused_before_git_or_restore) ... ok
+test_12_git_object_injection_refused_without_subprocess (test_workspace.MaintenanceContracts.test_12_git_object_injection_refused_without_subprocess) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.021s
+
+OK

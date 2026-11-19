@@ -2,7 +2,9 @@
 
 The OpenBot OS source-branding change rebuilds the three shared HTML payloads
 (`studio/web/index.html`, `control/web/index.html`, and the iOS source asset) from
-one template. They are byte-identical, **127,581 bytes** at this foundation.
+one template. Current history-increment source is byte-identical, **127,590 bytes**.
+The prior foundation's 127,581-byte identity remains historical in its evidence
+packet; current identities are in `evidence/openbot-os-history/NATIVE_IDENTITIES.json`.
 Layout, protocol IDs, pairing and native authority restrictions are unchanged.
 The selected-contact text color has one measured normal-text contrast correction.
 The JavaScript copy now also states that old packages were not rebuilt and the
@@ -28,7 +30,8 @@ embedded-source pin, toolchain/SDK/license receipt, new source manifest and actu
 native install/launch/lifecycle/manual-interaction evidence. Do not overwrite an
 old trace or infer an earlier cause because a differently built binary works.
 
-The newly generated gateway client also needs a newly reviewed client-hash pin in
-a **new disposable fixture/profile** before authenticated QA acceptance. Do not
-change a paired owner's live allowlist or weaken TLS/origin/hash checks to load it.
+The current 127,590-byte client hash was pinned in the **new disposable backend
+HTTP/TLS test profile**. That is not a fresh renderer-WebCrypto owned-QA acceptance
+or native/device proof. Any new owner profile needs explicit exact-hash review;
+do not change a paired owner's live allowlist or weaken TLS/origin/hash checks.
 R08/native release remains blocked; signing and Windows startup are separate gates.

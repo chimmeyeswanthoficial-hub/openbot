@@ -16,7 +16,7 @@ Light desktop/mobile/browser clients
   v
 Identity/organization/role boundary -- derive scope server-side
   |
-  +-- Conversations/history/export -- project-owned journal (standalone v1 exists)
+  +-- Conversations/history/export -- project-owned journal + opt-in signed-device human-history API
   +-- Work/queue/reservations/approval epochs -- existing governed kernel
   +-- Policy + pre-effect audit + budget + revocable capability -- authoritative
   |
@@ -42,7 +42,7 @@ actual executors must make bypass impossible and leave evidence of every attempt
 | Resource | Authoritative owner | Current versus next |
 |---|---|---|
 | Identity, organization membership, role | Authenticated kernel/server | Existing narrow pairing; broader org/membership model needs design, tests and review. Scope objects alone do not provide auth. |
-| Conversation history | Application DB | New standalone SQLite journal; no UI/API/agent-runner integration yet. PostgreSQL and reviewed migration/backfill remain next. |
+| Conversation history | Application DB | SQLite journal now has an optional signed-device history API (58 new cases); no Studio/live agent integration. PostgreSQL history, lifecycle/tombstones and reviewed migration/backfill remain next. |
 | Work/task/occurrence/fence/whole-liability reservation | Existing work kernel | Existing local implementation; no new provider, hostile-host or production readiness claim. |
 | Policy, approval epochs and pre-effect audit | Kernel + mandatory executor gateway | Existing bounded owned-QA slice; every new tool/provider must prove non-bypass and revocation behavior. |
 | Agent state and streams | Selected agent + transport | Current narrow local-fixture profile is not full AG-UI. Build against pinned event schemas and interop fixtures, never infer full compatibility. |
@@ -61,7 +61,7 @@ from host/tool authority, with CSP/network/bridge enforcement and adversarial te
 | Dimension | Frozen acceptance target | Current evidence/gap |
 |---|---|---|
 | Open core | Reproduce core from audited source without cloud account/license checks; no unapproved egress after dependencies obtained; SBOM/notices | First-party MIT made explicit; full dependency/clean build/egress audit NOT complete. |
-| Portable durable history | Kill/restart and reconnect across all supported clients without duplicated committed events; scoped denial tests at HTTP + storage + stream | Library replay/retry/rollback/reopen tests exist; HTTP/UI/agent reconnect not connected. |
+| Portable durable history | Kill/restart and reconnect across all supported clients without duplicated committed events; scoped denial tests at HTTP + storage + stream | Library and signed-device HTTP retry/scope/revocation/reopen tests exist; actual UI/agent/provider reconnect not connected. |
 | Isolation | Real VM/microVM identity, bounded CPU/RAM/disk/time/egress, no cross-bot file/credential access, proven stop/reap | No accepted VM provider. Container-only work cannot satisfy this row. |
 | Governed actions | All tool paths deny without current policy/grant/approval/budget/pre-effect audit; stale approvals and replay/TOCTOU tests | Existing narrow kernel slices; external integration/adversarial review open. |
 | Local-first privacy | No telemetry by default; visible data destinations; export/delete/retention and backup-aware deletion proof | No new telemetry/network in journal; end-to-end policy/export/erasure not implemented. |
@@ -85,8 +85,10 @@ and held-out tasks outside bot-writable source/training material.
 3. Add a real VM provider and measured guest/host boundaries; then IDE and official
    social/media adapters with their specific permissions and tests.
 4. Native/device/signing/update and independent security/operations/evaluation.
-5. Genuine 1–6-month private pilot including ≥30 consecutive observed days, then
-   exact human signing/terms/on-call/scope/release authorization.
+5. Genuine controlled private real-world first month with ≥30 consecutive observed
+   days, independent review/owner expansion approval, then six additional calendar
+   months and final independent/human release review. See REAL_WORLD_ROLLOUT.md;
+   old Assessment v1 is not sufficient for that two-phase duration/upgrade process.
 
 No credentials, host change, spend, public deployment or release is authorized by
 this architecture. R01–R13 remain the acceptance authority; public release false.

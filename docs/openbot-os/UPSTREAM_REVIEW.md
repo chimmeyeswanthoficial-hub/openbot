@@ -1,4 +1,10 @@
-# Pinned upstream review — OpenBot OS foundation
+# Pinned upstream review — foundation with successor status
+
+The history successor is documented in [FEATURE_REUSE.md](FEATURE_REUSE.md) and
+[AUTHENTICATED_HISTORY.md](AUTHENTICATED_HISTORY.md). It now implements an optional
+signed-device human-history API and actually reuses the exact MIT AG-UI 1.0 schema
+for tests; no live UI/provider/runner is implied. The original foundation review
+and raw remote timestamps remain scoped evidence, not a calendar-latest claim.
 
 ## Executive decision
 
@@ -29,16 +35,16 @@ its current backend. Full source-tree enumeration is not a whole-code security a
 Retrieved-source identities, Git-blob checks, review-depth labels and tree-count
 comparisons are in `evidence/openbot-os-foundation/UPSTREAM_SOURCES.json`. Raw
 research downloads are regenerable cache, not a second retained upstream checkout.
-No upstream source is copied into our new journal or diagnostic helper.
+No upstream application code was copied into the journal or diagnostic helper. The successor separately retains the exact MIT AG-UI test schema/license with provenance.
 
 ### Immutable research pins
 
 | Project | Pin / source fact | Use |
 |---|---|---|
-| CopilotKit/OpenBot observed remote head | `30a40979a93062b29f8592cef173601b354474b4`; root MIT; package 1.1.0; 4,961 blobs | Selected current-ref source, frontend and deployment-boundary review. |
+| CopilotKit/OpenBot observed remote head | `30a40979a93062b29f8592cef173601b354474b4`; root MIT; package 1.1.0; 4,961 blobs | Selected returned-ref source, frontend and deployment-boundary review. |
 | CopilotKit/OpenBot configured-date cutoff comparison | `882c68e222bbb603c67855764facd4ebbb9778c8`; package 1.0.0; 3,658 blobs | Historical source-rich backend control flow; not misrepresented as the observed head. |
 | CopilotKit/CopilotKit observed remote head | `567211b7edff7dde57cfc9b617655344004253c0`; root MIT; runtime package 1.89.0 | Optional SDK/runtime architecture and local runner review. |
-| ag-ui-protocol/ag-ui observed remote head | `3416b86da4b3288e87f827c7f2759a7fa18b5231`; root MIT | Protocol/license reference; full protocol suite not run. |
+| ag-ui-protocol/ag-ui observed remote head | `3416b86da4b3288e87f827c7f2759a7fa18b5231`; root MIT | Exact schema/license now adopted for CUSTOM-envelope tests; full protocol suite not run. |
 | nightly-labs/openbot observed remote head | `daab0074f48c6531a42791d7a18ffd4d7c54d184`; PolyForm Noncommercial 1.0.0 | Identity/license comparison only; **not an OSS-core code donor**. |
 
 **Clock qualification:** the configured session reference date is 2026-11-10.
@@ -118,18 +124,18 @@ requirements; fully local hosting and fully OSS are different questions.
 ## Feature/function review and adoption decisions
 
 “Present” below means source/contract/documented capability at the named pin, not
-independently proven end-to-end behavior. Latest backend-image behavior is not
+independently proven end-to-end behavior. Observed backend-image behavior is not
 inferred from earlier MIT server source.
 
 | Area | Pinned evidence / notable functions | OpenBot OS action and current gap |
 |---|---|---|
 | Shared workspace and bot roster | Observed `app-sidebar.tsx`, `bot-profile/page.tsx`, routes under `_authed/_app/bots.*` | Keep companion-first light layout and truthful status; do not copy branding. Existing roster is mainly local planning. |
-| Conversation history and reconnect | Observed `channel-chat.tsx`: `historyIsLoading`, `channelHistoryNotice`, `mergeStoredMessages`, `toMessageContent`, `ChannelChat`; `useAgent` uses channel thread ID | Adopt explicit loading/error/retry and stored-vs-live merge contracts, not a copy of the monolithic component. New journal is standalone only. |
+| Conversation history and reconnect | Observed `channel-chat.tsx`: `historyIsLoading`, `channelHistoryNotice`, `mergeStoredMessages`, `toMessageContent`, `ChannelChat`; `useAgent` uses channel thread ID | Adopt explicit loading/error/retry and stored-vs-live merge contracts, not a copy of the monolithic component. Optional signed-device human-history API now exists; no Studio/live stream connection. |
 | Server-owned interrupt recovery | Observed `server-owned-interrupts.ts`: `serverOwnedInterrupt`, `releaseServerOwnedInterrupts` | Avoid duplicate approvals/restarts after reconnect. Add actual adapter fixtures; don't clear arbitrary framework interrupts. |
 | SDK wiring | Observed `CopilotProvider`: relative `/api/copilotkit`, cookie credentials, organization headers, no browser Intelligence key | Reuse relative-URL/secret separation. Our pairing and authority remain kernel-owned; no SDK runtime installed by this change. |
 | API-generated clients | Observed `api/openapi/*.yaml`, `api/asyncapi.yaml`, `app/src/lib/api/request.ts`: `apiRequest`, `idempotencyKey`, `organizationId` | Specify/version our own narrow contracts first, use stable write idempotency across retries. Do not paste API v2 clients over our wire v1. |
 | Per-bot authorization | Observed `shared/agent-authorisation.ts`: `matchesToken`, `hasManagedAgentToken`; cutoff `auth/guards.ts`: `createRequireUser`, `requireAdmin` | Require server-derived roles/scopes and revocation. A token comparison helper or UI route guard isn't full isolation; no timing/security certification here. |
-| Pre-effect policy and audit | Cutoff `computer/gateway.ts`: `createComputerGateway`, `govern`; policy decision before `write` then `run(address)`; failure rows share attempt ID | Useful MIT reference for mandatory broker. Our existing no-audit/no-action invariant must hold on *every actual executor*. Latest image implementation not audited. |
+| Pre-effect policy and audit | Cutoff `computer/gateway.ts`: `createComputerGateway`, `govern`; policy decision before `write` then `run(address)`; failure rows share attempt ID | Useful MIT reference for mandatory broker. Our existing no-audit/no-action invariant must hold on *every actual executor*. Observed image implementation not audited. |
 | Fail-closed rule evaluation | Cutoff `computer/policy.ts`: `evaluateActionPolicy`, `evaluateBoundaryRules`, `checkPolicyRule`; deny precedes allow and broken expressions deny | Reuse tests/patterns selectively, preserving our budget/approval epochs. Check actual deployed defaults, not only library behavior. |
 | Human approvals | Observed `InlineApproval`, inbox queries and `decideApproval`: allow once/conversation/always, deny or handled | Keep exact-action review and revocation; persistent grants need bounded scope/expiry. “Exactly once” in a UI comment is not proof of exactly-once external effects. |
 | Computer screen and terminal | Observed `ComputerViewPanel`, `LiveComputerPanel`, `ComputerView`, `ComputerTerminal`, `useComputerControl` | Good truthful no-computer state, one human/bot wheel, view-follow rules, lazy terminal mount and hidden-screen polling controls. Our computer pane remains a request/placeholder. |

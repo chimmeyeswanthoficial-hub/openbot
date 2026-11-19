@@ -1,0 +1,43 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.18, pytest-9.2.0, pluggy-1.7.0
+rootdir: /home/user/.cache/openbot-os-next/test-workspace/work
+configfile: pyproject.toml
+plugins: anyio-4.16.0, platformdirs-4.14.5
+collected 560 items
+
+services/gateway/tests/test_adapter.py .....                             [  0%]
+services/gateway/tests/test_control_api.py .s.s.s......ssssss.......ssss [  6%]
+sss.s.s.s.s.s.s.s.s                                                      [  9%]
+services/gateway/tests/test_conversation_api.py ........................ [ 13%]
+..................................                                       [ 19%]
+services/gateway/tests/test_evaluation_controls.py ..................... [ 23%]
+.......................                                                  [ 27%]
+services/gateway/tests/test_external_gate.py .........                   [ 29%]
+services/gateway/tests/test_governed_skills.py ......................... [ 33%]
+....                                                                     [ 34%]
+services/gateway/tests/test_local_executor.py .......................... [ 39%]
+.....................                                                    [ 42%]
+services/gateway/tests/test_mapper.py ..........                         [ 44%]
+services/gateway/tests/test_namespace_executor.py ...................... [ 48%]
+........................                                                 [ 52%]
+services/gateway/tests/test_operational_controls.py .................... [ 56%]
+..s.s...s.s.s.                                                           [ 58%]
+services/gateway/tests/test_stages_absent.py ...                         [ 59%]
+services/gateway/tests/test_work_crash.py .s.s                           [ 60%]
+services/gateway/tests/test_work_recovery.py .s                          [ 60%]
+services/gateway/tests/test_work_service.py .s.........sssssssss........ [ 65%]
+ssssssss.s.s.s....ssss.s...sss.s.s.s...sss.s.s.s.s..ss.s.....sssss..ss.. [ 78%]
+ss...sss.s                                                               [ 80%]
+services/gateway/tests/test_workbench.py ............................... [ 85%]
+.................................................                        [ 94%]
+services/sentinel/tests/test_conversation_journal.py ................... [ 97%]
+............                                                             [100%]
+
+=============================== warnings summary ===============================
+../../kernel-tools/fastapi/testclient.py:1
+  /home/user/.cache/openbot-os-next/kernel-tools/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+- generated xml file: /home/user/.cache/openbot-os-next/logs/gateway-first.xml -
+================= 473 passed, 87 skipped, 1 warning in 16.85s ==================

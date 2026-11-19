@@ -1,10 +1,13 @@
 {
+  "agui_adoption": "Exact pinned MIT 1.0 schema/license/provenance for offline CUSTOM-event tests only; not complete SDK/runner/transport acceptance",
   "archive_manifest_mode": "0644 canonical on every host",
-  "checkpoint": "openbot-os-foundation-1",
+  "authenticated_history_contract": "docs/openbot-os/AUTHENTICATED_HISTORY.md",
+  "checkpoint": "openbot-os-authenticated-history-1",
   "contains_labeled_local_test_builds": true,
   "content_scope": "Complete selected engineering workspace: kernel/configuration/tests/retained donor source/shared UI/native source/labeled local test binaries/evidence/notices; not private runtime backup or accepted public release.",
-  "conversation_journal_scope": "Standalone inert SQLite library; no HTTP identity, UI, live AG-UI or provider integration",
+  "conversation_journal_scope": "Opt-in signed-device human history API and dedicated SQLite with explicit capabilities, scoped audit/revocation/retry tests; no Studio chat/live agent/provider/PG history integration",
   "current_architecture": "docs/openbot-os/ARCHITECTURE.md",
+  "current_evidence": "evidence/openbot-os-history/VERIFICATION.md",
   "current_work_orders": "docs/openbot-os/WORK_ORDERS.md",
   "declarative_source_exceptions": [
     ".openbot/routines/health-sweep.md",
@@ -15,8 +18,9 @@
     ".openbot/routines/weekly-review.md",
     ".openbot/ventures/media-api/venture.yaml"
   ],
-  "durability": "Download this complete ZIP and save outside Arena. Session cache and live preview are not durable backups. Previous ZIPs and unique original source/history/private state remain preserved.",
+  "durability": "Save one complete private workspace via Workspace Download and keep canonical full Git + recovery vault + originals together. This manifest/source-only export is not a private runtime backup or complete outer workspace. Session cache/preview are not durable backups.",
   "exclusions": "evidence/shared-repo-audit/EXPORT_AUDIT.json; no Git metadata, credentials, private runtime, SDK/cache or historical recovery archives. Excluded originals are preserved, not deleted.",
+  "feature_reuse_ledger": "docs/openbot-os/FEATURE_REUSE_LEDGER.json",
   "files": {
     ".gitattributes": {
       "bytes": 278,
@@ -29,14 +33,14 @@
       "sha256": "cd8687b16b032287a644702b56312d0d7560905229dabc298e3e7e5796e07180"
     },
     "ANTIGRAVITY_NEXT.md": {
-      "bytes": 15818,
+      "bytes": 9515,
       "mode": 420,
-      "sha256": "781cb3ab2acba4910c21158e18b839d4262ef7f0dbee470a597a021ec1c4dfa4"
+      "sha256": "67c42bbdf39848ece550708f580c9f2c70a0dba96089c75caa16f011bed271fe"
     },
     "CHECKPOINT.json": {
-      "bytes": 5218,
+      "bytes": 6152,
       "mode": 420,
-      "sha256": "303bfb2e756fd84ed0cfaf31088127242605b636f4930d9ec512027a11732844"
+      "sha256": "95a0ea74920e3d4a82ab448016d0ce927271ee56777438c44b357ab73ed5fc67"
     },
     "COLLECTOR_REPAIR.md": {
       "bytes": 9873,
@@ -54,9 +58,9 @@
       "sha256": "833414b924c701927554cf6bba1caeb1154f7281c12c62eeb8b25a729cce794d"
     },
     "OPENBOT_OS.md": {
-      "bytes": 7321,
+      "bytes": 8799,
       "mode": 420,
-      "sha256": "cf7889be80881bdcd02d3aac00caf4dfcbee32cd6c5cec0c8fc82aab4b85af29"
+      "sha256": "c0cd8e174c9c4967b888288ea3eebc523b66292308ca1e636a405bfc6339a370"
     },
     "OPENMUSE_ADOPTION.md": {
       "bytes": 6925,
@@ -64,19 +68,19 @@
       "sha256": "2603817874cec36ca385a70e610db574386b156e5c4d2dc7f34bd1ee6900bfaf"
     },
     "PROJECT_INVENTORY.md": {
-      "bytes": 6320,
+      "bytes": 6979,
       "mode": 420,
-      "sha256": "d6ca15230a5ffea4b358aa968cb565125e54d0fa604c55beb87e512e04268f62"
+      "sha256": "20e96db188976ba2f6a6b67c861ac1af44ef2c5bc9c49f883ef2077e79593c57"
     },
     "PUBLIC_RELEASE_ROADMAP.md": {
-      "bytes": 26761,
+      "bytes": 27425,
       "mode": 420,
-      "sha256": "ba0ff7da685c3f74b770bdd47ca7beb91cdb0c40f278803d80ce1bb7865f798d"
+      "sha256": "0e53d575b666c221784d0353ede9998da93c0faf2ee336f6cc2de4f5c2cad466"
     },
     "README.md": {
-      "bytes": 3861,
+      "bytes": 5007,
       "mode": 420,
-      "sha256": "b5886c6bca0bc02162d06d72f94cf3b7e91afdd758535bab5deda2d64cd8c5c6"
+      "sha256": "19c0228d63c37eea2eabdadc7b18d747827a93acd8b85de3f965de8856135c8a"
     },
     "REPAIR_REVIEW.md": {
       "bytes": 4130,
@@ -84,19 +88,19 @@
       "sha256": "1e42dbecf35990658e331cd4df0dcbc11db8a53f234308d552f407f113d16df8"
     },
     "START_HERE.md": {
-      "bytes": 8095,
+      "bytes": 9063,
       "mode": 420,
-      "sha256": "5c843cf4a3519499ad839608707f839e048f181601209cfc18381c6b3fd5ae8e"
+      "sha256": "7d9b2368845ac47a8bb7de5869f9f8a53b9b7cbb1e25f88c301fdba955bed0e8"
     },
     "TEAM_WORKFLOW.md": {
-      "bytes": 6502,
+      "bytes": 6590,
       "mode": 420,
-      "sha256": "1034f8413817abdac74c2e122599736faff321ef5ac7180a6613ecbf37637046"
+      "sha256": "068505c9b9ab67e146e7a4c39c31db3d726db11550322123e5626cb045cb1757"
     },
     "THIRD_PARTY_NOTICES.md": {
-      "bytes": 4746,
+      "bytes": 5361,
       "mode": 420,
-      "sha256": "4b441b5df6db21d3282af4d1bdf00b9706ff61b4ba4f1c8b4d40f965d18a829d"
+      "sha256": "ca4660ac7a3d5b6cf67a031a975c28be7775b14f5d366e3756a4324008ba9727"
     },
     "VERIFICATION.md": {
       "bytes": 16390,
@@ -109,9 +113,9 @@
       "sha256": "c53225afc5d646188f400b1f4a005051066aaea21f1ff5862f64e8f81c4bd47b"
     },
     "YOUR_NEXT_STEPS.md": {
-      "bytes": 6404,
+      "bytes": 5151,
       "mode": 420,
-      "sha256": "74862a43d9b6f8e0c8a299b7d76cd36a0e4bf595417b5a73ff14099ecf6a0cf4"
+      "sha256": "1662a95f463aacdb444f5b2d7ae076637bafd3460ebe28d9c2de655bd0080faf"
     },
     "control/LICENSE": {
       "bytes": 1314,
@@ -209,9 +213,9 @@
       "sha256": "c410207533c9e0d23f52fe1da1c22000b093f659d9d469c463efeed89fbea22a"
     },
     "control/native/ios/OpenBotControl/index.html": {
-      "bytes": 127581,
+      "bytes": 127590,
       "mode": 420,
-      "sha256": "778ee52cbc2b80d0aeef62e8319fa1ca9f9a93b00e03e48b8b44caa0091290ac"
+      "sha256": "cd5345c5ffcd47e015968249bd047c794cc0e8918aea7ef21cbed790fa67198b"
     },
     "control/native/ios/README-iOS.md": {
       "bytes": 1528,
@@ -334,29 +338,54 @@
       "sha256": "e3f444010c7a58c48cea3101476df5d60f042492d6e9c3d5c2c9ea69193d88c3"
     },
     "control/web/index.html": {
-      "bytes": 127581,
+      "bytes": 127590,
       "mode": 420,
-      "sha256": "778ee52cbc2b80d0aeef62e8319fa1ca9f9a93b00e03e48b8b44caa0091290ac"
+      "sha256": "cd5345c5ffcd47e015968249bd047c794cc0e8918aea7ef21cbed790fa67198b"
     },
     "docs/openbot-os/ARCHITECTURE.md": {
-      "bytes": 7642,
+      "bytes": 7947,
       "mode": 420,
-      "sha256": "86b3c0db94369ee7b98513326dbdbf3c2b6e1f2a44455f59933cfdc26201f038"
+      "sha256": "bc0acb113400641573e071ad9310e17812132af3fe8e857f5665cc6ff2a0ee4d"
+    },
+    "docs/openbot-os/AUTHENTICATED_HISTORY.md": {
+      "bytes": 9628,
+      "mode": 420,
+      "sha256": "8b8e02a2f9bd9d63f12389c43dbc031f4e1a7495816dfec524dafdb65b6bf517"
     },
     "docs/openbot-os/CONVERSATION_JOURNAL.md": {
-      "bytes": 5883,
+      "bytes": 6266,
       "mode": 420,
-      "sha256": "690eecda35dfcdd89091243d2a0bfcf0f030cdd99b0a41129d92b907f73778a0"
+      "sha256": "c67d2ff8c6464f4019036e70e92bda6b84980724dade61d36bd712e220af452f"
+    },
+    "docs/openbot-os/FEATURE_REUSE.md": {
+      "bytes": 14118,
+      "mode": 420,
+      "sha256": "20a644501d19a239d008a26b4d44455c82208f2aca31fde88c2bd0efc56d5c71"
+    },
+    "docs/openbot-os/FEATURE_REUSE_LEDGER.json": {
+      "bytes": 21185,
+      "mode": 420,
+      "sha256": "7aef8a1d8fad318f6714904c493b85381dd9445d7e1bfba6bca8a40a929bbf9d"
     },
     "docs/openbot-os/NATIVE_BUILD_STATUS.md": {
-      "bytes": 2594,
+      "bytes": 2848,
       "mode": 420,
-      "sha256": "459e559815581286eaf04f3c88fd77abbeed83b91b2c95710076ba719ba394df"
+      "sha256": "b3a658d8011b8fac2ab515c5fc84cc683ae3b1fdbe98f37e402f2f9b63596513"
+    },
+    "docs/openbot-os/REAL_WORLD_PILOT_STATUS.json": {
+      "bytes": 1334,
+      "mode": 420,
+      "sha256": "0baa3240cea9f3d9137b46d50f10ed0a0c5c65dd13652f7e04e0b973760e048f"
+    },
+    "docs/openbot-os/REAL_WORLD_ROLLOUT.md": {
+      "bytes": 9163,
+      "mode": 420,
+      "sha256": "55ed52b9b344e24e2e703a278eb33266c7446aa73cb18c6acb82a9cc99e38a44"
     },
     "docs/openbot-os/UPSTREAM_REVIEW.md": {
-      "bytes": 16757,
+      "bytes": 17365,
       "mode": 420,
-      "sha256": "24a462e03a40e32470ec2fb1428e51e2f4cba250700bc7f6803c8f43c25fccf9"
+      "sha256": "be57a1a9156939268f633e470023f6c67cbcef25429939a404cfad054e2d4db4"
     },
     "docs/openbot-os/WINDOWS_DEBUG_TEXT.md": {
       "bytes": 8523,
@@ -364,9 +393,9 @@
       "sha256": "67fc9b2bfd042f3b008aa94b86539f12ed3ad175122cb754dff20e5e7301887d"
     },
     "docs/openbot-os/WORK_ORDERS.md": {
-      "bytes": 8467,
+      "bytes": 11240,
       "mode": 420,
-      "sha256": "09b7f32e6bea7a9e3d8adc232e1c7de3bb80becbf8480e79f2cc5298d173077f"
+      "sha256": "e8a9d7250d6ecdb7a327cb337b2cd511f84356b245b0b853825e3b5d5665e20f"
     },
     "evidence/browser-chromium.json": {
       "bytes": 5748,
@@ -479,9 +508,9 @@
       "sha256": "fa40b2606d85e603b5e7cd4014ee5dea93c0f5920a8df5092d5a663a31a935df"
     },
     "evidence/openbot-os-foundation/UPSTREAM_SOURCES.json": {
-      "bytes": 66894,
+      "bytes": 67199,
       "mode": 420,
-      "sha256": "bd3af9bbb2809718051894f3c5e5fc8b72552e32fa58e3080e4e6d08e2008d60"
+      "sha256": "e937178d08d4dfd6347f5feb1d4e635b117b1f9b69ed771316a97069dba9a9d2"
     },
     "evidence/openbot-os-foundation/VERIFICATION.md": {
       "bytes": 8659,
@@ -532,6 +561,116 @@
       "bytes": 11819,
       "mode": 420,
       "sha256": "ce3b865dafa6463cbb6c438a93988f210b3490afdb4a372023745eb3745b1377"
+    },
+    "evidence/openbot-os-history/BROWSER_SMOKE.json": {
+      "bytes": 5265,
+      "mode": 420,
+      "sha256": "18f0c6eecf8d7d244b83afb196c014e48a6ca9266e727f91a4185dd4aa74796e"
+    },
+    "evidence/openbot-os-history/DISPOSABLE_TEST_STATE.json": {
+      "bytes": 201,
+      "mode": 420,
+      "sha256": "ffa14743e09a95fcc7c9436af7efc7e055f35cb566b56983020132a7c1626b12"
+    },
+    "evidence/openbot-os-history/ISOLATION_TEST_TOOL.json": {
+      "bytes": 367,
+      "mode": 420,
+      "sha256": "cb60db2a5107030ae8342ca210cb4a399e84a6cfd0394069772fb61e99ccc306"
+    },
+    "evidence/openbot-os-history/JUNIT_COUNT_NOTE.json": {
+      "bytes": 675,
+      "mode": 420,
+      "sha256": "df1ea55480f91395eceb95f92003535601a54a06cf5eab01d8be28119697f743"
+    },
+    "evidence/openbot-os-history/NATIVE_IDENTITIES.json": {
+      "bytes": 744,
+      "mode": 420,
+      "sha256": "6fde15d87a9ed0f4d8f64cc0f82e8b5c750a40c78d6c1fa7ba16f7051278dfe6"
+    },
+    "evidence/openbot-os-history/NIGHTLY_LEGACY_LICENSE.json": {
+      "bytes": 844,
+      "mode": 420,
+      "sha256": "58b9762bd68b39acc6753406bf2190286dd4deffa78f5e29a3ecb28cefd80f13"
+    },
+    "evidence/openbot-os-history/TESTED_SOURCE_IDENTITIES.json": {
+      "bytes": 18601,
+      "mode": 420,
+      "sha256": "5232b07aba7e642d1ce4ea41e1252b1d6b38afaf585b74f0800bbc4baf3223e1"
+    },
+    "evidence/openbot-os-history/TOOLING.json": {
+      "bytes": 2852,
+      "mode": 420,
+      "sha256": "d98da24423af7bce9094e2dfb8cbb43b9342ddfd643464e1be5777949f643c82"
+    },
+    "evidence/openbot-os-history/VERIFICATION.md": {
+      "bytes": 8313,
+      "mode": 420,
+      "sha256": "6206ce8d85f29458331cbc39966e073d49b35d7b022fc17e06ee693acb4daf55"
+    },
+    "evidence/openbot-os-history/desktop.png": {
+      "bytes": 172479,
+      "mode": 420,
+      "sha256": "102b9bd286a5c8690f36bbf63c4a0bb6a4721121717df9a7f56c03b4c3e02fb2"
+    },
+    "evidence/openbot-os-history/full-kernel-media-setup-failed.log": {
+      "bytes": 1835,
+      "mode": 420,
+      "sha256": "64a65adb6ce569663f53e1d28626da54ad106a6693ead92376a1e758152f9e9a"
+    },
+    "evidence/openbot-os-history/gateway-tests.log": {
+      "bytes": 3072,
+      "mode": 420,
+      "sha256": "a91f8c7c16d29b6e67ee290a73e0479e5cfb53e3ff5ba01778c564beeb7786de"
+    },
+    "evidence/openbot-os-history/gateway-tests.xml": {
+      "bytes": 114115,
+      "mode": 420,
+      "sha256": "55e96c0e86315dff7ee66923728cc16dba27a7288040390c83e42c1a43af3875"
+    },
+    "evidence/openbot-os-history/history-first-attempt.log": {
+      "bytes": 2906,
+      "mode": 420,
+      "sha256": "be9c546755066814edbe5c7ff6c1851ad13755bf70969317eea75a640c232a28"
+    },
+    "evidence/openbot-os-history/history-tests.log": {
+      "bytes": 1065,
+      "mode": 420,
+      "sha256": "e21b8ed1445c9a5a36345716686baea7fc23ea3d87011fd22a0c607290503eec"
+    },
+    "evidence/openbot-os-history/maintenance-tests.log": {
+      "bytes": 1797,
+      "mode": 420,
+      "sha256": "472e1f2597f07477bb188dc1f8aee4b3203d4a62f4eb290c0ffe1fc236f42bf9"
+    },
+    "evidence/openbot-os-history/mobile.png": {
+      "bytes": 59090,
+      "mode": 420,
+      "sha256": "7fbba10b90ae347a75e3557cf1997f96582c745dccbbfda8e504fb54b993759b"
+    },
+    "evidence/openbot-os-history/node-tests.log": {
+      "bytes": 12180,
+      "mode": 420,
+      "sha256": "5905e7d761b90d947c372ee8ac573f9ccf3c789c92e79f998fd73a7ded7f4f6e"
+    },
+    "evidence/openbot-os-history/recovery-history-check.json": {
+      "bytes": 221,
+      "mode": 420,
+      "sha256": "03b25d58ec3bc5523d391b4eefb1c96b3b2079d0488046671f544ced6f6278b2"
+    },
+    "evidence/openbot-os-history/ruff-tests.log": {
+      "bytes": 45,
+      "mode": 420,
+      "sha256": "cd7f41cf1ad5ba8b6263217889865f18d2b85df5ad631a05d6d321f51fd1b7b2"
+    },
+    "evidence/openbot-os-history/studio-tests.log": {
+      "bytes": 8603,
+      "mode": 420,
+      "sha256": "7959db0fef2a405fd611602bcab10072e7405f19ce7a9e8bb2ed0bdcba187e40"
+    },
+    "evidence/openbot-os-history/tools-tests.log": {
+      "bytes": 11819,
+      "mode": 420,
+      "sha256": "cd2bfa08e0af9b8db6a5d5e975e37b24e6603f6223b6ce2a23aee96f9bf6fed8"
     },
     "evidence/openmuse/INDEX.md": {
       "bytes": 2505,
@@ -1634,9 +1773,9 @@
       "sha256": "53eeaea67fde6c8dc18d5b925c87b72eb706e40b00e2d63f7db4c0e94032cc45"
     },
     "studio/scripts/smoke-openbot-os.py": {
-      "bytes": 10723,
+      "bytes": 11099,
       "mode": 420,
-      "sha256": "972a5af86ff0c6b137afef6034069d3fc91b81c4f351f7a476a2aaa350c3f9a0"
+      "sha256": "d10ec42936a7dcf1c854fc996262b56bf5ee2039fb3d439ea31415eba8dff2dc"
     },
     "studio/scripts/test-finance-ui.cjs": {
       "bytes": 16719,
@@ -1724,9 +1863,9 @@
       "sha256": "2a6f48f8c2a9cb64f282091a99c5a3ff4cd9a3cb28aea63c45c9695a99a3403b"
     },
     "studio/web/app.js": {
-      "bytes": 56807,
+      "bytes": 56816,
       "mode": 420,
-      "sha256": "09ce31638063ee8d868ffd13466399b6b17df1c7bd99ee9e117fc653bfe8feb0"
+      "sha256": "37300a2c28f0e8654eea620594bc2f52d24a04c06a169568cb89a72fc60fcf1e"
     },
     "studio/web/finance-preview.js": {
       "bytes": 9852,
@@ -1744,9 +1883,9 @@
       "sha256": "1619ff652f5eb870afb62e084a5bc5eda9118ab28a4c834b39afa09e2490bcf0"
     },
     "studio/web/index.html": {
-      "bytes": 127581,
+      "bytes": 127590,
       "mode": 420,
-      "sha256": "778ee52cbc2b80d0aeef62e8319fa1ca9f9a93b00e03e48b8b44caa0091290ac"
+      "sha256": "cd5345c5ffcd47e015968249bd047c794cc0e8918aea7ef21cbed790fa67198b"
     },
     "studio/web/styles.css": {
       "bytes": 28729,
@@ -21563,6 +21702,11 @@
       "mode": 420,
       "sha256": "0baa7dd48e8a2672ee9f96c7f611889bf0aa2f53dfe71a1f35020dd6ee786336"
     },
+    "work/requirements.agui-test.lock.txt": {
+      "bytes": 750,
+      "mode": 420,
+      "sha256": "6b2d3df5e5a3e2692ecc96fbec47b069e147ab43c9f14eebb72cd4edba70489b"
+    },
     "work/requirements.control.lock.txt": {
       "bytes": 363,
       "mode": 420,
@@ -21874,9 +22018,14 @@
       "sha256": "e39e574cfa767732f1dd153f8666333dc0be7c2d2faa2fed31ab28c15636d179"
     },
     "work/services/gateway/src/control_api.py": {
-      "bytes": 31149,
+      "bytes": 34973,
       "mode": 420,
-      "sha256": "cd36c667becb2bcb0d83354ec053c546aab71b5c26d090866d769d646eb13c68"
+      "sha256": "bbc096aebd652db4dcd0dfd3a9d950621179ae3ef8ec2345111ca03e1ceab5ac"
+    },
+    "work/services/gateway/src/conversation_api.py": {
+      "bytes": 8263,
+      "mode": 420,
+      "sha256": "4361d2ac9ead461c1b78159cbd1fe7330a5bde6f8ec7eddbda04cfbd4cf5cc7d"
     },
     "work/services/gateway/src/evaluation_controls.py": {
       "bytes": 21840,
@@ -21959,9 +22108,9 @@
       "sha256": "5f6799a72cb4c7b4cf1440f122a48dd7dfdf6e9df5136135e0dfb0d740a67c87"
     },
     "work/services/gateway/src/work_service.py": {
-      "bytes": 27344,
+      "bytes": 27469,
       "mode": 420,
-      "sha256": "ef97a6e063c06e1333104c6b6449991936bf941c61212da349b94e63b7620cca"
+      "sha256": "cd2eed3de918e547f44ee6f9fc0101719644c649acfc95bee806ca9e4e07426e"
     },
     "work/services/gateway/src/workbench.py": {
       "bytes": 18835,
@@ -21982,6 +22131,11 @@
       "bytes": 19298,
       "mode": 420,
       "sha256": "9c9f9379ef9deb4c046b9de3468ed9444aac1160d9eed15d1d1200b5cc789bb0"
+    },
+    "work/services/gateway/tests/test_conversation_api.py": {
+      "bytes": 25519,
+      "mode": 420,
+      "sha256": "a94f50fbbc2ceab6db2ac8b8230e488daca98dab0ca90e438b05ccaf5fdd0d6d"
     },
     "work/services/gateway/tests/test_evaluation_controls.py": {
       "bytes": 13899,
@@ -22388,6 +22542,26 @@
       "mode": 420,
       "sha256": "e75cbc76a759ae9eebf2e866e27308db184cd3f215d3f2d12e67e9ec0a7318e5"
     },
+    "work/third_party/ag-ui-contract/LICENSE": {
+      "bytes": 1056,
+      "mode": 420,
+      "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241"
+    },
+    "work/third_party/ag-ui-contract/PROVENANCE.json": {
+      "bytes": 854,
+      "mode": 420,
+      "sha256": "c5856503171f5ede19c5e26b800f88e4b6190f875f4fdb05a0dad70690f4fa99"
+    },
+    "work/third_party/ag-ui-contract/README.md": {
+      "bytes": 1215,
+      "mode": 420,
+      "sha256": "24f62f7e94ef9b34d5d05968782f87e49f6e27f23bc97c40df2f99854b7ebcf2"
+    },
+    "work/third_party/ag-ui-contract/schema-1.0.json": {
+      "bytes": 94359,
+      "mode": 420,
+      "sha256": "4b5c93226838a0e72d88e6c5df20633c686c49fcb75d9be2815c6cbf9e48e71a"
+    },
     "work/third_party/bot-hq/LICENSE": {
       "bytes": 1071,
       "mode": 420,
@@ -22580,7 +22754,7 @@
     }
   },
   "files_metadata_hash_encoding": "UTF-8 json.dumps(files, sort_keys=True, separators=(',', ':'), ensure_ascii=True), no trailing newline.",
-  "files_metadata_sha256": "f6f8f035b93b787069daa41a0b26695365497232ae87b1d73c73daedcf7022f8",
+  "files_metadata_sha256": "6f3f4bd6dd8df28d8162be9d0618e6bd3c8d587d125c8d0171ead751583ce7b1",
   "foundation_guide": "OPENBOT_OS.md",
   "git_identity_verifier": "tools/verify-git-source.py",
   "github_write_status": "Arena authenticated push unavailable. Ordinary local commit supplied for Antigravity to publish; no remote write claimed.",
@@ -22607,26 +22781,32 @@
   },
   "optional_upstream_files_retained": 3475,
   "originals_deleted_or_repacked": false,
-  "parent_git_commit": "9f5600d1fd285e79922fbf69a2abce5243cb9291",
-  "parent_manifest_sha256": "e74f7453c0d00c5df0c6a4d6ec7f8751c0deeaa0132381b07e82f3c03bca5276",
+  "parent_git_commit": "cf2acb10530ab3c33c567bb9831c5d6dbe515349",
+  "parent_manifest_sha256": "f0c6417fd8fd9ea43c1fd0a4da519b5dd79e8dfb3e3de2e50e093daa791a5187",
   "parent_source_identity": "Full pinned Git clone, not a new received ZIP.",
   "prior_delivered_archive_sha256": "c96dbbe947d96fe987658f125cc01a45fcf682b9721dc0d75d52ffd129436e87",
   "private_or_generated_state_excluded": true,
   "product_name": "OpenBot OS",
+  "real_world_rollout_plan": "docs/openbot-os/REAL_WORLD_ROLLOUT.md",
   "release_status": {
     "accepted_real_observed_pilot_days": 0,
     "android": "Historical demo-v3 test APK with prior embedded UI; not rebuilt or device-accepted",
     "direct_antigravity_message_sent": false,
+    "history_api_enabled_by_default": false,
+    "history_ui_or_agent_connected": false,
     "ios": "source only; no Mac/Xcode/app/IPA",
     "loader_snaps_permission": "not approved",
     "native_devices_independently_accepted": false,
     "native_packages_match_current_ui": false,
+    "phase_1_accepted_genuine_days": 0,
+    "phase_2_accepted_genuine_days": 0,
     "public_release": false,
     "real_per_bot_pcs": 0,
     "real_provider_connections": 0,
     "registry_changed": false,
+    "requested_real_world_sequence": "First real month with >=30 consecutive genuinely observed days; independent review/owner expansion approval; six additional calendar months",
     "studio_kernel_connected": true,
-    "studio_kernel_connection_scope": "Earlier disposable local HTTPS fixed-owned QA fixtures only; not newly paired/accepted for this changed client hash, and not staging/production or arbitrary AI/PC/social",
+    "studio_kernel_connection_scope": "Prior renderer-owned-QA integration remains historical. Current new client hash pinned in backend signed HTTP/TLS history tests only; no fresh browser/native/staging/provider/VM/social acceptance.",
     "windows": "Historical unchanged unsigned PE and supplied 0xc000007b trace; exact root cause/stage unproved; prior embedded UI, not rebuilt or accepted"
   },
   "root_first_party_license": "MIT",

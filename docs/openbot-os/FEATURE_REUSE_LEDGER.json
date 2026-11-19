@@ -1,0 +1,491 @@
+{
+  "accepted_genuine_pilot_days": 0,
+  "features": [
+    {
+      "acceptance_or_remaining": "Actual authenticated persistent roster/editor, bounded config/permissions and UI-to-server tests.",
+      "actual_scope": "Original light local blueprints; not live agents.",
+      "capability": "Companion roster and editable roles",
+      "id": "F01",
+      "sources": [
+        "copilotkit-openbot",
+        "nightly-current"
+      ],
+      "status": "existing-local-ui"
+    },
+    {
+      "acceptance_or_remaining": "Remaining UI/reconnect/export/deletion and live adapter contracts; no simulated assistant.",
+      "actual_scope": "Real signed-device API + SQLite, not connected to Studio chat or a provider.",
+      "capability": "Durable scoped conversation history",
+      "id": "F02",
+      "sources": [
+        "existing-openbot-os",
+        "copilotkit-openbot"
+      ],
+      "status": "implemented-tested-api"
+    },
+    {
+      "acceptance_or_remaining": "Pinned full lifecycle/run/message/tool/cancel/resume adapter and interop corpus before claiming protocol support.",
+      "actual_scope": "Exact MIT schema validates our CUSTOM envelope offline.",
+      "capability": "AG-UI event compatibility",
+      "id": "F03",
+      "sources": [
+        "agui"
+      ],
+      "status": "adopted-test-contract"
+    },
+    {
+      "acceptance_or_remaining": "Choose compatible versions and authoritative-state ownership; legacy unowned-thread migration reviewed/tested.",
+      "actual_scope": "OSS runtime/local runners exist; do not reinvent them or require Intelligence.",
+      "capability": "CopilotKit TypeScript SDK/runtime/local SQLite runner",
+      "id": "F04",
+      "sources": [
+        "copilotkit-sdk"
+      ],
+      "status": "reviewed-not-integrated"
+    },
+    {
+      "acceptance_or_remaining": "One authorized capped provider first; real usage/stream/cancel/reconcile evidence, then reviewed adapters.",
+      "actual_scope": "No paid/local model or external agent session accepted.",
+      "capability": "Live multi-provider agent sessions",
+      "id": "F05",
+      "sources": [
+        "copilotkit-openbot",
+        "nightly-current"
+      ],
+      "status": "not-connected"
+    },
+    {
+      "acceptance_or_remaining": "Eligible explicit endpoint, SSRF/egress/model/version controls and actual owner-approved run.",
+      "actual_scope": "No local model discovery/connection in current runtime.",
+      "capability": "Local OpenAI-compatible model endpoints",
+      "id": "F06",
+      "sources": [
+        "nightly-current"
+      ],
+      "status": "planned"
+    },
+    {
+      "acceptance_or_remaining": "Reuse these, not a second authority; real provider crash/restart/uncertain-effect queue tests.",
+      "actual_scope": "Existing work occurrence/fence/reservation/serial queue components; no general live conversation queue.",
+      "capability": "Durable queue, pause/resume and retries",
+      "id": "F07",
+      "sources": [
+        "nightly-current",
+        "existing-openbot-os"
+      ],
+      "status": "existing-bounded-kernel"
+    },
+    {
+      "acceptance_or_remaining": "Actual remote stop/reap and cost reconciliation, no blind external retries.",
+      "actual_scope": "Owned-QA slice only; stopped UI is not proof of remote cancellation.",
+      "capability": "Stop/cancel and uncertain external effects",
+      "id": "F08",
+      "sources": [
+        "copilotkit-openbot",
+        "nightly-current"
+      ],
+      "status": "existing-bounded-kernel"
+    },
+    {
+      "acceptance_or_remaining": "Bounded context, durable checkpoints, pinned summarization/provenance, consent and real cost/quality checks.",
+      "actual_scope": "No accepted live provider thread/compaction.",
+      "capability": "Context monitoring and compaction",
+      "id": "F09",
+      "sources": [
+        "nightly-current"
+      ],
+      "status": "planned"
+    },
+    {
+      "acceptance_or_remaining": "Single owner/fence per task, scoped recipients, bounded fanout, loop/cost caps, durable transfer/recovery.",
+      "actual_scope": "No genuine inter-agent delegation/chat execution.",
+      "capability": "Agent-to-agent messages and shared channels",
+      "id": "F10",
+      "sources": [
+        "nightly-current"
+      ],
+      "status": "planned"
+    },
+    {
+      "acceptance_or_remaining": "Size/type/path/symlink/archive-bomb/markup bounds, scoped recipients, immutable hashes and actual data lifecycle.",
+      "actual_scope": "No new general chat file import or arbitrary host path exposure.",
+      "capability": "Attachments and managed file transfers",
+      "id": "F11",
+      "sources": [
+        "nightly-current",
+        "copilotkit-openbot"
+      ],
+      "status": "planned"
+    },
+    {
+      "acceptance_or_remaining": "Isolated guest browser, egress and secret boundary, exact-effect approvals, human takeover, prompt-injection tests.",
+      "actual_scope": "No privileged browser session connected.",
+      "capability": "Controlled embedded browser",
+      "id": "F12",
+      "sources": [
+        "copilotkit-openbot",
+        "nightly-current"
+      ],
+      "status": "planned"
+    },
+    {
+      "acceptance_or_remaining": "Real VM/microVM IDs, resource/disk/egress/credential/cross-bot/stop/recovery and independently witnessed host tests.",
+      "actual_scope": "Folders/containers/screen placeholders are not real VMs.",
+      "capability": "Real per-bot virtual PCs",
+      "id": "F13",
+      "sources": [
+        "copilotkit-openbot",
+        "nightly-current"
+      ],
+      "status": "required-not-implemented"
+    },
+    {
+      "acceptance_or_remaining": "Reviewed install/license/auth/session in real guest, owner permission and actual returned artifact evidence.",
+      "actual_scope": "No direct authenticated IDE session or external agent team.",
+      "capability": "Claude Code / Antigravity / T3 Code integration",
+      "id": "F14",
+      "sources": [
+        "copilotkit-openbot",
+        "nightly-current"
+      ],
+      "status": "required-not-connected"
+    },
+    {
+      "acceptance_or_remaining": "Actual platform key storage/native trust/production host acceptance remain open.",
+      "actual_scope": "Existing P-256 request proofs now protect explicit history capabilities too.",
+      "capability": "Signed device authentication",
+      "id": "F15",
+      "sources": [
+        "existing-openbot-os"
+      ],
+      "status": "existing-tested-plus-extension"
+    },
+    {
+      "acceptance_or_remaining": "Authenticated memberships/roles/revocation, hostile tenant/load/abuse/privacy tests and deployment acceptance.",
+      "actual_scope": "Host-issued actor/venture scope is not a full identity provider/org tenancy system.",
+      "capability": "Organization and hosted multi-tenancy",
+      "id": "F16",
+      "sources": [
+        "copilotkit-openbot",
+        "nightly-current"
+      ],
+      "status": "not-implemented"
+    },
+    {
+      "acceptance_or_remaining": "Every actual new executor must prove non-bypass, stale-grant/approval/epoch/TOCTOU negatives and real caps.",
+      "actual_scope": "Owned-QA controls preserved; history adds content-free durable attempts before access.",
+      "capability": "Pre-effect policy, human approval, audit and budgets",
+      "id": "F17",
+      "sources": [
+        "copilotkit-openbot",
+        "existing-openbot-os"
+      ],
+      "status": "existing-bounded-kernel"
+    },
+    {
+      "acceptance_or_remaining": "One authoritative interrupt/decision, stored-vs-live merge and disconnect/replay tests on pinned framework.",
+      "actual_scope": "Earlier source patterns inspected; no full live approval reconnect adapter.",
+      "capability": "Server-owned interrupts and reconnect",
+      "id": "F18",
+      "sources": [
+        "copilotkit-openbot",
+        "copilotkit-sdk"
+      ],
+      "status": "reviewed-not-integrated"
+    },
+    {
+      "acceptance_or_remaining": "Sandbox/CSP/origin/egress/bridge review; server revalidation for every tool, no approval authority in a card.",
+      "actual_scope": "No model-generated code/HTML or frontend effect authority enabled.",
+      "capability": "Generative UI and frontend tools",
+      "id": "F19",
+      "sources": [
+        "copilotkit-sdk",
+        "copilotkit-site"
+      ],
+      "status": "reviewed-not-integrated"
+    },
+    {
+      "acceptance_or_remaining": "Versioned/validated patches with authority-owned state excluded, concurrency/scope/size adversarial tests.",
+      "actual_scope": "No general AG-UI state-patch runtime.",
+      "capability": "Shared state between app and agent",
+      "id": "F20",
+      "sources": [
+        "copilotkit-sdk",
+        "agui"
+      ],
+      "status": "planned"
+    },
+    {
+      "acceptance_or_remaining": "Consent/provenance/retention/export/delete, scoped retrieval, human-reviewed skill adoption and independent outcomes.",
+      "actual_scope": "History is not learning; enterprise services not silently imported or activated.",
+      "capability": "Long-term memory and learning",
+      "id": "F21",
+      "sources": [
+        "copilotkit-openbot",
+        "copilotkit-site"
+      ],
+      "status": "planned-not-intelligence-copy"
+    },
+    {
+      "acceptance_or_remaining": "Per-module license/pin/signature/capability review, sandboxing, revocation/update/rollback; opt-in only.",
+      "actual_scope": "No broad marketplace auto-install or arbitrary privileged plugin execution.",
+      "capability": "Skills/plugins/marketplace",
+      "id": "F22",
+      "sources": [
+        "nightly-current",
+        "copilotkit-openbot"
+      ],
+      "status": "reference-only"
+    },
+    {
+      "acceptance_or_remaining": "Timezone/occurrence/dedup/approval/cap/expiry and real provider execution with stop/read-back.",
+      "actual_scope": "Existing schedule/work metadata and governed local work; no autonomous external schedule active.",
+      "capability": "Routines/check-ins/schedules",
+      "id": "F23",
+      "sources": [
+        "copilotkit-openbot",
+        "nightly-current"
+      ],
+      "status": "existing-bounded-kernel"
+    },
+    {
+      "acceptance_or_remaining": "Qualified keyboard/zoom/screen-reader/device lifecycle acceptance; truthful state over cosmetic parity.",
+      "actual_scope": "Owner-approved light design/original artwork preserved; no upstream product screenshot or website reskin.",
+      "capability": "Desktop/mobile light interface",
+      "id": "F24",
+      "sources": [
+        "existing-openbot-os",
+        "copilotkit-openbot",
+        "nightly-current"
+      ],
+      "status": "existing-original-design"
+    },
+    {
+      "acceptance_or_remaining": "Root-cause proof, current rebuilt payload, real devices/Mac/signing/update/uninstall and manual interactions.",
+      "actual_scope": "Old EXE/APK unchanged, Windows startup blocked, iOS source only.",
+      "capability": "Windows / Android / iOS native products",
+      "id": "F25",
+      "sources": [
+        "copilotkit-openbot",
+        "nightly-current"
+      ],
+      "status": "required-blocked"
+    },
+    {
+      "acceptance_or_remaining": "Semantic strings, RTL, keyboard/focus, contrast/reflow, reduced motion and real screen-reader/native acceptance.",
+      "actual_scope": "Light theme and one measured text contrast fix; not all locales/full WCAG.",
+      "capability": "Internationalization/theme/accessibility",
+      "id": "F26",
+      "sources": [
+        "nightly-current",
+        "copilotkit-openbot"
+      ],
+      "status": "reference-partial"
+    },
+    {
+      "acceptance_or_remaining": "Source/freshness identity, human/bot wheel, stopped hidden polling and old-frame evidence never substituted by live view.",
+      "actual_scope": "No connected computer frames or real takeover.",
+      "capability": "Historical vs live computer frames and takeover",
+      "id": "F27",
+      "sources": [
+        "copilotkit-openbot"
+      ],
+      "status": "reviewed-not-integrated"
+    },
+    {
+      "acceptance_or_remaining": "Independent crypto/auth/consent/network/tenant/session audit; actual peer/guest revocation and native acceptance.",
+      "actual_scope": "No copied tunnel/account backend, shared credentials or public remote-control endpoint.",
+      "capability": "Remote desktop / WebRTC / team access",
+      "id": "F28",
+      "sources": [
+        "nightly-current"
+      ],
+      "status": "planned"
+    },
+    {
+      "acceptance_or_remaining": "Per-adapter source/license/provider scopes/consent/terms, brokered actions and real platform test.",
+      "actual_scope": "Website channel claims do not imply every adapter is OSS or connected here.",
+      "capability": "Slack / Teams / WhatsApp and other channels",
+      "id": "F29",
+      "sources": [
+        "copilotkit-site",
+        "copilotkit-openbot"
+      ],
+      "status": "optional-not-integrated"
+    },
+    {
+      "acceptance_or_remaining": "Current official policies/scopes, vault, exact action/data/rights consent, bounded private tests and read-back/stop.",
+      "actual_scope": "Draft/planning only; no OAuth, posting or real account operation.",
+      "capability": "Official X / Instagram / YouTube",
+      "id": "F30",
+      "sources": [
+        "existing-openbot-os"
+      ],
+      "status": "required-not-connected"
+    },
+    {
+      "acceptance_or_remaining": "Actual signed native updates/rollback/off-host restore, alerts and named on-call witnessed independently.",
+      "actual_scope": "Local verified-update/ops tests exist, not an accepted native/cloud rollout.",
+      "capability": "Signed updates, rollback and recovery",
+      "id": "F31",
+      "sources": [
+        "copilotkit-openbot",
+        "nightly-current",
+        "existing-openbot-os"
+      ],
+      "status": "existing-local-prototypes"
+    },
+    {
+      "acceptance_or_remaining": "Actual native probe, ACLs, separate sanitization/publication permission and backup-aware data controls.",
+      "actual_scope": "New Windows capture is opt-in/fake-tested; payloads can contain secrets, not auto-redacted.",
+      "capability": "Privacy-safe diagnostics and exports",
+      "id": "F32",
+      "sources": [
+        "nightly-current",
+        "existing-openbot-os"
+      ],
+      "status": "partial-tested"
+    },
+    {
+      "acceptance_or_remaining": "Vault/rotation/redaction, threat review, consent/export/delete/backup/provider retention and real incident drills.",
+      "actual_scope": "New human text rejects several known credential patterns; not full DLP/encryption/secure erase.",
+      "capability": "Credentials, DLP and retention",
+      "id": "F33",
+      "sources": [
+        "existing-openbot-os",
+        "copilotkit-openbot"
+      ],
+      "status": "partial-not-comprehensive"
+    },
+    {
+      "acceptance_or_remaining": "Consented measured outcomes, failures/denominators/uncertainty, actual usage/cost and opt-in telemetry only.",
+      "actual_scope": "No copied illustrative website metrics or invented users/revenue/quality improvements.",
+      "capability": "Usage/quality/learning analytics",
+      "id": "F34",
+      "sources": [
+        "copilotkit-site",
+        "nightly-current"
+      ],
+      "status": "planned-real-only"
+    },
+    {
+      "acceptance_or_remaining": "Read REAL_WORLD_ROLLOUT.md; independently witnessed evidence, proper versioned phase admission and owner gates.",
+      "actual_scope": "Owner requests >=30 consecutive real days then six additional calendar months; accepted 0.",
+      "capability": "Real-world phased pilot",
+      "id": "F35",
+      "sources": [
+        "existing-openbot-os"
+      ],
+      "status": "planned-not-started"
+    },
+    {
+      "acceptance_or_remaining": "Freeze deployable licensed baseline and >=20 held-out tasks; qualified independent measured safety/quality/cost comparison.",
+      "actual_scope": "No quality superiority from copying features or passing more unit tests.",
+      "capability": "Better-than-upstream comparison",
+      "id": "F36",
+      "sources": [
+        "existing-openbot-os",
+        "copilotkit-openbot",
+        "nightly-current"
+      ],
+      "status": "not-established"
+    },
+    {
+      "acceptance_or_remaining": "Real account/book operations remain separate permission/integration/reconciliation gates.",
+      "actual_scope": "MIT CSV parser/vectors actually adapted; read-only local preview, no bank authority.",
+      "capability": "OpenMuse finance workflow",
+      "id": "F37",
+      "sources": [
+        "existing-openbot-os"
+      ],
+      "status": "existing-attributed-adoption"
+    },
+    {
+      "acceptance_or_remaining": "Complete notices/SBOM/clean reproducible build/egress audit; proprietary integrations optional outside core startup.",
+      "actual_scope": "First-party MIT and exact MIT contract adoption, not transitive/binary/brand clearance.",
+      "capability": "Fully OSS credential-free core build",
+      "id": "F38",
+      "sources": [
+        "existing-openbot-os",
+        "copilotkit-sdk",
+        "agui"
+      ],
+      "status": "requirement-not-yet-proved"
+    },
+    {
+      "acceptance_or_remaining": "Only separately reviewed rights/compatible older code could change intake; no silent commercial-license purchase.",
+      "actual_scope": "No current nightly source/artwork copied; source-available is not permissive OSS.",
+      "capability": "Current Noncommercial source imports",
+      "id": "F39",
+      "sources": [
+        "nightly-current"
+      ],
+      "status": "excluded-license"
+    },
+    {
+      "acceptance_or_remaining": "Governed isolated per-effect authority remains mandatory, not waived for feature parity.",
+      "actual_scope": "Not adopted. Its README warns about broad local authority; copying that would contradict our governed-PC vision.",
+      "capability": "Unrestricted agent full-access / never-approve defaults",
+      "id": "F40",
+      "sources": [
+        "nightly-current"
+      ],
+      "status": "rejected-policy"
+    }
+  ],
+  "parent_commit": "cf2acb10530ab3c33c567bb9831c5d6dbe515349",
+  "public_release": false,
+  "schema": "openbot.feature-reuse-ledger/1",
+  "scope": "Bounded selected source/documentation review and explicit integration states, NOT every function/file audited or executed. No completeness/superiority percentage.",
+  "sources": {
+    "agui": {
+      "commit": "3416b86da4b3288e87f827c7f2759a7fa18b5231",
+      "decision": "Exact official spec/1.0/schema.json adopted for test-only CUSTOM-envelope validation; no full runner/transport claim",
+      "evidence": "work/third_party/ag-ui-contract/PROVENANCE.json",
+      "license": "MIT",
+      "repository": "ag-ui-protocol/ag-ui"
+    },
+    "copilotkit-openbot": {
+      "commit": "30a40979a93062b29f8592cef173601b354474b4",
+      "comparison_commit": "882c68e222bbb603c67855764facd4ebbb9778c8",
+      "decision": "Retain selected MIT reference; selective compatible reuse, no opaque mandatory backend/image or copied branding",
+      "evidence": "docs/openbot-os/UPSTREAM_REVIEW.md",
+      "license": "MIT public application/reference; matching observed backend-image source/terms unproved",
+      "repository": "CopilotKit/OpenBot"
+    },
+    "copilotkit-sdk": {
+      "commit": "567211b7edff7dde57cfc9b617655344004253c0",
+      "decision": "Evaluate compatible optional SDK runner/adapter; not installed or wired by this feature",
+      "evidence": "docs/openbot-os/UPSTREAM_REVIEW.md",
+      "license": "MIT selected TypeScript SDK/runtime/local runner; Intelligence separate",
+      "repository": "CopilotKit/CopilotKit"
+    },
+    "copilotkit-site": {
+      "decision": "Feature/architecture descriptions only; website/marketing images/brand are not an OSS code grant; enterprise learning/channels separately reviewable",
+      "evidence": "all four rendered page chunks read, raw page hash retained; conceptual charts are explicitly illustrative on the site",
+      "snapshot_sha256": "7258a0c941d608e4bdc804d5ffb96486f4f03abc4ef4c9fd805725b0c5d4253b",
+      "url": "https://www.copilotkit.ai/"
+    },
+    "existing-openbot-os": {
+      "commit": "cf2acb10530ab3c33c567bb9831c5d6dbe515349",
+      "decision": "Preserve existing code, governance, original light design and attributed references; application-owned authority/history",
+      "evidence": "OPENBOT_OS.md; first-party MIT plus THIRD_PARTY_NOTICES.md"
+    },
+    "nightly-current": {
+      "commit": "daab0074f48c6531a42791d7a18ffd4d7c54d184",
+      "decision": "No code/artwork imports into permissive core; public feature/security comparison only",
+      "evidence": "pinned README and LICENSE; original foundation UPSTREAM_SOURCES.json",
+      "license": "PolyForm-Noncommercial-1.0.0",
+      "repository": "nightly-labs/openbot"
+    },
+    "nightly-legacy": {
+      "commit": "e9cae2ac7c83936a6e7d22c820e9d7ec0726d880",
+      "decision": "Possible historical donor only after per-file/NOTICE/dependency/function/security audit; no code integrated",
+      "evidence": "evidence/openbot-os-history/NIGHTLY_LEGACY_LICENSE.json",
+      "license": "Apache-2.0 LICENSE verified at this exact commit",
+      "repository": "nightly-labs/openbot",
+      "tag": "v0.1.11"
+    }
+  },
+  "whole_project_completed": false
+}

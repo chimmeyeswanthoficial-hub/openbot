@@ -1,240 +1,150 @@
-# Antigravity — concrete next engineering handoff
+# Antigravity — current OpenBot OS handoff
 
-> **OpenBot OS foundation supersedes the old “publish the eight flag fixes” task.**
-> Start with `OPENBOT_OS.md` and `docs/openbot-os/WORK_ORDERS.md`. Base review is
-> `9f5600d1fd285e79922fbf69a2abce5243cb9291`; historical c3/649/9f work is already
-> incorporated. Do not re-import an old repair bundle or replace the laptop folder.
-> Counts/receipts and role assignments below describe earlier checkpoints unless
-> explicitly revalidated in `evidence/openbot-os-foundation/VERIFICATION.md`.
-> The new journal is standalone, registry unchanged, EXE/APK not rebuilt, release false.
+**Read this, not the historical “eight flag fixes” or repair-bundle instructions.**
+This increment is an ordinary successor of
+`cf2acb10530ab3c33c567bb9831c5d6dbe515349`. The full new SHA, bundle prerequisite and
+final source/transport guards live outside this commit in
+`deliverables/OPENBOT_OS_HISTORY_RECEIPT.json` in the complete private workspace.
+If you only have this repository, request that receipt and the current full SHA.
+The source of truth for implementation is `OPENBOT_OS.md`; work ownership/exit
+criteria are in `docs/openbot-os/WORK_ORDERS.md`.
 
+## What Arena actually completed
 
-## Latest priority — shared Git source, not another folder replacement
+- Opt-in **signed-device human history API** through the existing governed gateway,
+  with dedicated SQLite persistence, server-derived gateway/venture/actor scope,
+  explicit history capabilities, human-owner writes, content-free pre-access audit,
+  revocation fencing and stable-ID reconciliation after uncertain completion.
+- **58 new history cases**, included in **473 passed / 87 PostgreSQL skips** across
+  the selected gateway+journal suite. One real synthetic-CA TLS socket case; most
+  HTTP cases are ASGI. Not a whole-kernel, native or independent acceptance result.
+- Actual reuse of the exact pinned MIT **AG-UI 1.0 schema/license** for offline
+  CUSTOM-event tests. No full SDK/runner/live stream/provider integration claim.
+- All four requested source families covered in the **40-feature reuse ledger**.
+  Current reviewed Nightly code remains Noncommercial and excluded. Historical
+  v0.1.11 has a verified Apache-2.0 LICENSE but no cleared/imported modules.
+- Preserved the approved light UI, kernel, original history/recovery and old native
+  diagnostic bytes. Fresh public-planner Chromium smoke: **21 grouped checks**.
 
-Read `TEAM_WORKFLOW.md`, `PROJECT_INVENTORY.md` and `WINDOWS_LOADER_REVIEW.md`.
-This is `shared-repo-audit-1`, based on 5a98328. Main and repair already contain the
-whole verified baseline. Eight lost Git executable flags are fixed in an ordinary
-prepared commit; there were no missing source files. No automatic background sync
-or remote Arena write occurred: authenticated push is unavailable here.
+The history API is **off by default**, not connected to Studio chat and not a live
+agent. No model, VM, IDE, official social account, bank or real user was connected.
+First-party MIT does not clear every dependency/service/binary/brand.
 
-Import Arena's Git bundle using the supplied external transfer instructions, after
-preserving local changes. Require a fast-forward-only merge from the agreed base;
-if origin advanced, stop and return its SHA instead of resetting/forcing. Push on
-the repair branch, then review/PR normally into main. Do not copy patches by hand,
-replace folders, stage private state, install paid CI, or paste keys into chat.
+## 1. Safe intake/publication — first
 
-Run `python tools/verify-git-source.py --ref HEAD` in the clone. Tools cases now total
-25 (handoff10 + Git15); report actual Windows outcomes. Preserve 49-pass/1-skip Linux
-Studio versus reported 46-pass/4-skip Windows Studio distinction.
+1. Record the existing full HEAD, branch and `git status --short`; preserve local
+   changes, refs, original source, private state and backups. **No folder deletion,
+   reset/clean/forced update or file-by-file overlay.**
+2. Verify the supplied full commit, parent, bundle hash and changed paths against
+   the external receipt. Use the receiver instructions in `deliverables/README.md`.
+   The current transport can include both the foundation and this successor from
+   the reviewed `9f5600d…` ancestor; do not separately re-import c3/649 repairs.
+3. Only fast-forward when a clean receiving branch is an ancestor of the expected
+   head. If advanced/diverged, stop and return its full SHA; reconcile normally in
+   a review branch without discarding either writer's work. Do not blindly cherry-pick.
+4. Run the actual source/portable checks below on the actual platform. Publish only
+   through existing authorized Git credentials to a review branch/PR; return full
+   head/base SHA, PR URL, changed paths, clean status, raw logs/skips and blockers.
+   A prepared bundle or pushed review head is not a merged/public product release.
 
-Then focus on the Windows failure: local EXE/DLL hashes, actual error PNG and bounded
-Application/CodeIntegrity/loader evidence identifying the failing module. MinGW/TLS
-rejection and signing/MSVC requirements are not established causes. No antivirus or
-policy bypass, random DLL download or signing purchase. Actual light UI rendering
-and manual interactions remain required. Send new commit + sanitized evidence to
-the owner; Arena will fetch/review that commit in the next active session.
+Arena has no authenticated remote writer here. **Direct Antigravity connector
+lookup returned unsupported**; this file is a prepared relay, not proof of delivery,
+a running external team or progress after an active session ends. Do not put Git
+credentials in chat or claim legal/release authority delegated by this document.
 
+## 2. Parallel implementation streams
 
-**Delivery, not a sent IDE message.** Direct Antigravity integration is unsupported
-in this session; no IDE/session/account was connected and no collaborator received
-this file. The user should open this complete workspace in Antigravity and supply
-this document. Do not claim work happened after this active session ended.
+### Backend/frontend — W01/W03
 
-## Current repair successor — do this next, not another restoration
+Read `AUTHENTICATED_HISTORY.md` and inspect `conversation_api.py`, the locked
+history admission in `control_api.py`, and their tests. Extend the existing API,
+not an unauthenticated journal/demo endpoint or a second authority.
 
-Current checkpoint `light-repair-verified-1`: the 258 missing source files are
-restored. Arena independently reproduced your reported archive hash from pinned
-commit `f40421329adc87e49698a752103a78d8d3aea507`; no laptop ZIP was received.
-Read `REPAIR_REVIEW.md`. The aggregate digest is corrected and checked; archive
-manifest mode is canonical 0644; root report/ignore/attributes are now manifest-listed.
+1. Connect actual Studio history UI with scope/expiry/revoke handling, plain-text
+   rendering, bounded cache, pagination and loading/error/retry states. The old
+   renderer deliberately does **not** yet accept history-capability pairings; add
+   that support with explicit contract tests, not an allowlist bypass.
+2. Compare a compatible pinned MIT CopilotKit runtime/local runner and implement
+   one AG-UI adapter with one authoritative history/execution owner. Do not invent
+   a duplicate agent loop or treat arbitrary client events as assistant/tool authority.
+3. Prove run/message/tool correlation, disconnect/replay, cancellation, uncertain
+   completion, revocation, cross-scope denial and no duplicated effects. The old
+   owned-QA custom SSE fixture is not complete AG-UI 1.0.
+4. Tombstones/lifecycle/old-cursor semantics, export/delete/backup retention, genuine
+   organization tenancy and PG history remain separate reviewed changes. Deletion
+   today is logical, not secure erasure. Never reuse deleted thread IDs.
+5. A real provider requires an approved account/host, allowed data and explicit
+   hard exposure/cost cap plus mandatory broker controls. Do not fabricate a live
+   result, use production tokens as fixtures or silently enable billing.
 
-1. Preserve your current workspace, uncommitted changes and backup refs. Review this
-   complete successor on the existing repair branch; ordinary commit/PR only. No
-   reset/clean/folder deletion/force push. Never stage private state or SDK/signing caches.
-2. Verify the complete extraction. Strict now covers `.gitignore`, `.gitattributes`
-   and `result.md`. POSIX Git checkouts lose 0600 modes: restore reviewed manifest
-   modes in a clean test copy or extract the ZIP with a mode-preserving tool.
-3. Current Linux units: Studio **49 pass / 1 Windows-only skip of 50**, handoff **10**,
-   Studio Node **45**, retained Node **25**; native binary/static **27**. Recheck on
-   Windows and report real skips/raw output; never relabel simulated link checks actual.
-4. Your reported process launch is useful but not complete Task B. Collect actual
-   Windows rendered light-UI screenshots and manual list/chat/search/resize/keyboard/
-   DPI/offline/resume/close outcomes, OS/runtime and raw logs. Do not bypass device
-   policy. A responding process/error dialog alone does not prove intended rendering.
-5. Next Android device/emulator acceptance and real Mac/Xcode/iOS work require their
-   actual devices/tools. No IPA, signing or complete R01-R13 acceptance is implied.
+### Native/host — W02/W04
 
-The unchanged HTML/kernel retain the scoped earlier Linux receipts; do not demand
-another identical full Linux run instead of collecting missing Windows evidence.
-Source changes still require their relevant regressions and one full verified ZIP.
-No direct IDE message or GitHub write was sent by Arena.
+- Preserve existing EXE/DLL/APK hashes and original Windows evidence. Windows
+  `0xc000007b` root cause/startup is still unresolved. `LoadLibraryExW(EXE)` does
+  not test static imports. No guessed DLL/TLS/MSVC/signing replacement.
+- The debug-string probe is unbuilt/unrun source; schema-4 capture is fake-tested.
+  Read `WINDOWS_DEBUG_TEXT.md`. **IFEO/loader-snaps/registry and tool installation
+  are not approved**: the owner answered “I don't know.” Request specific bounded
+  consent before a host change; no security bypass/random DLL downloads.
+- Use an already approved actual Windows toolchain/device to obtain rejected-image/
+  path/status/stage and genuine ANSI/Unicode byte-count/cleanup evidence. Return
+  an honest blocker if that host/tool permission is absent.
+- Then rebuild current shared HTML/native packages as separately hashed artifacts;
+  verify actual light-UI launch/interactions, keyboard/DPI/accessibility/lifecycle.
+  Android and iOS need actual approved devices/Mac/Xcode/signing/update/rollback.
+  Old EXE/APK still embed the older UI and are not new OpenBot OS releases.
+- Preserve real per-bot VM/microVM, Claude Code/Antigravity/T3Code and official
+  X/Instagram/YouTube scope. Containers/folders/screenshots are not real PCs.
+  Only authorized accounts/hosts/installs/spend/actions; secrets stay out of source.
 
-## Read first / do not undo
+## 3. Genuine real-world sequence — W05
 
-1. `START_HERE.md`, `VERIFICATION.md`, `PUBLIC_RELEASE_ROADMAP.md`, `DESIGN_REFERENCE.md`.
-2. Work from **this one extracted ZIP**, in a new directory; do not apply older patches.
-3. Preserve the light reference-derived desktop/mobile design. Change UI source under
-   `studio/web/`, run `python3 studio/scripts/build-web.py`, then rebuild **both** local
-   native packages. Never hand-edit one generated HTML or ship a dark/old native fork.
-4. API v1 / wire client 0.2.0 is deliberately unchanged; native package 0.3.0-local is
-   independent. New client bytes require a newly reviewed gateway client-hash pin and
-   a NEW fixture/profile. Do not disable source/hash/origin/TLS checks to load an update.
-5. Do not remove `work/repos/OpenBot/` or historical/private source to solve storage.
-   The archive audit found unique recovery/history data; **nothing was deleted**.
-6. No account keys, provider/OAuth tokens, signing keys or production DSNs in chat,
-   source, renderer drafts, public evidence or bot-writable directories. No spending,
-   real external action, production deployment or release is authorized by this handoff.
+Read `REAL_WORLD_ROLLOUT.md` and `REAL_WORLD_PILOT_STATUS.json`.
 
-## Task A — reproduce current evidence before changing code
+**Engineering + independent readiness → authorized private real-world launch →
+first month with ≥30 consecutive genuinely observed days → independent review/
+owner expansion approval → six additional calendar months → final review.**
 
-From the extracted root:
+Both phases are **unstarted; accepted days 0**. Unit tests/demos/idle dates do not
+count. No launch date, real on-call, evaluator, users or unattended execution exists.
+Retain all R01–R13 and exact human public-release/signing/account/cost/consent gates.
 
-```sh
-# Git clone: verify the exact committed source; uncommitted edits are separate.
-python3 tools/verify-git-source.py --ref HEAD
-# Clean mode-preserving ZIP extraction instead: python3 tools/verify-source.py --strict
-python3 -m unittest discover -s studio/tests -p 'test*.py' -v
-python3 -m unittest discover -s tools/tests -p 'test*.py' -v
-node --test studio/tests/*.test.cjs
-node --test work/packages/bot-hq-queue/serial-queue.test.mjs work/tools/findrepo/test/*.test.mjs
-```
+Existing `evaluation_controls.Assessment` v1 has a single frozen candidate/policy
+and ≤180-day limit. Design/review a **versioned phase/build-transition, signed
+reapproval and evidence-continuity extension** before using it for this sequence.
+Do not silently raise limits, flip fixture mode, pool changed builds as one frozen
+cohort, treat 180 days as six calendar months or self-award observed days.
 
-Use a separately installed reviewed Playwright 1.56.1/browser environment. Start
-`python3 studio/src/studio.py serve --bind 127.0.0.1 --port 4183`, then in another shell:
+Freeze ≥20 independent held-out representative tasks, baselines, criteria, caps
+and stop rules outside bot-writable source. Upgrade one bounded area at a time,
+rerun affected checks, canary/rollback and retain actual incidents/cost/outcomes.
+Independent qualified reviewers and a real consenting on-call must accept their
+roles. Nothing here establishes “better than upstream” without that comparison.
 
-```sh
-PREVIEW_URL=http://127.0.0.1:4183 TEST_ENGINE=chromium EVIDENCE_DIR=.cache/check-ui-chromium node studio/scripts/test-ui.cjs
-PREVIEW_URL=http://127.0.0.1:4183 TEST_ENGINE=webkit EVIDENCE_DIR=.cache/check-ui-webkit node studio/scripts/test-ui.cjs
-PREVIEW_URL=http://127.0.0.1:4183 TEST_ENGINE=chromium EVIDENCE_DIR=.cache/check-finance-chromium node studio/scripts/test-finance-ui.cjs
-PREVIEW_URL=http://127.0.0.1:4183 TEST_ENGINE=webkit EVIDENCE_DIR=.cache/check-finance-webkit node studio/scripts/test-finance-ui.cjs
-CONTROL_UI_EVIDENCE=.cache/check-offline-NEW node control/scripts/test-ui.cjs
-```
-
-Expected current local cases: 50 Studio Python (Linux 49 pass / 1 Windows-only skip),
-10 handoff Python, 45 Studio Node,
-25 retained Node; 35 UI and 21 finance **per browser**, 78 offline viewer checks.
-Counts overlap and are not a product-completion score. Preserve initial red logs.
-Fix the actual defect/prerequisite; never remove a security assertion to make green.
-
-For kernel tests, copy the **whole workspace**, keeping `control/` next to `work/`,
-then follow `tools/KERNEL_TEST_PROFILE.md`. It needs NEW synthetic state and reviewed
-hash-locked Bubblewrap/media tools. Do not test an operating company directory.
-The configured namespace-opt-in/no-PostgreSQL run was **1251 pass / 173 skip / 0 fail**.
-Keep PG skips unless a separately owned disposable write profile is explicitly created.
-Do not use a production DSN. Do not invent placeholder tool binaries or empty agent
-folders. Read the exact lock/bootstrap code before any explicit install/download.
-
-### Real owned-QA integration on an approved disposable Linux x86_64 test host
-
-Use the reviewed kernel Python environment and existing Playwright install. Validate
-the pinned isolation binary with `python3 work/scripts/bootstrap-isolation.py` first.
-Missing tools must fail closed; an explicit reviewed restore is a separate step.
-Then use NEW cache/evidence directories:
+## Checks and return format
 
 ```sh
-python3 work/scripts/prove-control-browser.py --cache .cache/tls-fixtures --evidence .cache/check-gateway-chromium --client control/web/index.html --browser-test studio/scripts/test-gateway.cjs
-TEST_ENGINE=webkit python3 work/scripts/prove-control-browser.py --cache .cache/tls-fixtures --evidence .cache/check-gateway-webkit --client control/web/index.html --browser-test studio/scripts/test-gateway.cjs
+python tools/verify-git-source.py --ref HEAD
+python -m unittest discover -s tools/tests -p 'test*.py' -v
+python -m unittest discover -s studio/tests -p 'test*.py' -v
+node --test studio/tests/*.test.cjs work/packages/bot-hq-queue/serial-queue.test.mjs work/tools/findrepo/test/*.test.mjs
 ```
 
-Expected 44 checks per engine plus 5 TLS/lifecycle checks per fixture. The driver
-creates synthetic-only private profiles, starts a local HTTPS fixture and stops it
-in `finally`. Never distribute that private profile or its pairing/review codes.
-Chromium trusts only the disposable SPKI pin with `ignoreHTTPSErrors=false`.
-WebKit uses **test-only** `ignoreHTTPSErrors=true` for the self-signed localhost
-fixture; it proves application behavior, **not WebKit/native TLS trust**. Python
-still independently checks trusted CA, default-store refusal, wrong hostname and
-cleartext refusal. Production/native code must never inherit a certificate bypass.
+Fresh Arena Linux portable outcomes: **77 tools; 51 Studio +1 Windows-only skip;
+70 Node**. Actual Windows outcomes/skips must be returned, not copied. Scope all
+claims to the logs in `evidence/openbot-os-history/VERIFICATION.md`.
 
-Return: command/environment versions, exit codes, JUnit/JSON, initial failures and
-fixes, screenshots and artifact hashes. No fabricated device, human or provider proof.
+Kernel/history: NEW disposable **whole source layout**, `control/` beside `work/`,
+explicit synthetic state, reviewed handoff/control locks plus optional
+`work/requirements.agui-test.lock.txt`. Read `tools/KERNEL_TEST_PROFILE.md` and
+`AUTHENTICATED_HISTORY.md` first. No production DSN, private runtime restoration,
+automatic install, fake tool binary or weakened hash/TLS/source guard. The current
+Linux x86_64/Python 3.13 schema-tool wheel lock is not Windows portability proof.
+Full-kernel media setup failed on missing host libraries; preserve that failure,
+do not pretend the complete profile ran or install host packages speculatively.
 
-## Task B — highest next practical native work (R07/R08)
-
-These require real owner-provided machines/devices; stop and ask when absent.
-
-1. **Mac/Xcode:** rebuild shared HTML, run `bash control/scripts/build-ios.sh` on macOS.
-   Record `xcodebuild -version`, SDK, architecture and simulator output. Test list/chat,
-   safe areas, keyboard, VoiceOver/font scale, offline, background/resume and memory
-   eviction. Then use the owner's signing team for an explicitly authorized physical
-   iPhone/iPad build. No IPA/TestFlight/store claim before real export and validation.
-2. **Windows:** use the full `control/releases/windows-x64/` folder on an owned test
-   machine with current Evergreen WebView2 x64. Record OS/runtime, real launch,
-   missing-runtime/error behavior, DPI 100–250%, resize, keyboard/Narrator/high contrast,
-   suspend/network loss, fresh pairing/revocation and owner-selected-origin refusal.
-   Do not bypass corporate trust policy or call an unsigned EXE Authenticode signed.
-3. **Android:** use an approved test device/emulator, record OS/API and WebView. Test
-   list/chat/search/back, rotation/recreation, large fonts/TalkBack, keyboard, background,
-   process death, offline/reconnect, pairing expiry and revoke. Demo signing differs
-   from earlier packages; never silently uninstall existing data to update. Owner
-   release keystore, recovery, AAB/store work are separate authorized steps.
-4. Native file/download restrictions currently remain closed. If implementing them,
-   design an owner-reviewed document/export permission boundary, quotas/cancellation,
-   no arbitrary native bridge and negative tests. Until then retain the visible browser
-   fallback instructions; never toast that a blocked file was saved.
-5. Use actual managed/platform TLS trust on native devices. A fixture SPKI flag or
-   headless certificate bypass is not a device trust policy or acceptance result.
-
-Build after changes with separately reviewed/pinned SDKs and a NEW private cache:
-
-```sh
-python3 studio/scripts/build-web.py
-# Set ANDROID_HOME, WEBVIEW2_SDK and OPENBOT_BUILD_CACHE to your reviewed tools/cache.
-bash control/scripts/build-windows.sh
-bash control/scripts/build-android.sh
-# Mac only:
-bash control/scripts/build-ios.sh
-```
-
-`control/scripts/verify-local-packages.py` verifies binary/assets/static facts, not
-launches. Its `--ios-zip` is a temporary source-inspection archive from the actual
-`control/native/ios/` tree, not a built app. Keep SDK/demo-signing private caches out
-of the final workspace. Review dependency/license pins before changing them.
-
-## Task C — actual-host integration and real services (R03–R06)
-
-Proceed only after the owner names the host/account, permissible data, use case,
-install permission, hard cost/exposure cap and stop policy. The present UI is not a
-general model/chat, PC or social executor and must not become an arbitrary shell.
-
-1. R03: deploy exact reviewed client/API to one approved HTTPS staging origin; pin
-   reviewed bytes through the trusted setup flow. Recheck scopes, exact approvals,
-   replay, revocation, cross-venture, expiry, crash recovery and ambiguous outcomes.
-2. R04: with an independent qualified reviewer, enforce cgroups/CPU/RAM/PIDs/disk/
-   egress/secret/control-plane separation on the real host. Implement one eligible
-   provider adapter, streamed/tool-call correlation, durable reservation/idempotency,
-   cancellation/uncertain-state reconciliation and independently checked real usage.
-   No unattended paid retries; a timeout/spinner/reported cap is not a remote hard cap.
-3. R05: provision **real separate guest VMs** only under the approved host/budget.
-   Record guest/image/disk/network identity, isolation/resource tests, stop/expiry,
-   orphan billing, image updates and restore. Review and pin compatible licensed
-   Claude Code, Antigravity and T3 Code installs; authenticate only through approved
-   flows. A directory/container/requested IDE name is not the requested per-bot PC.
-4. R06: choose one official social platform/account/use case. Revalidate live official
-   policies/scopes/quotas and exact action/account/media/privacy/rights/disclosure
-   approval. Keep OAuth in a vault and implement token revoke, durable emergency stop,
-   ambiguous-effect read-back and no duplicates. No browser-cookie login, spam or evasion.
-   Keep X AI replies disabled without prior explicit written platform approval.
-   Any owner-approved YouTube upload must explicitly request **private** visibility;
-   an upload is still a real external effect, not a harmless preview.
-
-## Task D — external acceptance, not more self-awarded green checks (R09–R13)
-
-- R09: assign independent security/privacy/license reviewers; produce actual threat,
-  dependency/SBOM and linked-binary review, remediate/retest findings and arrange real
-  terms/privacy/support/security-reporting ownership. Do not call this self-review independent.
-- R10: named operator/on-call must witness real deploy/canary/rollback/off-host restore,
-  key recovery, vault/grants, failure alerts/monitor-of-monitor and emergency stop.
-- R11: independently pre-freeze ≥20 protected held-out tasks/criteria/stop thresholds
-  **outside bot-writable work**. Never expose the protected set here then call it held-out.
-- R12: real authorized 1–6-month private pilot, including ≥30 consecutive genuinely
-  observed days, with consent, incidents, caps and independent acceptance. Current
-  accepted days **0**. No clock jumps, calendar-only credit or synthetic day records.
-- R13: exact human-approved scope, reviewed terms/on-call, signed accepted artifacts,
-  supported platform matrix and observed bounded rollout/rollback. No auto-release.
-
-## Return one successor, not a patch chain
-
-Return one NEW complete workspace ZIP, manifest, exact package/file hashes, scoped
-receipts, unresolved R01–R13 rows and the user's next actions. Preserve unique
-history/private state. Verify a fresh extraction and byte-identical re-export before
-asking the user to replace their downloaded copy. Say precisely what was **not** run.
+One writer owns the final manifest refresh. Return one ordinary successor commit,
+source guard, actual test commands/environment/counts/skips/raw evidence hashes,
+changed paths, remaining blockers and permissions used. Whole-workspace delivery
+is private; a source-only export or commit bundle is not a private-state backup.
+No public release, native acceptance or real observed pilot is self-approved here.

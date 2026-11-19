@@ -20,6 +20,19 @@ from contextlib import contextmanager
 from pathlib import Path
 from urllib.parse import urlsplit
 
+from conversation_api import (
+    HISTORY_SCOPES,
+    ConversationAPI,
+    HistoryError,
+    history_route,
+    strict_json,
+)
+from conversation_api import (
+    PREFIX as HISTORY_PREFIX,
+)
+from conversation_api import (
+    required_scope as history_required_scope,
+)
 from cryptography.exceptions import InvalidSignature
 from cryptography.hazmat.primitives import hashes, serialization
 from cryptography.hazmat.primitives.asymmetric import ec
@@ -29,12 +42,12 @@ from fastapi.responses import HTMLResponse, JSONResponse
 from governed_skills import GovernanceError
 from starlette.concurrency import run_in_threadpool
 from trust_crypto import decode
-from work_service import AuthorityError, Intake
+from work_service import AuthorityError, Intake, token_hash
 from work_store import WorkError, WorkUnavailable
 
 API_VERSION = "1"
 CLIENT_VERSION = "0.2.0"
-SCOPES = {"read", "propose", "approve", "execute", "cancel", "revoke-self"}
+SCOPES = {"read", "propose", "approve", "execute", "cancel", "revoke-self"} | HISTORY_SCOPES
 HEX = r"[a-f0-9]{64}"
 ID = r"[A-Za-z0-9_-]{32}"
 TASK = r"w[a-f0-9]{32}"
@@ -91,7 +104,7 @@ def request_allowed(method, path):
             )
         )
     if method == "POST":
-        return bool(
+        return history_route(path) is not None or bool(
             re.fullmatch(
                 r"/api/v1/(tasks|session/revoke|tasks/" + TASK + r"/(?:approve|execute|cancel))",
                 path,
@@ -356,14 +369,14 @@ class ControlAuthority:
         self, *, actor, venture, role="viewer", scopes=("read", "revoke-self"), ttl=900
     ):
         if (
-            not isinstance(scopes, (list, tuple))
+            not isinstance(scopes, list | tuple)
             or not set(scopes) <= SCOPES
             or "read" not in scopes
             or len(set(scopes)) != len(scopes)
             or type(ttl) is not int
             or not 60 <= ttl <= 900
             or role not in {"owner", "viewer"}
-            or (role == "viewer" and set(scopes) - {"read", "revoke-self"})
+            or (role == "viewer" and set(scopes) - {"read", "revoke-self", "history-read"})
         ):
             raise ControlError("least_privilege_pairing_required", 422)
         token = self.issuer.issue_session(
@@ -435,9 +448,70 @@ class ControlAuthority:
 
 
 class ControlBridge:
-    def __init__(self, devices, work, catalog, *, book, book_scopes, authority=None):
+    def __init__(self, devices, work, catalog, *, book, book_scopes, authority=None, history=None):
+        if history is not None and type(history) is not ConversationAPI:
+            raise ControlError("explicit_history_component_required", 503)
         self.devices, self.work, self.catalog = devices, work, catalog
         self.book, self.book_scopes, self.authority = book, book_scopes, authority
+        self.history = history  # None by default: no store is opened/initialized.
+
+    def history_request(self, device, path, body):
+        if self.history is None:
+            raise ControlError("history_not_configured", 404)
+        if not self.work.enabled or self.work.work.pg:
+            # PG auth/history fencing is a separate, not-yet-accepted profile.
+            raise ControlError("enabled_sqlite_history_profile_required", 503)
+        required = history_required_scope(path)
+        attempt = "history-" + secrets.token_hex(16)
+        operation = history_route(path)[0]
+        with self.devices.tx() as devices_conn:
+            current = self.devices.device(devices_conn, device["id"])
+            if current["public_key"] != device["public_key"] or current["token"] != device["token"]:
+                raise ControlError()
+            try:
+                scopes = strict_json(current["scopes"])
+            except ValueError as exc:
+                raise ControlError() from exc
+            if type(scopes) is not list or required not in scopes:
+                raise ControlError()
+
+            def session_in(cur):
+                session = self.work._session(cur, token_hash(current["token"]))
+                if any(session[k] != current[k] for k in ("venture", "actor", "role")):
+                    raise ControlError()
+                if session["role"] not in {"owner", "viewer"} or (
+                    required != "history-read"
+                    and (session["role"] != "owner" or not session["actor"].startswith("human:"))
+                ):
+                    raise ControlError()
+                return session
+
+            def record(cur, session, kind):
+                self.work.work.event(
+                    cur,
+                    {
+                        "id": attempt,
+                        "venture": session["venture"],
+                        "initiator": session["initiator"],
+                    },
+                    kind,
+                    {"operation": operation, "conversation_content_recorded": False},
+                )
+
+            # Commit a content-free attempt BEFORE history access/mutation. A
+            # later journal/auth-DB failure may leave attempt without completion.
+            with self.work.work.tx() as cur:
+                session = session_in(cur)
+                record(cur, session, "conversation_history_attempt")
+            # Lock order is devices -> work/auth -> journal. SQLite transactions
+            # fence protocol-respecting device/session revocation and scope edits
+            # until history commit. Never call scope() here (it reacquires stores).
+            with self.work.work.tx() as cur:
+                self.devices.device(devices_conn, device["id"])
+                session = session_in(cur)
+                data = self.history.dispatch(self.devices.server_id, session, path, body)
+                record(cur, session, "conversation_history_complete")
+                return {**data, "audit_attempt": attempt}
 
     def scope(self, device, required):
         with self.devices.tx() as conn:
@@ -506,6 +580,8 @@ class ControlBridge:
         }
 
     def dispatch(self, device, method, path, body):
+        if method == "POST" and path.startswith(HISTORY_PREFIX + "/"):
+            return self.history_request(device, path, body)
         token = device["token"]
         if method == "GET":
             if body:
@@ -539,7 +615,7 @@ class ControlBridge:
                 return self.work.public(row)
         if method == "POST":
             try:
-                value = json.loads(body)
+                value = strict_json(body)
             except (ValueError, TypeError) as exc:
                 raise ControlError("valid_json_required", 422) from exc
             if path == "/api/v1/tasks":
@@ -671,6 +747,10 @@ def create_control_app(bridge, *, origin, client_file, client_sha256, enabled=Fa
     async def control_error(_request, exc):
         return JSONResponse({"detail": exc.code}, status_code=exc.status)
 
+    @app.exception_handler(HistoryError)
+    async def history_error(_request, exc):
+        return JSONResponse({"detail": exc.code}, status_code=exc.status)
+
     @app.exception_handler(AuthorityError)
     async def authority_error(_request, _exc):
         return JSONResponse({"detail": "authentication_or_scope_required"}, status_code=403)
@@ -716,7 +796,7 @@ def create_control_app(bridge, *, origin, client_file, client_sha256, enabled=Fa
     @app.post("/api/v1/pair")
     async def pair(request: Request):
         try:
-            body = json.loads(await request.body())
+            body = strict_json(await request.body())
         except ValueError as exc:
             raise ControlError("valid_json_required", 422) from exc
         return envelope(
@@ -726,7 +806,7 @@ def create_control_app(bridge, *, origin, client_file, client_sha256, enabled=Fa
     @app.post("/api/v1/challenge")
     async def challenge(request: Request):
         try:
-            body = json.loads(await request.body())
+            body = strict_json(await request.body())
         except ValueError as exc:
             raise ControlError("valid_json_required", 422) from exc
         return envelope(

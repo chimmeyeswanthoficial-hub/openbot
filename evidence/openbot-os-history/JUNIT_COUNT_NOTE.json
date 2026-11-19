@@ -1,0 +1,12 @@
+{
+  "gateway_actual_testcase_nodes": 560,
+  "gateway_console_collected": 560,
+  "gateway_console_passed": 473,
+  "gateway_console_skipped": 87,
+  "gateway_raw_xml_suite_tests_attribute": 599,
+  "isolated_journal_actual_testcase_nodes": 31,
+  "isolated_journal_console_collected": 31,
+  "isolated_journal_xml_suite_tests_attribute": 70,
+  "qualification": "The raw pytest 9.2.0 JUnit suite header also counts unittest subtest successes (39 here), while testcase nodes/console count collected test methods. Original XML is preserved, not edited. Report 473 passed +87 skipped of560, not 512 passes or599 collected tests.",
+  "schema": "openbot.junit-counter-qualification/1"
+}

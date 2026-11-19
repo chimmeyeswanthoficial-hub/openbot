@@ -175,6 +175,8 @@ class WorkService:
             Path(__file__).with_name("qa_fixture_worker.py"),
             Path(__file__).with_name("isolation.py"),
             Path(__file__).with_name("control_api.py"),
+            Path(__file__).with_name("conversation_api.py"),
+            root / "services/sentinel/conversation_journal.py",
             Path(__file__).with_name("governed_skills.py"),
             Path(__file__).with_name("trust_crypto.py"),
             Path(__file__).with_name("operational_controls.py"),

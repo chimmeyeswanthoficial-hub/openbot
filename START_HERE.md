@@ -1,6 +1,10 @@
 # Start here — OpenBot OS complete codebase
 
-**Latest foundation:** read [OPENBOT_OS.md](OPENBOT_OS.md),
+**Latest increment:** authenticated history/reuse/real-world plan — read
+[AUTHENTICATED_HISTORY.md](docs/openbot-os/AUTHENTICATED_HISTORY.md),
+[FEATURE_REUSE.md](docs/openbot-os/FEATURE_REUSE.md),
+[REAL_WORLD_ROLLOUT.md](docs/openbot-os/REAL_WORLD_ROLLOUT.md), then
+[OPENBOT_OS.md](OPENBOT_OS.md),
 [the upstream review](docs/openbot-os/UPSTREAM_REVIEW.md) and
 [active work orders](docs/openbot-os/WORK_ORDERS.md). The older repair reports and
 package receipts remain historical. Current source is based on reviewed
@@ -73,6 +77,16 @@ The kernel needs its reviewed dependencies and locked isolation prerequisites.
 Do not paste API keys, OAuth tokens, passwords, signing keys or production secrets
 into chat, browser drafts or fixture commands.
 
+## 3a. Optional authenticated history, not live chat
+
+The existing gateway can now receive an explicitly initialized `ConversationAPI`
+through trusted host setup. It is **off by default** and not exposed by the public
+planner or wired into Studio chat. Old generic grants gain no history authority.
+See [the contract](docs/openbot-os/AUTHENTICATED_HISTORY.md) and the real file-backed/
+signed-device/TLS tests. No production DB, owner pairing or host state was changed.
+The official AG-UI schema is actually reused for a namespaced CUSTOM-event test;
+no complete stream/runner or model connection is implied.
+
 ## 4. Verify before changing anything
 
 ```sh
@@ -84,9 +98,10 @@ python3 -m unittest discover -s tools/tests -p 'test*.py' -v
 node --test studio/tests/*.test.cjs
 ```
 
-The read-only manifest verifier does not install or contact anything. The current
-foundation's actual counts/logs are recorded in its handoff receipt and
-`evidence/openbot-os-foundation/VERIFICATION.md`; Windows reports must use actual
+The read-only manifest verifier does not install or contact anything. Current
+counts/logs are in `evidence/openbot-os-history/VERIFICATION.md` (selected gateway+
+journal: 473 passed / 87 PG skips, including 58 new HTTP history cases); older
+foundation evidence remains in `evidence/openbot-os-foundation/VERIFICATION.md`; Windows reports must use actual
 Windows outcomes/skips, not copied Linux counts. New standalone journal tests are
 in `OPENBOT_OS.md`. The older configured whole-kernel result (1,251 passed / 173
 PostgreSQL skips), 27 native static checks and earlier browser receipts remain

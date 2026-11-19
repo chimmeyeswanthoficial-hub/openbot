@@ -64,33 +64,45 @@ result = {
     "upstream_app_executed": False,
     "screenshots": [],
     "base_url": BASE,
-    "shared_html_sha256": hashlib.sha256((ROOT / "studio/web/index.html").read_bytes()).hexdigest(),
+    "shared_html_sha256": hashlib.sha256(
+        (ROOT / "studio/web/index.html").read_bytes()
+    ).hexdigest(),
 }
 try:
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
         result["browser_version"] = browser.version
         context = browser.new_context(
-            viewport={"width": 1440, "height": 960}, device_scale_factor=1, color_scheme="light"
+            viewport={"width": 1440, "height": 960},
+            device_scale_factor=1,
+            color_scheme="light",
         )
         page = context.new_page()
         page.set_default_timeout(5000)
         page.on("pageerror", lambda e: errors.append(str(e)))
-        page.on("console", lambda m: console.append(m.text) if m.type == "error" else None)
-        page.on("request", lambda r: requests.append({"method": r.method, "url": r.url}))
+        page.on(
+            "console", lambda m: console.append(m.text) if m.type == "error" else None
+        )
+        page.on(
+            "request", lambda r: requests.append({"method": r.method, "url": r.url})
+        )
         response = page.goto(BASE, wait_until="networkidle")
         check(
             "served_html_matches_current_source",
             hashlib.sha256(response.body()).digest()
             == hashlib.sha256((ROOT / "studio/web/index.html").read_bytes()).digest(),
         )
-        check("desktop_openbot_os_title", page.title() == "OpenBot OS · Your companions")
+        check(
+            "desktop_openbot_os_title", page.title() == "OpenBot OS · Your companions"
+        )
         check(
             "desktop_visible_light_three_column_layout",
             page.locator(".contact-panel").is_visible()
             and page.locator(".conversation-panel").is_visible()
             and page.locator(".details-panel").is_visible(),
-            page.locator(".workspace").evaluate("(el)=>getComputedStyle(el).gridTemplateColumns"),
+            page.locator(".workspace").evaluate(
+                "(el)=>getComputedStyle(el).gridTemplateColumns"
+            ),
         )
         check(
             "default_is_unpaired_local_not_live",
@@ -108,12 +120,18 @@ try:
 
         def luminance(color):
             rgb = [int(n) / 255 for n in re.findall(r"\d+", color)[:3]]
-            linear = [n / 12.92 if n <= 0.04045 else ((n + 0.055) / 1.055) ** 2.4 for n in rgb]
-            return sum(n * w for n, w in zip(linear, (0.2126, 0.7152, 0.0722), strict=True))
+            linear = [
+                n / 12.92 if n <= 0.04045 else ((n + 0.055) / 1.055) ** 2.4 for n in rgb
+            ]
+            return sum(
+                n * w for n, w in zip(linear, (0.2126, 0.7152, 0.0722), strict=True)
+            )
 
         for sample in result["sampled_text_styles"]:
             a, b = luminance(sample["foreground"]), luminance(sample["background"])
-            sample["sampled_contrast_ratio"] = round((max(a, b) + 0.05) / (min(a, b) + 0.05), 3)
+            sample["sampled_contrast_ratio"] = round(
+                (max(a, b) + 0.05) / (min(a, b) + 0.05), 3
+            )
         check(
             "sampled_selected_contact_text_contrast_at_least_4_5",
             result["sampled_text_styles"][0]["sampled_contrast_ratio"] >= 4.5,
@@ -170,8 +188,11 @@ try:
         page.locator('.account-button[data-view="trust"]').click()
         check(
             "settings_labels_stale_packages_and_unwired_journal",
-            "were not rebuilt for this OpenBot OS foundation" in page.locator("#main").inner_text()
-            and "standalone backend library" in page.locator("#main").inner_text(),
+            "were not rebuilt for this OpenBot OS foundation"
+            in page.locator("#main").inner_text()
+            and "optional authenticated history API"
+            in page.locator("#main").inner_text()
+            and "not connected to this chat" in page.locator("#main").inner_text(),
         )
         context.close()
         mobile = browser.new_context(
@@ -183,7 +204,9 @@ try:
         )
         page = mobile.new_page()
         page.on("pageerror", lambda e: errors.append(str(e)))
-        page.on("request", lambda r: requests.append({"method": r.method, "url": r.url}))
+        page.on(
+            "request", lambda r: requests.append({"method": r.method, "url": r.url})
+        )
         page.goto(BASE, wait_until="networkidle")
         check(
             "mobile_starts_companion_list_not_thread",
@@ -237,7 +260,9 @@ except Exception as e:
     result["traceback"] = traceback.format_exc()
 finally:
     result["passed_checks"] = sum(q["passed"] for q in checks)
-    (DEST / "BROWSER_SMOKE.json").write_text(json.dumps(result, sort_keys=True, indent=2) + "\n")
+    (DEST / "BROWSER_SMOKE.json").write_text(
+        json.dumps(result, sort_keys=True, indent=2) + "\n"
+    )
     print(json.dumps(result, indent=2))
 if result["status"] != "passed":
     raise SystemExit(1)

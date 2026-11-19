@@ -1,15 +1,24 @@
-# Project source inventory — shared-repo-audit-1
+# Project inventory — current map with historical shared-audit evidence
 
-> **OpenBot OS foundation supersedes the old “publish the eight flag fixes” task.**
-> Start with `OPENBOT_OS.md` and `docs/openbot-os/WORK_ORDERS.md`. Base review is
-> `9f5600d1fd285e79922fbf69a2abce5243cb9291`; historical c3/649/9f work is already
-> incorporated. Do not re-import an old repair bundle or replace the laptop folder.
-> Counts/receipts and role assignments below describe earlier checkpoints unless
-> explicitly revalidated in `evidence/openbot-os-foundation/VERIFICATION.md`.
-> The new journal is standalone, registry unchanged, EXE/APK not rebuilt, release false.
+> **Current OpenBot OS history/reuse increment supersedes old repair/audit tasks.**
+> Parent `cf2acb10530ab3c33c567bb9831c5d6dbe515349`; current full SHA is in the
+> external history handoff receipt. Read `ANTIGRAVITY_NEXT.md` and
+> `docs/openbot-os/WORK_ORDERS.md`. All c3/649/9f repairs are already incorporated.
+> Optional authenticated human history now exists: 58 new cases, included in
+> 473 gateway/journal passes +87 PG skips. No live Studio chat/provider/VM.
+> Registry unchanged; old EXE/APK not rebuilt; release false; real pilot days 0.
+> Old numeric audit/remote-branch facts below are historical unless explicitly
+> revalidated in `evidence/openbot-os-history/VERIFICATION.md`.
 
 
-## Direct answer: is the current project code on GitHub?
+## Current local source versus historical remote baseline
+
+The current history increment and its foundation have not been pushed by Arena.
+The last public branch read is historical, not evidence the remote already has
+this local work. Use `deliverables/OPENBOT_OS_HISTORY_RECEIPT.json` outside the repo
+for the final local SHA/transport/source guards; never infer remote publication.
+
+### Historical shared-source audit
 
 At audited commit `5a98328bbd5a05646de14340a858f4debba24788`, **yes, all files in the verified shared source baseline
 are present on both main and repair/restore-manifest-files**. Both branches point to
@@ -24,7 +33,7 @@ not change EXE bytes or fix Windows error 0xc000007b. Git cannot represent the 0
 permissions of 46 selected source files: that is why committed-tree verification
 and private runtime/filesystem acceptance must be kept separate.
 
-## Baseline file counts (before this new audit commit)
+## Historical baseline file counts (shared-repo-audit-1)
 
 | Top-level group | Manifest-listed files |
 |---|---:|
@@ -73,7 +82,7 @@ The 3475 optional upstream files are byte-preserved, not newly certified line by
 line or fully integrated; their own complete build/test suites were not run.
 This is not a comprehensive independent security/license/feature certification.
 
-A fresh disposable whole-tree kernel run, using already cached and hash-verified
+The earlier shared-audit disposable whole-tree kernel run, using already cached and hash-verified
 mode-0755 Bubblewrap plus the reviewed 213-file real FFmpeg/library lock, returned
 **1251 passed, 173 explicit PostgreSQL skips, zero failures/errors**, with one test
 client deprecation warning. No network install, real provider or production DSN
@@ -87,7 +96,7 @@ with a host fallback. See tools/KERNEL_TEST_PROFILE.md before reproducing.
 |---|---|
 | Shared UI | Same light desktop/sidebar/chat/computer-routines and mobile list-to-chat payload. Local human briefs are not live AI replies. |
 | Kernel path | Authenticated fixed-owned invoice-QA fixtures with exact approval/execution/artifact read-back. Not arbitrary companion execution or production staging. |
-| Reuse | Attributed bounded OpenMuse CSV port and preserved queue/findrepo modules; other optional source availability does not mean integration. |
+| History / reuse | Optional signed-device human-history API + dedicated SQLite now implemented/tested. Exact MIT AG-UI schema adopted for tests; OpenMuse CSV and retained queue/findrepo remain bounded. No Studio/live agent hookup; other optional source availability does not mean integration. |
 | Windows | Source and unchanged unsigned test PE present. Reported real 0xc000007b startup failure is **unresolved**; native rendering/device acceptance absent. |
 | Android / iOS | Demo Android APK without device acceptance; iOS source only, no Mac/Xcode build/IPA. |
 | Real providers / PCs / IDEs | Not operational: actual provider cost evidence, guest VM provisioner, eligible installed/authenticated IDE sessions and independent host controls remain. |

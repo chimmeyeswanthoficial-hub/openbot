@@ -1,0 +1,31 @@
+{
+  "actual_accounts_providers_vms_ides_social_connected": false,
+  "authority": "docs/openbot-os/REAL_WORLD_ROLLOUT.md and standing R01-R13",
+  "independent_reviewers_or_oncall_invented": false,
+  "phase_1": {
+    "accepted": false,
+    "accepted_observed_days": 0,
+    "minimum_consecutive_genuine_days": 30,
+    "started_at": null
+  },
+  "phase_2": {
+    "accepted": false,
+    "accepted_observed_days": 0,
+    "additional_calendar_months": 6,
+    "ends_at": null,
+    "started_at": null
+  },
+  "phase_ledger_extension_required": "Existing Assessment v1 only admits one frozen candidate/policy and at most 180 days. Do not silently equate it to six calendar months or reuse it for this two-phase process. A reviewed versioned phase/candidate/continuity/reapproval extension is required.",
+  "public_release": false,
+  "requested_sequence": [
+    "controlled-authorized-real-world-private-launch",
+    "phase-1-one-month-with-at-least-30-consecutive-observed-real-days",
+    "independent-phase-1-review-and-owner-expansion-approval",
+    "phase-2-six-additional-calendar-months",
+    "independent-six-month-review-and-exact-owner-release-or-expansion-decision"
+  ],
+  "schema": "openbot.real-world-pilot-plan-status/1",
+  "scope_is_not_reduced_to_demo": true,
+  "status": "not_started",
+  "status_is_not_an_execution_grant": true
+}

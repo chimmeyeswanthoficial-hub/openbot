@@ -1,12 +1,14 @@
 # Shared repository workflow — Arena + Antigravity + owner
 
-> **OpenBot OS foundation supersedes the old “publish the eight flag fixes” task.**
-> Start with `OPENBOT_OS.md` and `docs/openbot-os/WORK_ORDERS.md`. Base review is
-> `9f5600d1fd285e79922fbf69a2abce5243cb9291`; historical c3/649/9f work is already
-> incorporated. Do not re-import an old repair bundle or replace the laptop folder.
-> Counts/receipts and role assignments below describe earlier checkpoints unless
-> explicitly revalidated in `evidence/openbot-os-foundation/VERIFICATION.md`.
-> The new journal is standalone, registry unchanged, EXE/APK not rebuilt, release false.
+> **Current OpenBot OS history/reuse increment supersedes old repair/audit tasks.**
+> Parent `cf2acb10530ab3c33c567bb9831c5d6dbe515349`; current full SHA is in the
+> external history handoff receipt. Read `ANTIGRAVITY_NEXT.md` and
+> `docs/openbot-os/WORK_ORDERS.md`. All c3/649/9f repairs are already incorporated.
+> Optional authenticated human history now exists: 58 new cases, included in
+> 473 gateway/journal passes +87 PG skips. No live Studio chat/provider/VM.
+> Registry unchanged; old EXE/APK not rebuilt; release false; real pilot days 0.
+> Old numeric audit/remote-branch facts below are historical unless explicitly
+> revalidated in `evidence/openbot-os-history/VERIFICATION.md`.
 
 
 ## One shared source, not repeated folder replacement
@@ -26,8 +28,8 @@ continuous monitoring, or background progress after a chat turn ends.
 
 Arena successfully read and cloned the public repository, but a non-mutating push
 check failed for lack of authenticated GitHub credentials. No remote edits occurred.
-Do not send passwords/tokens through chat. Antigravity already has the owner's
-working Git authentication and can publish the prepared ordinary commit.
+Do not send passwords/tokens through chat. Antigravity previously reported Git authentication; it must confirm it still has
+the owner-approved credentials before publishing the prepared ordinary commit.
 
 Arena's Git bundle is **commit transport**, not a second codebase or a patch chain.
 It contains the new commit based on the audited SHA; the recipient already has the
@@ -70,20 +72,19 @@ node --test studio/tests/*.test.cjs
 node --test work/packages/bot-hq-queue/serial-queue.test.mjs work/tools/findrepo/test/*.test.mjs
 ```
 
-New tools tests total **25**: previous handoff10 + Git-source15. Linux Studio is
-49 pass / 1 Windows-only skip of 50; Antigravity must report its actual Windows
-results, not copy Linux outcomes. Current disposable configured kernel regression
-is 1251 passed / 173 PostgreSQL skips, zero failures/errors, with one test-client
-deprecation warning. It used already cached hash-verified namespace/media tools;
-no real provider, production DSN or new tool installation. Initial unconfigured
-failures are retained. Follow tools/KERNEL_TEST_PROFILE.md, not blind pytest.
-Existing browser evidence is retained, not automatically rerun by these commands.
+Current bounded Linux results: **77 tools**, **51 Studio pass / 1 Windows-only
+skip**, **70 Node**. Selected disposable gateway+journal: **473 pass / 87 explicit
+PostgreSQL skips**, including 58 new history cases. The previous 1,251-pass whole
+kernel result is historical; a current broader-media setup failed on missing host
+libraries and was not relabeled as a full run. See the current verification packet
+and `tools/KERNEL_TEST_PROFILE.md`; no blind installs or production test state.
+Antigravity must return actual Windows results/skips, not copy Linux outcomes.
 
 ## Roles and next handoff
 
 | Participant | Do now / return |
 |---|---|
-| Arena assistant | Audit source/commits; implement the Git identity guard, executable metadata fix and handoff; run portable/source/package checks; prepare one ordinary commit and complete archive. Next review the returned native diagnostics/code against the pinned new SHA. No unobserved Windows or public-release claim. |
+| Arena assistant | Lead architecture, compatible OSS reuse, authenticated history/agent adapter and scoped regressions; verify the ordinary source commit and one complete private workspace handoff. Review returned native evidence against its exact SHA. No unobserved Windows or public-release claim. |
 | Antigravity | Preserve current working changes. Verify/import the prepared commit, push normally on repair branch, review/PR into main. Diagnose Windows using WINDOWS_LOADER_REVIEW.md: exact local hashes, actual error PNG and bounded Application/CodeIntegrity/loader evidence; identify failing module. Use an approved MSVC comparison only as an experiment, not a guessed required fix. |
 | Human owner | Keep backups. Relay the bundle/commit instructions and Antigravity's new SHA/report/screenshot. Owner retains device/host/account/install/spend/privacy/signing/release permissions. No keys/passwords in chat or source. No new host purchase is needed merely to sync code. |
 
@@ -96,7 +97,7 @@ outside their own archive/commit to avoid self-reference.
 
 ## Immediate priorities (do not repeat resolved work)
 
-1. Publish this ordinary source-audit commit; confirm both readers see its SHA.
+1. Safely integrate/publish the current ordinary history/reuse commit; confirm both readers see its full SHA.
 2. Diagnose and fix actual Windows startup; require real rendered light UI and
    interaction evidence. Restored Git executable flags do not fix 0xc000007b.
 3. Owner-approved Android device and real Mac/Xcode work, then real-host/provider/

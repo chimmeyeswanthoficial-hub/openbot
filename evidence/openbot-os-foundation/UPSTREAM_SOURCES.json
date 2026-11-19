@@ -1,17 +1,18 @@
 {
   "all_available_cached_tree_checks_passed": true,
-  "clock_note": "Observed remote Git committer timestamps can be later than configured date; treated as untrusted metadata, not a change to session date or proof of release order.",
+  "clock_note": "Session reference date remains 2026-11-10. Raw remote Git/tool timestamps (including November17-19) are preserved, not used to advance today, certify release order or credit pilot time. Returned immutable refs support bounded content review only.",
   "configured_session_reference_date": "2026-11-10",
+  "metadata_label_qualification": "Successor replaces misleading latest_asof_session_date with cutoff_query_result; the original parent commit preserves the earlier labels. Commit values/timestamps and raw source identities are unchanged.",
   "opaque_backend_images_pulled_or_executed": false,
   "repositories": {
     "agui": {
-      "default_branch": "main",
-      "description": "AG-UI: the Agent-User Interaction Protocol. Bring Agents into Frontend Applications.",
-      "latest_asof_session_date": {
+      "cutoff_query_result": {
         "committer_date": "2026-11-10T15:23:20Z",
         "message": "Merge pull request #3351 from ag-ui-protocol/release/next",
         "sha": "deefd3833c15b353348ba90eae0fad6113021759"
       },
+      "default_branch": "main",
+      "description": "AG-UI: the Agent-User Interaction Protocol. Bring Agents into Frontend Applications.",
       "license": {
         "key": "mit",
         "name": "MIT License",
@@ -28,13 +29,13 @@
       "resolved": "ag-ui-protocol/ag-ui"
     },
     "copilotkit": {
-      "default_branch": "main",
-      "description": "The Frontend Stack for Agents & Generative UI. React, Angular, Mobile, Slack, and more.  Makers of the AG-UI Protocol",
-      "latest_asof_session_date": {
+      "cutoff_query_result": {
         "committer_date": "2026-11-10T18:06:55Z",
         "message": "fix(showcase): mark Spring AI shared-state-streaming unsupported again",
         "sha": "bd3a77d1fea222a4762ed5d258ccb269203a6446"
       },
+      "default_branch": "main",
+      "description": "The Frontend Stack for Agents & Generative UI. React, Angular, Mobile, Slack, and more.  Makers of the AG-UI Protocol",
       "license": {
         "key": "mit",
         "name": "MIT License",
@@ -51,13 +52,13 @@
       "resolved": "CopilotKit/CopilotKit"
     },
     "copilotkit-openbot": {
-      "default_branch": "main",
-      "description": "The open, self-hostable alternative to closed AI bots. Production-ready, fully customizable, and plugs into every stack: any agent, any model, any tool.",
-      "latest_asof_session_date": {
+      "cutoff_query_result": {
         "committer_date": "2026-11-10T18:25:56Z",
         "message": "Download an update's images in the background before the Update click (#1391)",
         "sha": "882c68e222bbb603c67855764facd4ebbb9778c8"
       },
+      "default_branch": "main",
+      "description": "The open, self-hostable alternative to closed AI bots. Production-ready, fully customizable, and plugs into every stack: any agent, any model, any tool.",
       "license": {
         "key": "mit",
         "name": "MIT License",
@@ -74,13 +75,13 @@
       "resolved": "CopilotKit/OpenBot"
     },
     "nightly-openbot": {
-      "default_branch": "main",
-      "description": "A local-first desktop workspace for persistent AI teammates. Run Codex, Claude, and Grok with dedicated workspaces, task queues, file sharing, browser control, and agent-to-agent collaboration.",
-      "latest_asof_session_date": {
+      "cutoff_query_result": {
         "committer_date": "2026-11-10T18:18:29Z",
         "message": "Run Gemini on the Antigravity CLI 1.5.4 (#6849)",
         "sha": "253a21a91562a8d6776e74da599e684953dfbcfe"
       },
+      "default_branch": "main",
+      "description": "A local-first desktop workspace for persistent AI teammates. Run Codex, Claude, and Grok with dedicated workspaces, task queues, file sharing, browser control, and agent-to-agent collaboration.",
       "license": {
         "key": "other",
         "name": "Other",

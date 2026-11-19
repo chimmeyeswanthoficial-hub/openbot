@@ -1,0 +1,64 @@
+{
+  "antigravity_connector_result": "unsupported; no direct message, active agent or external work claimed",
+  "full_kernel_blocker": "Separate disposable FFmpeg bootstrap downloaded/verified its 5 exact packages but could not load libavfilter.so.10 and other unavailable host libraries. No host/PATH fallback or pin weakening used. Full gateway+journal profile used no media tools and passed. Raw setup refusal retained.",
+  "full_kernel_suite_performed": false,
+  "gateway_skip_reasons": {
+    "explicit disposable PostgreSQL DSN and write opt-in required": 87
+  },
+  "genuine_observed_pilot_days": 0,
+  "hash_required_binary_wheel_install_into_excluded_cache": true,
+  "kernel_locks": [
+    "work/requirements.handoff.lock.txt",
+    "work/requirements.control.lock.txt"
+  ],
+  "namespace_tool": "Exact non-setuid Bubblewrap binary from existing isolation lock, restored only to excluded disposable TEST work root; no VM/hostile-host/cgroup/security acceptance.",
+  "new_test_dependency_license_metadata": [
+    {
+      "license_expression": "MIT",
+      "license_field": null,
+      "name": "attrs",
+      "scope": "Test tooling only; not a full third-party runtime audit",
+      "version": "26.1.0",
+      "wheel_sha256": "c647aa4a12dfbad9333ca4e71fe62ddc36f4e63b2d260a37a8b83d2f043ac309"
+    },
+    {
+      "license_expression": "MIT",
+      "license_field": null,
+      "name": "jsonschema",
+      "scope": "Test tooling only; not a full third-party runtime audit",
+      "version": "4.26.0",
+      "wheel_sha256": "d489f15263b8d200f8387e64b4c3a75f06629559fb73deb8fdfb525f2dab50ce"
+    },
+    {
+      "license_expression": "MIT",
+      "license_field": null,
+      "name": "jsonschema-specifications",
+      "scope": "Test tooling only; not a full third-party runtime audit",
+      "version": "2025.9.1",
+      "wheel_sha256": "98802fee3a11ee76ecaca44429fda8a41bff98b00a0f2838151b113f210cc6fe"
+    },
+    {
+      "license_expression": "MIT",
+      "license_field": null,
+      "name": "referencing",
+      "scope": "Test tooling only; not a full third-party runtime audit",
+      "version": "0.37.0",
+      "wheel_sha256": "381329a9f99628c9069361716891d34ad94af76e461dcb0335825aecc7692231"
+    },
+    {
+      "license_expression": "MIT",
+      "license_field": null,
+      "name": "rpds-py",
+      "scope": "Test tooling only; not a full third-party runtime audit",
+      "version": "2026.9.1",
+      "wheel_sha256": "7868b85224291c6cb6759f9b5adb9745f486d226f62b16a614dd5a2a5ab2b35b"
+    }
+  ],
+  "optional_contract_test_lock": "work/requirements.agui-test.lock.txt",
+  "runtime_dependencies_refreshed": false,
+  "schema": "openbot.history-feature-tooling/1",
+  "sdk_or_provider_installed_or_enabled": false,
+  "selected_namespace_cases_opted_in": true,
+  "system_package_install_performed": false,
+  "windows_tools_or_registry_changed": false
+}

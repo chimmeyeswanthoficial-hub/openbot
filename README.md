@@ -8,13 +8,30 @@ Start with **[OPENBOT_OS.md](OPENBOT_OS.md)** for the architecture decision, rea
 implementation status, pinned upstream review and Antigravity work orders.
 [START_HERE.md](START_HERE.md) explains the existing local interface and checks.
 
-## This foundation
+## Current history/reuse/real-world increment
+
+- **Real authenticated human history API:** existing signed-device gateway,
+  application-owned SQLite, server-derived actor/venture, explicit history scopes,
+  ordered retries, pre-access audit, revocation fencing and bounded replay.
+  **58 new cases**, included in **473 passed / 87 PostgreSQL skips** across the
+  selected gateway+journal suite. No Studio chat/live agent/provider is connected.
+- **Actual AG-UI reuse:** exact MIT 1.0 schema + license/provenance retained for
+  offline CUSTOM-event contract tests; not a whole protocol engine.
+- [40-feature/source reuse ledger](docs/openbot-os/FEATURE_REUSE.md): Nightly current
+  Noncommercial code is not imported; verified historical Apache-2.0 v0.1.11 is only
+  a later audit candidate. OSS SDKs and enterprise services remain separate.
+- [Real-world rollout](docs/openbot-os/REAL_WORLD_ROLLOUT.md): first real month
+  with ≥30 consecutive observed days, independent review/owner approval, then six
+  additional calendar months. Both phases unstarted; no demo/test credit.
+- [Current evidence and exclusions](evidence/openbot-os-history/VERIFICATION.md).
+
+## Preserved foundation
 
 - First-party **MIT** license at the repository root, with retained donor notices
   and explicit [third-party/service boundaries](THIRD_PARTY_NOTICES.md).
 - A real, application-owned SQLite **conversation journal**: scoped queries,
   atomic/idempotent ordered appends, bounded replay and quotas; **31 new tests**.
-  Standalone backend library only — not connected to HTTP auth, UI or a live agent.
+  The storage library now has the opt-in authenticated API above; no UI or live agent wiring.
 - Shared **OpenBot OS** source branding while preserving the light layout, protocol
   identifiers, pairing controls and lack of a native authority bridge.
 - Opt-in bounded **Windows debug-string capture**, schema 4, with **20 new
@@ -44,8 +61,8 @@ UI, not this newly branded source.** See
 
 **Public release is blocked. Accepted genuine observed pilot days: 0.** Standing
 [R01–R13](PUBLIC_RELEASE_ROADMAP.md), independent security/operations/evaluation,
-supported native devices/signing/update, the 1–6-month pilot including ≥30
-consecutive genuinely observed days and human release approval remain required.
+supported native devices/signing/update, both sequential real-use pilot phases
+and exact human release approval remain required.
 A fully OSS core is the design/release requirement, not a completed audit of all
 historic binaries, SDKs or optional third-party services.
 

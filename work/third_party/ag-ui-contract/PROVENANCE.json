@@ -1,0 +1,14 @@
+{
+  "bytes": 94359,
+  "commit": "3416b86da4b3288e87f827c7f2759a7fa18b5231",
+  "git_blob": "c2ce3c18036b6bb2afe583a9b916959e7dcd9b78",
+  "git_blob_matched_pinned_contents_api": true,
+  "license": "MIT",
+  "local_path": "schema-1.0.json",
+  "modifications": "None; original schema bytes retained",
+  "repository": "https://github.com/ag-ui-protocol/ag-ui",
+  "schema": "openbot.third-party-contract/1",
+  "scope": "TEST-ONLY official contract reference for the namespaced CUSTOM event this history API stores. Not a complete AG-UI runner/transport or adoption of every protocol feature. jsonschema test tools are an explicit separate lock, never installed by runtime. All schema references resolved from this local document only.",
+  "sha256": "4b5c93226838a0e72d88e6c5df20633c686c49fcb75d9be2815c6cbf9e48e71a",
+  "upstream_path": "spec/1.0/schema.json"
+}

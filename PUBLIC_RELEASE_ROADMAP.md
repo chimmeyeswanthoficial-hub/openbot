@@ -1,6 +1,6 @@
 # OpenBot — R01–R13 remaining work and release gates
 
-**NOT ready for public release.** Current handoff: **shared-repo-audit-1**. This is a
+**NOT ready for public release.** Current OpenBot OS work: `OPENBOT_OS.md` and `docs/openbot-os/WORK_ORDERS.md`. This is a
 complete engineering workspace, not a claim that all work, accounts, native devices,
 pilot or release approval exist. Prior downloaded archives and their receipts remain
 unchanged. Recorded runner/upstream timestamps are observations, never pilot credit.
@@ -9,7 +9,7 @@ The human owner retains account, spending, install, legal, data/consent and rele
 choices. Engineering initiative is not legal ownership or authority to activate an
 account. Independent roles below are requirements, not invented collaborators.
 
-## Current shared-source note
+## Historical shared-source note (5a audit; current receipts linked above)
 
 Main and repair branch matched the full verified baseline at 5a98328. See
 PROJECT_INVENTORY.md / TEAM_WORKFLOW.md. This successor adds a local committed-tree
@@ -53,10 +53,10 @@ Current source completeness is not completion of all R01-R13 functionality.
 | **R09 — independent review** | Notices and donor pins retained, source/native file identities and refusal controls locally checked. | Independent security/privacy/legal/supply-chain/SBOM/linked-binary review, accepted remediation and real accountable terms/support. |
 | **R10 — operations** | Existing local pause/epoch/backup/restore/alerts/crash drills preserved and regression tested. | Witness actual staging rollout/rollback/off-host restore, vault/grants/key recovery/alerts and named on-call/support. |
 | **R11 — evaluation** | Protected-evaluation contracts/tests retained, not a self-accepted result. | Independently pre-freeze ≥20 protected held-out tasks/criteria/thresholds outside bot-writable work; independent raw report/acceptance. |
-| **R12 — pilot** | No fabricated observations; **accepted real observed days 0**. | Actual consented 1–6-month private pilot including ≥30 consecutive genuinely observed days and independent acceptance. |
+| **R12 — pilot** | No fabricated observations; **accepted real observed days 0**. | Actual consented first real month with ≥30 consecutive genuinely observed days, independent phase-1 review/owner approval, then six additional calendar months and independent acceptance. |
 | **R13 — human release** | Public-release flag remains false; source Git commits are not deployment/store/release authorization. | Human accepts exact scope/evidence/terms/on-call; signed accepted artifacts and bounded observed rollout/rollback. |
 
-Current unit facts: **50 Studio Python collected (Linux 49 passed / 1 Windows-only skip) /
+Historical shared-audit unit facts (not the newer history increment): **50 Studio Python collected (Linux 49 passed / 1 Windows-only skip) /
 10 handoff Python / 45 Studio Node /
 25 retained Node**, 35 UI + 21 finance cases **per Chromium/WebKit engine**, 78 offline
 viewer checks, 44 HTTPS application cases per engine and 5 fixture TLS/lifecycle
@@ -272,8 +272,12 @@ quality findings. Unit examples and synthetic qualified-role signatures do not c
 
 ### R12 — real private pilot [P0; S12; cannot be done in one session]
 
-- Run the standing **1–6-month evidence-backed private pilot**, including at least
-  **30 consecutive genuinely observed days**, after the relevant secure workflows work.
+- Follow the owner's sequential **first real month (at least 30 consecutive genuinely
+  observed days), independent phase-1 review/owner expansion approval, then six
+  additional calendar months** after the relevant secure workflows work.
+- `docs/openbot-os/REAL_WORLD_ROLLOUT.md` defines controlled private real-world
+  launch, upgrade/stop/evidence rules and the required versioned phase extension.
+  Existing Assessment v1's 180-day/single-candidate limit is not that full process.
 - Use authorized data/users/accounts and agreed caps, consent, support/on-call and
   stop criteria. Record real daily evidence and incidents; preserve gaps honestly.
 - Extend or stop on unsafe, unknown-cost, unreliable or unhelpful behavior; re-evaluate
@@ -306,8 +310,9 @@ supported devices/Mac/signing access. R11 → R12 → R13 is the final critical 
 
 Code can reduce engineering delays; it cannot manufacture independent witnesses,
 account permissions, signing identities or the real pilot. No launch date is promised.
-The 30-consecutive-observed-day requirement is a minimum within the standing 1–6-month
-pilot, not an estimate that all earlier work will be finished in 30 days.
+The 30-consecutive-observed-day requirement is a minimum in the first real month;
+a further six calendar months follows independent review/owner expansion approval.
+Neither duration estimates when earlier engineering will finish. No launch date exists.
 
 ## 6. Who must act
 
@@ -348,7 +353,7 @@ pilot, not an estimate that all earlier work will be finished in 30 days.
 - [ ] Independent security / supply chain / privacy review blockers resolved.
 - [ ] Witnessed operations/key recovery/restore/alerts and real on-call accepted.
 - [ ] At least 20 protected held-out tasks independently evaluated.
-- [ ] Real 1–6-month pilot, including 30 consecutive observed days, accepted.
+- [ ] Both real phases accepted: first month including 30 consecutive observed days, then six additional calendar months after review/approval.
 - [ ] Human approves the exact public release; signed artifacts and bounded rollout verified.
 
 **Bottom line:** there is more work to do, and I will not mark the project publicly

@@ -1,10 +1,15 @@
 # Application-owned conversation journal — implemented component contract
 
+**Successor integration note:** the storage component remains inert, but an optional
+signed-device HTTP adapter now exists. See [AUTHENTICATED_HISTORY.md](AUTHENTICATED_HISTORY.md)
+for its exact human-history contract, real tests and limits. No live chat, Studio
+history UI, complete AG-UI runner or provider is implied.
+
 Source: `work/services/sentinel/conversation_journal.py`.
 Tests: `work/services/sentinel/tests/test_conversation_journal.py`.
 License: first-party MIT. Runtime dependencies: Python standard library/SQLite.
-**Status: tested standalone backend library; not connected to HTTP, live AG-UI,
-Studio conversation UI, providers or existing production data.**
+**Status: tested inert storage library with a successor opt-in signed-device HTTP
+adapter. No live AG-UI, Studio conversation UI, providers or production data.**
 
 ## Why it exists
 
@@ -86,7 +91,8 @@ are outside the logical payload quota: monitor actual disk and configure retenti
 Identifiers are bound SQL parameters, never paths. Non-finite/unsafe large numbers,
 non-JSON types, duplicate/coerced numeric keys, invalid Unicode and conflicting
 payload `threadId` are refused. Caller Python dictionaries cannot represent duplicate
-JSON keys; future raw-JSON HTTP parsers must reject duplicates **before** this API.
+JSON keys; raw-JSON HTTP adapters must reject duplicates **before** this API
+(the successor signed-device adapter now does so).
 
 An uppercase `type` and optional thread correlation are checked, but AG-UI event
 schemas, run/message/tool lifecycle and resume semantics are **not** validated.

@@ -1,0 +1,26 @@
+Get:1 http://deb.debian.org/debian trixie/main amd64 ffmpeg amd64 7:7.1.5-0+deb13u1 [2002 kB]
+Fetched 2002 kB in 1s (1930 kB/s)
+Get:1 http://deb.debian.org/debian trixie/main amd64 libavdevice61 amd64 7:7.1.5-0+deb13u1 [127 kB]
+Fetched 127 kB in 0s (3470 kB/s)
+Get:1 http://deb.debian.org/debian trixie/main amd64 libcdio-paranoia2t64 amd64 10.2+2.0.2-1+b1 [17.4 kB]
+Fetched 17.4 kB in 0s (616 kB/s)
+Get:1 http://deb.debian.org/debian trixie/main amd64 libcdio-cdda2t64 amd64 10.2+2.0.2-1+b1 [17.7 kB]
+Fetched 17.7 kB in 0s (694 kB/s)
+Get:1 http://deb.debian.org/debian trixie/main amd64 libcdio19t64 amd64 2.2.0-4.1~deb13u1 [61.6 kB]
+Fetched 61.6 kB in 0s (1183 kB/s)
+/home/user/.cache/openbot-os-next/media-tools/ffmpeg/usr/bin/ffmpeg: error while loading shared libraries: libavfilter.so.10: cannot open shared object file: No such file or directory
+Traceback (most recent call last):
+  File "/home/user/.cache/openbot-os-next/test-workspace/work/scripts/bootstrap-owned-media.py", line 103, in <module>
+    main()
+    ~~~~^^
+  File "/home/user/.cache/openbot-os-next/test-workspace/work/scripts/bootstrap-owned-media.py", line 68, in main
+    version = subprocess.check_output([str(path), "-version"], env=env, text=True)
+  File "/usr/local/lib/python3.13/subprocess.py", line 473, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+               **kwargs).stdout
+               ^^^^^^^^^
+  File "/usr/local/lib/python3.13/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['/home/user/.cache/openbot-os-next/media-tools/ffmpeg/usr/bin/ffmpeg', '-version']' returned non-zero exit status 127.

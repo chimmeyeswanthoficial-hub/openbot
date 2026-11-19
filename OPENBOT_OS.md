@@ -10,6 +10,29 @@ do not replace the workspace with an upstream checkout.
 This foundation is a local engineering successor, not an upstream merge, remote
 publication, accepted native release or finished autonomous company.
 
+## Current successor: authenticated history and the real-use plan
+
+The foundation below is preserved. The next increment adds an **opt-in real
+signed-device history API**: 58 new cases, including actual file-backed storage,
+normal TLS verification, scope/role denial and revocation races. The broader
+selected gateway + journal suite passed **473 / 87 PostgreSQL skips**. No live
+agent/provider or Studio chat history is connected by that result.
+
+- [Did we reuse everything? Exact 40-feature/source ledger](docs/openbot-os/FEATURE_REUSE.md)
+- [Authenticated history contract and measured limits](docs/openbot-os/AUTHENTICATED_HISTORY.md)
+- [Real-world launch, first month, then six additional months](docs/openbot-os/REAL_WORLD_ROLLOUT.md)
+- [Current evidence/exclusions](evidence/openbot-os-history/VERIFICATION.md)
+
+Current Nightly source is Noncommercial and not imported. Its historical v0.1.11
+Apache-2.0 LICENSE is independently verified as a possible later donor, not
+clearance for newer code. The exact MIT AG-UI 1.0 schema is now actually reused
+for contract tests; no full protocol/runtime compatibility is claimed.
+
+The requested pilot is now sequential: **at least 30 consecutive genuine observed
+days, independent review/approval, then six additional calendar months**. Both
+phases are unstarted; accepted real days remain 0. The older Assessment v1's
+180-day/single-candidate contract is not silently treated as sufficient.
+
 ## Answer: is CopilotKit the core backend engine?
 
 **Not the whole engine.** Its open-source SDK supplies frontend hooks/components
@@ -41,8 +64,9 @@ for the intended OSS core. Optional commercial services must not gate core start
   conflict detection, byte-bounded replay pages, quotas and logical deletion.
   **31 new tests** exercise real disposable databases, competing connections,
   transaction rollback, reopen and a child-process abrupt exit after commit.
-  This is an inert backend library, **not wired into live chat, HTTP auth or the
-  Studio UI**, and not a complete AG-UI runner. [Component contract](docs/openbot-os/CONVERSATION_JOURNAL.md).
+  The journal itself remains inert. The successor now supplies an **optional
+  authenticated history API** (58 new cases), still not connected to live chat,
+  Studio UI or a complete AG-UI runner. [Component contract](docs/openbot-os/CONVERSATION_JOURNAL.md).
 - **Opt-in Windows diagnostic-text capability:** schema-4 collector reads only
   OS-reported debug-string byte ranges from its own newly created target,
   capped at 16 KiB/event and 256 KiB/session. Default remains no payload reads.
@@ -128,5 +152,5 @@ and final release authority. No continuous background work is implied.
 
 **Public release: false. Genuine accepted pilot days: 0.** Provider, real per-bot
 VM, official social, IDE, native/device/signing, independent review, operations,
-protected evaluation and the 1–6-month pilot including ≥30 consecutive genuinely
-observed days remain open. This change does not silently shrink that scope.
+protected evaluation and the sequential real month + six-month trial remain open.
+This change does not silently shrink that scope.

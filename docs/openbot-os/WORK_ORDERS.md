@@ -1,12 +1,13 @@
 # OpenBot OS work orders — active handoff, not a simulated agent team
 
-Base: `9f5600d1fd285e79922fbf69a2abce5243cb9291`. The foundation's final ordinary
-commit SHA and actual test logs are supplied in the external handoff receipt,
+Reviewed ancestor: `9f5600d1fd285e79922fbf69a2abce5243cb9291`; direct parent:
+`cf2acb10530ab3c33c567bb9831c5d6dbe515349`. The successor's final ordinary
+commit SHA and actual test logs are supplied in the external history handoff receipt,
 so this committed document does not refer to its own future hash.
 
 No direct Arena↔Antigravity channel, authenticated Arena push or external agent
 team was established. These are prepared work assignments. The owner can give
-Antigravity this one file with the foundation commit/bundle; no need to relay each
+Antigravity this one file with the current commit/bundle; no need to relay each
 engineering decision. Agents must report actual work and blockers, not invent
 collaborator activity or claim asynchronous progress after a chat ends.
 
@@ -19,7 +20,18 @@ with explicit disjoint file ownership and returned commits/evidence. Do not clai
 that happens until it actually does. The human retains legal ownership, secrets,
 accounts, host changes/installations/spending/signing and release authority.
 
-## W00 — integrate this foundation without overwriting work
+## Current completed increment / next boundary
+
+A successor of `cf2acb10530ab3c33c567bb9831c5d6dbe515349` implements the opt-in
+signed-device human history API: 58 new cases, included in 473 passing selected
+gateway/journal tests with 87 explicit PostgreSQL skips. It adopts the exact MIT
+AG-UI 1.0 schema for CUSTOM-envelope tests, **not** a live stream/runner/provider.
+See AUTHENTICATED_HISTORY.md and FEATURE_REUSE.md; final SHA is external.
+
+No direct Antigravity delivery is possible in this session: connector lookup
+returned unsupported. This is a prepared handoff, not an active external team.
+
+## W00 — integrate the current successor without overwriting work
 
 **Receiver: Antigravity. Priority: first.**
 
@@ -34,9 +46,10 @@ accounts, host changes/installations/spending/signing and release authority.
 4. Push normally to a review branch/PR. Publishing a head is not merging into main.
    Return PR URL, full head/base SHAs, cleanliness and the completed test evidence.
 
-## W01 — authenticated durable history, then one AG-UI adapter
+## W01 — review completed history, add UI and one compatible AG-UI adapter
 
-**Primary: Arena/backend stream, next active implementation.**
+**Primary: Arena/backend stream.** Authenticated human-history API completed;
+UI/runner/provider and remaining lifecycle contracts are the next implementation.
 File ownership: `work/services/sentinel/conversation_journal.py` + its tests,
 new explicit auth/history routes and fixture contracts. Agree before touching
 `app.py`, shared schemas or `SOURCE_MANIFEST.json` with another writer.
@@ -60,6 +73,16 @@ new explicit auth/history routes and fixture contracts. Agree before touching
 
 **Exit evidence:** integration tests and reproducible scope/reconnect failures
 before fixes; no UI “connected” label until actual end-to-end connection exists.
+
+### W01 remaining after this increment
+
+Review `conversation_api.py` + the locked history admission in `control_api.py`.
+Do not reopen a weaker unauthenticated journal service. Add actual Studio history
+UI only against this contract, then a compatible pinned SDK/AG-UI agent adapter.
+Do not accept arbitrary assistant/system/tool events from a browser. The existing
+fixture SSE is not full AG-UI 1.0. Tombstones/lifecycle/export/backup deletion, full
+org/multi-tenancy and PG history are not accepted. A real provider still needs an
+explicit account/data/cost cap and host/security gate, not an invented fixture.
 
 ## W02 — Windows root-cause evidence (parallel with W01)
 
@@ -109,10 +132,26 @@ No scraping, credential sharing or platform-policy/rate-limit evasion.
 
 S09 hostile-host/capped-provider, S10 supported native devices/signing/update,
 S11 witnessed operations/recovery/alerts/on-call/privacy/supply chain, S12 protected
-independent ≥20 pre-frozen held-out tasks and genuine 1–6-month pilot including ≥30
-consecutive observed days, and S13 exact human release approvals remain open.
+independent ≥20 pre-frozen held-out tasks and both requested real-world phases
+(first month/≥30 consecutive observed days, then six additional calendar months),
+and S13 exact human release approvals remain open.
 Accepted pilot days 0; public release false. Agents cannot self-approve independent
 acceptance, permissions, licenses or a pilot they did not genuinely observe.
+
+## W05 — sequential real-world pilot and safe upgrades
+
+The owner's latest requirement is one real month (≥30 consecutive genuine observed
+days), then independent phase-1 review/owner expansion approval, then **six
+additional calendar months**. Read REAL_WORLD_ROLLOUT.md. No start date/real user/
+on-call/reviewer/provider/VM/pilot observation is invented; accepted days 0.
+
+Reuse the existing protected evaluation machinery; design/review a versioned
+phase/candidate-transition/upgrade-continuity extension first. Assessment v1 only
+handles one candidate/policy and ≤180 days: do not silently call it six calendar
+months, remove its protection or pool old/new builds into one cohort. Freeze
+held-out tasks/criteria/limits outside bot-writable source; no tests count as days.
+Actually authorized private real-world launch precedes observations; public
+release and each external account/host/spend/consent/native gate stay human-owned.
 
 ## Required checks and return format
 
@@ -125,12 +164,16 @@ node --test studio/tests/*.test.cjs work/packages/bot-hq-queue/serial-queue.test
 
 Journal: set session-local `PYTHONPATH` to `work/services/sentinel`, then
 `python -m unittest discover -s work/services/sentinel/tests -p test_conversation_journal.py -v`.
-Use `OPENBOT_OS.md` for POSIX and PowerShell examples. Only new module/portable
-checks ran for this foundation; historical whole-kernel/PG/native receipts are not
-fresh results. Do not run production migrations, blind pytest or package installs.
+Use `OPENBOT_OS.md` for POSIX and PowerShell examples. The current selected gateway/journal and portable
+checks are recorded in the current evidence packet; historical whole-kernel/PG/native
+receipts are not fresh results. Do not run production migrations, blind pytest or package installs.
 Use `tools/KERNEL_TEST_PROFILE.md` when a broader kernel change needs that profile.
 
 Return: full base/head SHA + changed paths + actual platform/test counts/skips +
 source guard result + raw-evidence hashes + remaining blocker + permissions used.
+For the new history/official-contract cases explicitly select the existing
+handoff/control locks plus `work/requirements.agui-test.lock.txt` in a NEW approved
+disposable environment, then run `services/gateway/tests/test_conversation_api.py`
+from `work/`. See AUTHENTICATED_HISTORY.md. Dependencies are not installed by import.
 One writer regenerates the manifest **last**, preserves approved file modes and
 verifies the exact tree. No self-referential commit/hash receipt in that tree.

@@ -1,0 +1,17 @@
+{
+  "native_binaries_match_current_html": false,
+  "native_binaries_rebuilt_or_launched": false,
+  "native_scope": "Historical EXE/APK/DLL remain unchanged; strict current payload verifier not weakened. New native rebuild/launch/device/signing/update acceptance pending.",
+  "older_binary_identity_reference": "evidence/openbot-os-foundation/NATIVE_IDENTITIES.json",
+  "parent": "cf2acb10530ab3c33c567bb9831c5d6dbe515349",
+  "schema": "openbot.history-native-source-identity/1",
+  "shared_html": {
+    "bytes": 127590,
+    "paths": [
+      "studio/web/index.html",
+      "control/web/index.html",
+      "control/native/ios/OpenBotControl/index.html"
+    ],
+    "sha256": "cd5345c5ffcd47e015968249bd047c794cc0e8918aea7ef21cbed790fa67198b"
+  }
+}

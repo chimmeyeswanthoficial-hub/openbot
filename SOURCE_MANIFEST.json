@@ -1416,14 +1416,14 @@
       "sha256": "ceca3409631222877d1fc677b585f06ed6f0cdbdfb7c3cb3ff1aafc999d0845f"
     },
     "evidence/windows-launch/windows-11-26300-x64-run3/report.md": {
-      "bytes": 5947,
+      "bytes": 6502,
       "mode": 420,
-      "sha256": "19aff54b037008b228dcd955263aec80f2268ddce618f7968a345debd2ebd453"
+      "sha256": "9b55aa4ef3fbc78a125792c9056d3623e973fb9af991cd6f0b887fc4b51c3971"
     },
     "result.md": {
-      "bytes": 5909,
+      "bytes": 6149,
       "mode": 420,
-      "sha256": "31c9a487690d3aa169890b849165100cb84f109e62d95bd4b5c56cbe527fb411"
+      "sha256": "b7b18cc7d7bfa2c5e8d1a37ac9c1686f58b2d8f40f2243c89888ad9859048e8d"
     },
     "studio/.gitignore": {
       "bytes": 99,
@@ -22407,7 +22407,7 @@
     }
   },
   "files_metadata_hash_encoding": "UTF-8 json.dumps(files, sort_keys=True, separators=(',', ':'), ensure_ascii=True), no trailing newline.",
-  "files_metadata_sha256": "f81cb5a84bc3cdbae11347db31da65c0431da9336d8ff176dc5756473a58c269",
+  "files_metadata_sha256": "4be205d7106992458b885f45b34764598ec85485ab6e48551a07a07ba881789e",
   "git_identity_verifier": "tools/verify-git-source.py",
   "github_write_status": "Arena authenticated push unavailable. Ordinary local commit supplied for Antigravity to publish; no remote write claimed.",
   "historical_reconstruction_provenance": "evidence/repair-review/SOURCE_PROVENANCE.json",

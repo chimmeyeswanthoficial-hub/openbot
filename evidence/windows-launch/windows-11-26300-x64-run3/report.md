@@ -19,7 +19,7 @@ To establish that the v3 harness correctly handles native process creation, DLL 
 - **Execution Timestamp:** `2026-11-18T22:12:38+05:30`
 - **Observed Trace:**
   - `CREATE_PROCESS`: Image base `0x7ff7f58b0000`, start address `0x7ff7f58b1cb0`.
-  - Sequential DLL mapping notifications: `ntdll.dll` (`0x7ffbc5550000`), `kernel32.dll` (`0x7ffbc44d0000`), `KernelBase.dll` (`0x7ffbc2e00000`), `advapi32.dll`, `msvcrt.dll`, and 19 additional system libraries.
+  - Sequential DLL mapping notifications: `ntdll.dll` (`0x7ffbc5550000`), `kernel32.dll` (`0x7ffbc44d0000`), `KernelBase.dll` (`0x7ffbc2e00000`), `advapi32.dll`, `msvcrt.dll`, and 15 additional system libraries (20 DLLs total, 21 module entries total including main image).
   - Initial startup breakpoint received and continued with `DBG_CONTINUE`.
   - Normal process termination: `EXIT_PROCESS` with exit code `0x0`.
 - **Harness Outcome:** `collection_status: "complete"`, `cleanup_status: "ok"`, `cleanup_errors: []`, `module_paths_resolved: true`, CLI exit code `0`.
@@ -33,7 +33,7 @@ To establish that the v3 harness correctly handles native process creation, DLL 
   - Sequence 2 (`LOAD_DLL`): `C:\Windows\System32\ntdll.dll` mapped at base `0x7ffbc5550000`.
   - Sequence 3 (`EXIT_PROCESS`): Immediate process termination with exit code `0xc000007b` (`STATUS_INVALID_IMAGE_FORMAT`).
   - No `kernel32.dll` load notification was received.
-  - No thread creation, user-mode execution, or `EXCEPTION_DEBUG_EVENT` was received.
+  - No additional thread creation or `EXCEPTION_DEBUG_EVENT` notification was received.
 - **Harness Outcome:** `collection_status: "complete"`, `cleanup_status: "ok"`, `cleanup_errors: []`, `module_paths_resolved: true`, CLI exit code `0`.
 
 ---
@@ -48,8 +48,7 @@ To establish that the v3 harness correctly handles native process creation, DLL 
    - `entry_point_measured` is explicitly `false`; `entry_point_reached` is explicitly `null`.
    - The field `pe_entry_crt_address` records the reported start address from `CREATE_PROCESS_DEBUG_INFO.lpStartAddress` (CRT startup wrapper address). Source-level `wWinMain` is a distinct later stage. Neither address was probed or measured as reached.
 4. **Causal Scope of Findings:**
-   - The observation that only `ntdll.dll` was mapped before process exit `0xc000007b` proves that failure occurred during early NT loader initialization before `kernel32.dll` was mapped.
-   - It does **not** identify the specific rejected imported module, PE header structure, relocation entry, or TLS directory attribute.
+   - The v3 recorder completed the supplied whoami control with target exit 0 and no reported cleanup errors. For OpenBot run 3 it recorded CREATE_PROCESS, an ntdll.dll LOAD_DLL notification, and EXIT_PROCESS 0xc000007b. No kernel32.dll LOAD_DLL or exception notification appears in this recording. Entry-point execution was not instrumented, and no failing instruction or stack was captured. This pattern is consistent with early initialization failure, but the exact stage, rejected image/header element, whether kernel32 was ever mapped, and whether PE entry or wWinMain executed remain unproved.
 
 ---
 
@@ -58,14 +57,15 @@ To establish that the v3 harness correctly handles native process creation, DLL 
 Per `WINDOWS_LOADER_REVIEW.md`:
 
 **Established Facts:**
-1. The native x64 executable fails process initialization on Windows 11 Build 26300 with `0xc000007b` / `STATUS_INVALID_IMAGE_FORMAT`.
-2. The failure occurs in `ntdll.dll` before `kernel32.dll` is mapped and before CRT entry or `wWinMain` is executed.
-3. The v3 Win32 debugger harness executes reliably and cleans up completely on this host, as verified by the 29-event benign control (`whoami.exe`) and 32 regression tests.
+1. The native x64 executable exits with `0xc000007b` / `STATUS_INVALID_IMAGE_FORMAT` upon launch on Windows 11 Build 26300.
+2. For the supplied whoami control, the v3 harness completed 29 events with target exit 0 and no reported cleanup errors.
+3. For OpenBot run 3, the v3 harness recorded CREATE_PROCESS, an ntdll.dll LOAD_DLL notification, and EXIT_PROCESS 0xc000007b, with no kernel32.dll LOAD_DLL or exception notification appearing in the three-event trace.
 
 **Unproved Hypotheses (Not Asserted as Facts):**
 1. Whether MinGW-w64 PE32+ relocation/TLS directory layout, CET, or CRT static linkage is the root cause.
 2. Whether an MSVC toolchain build will resolve the failure (MSVC compilation is an experimental diagnostic comparison, not an established requirement).
 3. Whether Authenticode signing is required (signing is an independent release gate, not an established fix for `0xc000007b`).
+4. The exact initialization stage and rejected image/header element, whether kernel32 was ever mapped in any sense, and whether PE entry or wWinMain executed remain unproved.
 
 **Safety & Guardrails:**
 - No security controls (Windows Defender, SmartScreen, Memory Integrity) were disabled.

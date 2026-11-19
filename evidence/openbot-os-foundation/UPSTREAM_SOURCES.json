@@ -1,0 +1,1552 @@
+{
+  "all_available_cached_tree_checks_passed": true,
+  "clock_note": "Observed remote Git committer timestamps can be later than configured date; treated as untrusted metadata, not a change to session date or proof of release order.",
+  "configured_session_reference_date": "2026-11-10",
+  "opaque_backend_images_pulled_or_executed": false,
+  "repositories": {
+    "agui": {
+      "default_branch": "main",
+      "description": "AG-UI: the Agent-User Interaction Protocol. Bring Agents into Frontend Applications.",
+      "latest_asof_session_date": {
+        "committer_date": "2026-11-10T15:23:20Z",
+        "message": "Merge pull request #3351 from ag-ui-protocol/release/next",
+        "sha": "deefd3833c15b353348ba90eae0fad6113021759"
+      },
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "observed_head": {
+        "committer_date": "2026-11-17T17:19:33Z",
+        "message": "Merge pull request #3415 from ag-ui-protocol/release/next",
+        "sha": "3416b86da4b3288e87f827c7f2759a7fa18b5231"
+      },
+      "requested": "ag-ui-protocol/ag-ui",
+      "resolved": "ag-ui-protocol/ag-ui"
+    },
+    "copilotkit": {
+      "default_branch": "main",
+      "description": "The Frontend Stack for Agents & Generative UI. React, Angular, Mobile, Slack, and more.  Makers of the AG-UI Protocol",
+      "latest_asof_session_date": {
+        "committer_date": "2026-11-10T18:06:55Z",
+        "message": "fix(showcase): mark Spring AI shared-state-streaming unsupported again",
+        "sha": "bd3a77d1fea222a4762ed5d258ccb269203a6446"
+      },
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "observed_head": {
+        "committer_date": "2026-11-18T16:02:29Z",
+        "message": "ci: pin two Playwright jobs to Ubuntu 24.04 (#8477)",
+        "sha": "567211b7edff7dde57cfc9b617655344004253c0"
+      },
+      "requested": "CopilotKit/CopilotKit",
+      "resolved": "CopilotKit/CopilotKit"
+    },
+    "copilotkit-openbot": {
+      "default_branch": "main",
+      "description": "The open, self-hostable alternative to closed AI bots. Production-ready, fully customizable, and plugs into every stack: any agent, any model, any tool.",
+      "latest_asof_session_date": {
+        "committer_date": "2026-11-10T18:25:56Z",
+        "message": "Download an update's images in the background before the Update click (#1391)",
+        "sha": "882c68e222bbb603c67855764facd4ebbb9778c8"
+      },
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "observed_head": {
+        "committer_date": "2026-11-19T07:33:21Z",
+        "message": "Agent: read /release from the server's internal status port, and its migration object (#1855)",
+        "sha": "30a40979a93062b29f8592cef173601b354474b4"
+      },
+      "requested": "CopilotKit/OpenBot",
+      "resolved": "CopilotKit/OpenBot"
+    },
+    "nightly-openbot": {
+      "default_branch": "main",
+      "description": "A local-first desktop workspace for persistent AI teammates. Run Codex, Claude, and Grok with dedicated workspaces, task queues, file sharing, browser control, and agent-to-agent collaboration.",
+      "latest_asof_session_date": {
+        "committer_date": "2026-11-10T18:18:29Z",
+        "message": "Run Gemini on the Antigravity CLI 1.5.4 (#6849)",
+        "sha": "253a21a91562a8d6776e74da599e684953dfbcfe"
+      },
+      "license": {
+        "key": "other",
+        "name": "Other",
+        "node_id": "MDc6TGljZW5zZTA=",
+        "spdx_id": "NOASSERTION",
+        "url": null
+      },
+      "observed_head": {
+        "committer_date": "2026-11-19T10:21:44Z",
+        "message": "Show the early start check box to consumers in the United Kingdom and Turkey (#12648)",
+        "sha": "daab0074f48c6531a42791d7a18ffd4d7c54d184"
+      },
+      "requested": "nightly-labs/openbot",
+      "resolved": "nightly-labs/openbot"
+    },
+    "ours": {
+      "default_branch": "main",
+      "description": null,
+      "license": null,
+      "observed_head": {
+        "committer_date": "2026-11-18T11:53:15Z",
+        "message": "fix(review): integrate verified-complete metadata fixes, attributes, and documented Windows 0xc000007b launch evidence",
+        "sha": "5a98328bbd5a05646de14340a858f4debba24788"
+      },
+      "requested": "chimmeyeswanthoficial-hub/openbot",
+      "resolved": "chimmeyeswanthoficial-hub/openbot"
+    }
+  },
+  "retained_reference_comparison": {
+    "by_area": {
+      ".claude": {
+        "changed": 2,
+        "unchanged": 1
+      },
+      ".dockerignore": {
+        "unchanged": 1
+      },
+      ".env.example": {
+        "changed": 1
+      },
+      ".env.personal.example": {
+        "unchanged": 1
+      },
+      ".gitattributes": {
+        "changed": 1
+      },
+      ".github": {
+        "changed": 13,
+        "unchanged": 5
+      },
+      ".gitignore": {
+        "changed": 1
+      },
+      "CHANGELOG.md": {
+        "changed": 1
+      },
+      "Dockerfile": {
+        "not_in_observed_tree": 1
+      },
+      "LICENSE": {
+        "unchanged": 1
+      },
+      "README.md": {
+        "changed": 1
+      },
+      "Tauri-signing-SKILL.md": {
+        "unchanged": 1
+      },
+      "agent-adk": {
+        "unchanged": 8
+      },
+      "agent-ag2": {
+        "changed": 3,
+        "unchanged": 5
+      },
+      "agent-agno": {
+        "changed": 2,
+        "unchanged": 8
+      },
+      "agent-antigravity": {
+        "unchanged": 8
+      },
+      "agent-bot": {
+        "not_in_observed_tree": 6
+      },
+      "agent-claude-sdk": {
+        "changed": 7,
+        "unchanged": 11
+      },
+      "agent-computer": {
+        "not_in_observed_tree": 150
+      },
+      "agent-crewai": {
+        "changed": 1,
+        "unchanged": 7
+      },
+      "agent-langgraph": {
+        "not_in_observed_tree": 15
+      },
+      "agent-langgraph-agui": {
+        "changed": 7,
+        "unchanged": 10
+      },
+      "agent-langroid": {
+        "changed": 3,
+        "unchanged": 7
+      },
+      "agent-llamaindex": {
+        "unchanged": 8
+      },
+      "agent-mastra": {
+        "unchanged": 5
+      },
+      "agent-microsoft": {
+        "changed": 1,
+        "unchanged": 7
+      },
+      "agent-pydantic-ai": {
+        "unchanged": 8
+      },
+      "agent-strands": {
+        "unchanged": 9
+      },
+      "app": {
+        "changed": 612,
+        "not_in_observed_tree": 45,
+        "unchanged": 442
+      },
+      "assets": {
+        "changed": 2
+      },
+      "biome.json": {
+        "changed": 1
+      },
+      "bun.lock": {
+        "changed": 1
+      },
+      "bunfig.toml": {
+        "changed": 1
+      },
+      "charts": {
+        "not_in_observed_tree": 39
+      },
+      "desktop": {
+        "changed": 107,
+        "not_in_observed_tree": 5,
+        "unchanged": 122
+      },
+      "docker": {
+        "not_in_observed_tree": 30
+      },
+      "docker-compose.yml": {
+        "changed": 1
+      },
+      "docs": {
+        "changed": 24,
+        "unchanged": 6
+      },
+      "examples": {
+        "changed": 18,
+        "unchanged": 17
+      },
+      "extension": {
+        "changed": 49,
+        "unchanged": 161
+      },
+      "mobile": {
+        "changed": 20,
+        "not_in_observed_tree": 1,
+        "unchanged": 6
+      },
+      "package.json": {
+        "changed": 1
+      },
+      "prompt.txt": {
+        "changed": 1
+      },
+      "release-policy.json": {
+        "changed": 1
+      },
+      "renovate.json": {
+        "unchanged": 1
+      },
+      "scripts": {
+        "changed": 31,
+        "not_in_observed_tree": 10,
+        "unchanged": 21
+      },
+      "server": {
+        "not_in_observed_tree": 1165
+      },
+      "shared": {
+        "changed": 37,
+        "unchanged": 74
+      },
+      "spire": {
+        "not_in_observed_tree": 2
+      },
+      "supervisor": {
+        "not_in_observed_tree": 23
+      },
+      "tests": {
+        "changed": 13,
+        "not_in_observed_tree": 9,
+        "unchanged": 15
+      },
+      "toolkit": {
+        "not_in_observed_tree": 26
+      },
+      "tsconfig.base.json": {
+        "unchanged": 1
+      },
+      "worker": {
+        "not_in_observed_tree": 7
+      }
+    },
+    "comparison_scope": "Content/path comparison against retained selected tree; not a claim of a complete chronological Git diff or wholesale-upgrade compatibility.",
+    "counts": {
+      "changed": 964,
+      "not_in_observed_tree": 1534,
+      "unchanged": 977
+    },
+    "observed_upstream_files": 4961,
+    "observed_upstream_head": "30a40979a93062b29f8592cef173601b354474b4",
+    "retained_intake_upstream_commit_unestablished": true,
+    "retained_selected_files": 3475
+  },
+  "retrieved_source_count": 93,
+  "retrieved_sources": [
+    {
+      "bytes": 1067,
+      "commit": "30a40979a93062b29f8592cef173601b354474b4",
+      "git_blob_oid": "3b2206e4a39953e65bfde70f550573d343f5b510",
+      "matches_cached_tree_blob": true,
+      "path": "LICENSE",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "bounded-source/metadata-review",
+      "sha256": "6d35a6bb107ae508da34636387f6208e75a6938e797bc0d5bfa9489d2ca95bad",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/30a40979a93062b29f8592cef173601b354474b4/LICENSE",
+      "variant": "observed-source"
+    },
+    {
+      "bytes": 53743,
+      "commit": "30a40979a93062b29f8592cef173601b354474b4",
+      "git_blob_oid": "4577cbb3fcacc1345758a8339847ff46518348ce",
+      "matches_cached_tree_blob": true,
+      "path": "README.md",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "bounded-source/metadata-review",
+      "sha256": "cf9761094ce81330209b4ef678939edf79ce3e1258e844faf2ec1fe14f595410",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/30a40979a93062b29f8592cef173601b354474b4/README.md",
+      "variant": "observed-source"
+    },
+    {
+      "bytes": 1979,
+      "commit": "30a40979a93062b29f8592cef173601b354474b4",
+      "git_blob_oid": "3ee48dee776cdfb34418837cd02611fbf303ab2e",
+      "matches_cached_tree_blob": true,
+      "path": "package.json",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "bounded-source/metadata-review",
+      "sha256": "69d2234a033a5cc2968a22779d6f9bca3190de86921998301905e36d602f82cd",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/30a40979a93062b29f8592cef173601b354474b4/package.json",
+      "variant": "observed-source"
+    },
+    {
+      "bytes": 39354,
+      "commit": "30a40979a93062b29f8592cef173601b354474b4",
+      "git_blob_oid": "e3a080c01b9b89d01b3fc56219c77cfaddd6487c",
+      "matches_cached_tree_blob": true,
+      "path": ".env.example",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "selected-lines/control-flow",
+      "sha256": "3787eedc477e6d0b328b9e2bf1f1be0593e326cbc67d7004f6698e9c184348d4",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/30a40979a93062b29f8592cef173601b354474b4/.env.example",
+      "variant": "reviewed-source"
+    },
+    {
+      "bytes": 52871,
+      "commit": "30a40979a93062b29f8592cef173601b354474b4",
+      "git_blob_oid": "d3b64aff46a5cc2dab61aa2392926e99448f04c7",
+      "matches_cached_tree_blob": true,
+      "path": "api/asyncapi.yaml",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "retrieved-not-reviewed-in-detail",
+      "sha256": "0d93b47a26b807485b046d0c6a1b6f2dda772291a84e15db417e835b851eea21",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/30a40979a93062b29f8592cef173601b354474b4/api/asyncapi.yaml",
+      "variant": "reviewed-source"
+    },
+    {
+      "bytes": 208445,
+      "commit": "30a40979a93062b29f8592cef173601b354474b4",
+      "git_blob_oid": "0a7a65387185e5566cb3553b95a9bb60f5f1cc2f",
+      "matches_cached_tree_blob": true,
+      "path": "api/openapi/approvals.yaml",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "retrieved-contract/not-reviewed-in-detail",
+      "sha256": "cbf7607dd46d84e090cd54ddd619573af4ce62af8f4b32513d5da828dcf099b1",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/30a40979a93062b29f8592cef173601b354474b4/api/openapi/approvals.yaml",
+      "variant": "reviewed-source"
+    },
+    {
+      "bytes": 135272,
+      "commit": "30a40979a93062b29f8592cef173601b354474b4",
+      "git_blob_oid": "c05d3a9f6a3f6e600c3cf8156f0c12955e48f00e",
+      "matches_cached_tree_blob": true,
+      "path": "api/openapi/common.yaml",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "retrieved-contract/not-reviewed-in-detail",
+      "sha256": "a2c22cb7d80355e49fb0f8126d7a251312f67457a29a24649b2fc6e228ca300e",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/30a40979a93062b29f8592cef173601b354474b4/api/openapi/common.yaml",
+      "variant": "reviewed-source"
+    },
+    {
+      "bytes": 98824,
+      "commit": "30a40979a93062b29f8592cef173601b354474b4",
+      "git_blob_oid": "138d095f79093861264cfcee730a192d06eadba7",
+      "matches_cached_tree_blob": true,
+      "path": "api/openapi/computers.yaml",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "retrieved-contract/not-reviewed-in-detail",
+      "sha256": "7146006bd69a23dde99cdd97c60fdda2dc2e30a8100ec86ecee7573d2e60f2cd",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/30a40979a93062b29f8592cef173601b354474b4/api/openapi/computers.yaml",
+      "variant": "reviewed-source"
+    },
+    {
+      "bytes": 130651,
+      "commit": "30a40979a93062b29f8592cef173601b354474b4",
+      "git_blob_oid": "8fbc62d3620408a7f1f7d5bef3ffa02b24242221",
+      "matches_cached_tree_blob": true,
+      "path": "api/openapi/conversations.yaml",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "retrieved-contract/not-reviewed-in-detail",
+      "sha256": "d3d7bf4651722570925345f9139835431de32e519b73e354f5890ae23b70b6c6",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/30a40979a93062b29f8592cef173601b354474b4/api/openapi/conversations.yaml",
+      "variant": "reviewed-source"
+    },
+    {
+      "bytes": 2159,
+      "commit": "30a40979a93062b29f8592cef173601b354474b4",
+      "git_blob_oid": "31a4563c43fe176ea445a4bebb9b811bd67ef7c4",
+      "matches_cached_tree_blob": true,
+      "path": "app/package.json",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "bounded-source/metadata-review",
+      "sha256": "27292af7ae8d0eee28346d734524050b39f716c8c33684eb1cfc2a552a9f1457",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/30a40979a93062b29f8592cef173601b354474b4/app/package.json",
+      "variant": "reviewed-source"
+    },
+    {
+      "bytes": 25200,
+      "commit": "30a40979a93062b29f8592cef173601b354474b4",
+      "git_blob_oid": "53426f45bfdc21800a4d17cac8271bdeb2b88887",
+      "matches_cached_tree_blob": true,
+      "path": "app/src/components/app-sidebar/app-sidebar.tsx",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "selected-lines/control-flow",
+      "sha256": "e9fd8901998fc5d8d38c195aa0b242356ef9c948b3489ab93958d877cf8efe94",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/30a40979a93062b29f8592cef173601b354474b4/app/src/components/app-sidebar/app-sidebar.tsx",
+      "variant": "reviewed-source"
+    },
+    {
+      "bytes": 8688,
+      "commit": "30a40979a93062b29f8592cef173601b354474b4",
+      "git_blob_oid": "c18d9e43e1a5c651fc301384abd25975eab612ab",
+      "matches_cached_tree_blob": true,
+      "path": "app/src/components/approvals/inline-approval.tsx",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "selected-lines/control-flow",
+      "sha256": "530461113ebe8f09c71a0ae1d1218a761f0613d1af22ea602edf2ca58b34f207",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/30a40979a93062b29f8592cef173601b354474b4/app/src/components/approvals/inline-approval.tsx",
+      "variant": "reviewed-source"
+    },
+    {
+      "bytes": 1622,
+      "commit": "30a40979a93062b29f8592cef173601b354474b4",
+      "git_blob_oid": "4174191c6496e9040b785ee073fbb357e637b203",
+      "matches_cached_tree_blob": true,
+      "path": "app/src/components/bot-profile/page.tsx",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "retrieved-not-reviewed-in-detail",
+      "sha256": "72c60018aea35ae14ed359c3f532ba86f14de256247805a2afc188fcdccf6e4b",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/30a40979a93062b29f8592cef173601b354474b4/app/src/components/bot-profile/page.tsx",
+      "variant": "reviewed-source"
+    },
+    {
+      "bytes": 92342,
+      "commit": "30a40979a93062b29f8592cef173601b354474b4",
+      "git_blob_oid": "fafab7150b70eeb17f2c365a6c21cd393e97870b",
+      "matches_cached_tree_blob": true,
+      "path": "app/src/components/channels/channel-chat.tsx",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "selected-lines/control-flow",
+      "sha256": "3877e8ce9b4c49493940c234394cee3c63603f9f7a53e8abedc11fa3cd160d4f",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/30a40979a93062b29f8592cef173601b354474b4/app/src/components/channels/channel-chat.tsx",
+      "variant": "reviewed-source"
+    },
+    {
+      "bytes": 5497,
+      "commit": "30a40979a93062b29f8592cef173601b354474b4",
+      "git_blob_oid": "7e55ae9467f238252030d4f74a4b0b53d200f9c8",
+      "matches_cached_tree_blob": true,
+      "path": "app/src/components/computer/computer-panel.tsx",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "bounded-source/metadata-review",
+      "sha256": "ae5c76bd71161833e3da68911ad635f8b2f4b6cd90db6e2111a6a0e2ae950329",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/30a40979a93062b29f8592cef173601b354474b4/app/src/components/computer/computer-panel.tsx",
+      "variant": "reviewed-source"
+    },
+    {
+      "bytes": 3601,
+      "commit": "30a40979a93062b29f8592cef173601b354474b4",
+      "git_blob_oid": "c73ca1d2e77312a78a3457636715be85e388e372",
+      "matches_cached_tree_blob": true,
+      "path": "app/src/components/computer/computer-terminal.tsx",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "selected-lines/control-flow",
+      "sha256": "38e3491f37cc61b8a1ee37956323431ce903c0e74fdb04e1f27be29dd1a6925e",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/30a40979a93062b29f8592cef173601b354474b4/app/src/components/computer/computer-terminal.tsx",
+      "variant": "reviewed-source"
+    },
+    {
+      "bytes": 59100,
+      "commit": "30a40979a93062b29f8592cef173601b354474b4",
+      "git_blob_oid": "765253cef28c8e1cfc7bed010a218b12fca9b081",
+      "matches_cached_tree_blob": true,
+      "path": "app/src/components/computer/computer-view.tsx",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "selected-lines/control-flow",
+      "sha256": "df602c35fa81cd07d6d4b4043ce5c43fac5a73cc2565677b73ab30fac4d39bdd",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/30a40979a93062b29f8592cef173601b354474b4/app/src/components/computer/computer-view.tsx",
+      "variant": "reviewed-source"
+    },
+    {
+      "bytes": 2207,
+      "commit": "30a40979a93062b29f8592cef173601b354474b4",
+      "git_blob_oid": "a18417faa85e7f84dc3291e10778aa92da510845",
+      "matches_cached_tree_blob": true,
+      "path": "app/src/lib/agents/isolation.ts",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "bounded-source/metadata-review",
+      "sha256": "070175ef6454c7894c0b4616c1b65fe6050be99d6a963ea7eeef86aacd54887e",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/30a40979a93062b29f8592cef173601b354474b4/app/src/lib/agents/isolation.ts",
+      "variant": "reviewed-source"
+    },
+    {
+      "bytes": 3250,
+      "commit": "30a40979a93062b29f8592cef173601b354474b4",
+      "git_blob_oid": "3e2b235454781987096c65a57ae4e6dd1a387f82",
+      "matches_cached_tree_blob": true,
+      "path": "app/src/lib/api/request.ts",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "selected-lines/control-flow",
+      "sha256": "e779299c7cecc1575a1f3e52aea6852814aa74c28e8077ab2158de4aa82f90b2",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/30a40979a93062b29f8592cef173601b354474b4/app/src/lib/api/request.ts",
+      "variant": "reviewed-source"
+    },
+    {
+      "bytes": 19295,
+      "commit": "30a40979a93062b29f8592cef173601b354474b4",
+      "git_blob_oid": "fec830f2a54d0e6b49c4875342650b0a83af8047",
+      "matches_cached_tree_blob": true,
+      "path": "app/src/lib/approvals.ts",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "retrieved-not-reviewed-in-detail",
+      "sha256": "9c9fd0484ebc34289754e03e2b0d404791381dbf09c0be144b077547649ebe5c",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/30a40979a93062b29f8592cef173601b354474b4/app/src/lib/approvals.ts",
+      "variant": "reviewed-source"
+    },
+    {
+      "bytes": 9557,
+      "commit": "30a40979a93062b29f8592cef173601b354474b4",
+      "git_blob_oid": "0fcbd820f8f793712bcdde7840b3fa85545b5098",
+      "matches_cached_tree_blob": true,
+      "path": "app/src/lib/client.ts",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "selected-lines/control-flow",
+      "sha256": "18b58e94316e0d0c6ab59f8a69ee49f63022e3f36d3254c5be8acf5eb76097db",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/30a40979a93062b29f8592cef173601b354474b4/app/src/lib/client.ts",
+      "variant": "reviewed-source"
+    },
+    {
+      "bytes": 8155,
+      "commit": "30a40979a93062b29f8592cef173601b354474b4",
+      "git_blob_oid": "fef8c1ff3d4ca50f1f64800bdd8bfdeb7591feee",
+      "matches_cached_tree_blob": true,
+      "path": "app/src/lib/computers/use-control.ts",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "selected-lines/control-flow",
+      "sha256": "0519001be72ee4702950a3da16c8bd2370d13651c848a148c574b4960eef6362",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/30a40979a93062b29f8592cef173601b354474b4/app/src/lib/computers/use-control.ts",
+      "variant": "reviewed-source"
+    },
+    {
+      "bytes": 911,
+      "commit": "30a40979a93062b29f8592cef173601b354474b4",
+      "git_blob_oid": "bd58740aa6d79ec1dcf2e43585e54e53cf04082a",
+      "matches_cached_tree_blob": true,
+      "path": "app/src/lib/copilot/conversation.tsx",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "bounded-source/metadata-review",
+      "sha256": "24db9e6e788152e476fba306c24b5cd647ae62981d2f847e95a6d4d7744ab02d",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/30a40979a93062b29f8592cef173601b354474b4/app/src/lib/copilot/conversation.tsx",
+      "variant": "reviewed-source"
+    },
+    {
+      "bytes": 6413,
+      "commit": "30a40979a93062b29f8592cef173601b354474b4",
+      "git_blob_oid": "8e0b7978146ecd96ca136c9a742c835987e41987",
+      "matches_cached_tree_blob": true,
+      "path": "app/src/lib/copilot/provider.tsx",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "bounded-source/metadata-review",
+      "sha256": "e85323f8a7315a09a78faa7959d49c25580da59276db58cf7199b5dac5363030",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/30a40979a93062b29f8592cef173601b354474b4/app/src/lib/copilot/provider.tsx",
+      "variant": "reviewed-source"
+    },
+    {
+      "bytes": 6168,
+      "commit": "30a40979a93062b29f8592cef173601b354474b4",
+      "git_blob_oid": "8cd57a8c3c8255f7d618e8acbcc50b2c70b2d7e9",
+      "matches_cached_tree_blob": true,
+      "path": "app/src/lib/copilot/sandboxed-tools.tsx",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "selected-lines/control-flow",
+      "sha256": "c8736a93dfd4e00e8216b2e349b5233571a36f2e1dc1ecd6fc2c5498eb821fa7",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/30a40979a93062b29f8592cef173601b354474b4/app/src/lib/copilot/sandboxed-tools.tsx",
+      "variant": "reviewed-source"
+    },
+    {
+      "bytes": 1812,
+      "commit": "30a40979a93062b29f8592cef173601b354474b4",
+      "git_blob_oid": "7d5d66bf8fe8191f8b26224bd9567d8179e1bf39",
+      "matches_cached_tree_blob": true,
+      "path": "app/src/lib/copilot/server-owned-interrupts.ts",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "bounded-source/metadata-review",
+      "sha256": "bc5543bff12ff1fcd0a850021e59b0655aa1396ad13b33ed75cbad33f2e49dba",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/30a40979a93062b29f8592cef173601b354474b4/app/src/lib/copilot/server-owned-interrupts.ts",
+      "variant": "reviewed-source"
+    },
+    {
+      "bytes": 10823,
+      "commit": "30a40979a93062b29f8592cef173601b354474b4",
+      "git_blob_oid": "caaf719ffae26e8cf2b143172f69ff5be4eebeba",
+      "matches_cached_tree_blob": true,
+      "path": "app/src/skins/opendots/skin.css",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "retrieved-not-reviewed-in-detail",
+      "sha256": "7c849503e441ffda21e645d685b092e6c23a922e5c0684f3d1b1836d4b411e4b",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/30a40979a93062b29f8592cef173601b354474b4/app/src/skins/opendots/skin.css",
+      "variant": "reviewed-source"
+    },
+    {
+      "bytes": 12696,
+      "commit": "30a40979a93062b29f8592cef173601b354474b4",
+      "git_blob_oid": "9a722537739c00149dab2bce689d4ef177d05920",
+      "matches_cached_tree_blob": true,
+      "path": "app/src/skins/openduet/skin.css",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "retrieved-not-reviewed-in-detail",
+      "sha256": "352918598e213d88a6f89ad7e24d0caaef97acd43fa484b10d5c2fe3db8225d3",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/30a40979a93062b29f8592cef173601b354474b4/app/src/skins/openduet/skin.css",
+      "variant": "reviewed-source"
+    },
+    {
+      "bytes": 11230,
+      "commit": "30a40979a93062b29f8592cef173601b354474b4",
+      "git_blob_oid": "1433d77920baa1a7c87d77eb4f19325bf4d1486e",
+      "matches_cached_tree_blob": true,
+      "path": "app/src/skins/openfuse/skin.css",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "retrieved-not-reviewed-in-detail",
+      "sha256": "dece8fd1469bf189b883772a2091a8a1d1a02f895791145dcb946407eebb0315",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/30a40979a93062b29f8592cef173601b354474b4/app/src/skins/openfuse/skin.css",
+      "variant": "reviewed-source"
+    },
+    {
+      "bytes": 16755,
+      "commit": "30a40979a93062b29f8592cef173601b354474b4",
+      "git_blob_oid": "d459140d9fdf68f43b42da1deb8195d2e2b3b43d",
+      "matches_cached_tree_blob": true,
+      "path": "app/src/styles.css",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "selected-lines/control-flow",
+      "sha256": "5fb129c07e3bdbab6fe46e320361cfad45c863c7efcbce63e33568554ac6cd6e",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/30a40979a93062b29f8592cef173601b354474b4/app/src/styles.css",
+      "variant": "reviewed-source"
+    },
+    {
+      "bytes": 9080,
+      "commit": "30a40979a93062b29f8592cef173601b354474b4",
+      "git_blob_oid": "c40bdacdc010345d6329eab47a528d3e8ce27a0d",
+      "matches_cached_tree_blob": true,
+      "path": "app/src/theme.css",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "selected-lines/control-flow",
+      "sha256": "c75af8095306993dd7c26a17e007650d59eb10106055464040e107595d8d3a53",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/30a40979a93062b29f8592cef173601b354474b4/app/src/theme.css",
+      "variant": "reviewed-source"
+    },
+    {
+      "bytes": 1184,
+      "commit": "30a40979a93062b29f8592cef173601b354474b4",
+      "git_blob_oid": "01b9497f490d0a41ef7e6d3a578f11a53fe66805",
+      "matches_cached_tree_blob": true,
+      "path": "backend-images.env",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "selected-lines/control-flow",
+      "sha256": "57e938718f62b3d694aa7146abeb70da80e1abecf3a391be08aa8936a9bd4b30",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/30a40979a93062b29f8592cef173601b354474b4/backend-images.env",
+      "variant": "reviewed-source"
+    },
+    {
+      "bytes": 755,
+      "commit": "30a40979a93062b29f8592cef173601b354474b4",
+      "git_blob_oid": "3d4eeb80694db94a2809424072259b0a914548cd",
+      "matches_cached_tree_blob": true,
+      "path": "desktop/package.json",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "bounded-source/metadata-review",
+      "sha256": "8733b74f1b7d29347ea6da0461882db6ad10ca14c0015f6c136f58d9ebc4d6cb",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/30a40979a93062b29f8592cef173601b354474b4/desktop/package.json",
+      "variant": "reviewed-source"
+    },
+    {
+      "bytes": 48957,
+      "commit": "30a40979a93062b29f8592cef173601b354474b4",
+      "git_blob_oid": "04ff6c01888d16efbcef0a61209a71f391fdc8e6",
+      "matches_cached_tree_blob": true,
+      "path": "docker-compose.yml",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "selected-lines/control-flow",
+      "sha256": "09f6a3b3abe92b52712f950b986a0a88cfdfc545f95e863b91cb5476bc37086a",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/30a40979a93062b29f8592cef173601b354474b4/docker-compose.yml",
+      "variant": "reviewed-source"
+    },
+    {
+      "bytes": 16286,
+      "commit": "30a40979a93062b29f8592cef173601b354474b4",
+      "git_blob_oid": "37bf71e7877bda8307b96e20c4102c174aaee2dc",
+      "matches_cached_tree_blob": true,
+      "path": "docs/TELEMETRY.md",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "selected-lines/control-flow",
+      "sha256": "9afa6c42c71defa61bf820014347fd76b9875d632cc0d473cebf9100f8833639",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/30a40979a93062b29f8592cef173601b354474b4/docs/TELEMETRY.md",
+      "variant": "reviewed-source"
+    },
+    {
+      "bytes": 9617,
+      "commit": "30a40979a93062b29f8592cef173601b354474b4",
+      "git_blob_oid": "a1e75cb3298acb4b5e2287d721366a0a07bdb437",
+      "matches_cached_tree_blob": true,
+      "path": "docs/approvals.md",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "selected-lines/control-flow",
+      "sha256": "dad9476d81e2f0da3a485acda7e1741c95401a9461ad0e0d61a13f1431db6479",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/30a40979a93062b29f8592cef173601b354474b4/docs/approvals.md",
+      "variant": "reviewed-source"
+    },
+    {
+      "bytes": 44391,
+      "commit": "30a40979a93062b29f8592cef173601b354474b4",
+      "git_blob_oid": "15c65e256bf47182a94fd7f92433ad1e53fcf1bc",
+      "matches_cached_tree_blob": true,
+      "path": "docs/architecture.md",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "selected-lines/control-flow",
+      "sha256": "4ec9a133addcd73f2d8db94659b1edc511bb3eee389a418048ca9975205ccfa0",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/30a40979a93062b29f8592cef173601b354474b4/docs/architecture.md",
+      "variant": "reviewed-source"
+    },
+    {
+      "bytes": 21524,
+      "commit": "30a40979a93062b29f8592cef173601b354474b4",
+      "git_blob_oid": "54e776424a23845ff14700f04d903a7557c3bf50",
+      "matches_cached_tree_blob": true,
+      "path": "docs/automatic-learning.md",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "selected-lines/control-flow",
+      "sha256": "cf97e669125e02f82b533cc9c67f075fa2533ba114a01026d525aa7b9db85405",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/30a40979a93062b29f8592cef173601b354474b4/docs/automatic-learning.md",
+      "variant": "reviewed-source"
+    },
+    {
+      "bytes": 15696,
+      "commit": "30a40979a93062b29f8592cef173601b354474b4",
+      "git_blob_oid": "6a47471c7f20ef7fa706a553791b447dd5faada0",
+      "matches_cached_tree_blob": true,
+      "path": "docs/deployment.md",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "selected-lines/control-flow",
+      "sha256": "2bb4d531e29ae782c99ab91545ae006b72403debd808b2c139e67e998bf793da",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/30a40979a93062b29f8592cef173601b354474b4/docs/deployment.md",
+      "variant": "reviewed-source"
+    },
+    {
+      "bytes": 10851,
+      "commit": "30a40979a93062b29f8592cef173601b354474b4",
+      "git_blob_oid": "da1bdd7efcc4383107ba55467e8c5d362163d8d0",
+      "matches_cached_tree_blob": true,
+      "path": "docs/development.md",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "selected-lines/control-flow",
+      "sha256": "23d689b9ac94032a66adad2b8c50ccd03924c2fbe9adb4e525cd774dc23c60ef",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/30a40979a93062b29f8592cef173601b354474b4/docs/development.md",
+      "variant": "reviewed-source"
+    },
+    {
+      "bytes": 9533,
+      "commit": "30a40979a93062b29f8592cef173601b354474b4",
+      "git_blob_oid": "ce14f71e5070c8be3d1b01ca92d344b488f8d7f7",
+      "matches_cached_tree_blob": true,
+      "path": "docs/how-openbot-works.md",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "retrieved-not-reviewed-in-detail",
+      "sha256": "6776142a3cc5dedde04c1b1e3de81b5bbd25481c49c6e78a68bd71d6ed12be45",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/30a40979a93062b29f8592cef173601b354474b4/docs/how-openbot-works.md",
+      "variant": "reviewed-source"
+    },
+    {
+      "bytes": 17795,
+      "commit": "30a40979a93062b29f8592cef173601b354474b4",
+      "git_blob_oid": "9a9aa44da6a7814a516180cbc5cf5c1eadf6fb27",
+      "matches_cached_tree_blob": true,
+      "path": "docs/personal-edition.md",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "retrieved-not-reviewed-in-detail",
+      "sha256": "2cf560e0bdbee6e45bee9afb48b148443ee0974bb26bd75f9b9fbb81aac04fee",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/30a40979a93062b29f8592cef173601b354474b4/docs/personal-edition.md",
+      "variant": "reviewed-source"
+    },
+    {
+      "bytes": 14078,
+      "commit": "30a40979a93062b29f8592cef173601b354474b4",
+      "git_blob_oid": "e032dae3d92c1245092aedbcba58895c75b310aa",
+      "matches_cached_tree_blob": true,
+      "path": "docs/routines.md",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "selected-lines/control-flow",
+      "sha256": "d0887ef02a5f93373c985251f0d894eef6e7b860dee7b789437449e37caf360a",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/30a40979a93062b29f8592cef173601b354474b4/docs/routines.md",
+      "variant": "reviewed-source"
+    },
+    {
+      "bytes": 13112,
+      "commit": "30a40979a93062b29f8592cef173601b354474b4",
+      "git_blob_oid": "b70ec1a9af992a7bbc5acb212162d3572500439a",
+      "matches_cached_tree_blob": true,
+      "path": "docs/upstream-upgrades.md",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "retrieved-not-reviewed-in-detail",
+      "sha256": "9d9fce1221bac34dfed22efc207069805e38fdb99cb77390a0399c7fcb74afbd",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/30a40979a93062b29f8592cef173601b354474b4/docs/upstream-upgrades.md",
+      "variant": "reviewed-source"
+    },
+    {
+      "bytes": 429,
+      "commit": "30a40979a93062b29f8592cef173601b354474b4",
+      "git_blob_oid": "9d560ad5bf43a7b01ba83f4f53d048c19383156e",
+      "matches_cached_tree_blob": true,
+      "path": "management-agent/package.json",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "bounded-source/metadata-review",
+      "sha256": "2dffa35efd8f8521320b65480fc9e1e986364906e7d697c591e6c41b23f2f8f5",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/30a40979a93062b29f8592cef173601b354474b4/management-agent/package.json",
+      "variant": "reviewed-source"
+    },
+    {
+      "bytes": 1111,
+      "commit": "30a40979a93062b29f8592cef173601b354474b4",
+      "git_blob_oid": "d280388e9164931e214623e5d3092aa1ec89bf6c",
+      "matches_cached_tree_blob": true,
+      "path": "mobile/package.json",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "bounded-source/metadata-review",
+      "sha256": "c2b8063e5441cccf9a8e45d209f7d3208cc520e9fc37c98e62c6c6ab2256ea69",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/30a40979a93062b29f8592cef173601b354474b4/mobile/package.json",
+      "variant": "reviewed-source"
+    },
+    {
+      "bytes": 710,
+      "commit": "30a40979a93062b29f8592cef173601b354474b4",
+      "git_blob_oid": "beeab88ad0093818c1dd8300f6186f09702e170f",
+      "matches_cached_tree_blob": true,
+      "path": "shared/agent-authorisation.ts",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "bounded-source/metadata-review",
+      "sha256": "7972c4d038a24f109ec2d2cbd0b56dbaed21684326ae406978aae377cc95e5f8",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/30a40979a93062b29f8592cef173601b354474b4/shared/agent-authorisation.ts",
+      "variant": "reviewed-source"
+    },
+    {
+      "bytes": 7664,
+      "commit": "30a40979a93062b29f8592cef173601b354474b4",
+      "git_blob_oid": "e840056ad6a84c51c6a1dbcd0ad4007cbfcff9dd",
+      "matches_cached_tree_blob": true,
+      "path": "shared/approval-outcomes.ts",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "retrieved-not-reviewed-in-detail",
+      "sha256": "47afe7abdf559a4691d462596bbff7ce8ab470826cf6b28df77a131041a59ad5",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/30a40979a93062b29f8592cef173601b354474b4/shared/approval-outcomes.ts",
+      "variant": "reviewed-source"
+    },
+    {
+      "bytes": 5244,
+      "commit": "30a40979a93062b29f8592cef173601b354474b4",
+      "git_blob_oid": "eb0451785eac17c10ad80025d2998d1cfb5f401f",
+      "matches_cached_tree_blob": true,
+      "path": "shared/computer-control.ts",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "selected-lines/control-flow",
+      "sha256": "5495fdfda8fd3708b9f9d231ce869b7b1ff1de92e5edc5b8b813b77f659e3ebb",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/30a40979a93062b29f8592cef173601b354474b4/shared/computer-control.ts",
+      "variant": "reviewed-source"
+    },
+    {
+      "bytes": 2675,
+      "commit": "30a40979a93062b29f8592cef173601b354474b4",
+      "git_blob_oid": "fe819c334e38e0256910519f786f76f601a5766f",
+      "matches_cached_tree_blob": true,
+      "path": "shared/computer-token.ts",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "retrieved-not-reviewed-in-detail",
+      "sha256": "706291dd8847aac50947158c57c371bede19a8a766a9649a95ec0eeb3777fb78",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/30a40979a93062b29f8592cef173601b354474b4/shared/computer-token.ts",
+      "variant": "reviewed-source"
+    },
+    {
+      "bytes": 1823,
+      "commit": "30a40979a93062b29f8592cef173601b354474b4",
+      "git_blob_oid": "3a1a68b6280d08aa4f6973331b21d0bbcb9544f2",
+      "matches_cached_tree_blob": true,
+      "path": "shared/desktop-updates.ts",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "bounded-source/metadata-review",
+      "sha256": "196334a4b1257a5b7041a243373ee43df3a0242cdf83bf243f3a0c5902df4753",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/30a40979a93062b29f8592cef173601b354474b4/shared/desktop-updates.ts",
+      "variant": "reviewed-source"
+    },
+    {
+      "bytes": 10645,
+      "commit": "30a40979a93062b29f8592cef173601b354474b4",
+      "git_blob_oid": "ef54cad350b74fb6ecf230a1426d0421f408339c",
+      "matches_cached_tree_blob": true,
+      "path": "shared/harness_contract.py",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "retrieved-not-reviewed-in-detail",
+      "sha256": "8c0302da27943a09180991a44424b640ab1c0658a4001b62b42e1805c5d34eeb",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/30a40979a93062b29f8592cef173601b354474b4/shared/harness_contract.py",
+      "variant": "reviewed-source"
+    },
+    {
+      "bytes": 7144,
+      "commit": "30a40979a93062b29f8592cef173601b354474b4",
+      "git_blob_oid": "855726250dfd2380841ca7f8825d1ff51827a148",
+      "matches_cached_tree_blob": true,
+      "path": "shared/harnesses.json",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "selected-lines/control-flow",
+      "sha256": "d83c055ab2346d73cd46aa73ce1709d7fedc6ab05e062c049a1835415cff3dc8",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/30a40979a93062b29f8592cef173601b354474b4/shared/harnesses.json",
+      "variant": "reviewed-source"
+    },
+    {
+      "bytes": 12642,
+      "commit": "30a40979a93062b29f8592cef173601b354474b4",
+      "git_blob_oid": "dc253c8a61c243be4d6d7e13613129e07c0146c6",
+      "matches_cached_tree_blob": true,
+      "path": "shared/learning.ts",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "selected-lines/control-flow",
+      "sha256": "af78b7259e53c07486eb501469309d0f799eaa656da2104d2ad3eb52b35ad998",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/30a40979a93062b29f8592cef173601b354474b4/shared/learning.ts",
+      "variant": "reviewed-source"
+    },
+    {
+      "bytes": 1067,
+      "commit": "882c68e222bbb603c67855764facd4ebbb9778c8",
+      "git_blob_oid": "3b2206e4a39953e65bfde70f550573d343f5b510",
+      "matches_cached_tree_blob": true,
+      "path": "LICENSE",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "bounded-source/metadata-review",
+      "sha256": "6d35a6bb107ae508da34636387f6208e75a6938e797bc0d5bfa9489d2ca95bad",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/882c68e222bbb603c67855764facd4ebbb9778c8/LICENSE",
+      "variant": "asof-source"
+    },
+    {
+      "bytes": 46720,
+      "commit": "882c68e222bbb603c67855764facd4ebbb9778c8",
+      "git_blob_oid": "e01ef9b1f86926087b843d62ad89d697cdf5be94",
+      "matches_cached_tree_blob": true,
+      "path": "README.md",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "bounded-source/metadata-review",
+      "sha256": "21061bbb81d797290f0bca285b7e6c40c525b3c1dee448b69805f391b73b9663",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/882c68e222bbb603c67855764facd4ebbb9778c8/README.md",
+      "variant": "asof-source"
+    },
+    {
+      "bytes": 97900,
+      "commit": "882c68e222bbb603c67855764facd4ebbb9778c8",
+      "git_blob_oid": "bc1b8321f61f26752d86b47e04f1b58fe518f41d",
+      "matches_cached_tree_blob": true,
+      "path": "agent-computer/src/index.ts",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "retrieved-not-reviewed-in-detail",
+      "sha256": "2ab7c512e93fa91cd29bb1991569a56539a092b4277da29932bcbd4763b6c1e3",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/882c68e222bbb603c67855764facd4ebbb9778c8/agent-computer/src/index.ts",
+      "variant": "asof-source"
+    },
+    {
+      "bytes": 2582,
+      "commit": "882c68e222bbb603c67855764facd4ebbb9778c8",
+      "git_blob_oid": "daa3b0ab15ae770655fbff10eeee1c7f276444ed",
+      "matches_cached_tree_blob": true,
+      "path": "package.json",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "bounded-source/metadata-review",
+      "sha256": "b8685955c2fffdb4098b2fec99785a4c30d9903233bdd733742b10204b50b1da",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/882c68e222bbb603c67855764facd4ebbb9778c8/package.json",
+      "variant": "asof-source"
+    },
+    {
+      "bytes": 1764,
+      "commit": "882c68e222bbb603c67855764facd4ebbb9778c8",
+      "git_blob_oid": "60b46fa5d424b0621e7fdfca9caa1c764a2072bd",
+      "matches_cached_tree_blob": true,
+      "path": "server/package.json",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "selected-lines/control-flow",
+      "sha256": "8f9a890a6231cd48c00d6fce3cdad3e19015b404b270c9720e7f44f83009069f",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/882c68e222bbb603c67855764facd4ebbb9778c8/server/package.json",
+      "variant": "asof-source"
+    },
+    {
+      "bytes": 4070,
+      "commit": "882c68e222bbb603c67855764facd4ebbb9778c8",
+      "git_blob_oid": "4492494fa704eaabfeeecd963d965db944605a3a",
+      "matches_cached_tree_blob": true,
+      "path": "server/src/auth/dev-actor.ts",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "retrieved-not-reviewed-in-detail",
+      "sha256": "1afdf721263a0a6fb518e61171c1ea6f84e7e20e43b090f3b26839bc429194e6",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/882c68e222bbb603c67855764facd4ebbb9778c8/server/src/auth/dev-actor.ts",
+      "variant": "asof-source"
+    },
+    {
+      "bytes": 2504,
+      "commit": "882c68e222bbb603c67855764facd4ebbb9778c8",
+      "git_blob_oid": "e4e6a962834b243b55b4c3685fc52fedf88660b6",
+      "matches_cached_tree_blob": true,
+      "path": "server/src/auth/guards.ts",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "selected-lines/control-flow",
+      "sha256": "20071b33c99d937d551befb37532cc724e1ef29a7d1c23a53e707c7f4c3fed8f",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/882c68e222bbb603c67855764facd4ebbb9778c8/server/src/auth/guards.ts",
+      "variant": "asof-source"
+    },
+    {
+      "bytes": 81626,
+      "commit": "882c68e222bbb603c67855764facd4ebbb9778c8",
+      "git_blob_oid": "81723c613a84358ec6b10d230976a4cd873f34a9",
+      "matches_cached_tree_blob": true,
+      "path": "server/src/computer/gateway.ts",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "selected-lines/control-flow",
+      "sha256": "23b16f875fb4173a0c7e03567671f61817c45beed9a1de435cd6f245b27a8c65",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/882c68e222bbb603c67855764facd4ebbb9778c8/server/src/computer/gateway.ts",
+      "variant": "asof-source"
+    },
+    {
+      "bytes": 29196,
+      "commit": "882c68e222bbb603c67855764facd4ebbb9778c8",
+      "git_blob_oid": "3aed4e4e5828eb8a2055bcc4f107492744b81b7c",
+      "matches_cached_tree_blob": true,
+      "path": "server/src/computer/policy.ts",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "selected-lines/control-flow",
+      "sha256": "9c20aed1899b35047d23fbda1ae5f2f7ec8c49bec9a18450e9da4072c9d8dcb1",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/882c68e222bbb603c67855764facd4ebbb9778c8/server/src/computer/policy.ts",
+      "variant": "asof-source"
+    },
+    {
+      "bytes": 145665,
+      "commit": "882c68e222bbb603c67855764facd4ebbb9778c8",
+      "git_blob_oid": "d3b886e2f18d0218452a37168669c42ee054e469",
+      "matches_cached_tree_blob": true,
+      "path": "server/src/copilot.ts",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "selected-lines/control-flow",
+      "sha256": "ef25ccfae7dd5c83e60a794b79d19a4527e9c057b1665598312e645bd0d6d88e",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/882c68e222bbb603c67855764facd4ebbb9778c8/server/src/copilot.ts",
+      "variant": "asof-source"
+    },
+    {
+      "bytes": 138383,
+      "commit": "882c68e222bbb603c67855764facd4ebbb9778c8",
+      "git_blob_oid": "693948e0c913e1c9db0fd5031fb2563cf038f791",
+      "matches_cached_tree_blob": true,
+      "path": "server/src/index.ts",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "retrieved-not-reviewed-in-detail",
+      "sha256": "f93552d30af8ac5e36526c09191fbc6f1376b503d1afea075957fc460ff708f0",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/882c68e222bbb603c67855764facd4ebbb9778c8/server/src/index.ts",
+      "variant": "asof-source"
+    },
+    {
+      "bytes": 7994,
+      "commit": "882c68e222bbb603c67855764facd4ebbb9778c8",
+      "git_blob_oid": "62af379e4ad7cdb487d28c52160758e9486307eb",
+      "matches_cached_tree_blob": true,
+      "path": "server/src/intelligence-entitlement-check.ts",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "selected-lines/control-flow",
+      "sha256": "e5c1f5ce8e4150c4977231f55d7f7a8c3df8e74373c8cf55d391caca20f435cd",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/882c68e222bbb603c67855764facd4ebbb9778c8/server/src/intelligence-entitlement-check.ts",
+      "variant": "asof-source"
+    },
+    {
+      "bytes": 2953,
+      "commit": "882c68e222bbb603c67855764facd4ebbb9778c8",
+      "git_blob_oid": "4a4967aa56f1245a04c8c5756368679862626a78",
+      "matches_cached_tree_blob": true,
+      "path": "server/src/intelligence-startup.ts",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "selected-lines/control-flow",
+      "sha256": "298de8e1a4a796371aa4854fbac17c2042732ba8927387704f1ae027fd1d07ea",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/882c68e222bbb603c67855764facd4ebbb9778c8/server/src/intelligence-startup.ts",
+      "variant": "asof-source"
+    },
+    {
+      "bytes": 8560,
+      "commit": "882c68e222bbb603c67855764facd4ebbb9778c8",
+      "git_blob_oid": "97d2a79f2db20c8df3d3e108c64f25173ef0f5fd",
+      "matches_cached_tree_blob": true,
+      "path": "server/src/memory/intelligence.ts",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "retrieved-not-reviewed-in-detail",
+      "sha256": "ec772bdbe48c22eedfa44501256b14ad320e6f4f000078b82e3d114011fdeac8",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/882c68e222bbb603c67855764facd4ebbb9778c8/server/src/memory/intelligence.ts",
+      "variant": "asof-source"
+    },
+    {
+      "bytes": 10133,
+      "commit": "882c68e222bbb603c67855764facd4ebbb9778c8",
+      "git_blob_oid": "6968515586a5b6f61c9ac0ace6da14b34199f36f",
+      "matches_cached_tree_blob": true,
+      "path": "supervisor/src/index.ts",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "retrieved-not-reviewed-in-detail",
+      "sha256": "233ff37cdfe4d6b9acdefcbeff8b47a860a4ff5259e081105ee46d6e9cfb12e5",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/882c68e222bbb603c67855764facd4ebbb9778c8/supervisor/src/index.ts",
+      "variant": "asof-source"
+    },
+    {
+      "bytes": 7653,
+      "commit": "882c68e222bbb603c67855764facd4ebbb9778c8",
+      "git_blob_oid": "b314b2e4c3f5ff906870cd224e44fcd30925f9ce",
+      "matches_cached_tree_blob": true,
+      "path": "worker/src/index.ts",
+      "repository": "CopilotKit/OpenBot",
+      "review_depth": "selected-lines/control-flow",
+      "sha256": "103d3238e6ded4ede31bc24910a6abe573fc0c06799888bd0f9f19486f4df828",
+      "url": "https://github.com/CopilotKit/OpenBot/blob/882c68e222bbb603c67855764facd4ebbb9778c8/worker/src/index.ts",
+      "variant": "asof-source"
+    },
+    {
+      "bytes": 1067,
+      "commit": "567211b7edff7dde57cfc9b617655344004253c0",
+      "git_blob_oid": "b3bf13ded443fa46a3fbbf69c42d2150c21f4cda",
+      "matches_cached_tree_blob": true,
+      "path": "LICENSE",
+      "repository": "CopilotKit/CopilotKit",
+      "review_depth": "bounded-source/metadata-review",
+      "sha256": "15a0e5343aea872c0573ad72feb6044b336f162d724cc1673c608e6b37ea071b",
+      "url": "https://github.com/CopilotKit/CopilotKit/blob/567211b7edff7dde57cfc9b617655344004253c0/LICENSE",
+      "variant": "observed-source"
+    },
+    {
+      "bytes": 22076,
+      "commit": "567211b7edff7dde57cfc9b617655344004253c0",
+      "git_blob_oid": "b64dda62e971ad28e7c4d6334453d11b1ba82a6b",
+      "matches_cached_tree_blob": true,
+      "path": "README.md",
+      "repository": "CopilotKit/CopilotKit",
+      "review_depth": "bounded-source/metadata-review",
+      "sha256": "27439b4b94811fa0d1f23dc1524aaaddd3649d2b96a14e73642ff20a24f57e71",
+      "url": "https://github.com/CopilotKit/CopilotKit/blob/567211b7edff7dde57cfc9b617655344004253c0/README.md",
+      "variant": "observed-source"
+    },
+    {
+      "bytes": 9070,
+      "commit": "567211b7edff7dde57cfc9b617655344004253c0",
+      "git_blob_oid": "c5a6ae1965a63fb4f7a67fa24daa884ebcd66222",
+      "matches_cached_tree_blob": true,
+      "path": "package.json",
+      "repository": "CopilotKit/CopilotKit",
+      "review_depth": "bounded-source/metadata-review",
+      "sha256": "8984a1b7d302342fd4abdd5d00e00e129f267195987fe676e0dc6656b00ef6e8",
+      "url": "https://github.com/CopilotKit/CopilotKit/blob/567211b7edff7dde57cfc9b617655344004253c0/package.json",
+      "variant": "observed-source"
+    },
+    {
+      "bytes": 6024,
+      "commit": "567211b7edff7dde57cfc9b617655344004253c0",
+      "git_blob_oid": "f9440d5cffff3ecf7bb70dd9c3ab1f77d2e5957c",
+      "matches_cached_tree_blob": true,
+      "path": "packages/runtime/package.json",
+      "repository": "CopilotKit/CopilotKit",
+      "review_depth": "bounded-source/metadata-review",
+      "sha256": "16a070c39a0cec8758ce6ef5e3db7cc423ef1c492cb8fd17a4644c1783e3aa1d",
+      "url": "https://github.com/CopilotKit/CopilotKit/blob/567211b7edff7dde57cfc9b617655344004253c0/packages/runtime/package.json",
+      "variant": "reviewed-source"
+    },
+    {
+      "bytes": 366,
+      "commit": "567211b7edff7dde57cfc9b617655344004253c0",
+      "git_blob_oid": "8dc89f62328bafba77ae9499305a9a915f047bd7",
+      "matches_cached_tree_blob": true,
+      "path": "packages/runtime/src/v2/index.ts",
+      "repository": "CopilotKit/CopilotKit",
+      "review_depth": "retrieved-not-reviewed-in-detail",
+      "sha256": "7558a98b038f2bebc82c9ff3cb78068d74da2f68357e7b55a7936feb26f05362",
+      "url": "https://github.com/CopilotKit/CopilotKit/blob/567211b7edff7dde57cfc9b617655344004253c0/packages/runtime/src/v2/index.ts",
+      "variant": "reviewed-source"
+    },
+    {
+      "bytes": 42915,
+      "commit": "567211b7edff7dde57cfc9b617655344004253c0",
+      "git_blob_oid": "2ea635cc20194b4f45038251693aa5538c4086c7",
+      "matches_cached_tree_blob": true,
+      "path": "packages/runtime/src/v2/runtime/core/runtime.ts",
+      "repository": "CopilotKit/CopilotKit",
+      "review_depth": "selected-lines/control-flow",
+      "sha256": "f2bd161ae892118d9c21bf4df588eab4617ef9707891b5fe3c6f7a7b3108db70",
+      "url": "https://github.com/CopilotKit/CopilotKit/blob/567211b7edff7dde57cfc9b617655344004253c0/packages/runtime/src/v2/runtime/core/runtime.ts",
+      "variant": "reviewed-source"
+    },
+    {
+      "bytes": 2632,
+      "commit": "567211b7edff7dde57cfc9b617655344004253c0",
+      "git_blob_oid": "48249439025e9ab740ec91bc1f86dee9c5f14121",
+      "matches_cached_tree_blob": true,
+      "path": "packages/runtime/src/v2/runtime/index.ts",
+      "repository": "CopilotKit/CopilotKit",
+      "review_depth": "retrieved-not-reviewed-in-detail",
+      "sha256": "7b4e786182557f69062df1cbeb0a3f7ed8efef679ef3e42ad43991775ff83d5b",
+      "url": "https://github.com/CopilotKit/CopilotKit/blob/567211b7edff7dde57cfc9b617655344004253c0/packages/runtime/src/v2/runtime/index.ts",
+      "variant": "reviewed-source"
+    },
+    {
+      "bytes": 56953,
+      "commit": "567211b7edff7dde57cfc9b617655344004253c0",
+      "git_blob_oid": "9894aa5ef03bf2ddc1f28adf0b2ef03db3c25ee5",
+      "matches_cached_tree_blob": true,
+      "path": "packages/runtime/src/v2/runtime/runner/in-memory.ts",
+      "repository": "CopilotKit/CopilotKit",
+      "review_depth": "selected-lines/control-flow",
+      "sha256": "898af37d3390b918148ffa4a4d3622a1fc52e66761ead5928b4d95d911c512c5",
+      "url": "https://github.com/CopilotKit/CopilotKit/blob/567211b7edff7dde57cfc9b617655344004253c0/packages/runtime/src/v2/runtime/runner/in-memory.ts",
+      "variant": "reviewed-source"
+    },
+    {
+      "bytes": 1403,
+      "commit": "567211b7edff7dde57cfc9b617655344004253c0",
+      "git_blob_oid": "4ea87f7ba9fea23b24e11b2888cdf32633dcc063",
+      "matches_cached_tree_blob": true,
+      "path": "packages/sqlite-runner/package.json",
+      "repository": "CopilotKit/CopilotKit",
+      "review_depth": "bounded-source/metadata-review",
+      "sha256": "2fd233be5d497e5c475c54de21682c60fd6b8a839e502674e9245ba5fd91a659",
+      "url": "https://github.com/CopilotKit/CopilotKit/blob/567211b7edff7dde57cfc9b617655344004253c0/packages/sqlite-runner/package.json",
+      "variant": "reviewed-source"
+    },
+    {
+      "bytes": 23808,
+      "commit": "567211b7edff7dde57cfc9b617655344004253c0",
+      "git_blob_oid": "81da1886b67fb13cf3eabc657afe9b36f7e1daea",
+      "matches_cached_tree_blob": true,
+      "path": "packages/sqlite-runner/src/__tests__/sqlite-ownership.test.ts",
+      "repository": "CopilotKit/CopilotKit",
+      "review_depth": "selected-lines/control-flow",
+      "sha256": "a040761fb262933857888a210cbca84d7fdce39dbdba248158fb0c302d0ffba4",
+      "url": "https://github.com/CopilotKit/CopilotKit/blob/567211b7edff7dde57cfc9b617655344004253c0/packages/sqlite-runner/src/__tests__/sqlite-ownership.test.ts",
+      "variant": "reviewed-source"
+    },
+    {
+      "bytes": 24693,
+      "commit": "567211b7edff7dde57cfc9b617655344004253c0",
+      "git_blob_oid": "e0611a13a121df608aa3258f06addd3957a4169d",
+      "matches_cached_tree_blob": true,
+      "path": "packages/sqlite-runner/src/sqlite-runner.ts",
+      "repository": "CopilotKit/CopilotKit",
+      "review_depth": "selected-lines/control-flow",
+      "sha256": "8dc25ad0fcf49cc28b76c28e501f1b25315903a3bed73eb54400d02ceb3cfc7b",
+      "url": "https://github.com/CopilotKit/CopilotKit/blob/567211b7edff7dde57cfc9b617655344004253c0/packages/sqlite-runner/src/sqlite-runner.ts",
+      "variant": "reviewed-source"
+    },
+    {
+      "bytes": 1067,
+      "commit": "bd3a77d1fea222a4762ed5d258ccb269203a6446",
+      "git_blob_oid": "b3bf13ded443fa46a3fbbf69c42d2150c21f4cda",
+      "matches_cached_tree_blob": null,
+      "path": "LICENSE",
+      "repository": "CopilotKit/CopilotKit",
+      "review_depth": "bounded-source/metadata-review",
+      "sha256": "15a0e5343aea872c0573ad72feb6044b336f162d724cc1673c608e6b37ea071b",
+      "url": "https://github.com/CopilotKit/CopilotKit/blob/bd3a77d1fea222a4762ed5d258ccb269203a6446/LICENSE",
+      "variant": "asof-source"
+    },
+    {
+      "bytes": 22076,
+      "commit": "bd3a77d1fea222a4762ed5d258ccb269203a6446",
+      "git_blob_oid": "1985bcefd02bbdd7d9a8cc329b806f2135de64fd",
+      "matches_cached_tree_blob": null,
+      "path": "README.md",
+      "repository": "CopilotKit/CopilotKit",
+      "review_depth": "bounded-source/metadata-review",
+      "sha256": "1e83c3767e7085318c2c0dc153543ca016ea5d12644234508d6afc9caa3ef9ea",
+      "url": "https://github.com/CopilotKit/CopilotKit/blob/bd3a77d1fea222a4762ed5d258ccb269203a6446/README.md",
+      "variant": "asof-source"
+    },
+    {
+      "bytes": 9070,
+      "commit": "bd3a77d1fea222a4762ed5d258ccb269203a6446",
+      "git_blob_oid": "c5a6ae1965a63fb4f7a67fa24daa884ebcd66222",
+      "matches_cached_tree_blob": null,
+      "path": "package.json",
+      "repository": "CopilotKit/CopilotKit",
+      "review_depth": "bounded-source/metadata-review",
+      "sha256": "8984a1b7d302342fd4abdd5d00e00e129f267195987fe676e0dc6656b00ef6e8",
+      "url": "https://github.com/CopilotKit/CopilotKit/blob/bd3a77d1fea222a4762ed5d258ccb269203a6446/package.json",
+      "variant": "asof-source"
+    },
+    {
+      "bytes": 4732,
+      "commit": "daab0074f48c6531a42791d7a18ffd4d7c54d184",
+      "git_blob_oid": "424bbe3cadbd960f5ddad1b87f21279c9be575e2",
+      "matches_cached_tree_blob": true,
+      "path": "LICENSE",
+      "repository": "nightly-labs/openbot",
+      "review_depth": "bounded-source/metadata-review",
+      "sha256": "ffe034ecf735f296ca53cbd856c944849f0c80c7e1490ce162038a99ad89c728",
+      "url": "https://github.com/nightly-labs/openbot/blob/daab0074f48c6531a42791d7a18ffd4d7c54d184/LICENSE",
+      "variant": "observed-source"
+    },
+    {
+      "bytes": 68305,
+      "commit": "daab0074f48c6531a42791d7a18ffd4d7c54d184",
+      "git_blob_oid": "7feefdd7e814547a29c691bd1659ce7b6d043935",
+      "matches_cached_tree_blob": true,
+      "path": "README.md",
+      "repository": "nightly-labs/openbot",
+      "review_depth": "bounded-source/metadata-review",
+      "sha256": "7adca44ed775312fb3e676ae93029a5a616675988bc4f093b98ff4df9171e7ce",
+      "url": "https://github.com/nightly-labs/openbot/blob/daab0074f48c6531a42791d7a18ffd4d7c54d184/README.md",
+      "variant": "observed-source"
+    },
+    {
+      "bytes": 40718,
+      "commit": "daab0074f48c6531a42791d7a18ffd4d7c54d184",
+      "git_blob_oid": "09eb6a1efe4af236891f7037b8e43c8843e5d48d",
+      "matches_cached_tree_blob": true,
+      "path": "package.json",
+      "repository": "nightly-labs/openbot",
+      "review_depth": "bounded-source/metadata-review",
+      "sha256": "3544da6b41e60bf644e6721f3f25781c77f09988cfcb0ef40f86ca2f92b900f6",
+      "url": "https://github.com/nightly-labs/openbot/blob/daab0074f48c6531a42791d7a18ffd4d7c54d184/package.json",
+      "variant": "observed-source"
+    },
+    {
+      "bytes": 4732,
+      "commit": "253a21a91562a8d6776e74da599e684953dfbcfe",
+      "git_blob_oid": "424bbe3cadbd960f5ddad1b87f21279c9be575e2",
+      "matches_cached_tree_blob": null,
+      "path": "LICENSE",
+      "repository": "nightly-labs/openbot",
+      "review_depth": "bounded-source/metadata-review",
+      "sha256": "ffe034ecf735f296ca53cbd856c944849f0c80c7e1490ce162038a99ad89c728",
+      "url": "https://github.com/nightly-labs/openbot/blob/253a21a91562a8d6776e74da599e684953dfbcfe/LICENSE",
+      "variant": "asof-source"
+    },
+    {
+      "bytes": 67209,
+      "commit": "253a21a91562a8d6776e74da599e684953dfbcfe",
+      "git_blob_oid": "3be385d0567b40c09a31ffdb7541775f9a74b758",
+      "matches_cached_tree_blob": null,
+      "path": "README.md",
+      "repository": "nightly-labs/openbot",
+      "review_depth": "bounded-source/metadata-review",
+      "sha256": "532ff5b43457dd9bca5fc9460a70b9934945a670b827aae2b58a94acffd5a9f3",
+      "url": "https://github.com/nightly-labs/openbot/blob/253a21a91562a8d6776e74da599e684953dfbcfe/README.md",
+      "variant": "asof-source"
+    },
+    {
+      "bytes": 36422,
+      "commit": "253a21a91562a8d6776e74da599e684953dfbcfe",
+      "git_blob_oid": "62cfe19bb27ba8136d67e047bc3d07907de9bdee",
+      "matches_cached_tree_blob": null,
+      "path": "package.json",
+      "repository": "nightly-labs/openbot",
+      "review_depth": "bounded-source/metadata-review",
+      "sha256": "64114e9ba0911fe0d66ad4cd4271a78107038a93935179bf6ba9a5d65ba4b117",
+      "url": "https://github.com/nightly-labs/openbot/blob/253a21a91562a8d6776e74da599e684953dfbcfe/package.json",
+      "variant": "asof-source"
+    },
+    {
+      "bytes": 1056,
+      "commit": "3416b86da4b3288e87f827c7f2759a7fa18b5231",
+      "git_blob_oid": "b77bf2ab726c6e7cb5a81a9d3b7dc38266ebfd3d",
+      "matches_cached_tree_blob": null,
+      "path": "LICENSE",
+      "repository": "ag-ui-protocol/ag-ui",
+      "review_depth": "bounded-source/metadata-review",
+      "sha256": "06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241",
+      "url": "https://github.com/ag-ui-protocol/ag-ui/blob/3416b86da4b3288e87f827c7f2759a7fa18b5231/LICENSE",
+      "variant": "observed-source"
+    },
+    {
+      "bytes": 19476,
+      "commit": "3416b86da4b3288e87f827c7f2759a7fa18b5231",
+      "git_blob_oid": "511991757bea32ccb96348a311469f0fd345c88b",
+      "matches_cached_tree_blob": null,
+      "path": "README.md",
+      "repository": "ag-ui-protocol/ag-ui",
+      "review_depth": "bounded-source/metadata-review",
+      "sha256": "667422d2a16f79baa207b3e340947554c17158a009b3476040e52c8399d18f62",
+      "url": "https://github.com/ag-ui-protocol/ag-ui/blob/3416b86da4b3288e87f827c7f2759a7fa18b5231/README.md",
+      "variant": "observed-source"
+    },
+    {
+      "bytes": 2197,
+      "commit": "3416b86da4b3288e87f827c7f2759a7fa18b5231",
+      "git_blob_oid": "49e46747c9b051ff149a5491cae02cd23375ab12",
+      "matches_cached_tree_blob": null,
+      "path": "package.json",
+      "repository": "ag-ui-protocol/ag-ui",
+      "review_depth": "bounded-source/metadata-review",
+      "sha256": "c061005c30dda4ccf6bdbf478622b8bffc72a5ee00ec27a3731736ea96fd33f0",
+      "url": "https://github.com/ag-ui-protocol/ag-ui/blob/3416b86da4b3288e87f827c7f2759a7fa18b5231/package.json",
+      "variant": "observed-source"
+    }
+  ],
+  "review_scope": "Selected public-source architecture/function/frontend/deployment/license review, not execution of upstream functions, whole-code security audit, dependency approval, binary/image reverse engineering or proof of current backend behavior. Review-depth labels mean bounded text/metadata/control-flow inspection, not exhaustive line-by-line or behavioral certification.",
+  "schema": "openbot.upstream-source-review/1",
+  "tree_comparison": {
+    "by_top_level": {
+      "added": {
+        ".github": 4,
+        "agent-ag2": 1,
+        "agent-claude-sdk": 7,
+        "agent-langgraph-ts": 30,
+        "agent-langroid": 1,
+        "api": 53,
+        "app": 2095,
+        "backend-images.env": 1,
+        "desktop": 80,
+        "docs": 4,
+        "extension": 7,
+        "management-agent": 17,
+        "mobile": 532,
+        "redocly.yaml": 1,
+        "scripts": 23,
+        "shared": 37,
+        "tests": 18
+      },
+      "changed": {
+        ".claude": 2,
+        ".env.example": 1,
+        ".gitattributes": 1,
+        ".github": 13,
+        ".gitignore": 1,
+        "CHANGELOG.md": 1,
+        "README.md": 1,
+        "agent-ag2": 3,
+        "agent-agno": 2,
+        "agent-claude-sdk": 8,
+        "agent-crewai": 1,
+        "agent-langgraph-agui": 7,
+        "agent-langroid": 3,
+        "agent-microsoft": 1,
+        "app": 641,
+        "assets": 2,
+        "biome.json": 1,
+        "bun.lock": 1,
+        "bunfig.toml": 1,
+        "desktop": 115,
+        "docker-compose.yml": 1,
+        "docs": 24,
+        "examples": 5,
+        "extension": 48,
+        "mobile": 20,
+        "package.json": 1,
+        "prompt.txt": 1,
+        "release-policy.json": 1,
+        "scripts": 31,
+        "shared": 35,
+        "tests": 14
+      },
+      "removed": {
+        "Dockerfile": 1,
+        "agent-bot": 6,
+        "agent-computer": 152,
+        "agent-langgraph": 17,
+        "app": 44,
+        "charts": 39,
+        "desktop": 4,
+        "docker": 30,
+        "mobile": 1,
+        "scripts": 10,
+        "server": 1234,
+        "spire": 2,
+        "supervisor": 23,
+        "tests": 9,
+        "toolkit": 29,
+        "worker": 7
+      },
+      "unchanged": {
+        ".claude": 1,
+        ".dockerignore": 1,
+        ".env.personal.example": 1,
+        ".github": 5,
+        "LICENSE": 1,
+        "Tauri-signing-SKILL.md": 1,
+        "agent-adk": 8,
+        "agent-ag2": 5,
+        "agent-agno": 8,
+        "agent-antigravity": 8,
+        "agent-claude-sdk": 13,
+        "agent-crewai": 7,
+        "agent-langgraph-agui": 10,
+        "agent-langroid": 7,
+        "agent-llamaindex": 8,
+        "agent-mastra": 5,
+        "agent-microsoft": 7,
+        "agent-pydantic-ai": 8,
+        "agent-strands": 9,
+        "app": 485,
+        "desktop": 142,
+        "docs": 6,
+        "examples": 30,
+        "extension": 162,
+        "mobile": 6,
+        "renovate.json": 1,
+        "scripts": 21,
+        "shared": 81,
+        "tests": 15,
+        "tsconfig.base.json": 1
+      }
+    },
+    "counts": {
+      "added": 2911,
+      "changed": 987,
+      "removed": 1608,
+      "unchanged": 1063
+    },
+    "from": "882c68e222bbb603c67855764facd4ebbb9778c8",
+    "from_files": 3658,
+    "from_tree_truncated": false,
+    "to": "30a40979a93062b29f8592cef173601b354474b4",
+    "to_files": 4961,
+    "to_tree_truncated": false
+  },
+  "upstream_code_imported_in_this_change": false,
+  "upstream_tests_executed": false
+}

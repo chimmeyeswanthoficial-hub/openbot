@@ -24,7 +24,7 @@ Coverage targets (per Arena review daac285):
   T09  ContinueDebugEvent failure appends a CONTINUE_DEBUG_EVENT_FAILED record.
   T10  PROCESS_INFORMATION handles are closed when a loop exception is
        recorded as collection_status=collector_exception.
-  T11  schema is openbot.windows-debug-trace/3; harness_version is 3.
+  T11  schema is openbot.windows-debug-trace/4; harness_version is 4.
   T12  collection_status == "complete" after EXIT_PROCESS; exit code is captured.
   T13  loaded_modules_before_termination lists only notified modules.
   T14  non-Windows platform raises RuntimeError (not a Windows API call).
@@ -114,11 +114,17 @@ def _make_fake_k32(event_sequence):
             ev.u.Exception.ExceptionRecord.ExceptionCode = exc_code
             ev.u.Exception.ExceptionRecord.ExceptionAddress = 0x7FFF12345678
             ev.u.Exception.dwFirstChance = int(item.get("first_chance", True))
+        elif code == _MOD.OUTPUT_DEBUG_STRING_EVENT:
+            ev.u.DebugString.lpDebugStringData = item.get("address", 0x1000)
+            ev.u.DebugString.fUnicode = int(item.get("wide", False))
+            ev.u.DebugString.nDebugStringLength = item.get("length", 6)
         elif code == EXIT_PROCESS_DEBUG_EVENT:
             ev.u.ExitProcess.dwExitCode = item.get("exit_code", 0)
         return 1
 
     k32.WaitForDebugEvent.side_effect = _wait
+    k32.WaitForDebugEventEx = k32.WaitForDebugEvent
+    k32.ReadProcessMemory.return_value = 0
     k32.ContinueDebugEvent.return_value = 1
     k32.CloseHandle.return_value = 1
     k32.CreateProcessW.return_value = 1
@@ -360,8 +366,8 @@ class TestDebugTraceHarness(unittest.TestCase):
             {"code": EXIT_PROCESS_DEBUG_EVENT, "exit_code": 0},
         ]
         result, _ = _run_trace(seq)
-        self.assertEqual(result["schema"], "openbot.windows-debug-trace/3")
-        self.assertEqual(result["harness_version"], 3)
+        self.assertEqual(result["schema"], "openbot.windows-debug-trace/4")
+        self.assertEqual(result["harness_version"], 4)
 
     # T12 — complete collection captures exit code
     def test_T12_complete_collection_exit_code(self):
@@ -397,7 +403,7 @@ class TestDebugTraceHarness(unittest.TestCase):
     # T15 — CLI exit code 2 when collection_status != "complete"
     def test_T15_cli_exit_code_on_timeout(self):
         result_stub = {
-            "schema": "openbot.windows-debug-trace/3",
+            "schema": "openbot.windows-debug-trace/4",
             "collection_status": "timeout",
         }
         with patch.object(_MOD, "trace_native_launch", return_value=result_stub):

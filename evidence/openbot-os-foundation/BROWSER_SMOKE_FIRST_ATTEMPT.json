@@ -1,0 +1,94 @@
+{
+  "browser_version": "141.0.7390.37",
+  "checks": [
+    {
+      "details": null,
+      "name": "desktop_openbot_os_title",
+      "passed": true
+    },
+    {
+      "details": "284px 846px 310px",
+      "name": "desktop_visible_light_three_column_layout",
+      "passed": true
+    },
+    {
+      "details": null,
+      "name": "default_is_unpaired_local_not_live",
+      "passed": true
+    },
+    {
+      "details": null,
+      "name": "blueprints_not_fabricated_chat",
+      "passed": true
+    },
+    {
+      "details": null,
+      "name": "desktop_search_filters_contacts",
+      "passed": true
+    },
+    {
+      "details": null,
+      "name": "keyboard_saves_local_human_brief_only",
+      "passed": true
+    },
+    {
+      "details": null,
+      "name": "computer_requirements_dialog_truthful",
+      "passed": true
+    },
+    {
+      "details": null,
+      "name": "escape_closes_dialog",
+      "passed": true
+    }
+  ],
+  "console_errors": [],
+  "failure": "Page.wait_for_function: EvalError: Refused to evaluate a string as JavaScript because 'unsafe-eval' is not an allowed source of script in the following Content Security Policy directive: \"script-src 'sha256-LYSaNIN2dtyCvJOCWwQLpgZQGc/RGM5UJUjQ0x/ADfU='\".\n\n    at eval (<anonymous>)\n    at predicate (eval at evaluate (:290:30), <anonymous>:4:56)\n    at next (eval at evaluate (:290:30), <anonymous>:29:29)",
+  "failure_type": "Error",
+  "page_errors": [],
+  "passed_checks": 8,
+  "requests": [
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:4183/"
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:4183/api/status"
+    }
+  ],
+  "sampled_text_styles": [
+    {
+      "background": "rgb(230, 230, 226)",
+      "fontSize": "11.5px",
+      "foreground": "rgb(104, 109, 98)",
+      "selector": ".contact-snippet"
+    },
+    {
+      "background": "rgb(255, 255, 255)",
+      "fontSize": "8px",
+      "foreground": "rgb(103, 110, 94)",
+      "selector": ".composer-note"
+    },
+    {
+      "background": "rgb(255, 255, 255)",
+      "fontSize": "12px",
+      "foreground": "rgb(103, 110, 94)",
+      "selector": ".empty-conversation > p"
+    },
+    {
+      "background": "rgb(245, 245, 243)",
+      "fontSize": "22px",
+      "foreground": "rgb(32, 33, 36)",
+      "selector": ".wordmark"
+    }
+  ],
+  "schema": "openbot.browser-smoke/1",
+  "scope": "Chromium headless in disposable Linux browser contexts against the public stateless planner. No paired gateway, native WebView, live chat, provider/PC/IDE/social account, full accessibility audit or release acceptance.",
+  "screenshots": [
+    "evidence/openbot-os-foundation/desktop.png"
+  ],
+  "status": "failed",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/user/.cache/openbot-os-review/browser-smoke.py\", line 48, in <module>\n    page.wait_for_function(\"document.querySelector('#finance-results').innerText.includes('CSV') || document.querySelector('#finance-results').innerText.includes('Expense')\")\n    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/user/.cache/openbot-os-review/browser-tools/playwright/sync_api/_generated.py\", line 11559, in wait_for_function\n    self._sync(\n    ~~~~~~~~~~^\n        self._impl_obj.wait_for_function(\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<4 lines>...\n        )\n        ^\n    )\n    ^\n  File \"/home/user/.cache/openbot-os-review/browser-tools/playwright/_impl/_sync_base.py\", line 115, in _sync\n    return task.result()\n           ~~~~~~~~~~~^^\n  File \"/home/user/.cache/openbot-os-review/browser-tools/playwright/_impl/_page.py\", line 1112, in wait_for_function\n    return await self._main_frame.wait_for_function(**locals_to_params(locals()))\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/user/.cache/openbot-os-review/browser-tools/playwright/_impl/_frame.py\", line 860, in wait_for_function\n    await self._channel.send(\"waitForFunction\", self._timeout, params)\n  File \"/home/user/.cache/openbot-os-review/browser-tools/playwright/_impl/_connection.py\", line 69, in send\n    return await self._connection.wrap_api_call(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<3 lines>...\n    )\n    ^\n  File \"/home/user/.cache/openbot-os-review/browser-tools/playwright/_impl/_connection.py\", line 559, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.Error: Page.wait_for_function: EvalError: Refused to evaluate a string as JavaScript because 'unsafe-eval' is not an allowed source of script in the following Content Security Policy directive: \"script-src 'sha256-LYSaNIN2dtyCvJOCWwQLpgZQGc/RGM5UJUjQ0x/ADfU='\".\n\n    at eval (<anonymous>)\n    at predicate (eval at evaluate (:290:30), <anonymous>:4:56)\n    at next (eval at evaluate (:290:30), <anonymous>:29:29)\n",
+  "upstream_app_executed": false
+}

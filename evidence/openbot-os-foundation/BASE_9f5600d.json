@@ -1,0 +1,63 @@
+{
+  "actual_arena_linux_baseline": {
+    "filesystem_source": {
+      "schema": "openbot.workspace-source/1",
+      "scope": "workspace file integrity only; no installs, network, runtime state or release acceptance",
+      "signed_release": false,
+      "source_bytes": 74122214,
+      "verified_files": 4478
+    },
+    "git_source": {
+      "git_entries": 4479,
+      "git_executable_bits_verified": true,
+      "metadata_digest_verified": true,
+      "private_filesystem_permissions_verified": false,
+      "revision": "9f5600d1fd285e79922fbf69a2abce5243cb9291",
+      "schema": "openbot.git-source-verification/1",
+      "scope": "local committed source only; no fetch, source execution, credentials, runtime or release acceptance",
+      "signed_release": false,
+      "source_bytes": 74122214,
+      "verified_files": 4478,
+      "working_tree_verified": false
+    },
+    "node_passed": 70,
+    "registry_changes": false,
+    "studio_passed": 49,
+    "studio_skipped": 1,
+    "tools_passed": 57,
+    "windows_run_by_arena": false,
+    "working_tree_clean_before_changes": true
+  },
+  "blobs": 4479,
+  "bytes": 74122214,
+  "changed_paths": [
+    "SOURCE_MANIFEST.json",
+    "evidence/windows-launch/windows-11-26300-x64-run3/report.md",
+    "result.md"
+  ],
+  "control_counts_verified": "20 DLL notifications / 21 modules including executable",
+  "corrected_prose_diffs_independently_read": true,
+  "final_public_pr_read": {
+    "base": "5a98328bbd5a05646de14340a858f4debba24788",
+    "head": "9f5600d1fd285e79922fbf69a2abce5243cb9291",
+    "merged": false,
+    "scope": "Public read only; no Arena write, push, merge or Antigravity message.",
+    "state": "open",
+    "url": "https://github.com/chimmeyeswanthoficial-hub/openbot/pull/1"
+  },
+  "manifest_files": 4478,
+  "metadata_digest_valid": true,
+  "missing": [],
+  "parent": [
+    "649d53fc6e73d7131a30c01f0ffd523f2ef24fda"
+  ],
+  "pr_base": "5a98328bbd5a05646de14340a858f4debba24788",
+  "pr_head": "9f5600d1fd285e79922fbf69a2abce5243cb9291",
+  "pr_merged": false,
+  "pr_state": "open",
+  "requested_head": "9f5600d1fd285e79922fbf69a2abce5243cb9291",
+  "scope": "Pinned base API/tree metadata plus actual source guards/portable Linux tests; Windows results remain supplied evidence; not PR merge or native acceptance.",
+  "target_causal_claim": "consistent with early initialization failure; precise stage/rejected image/header/kernel32 mapping/entry execution unproved",
+  "tree_truncated": false,
+  "unlisted": []
+}

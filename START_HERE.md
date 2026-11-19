@@ -1,36 +1,23 @@
-# Start here — one complete OpenBot workspace
+# Start here — OpenBot OS complete codebase
 
-**Shared repository:** use `TEAM_WORKFLOW.md` and `PROJECT_INVENTORY.md`. In a Git
-clone run `python tools/verify-git-source.py --ref HEAD`; this validates committed
-content and Git executable flags without fetching. It does not verify dirty edits
-or private filesystem ACLs. Use the strict source verifier for clean, mode-preserving
-ZIP extractions instead. No native Windows success is claimed; read WINDOWS_LOADER_REVIEW.md.
+**Latest foundation:** read [OPENBOT_OS.md](OPENBOT_OS.md),
+[the upstream review](docs/openbot-os/UPSTREAM_REVIEW.md) and
+[active work orders](docs/openbot-os/WORK_ORDERS.md). The older repair reports and
+package receipts remain historical. Current source is based on reviewed
+`9f5600d1fd285e79922fbf69a2abce5243cb9291`; no new native acceptance is implied.
 
-**Engineering preview, not a public release.** Extract this ZIP into a **new folder**.
-Do not apply old patches or overlay an operating company directory. The kernel,
-shared light interface, native source, explicit local test binaries, licenses,
-tests, evidence and next instructions are together here.
+**One canonical workspace, not folder replacement.** If you already have the Git
+checkout, preserve your changes and use normal reviewed Git integration. Never
+delete/reset/clean/overlay the laptop folder. For a fresh complete download, use a
+new directory and retain backups. The private whole-workspace download is not a
+public product release and contains owner/recovery material outside this repo.
+No new full ZIP is claimed by this foundation; a small Git bundle is only commit
+transport for the existing repository.
 
-## Current repair note
-
-This is `OpenBot-Shared-Workspace-Complete.zip`, one full successor, not a patch.
-The 258-file omission is resolved. This audit adds the Git identity guard and eight
-executable metadata repairs, not missing source or an accepted native release.
-`result.md` is Arena's current technical audit; the original Antigravity report is
-preserved under `evidence/shared-repo-audit/`. `REPAIR_REVIEW.md` is historical.
-For an existing Git checkout use the bundle/TEAM_WORKFLOW.md, not folder replacement.
-
-On Windows, extract into a **new** directory. If Explorer fails/skips entries, use
-Python's ZIP tools and require success; do not disable antivirus/device policy:
-
-```powershell
-python -m zipfile -t .\OpenBot-Shared-Workspace-Complete.zip
-python -m zipfile -e .\OpenBot-Shared-Workspace-Complete.zip .\OpenBot-Verified-New
-```
-
-Then run the strict verifier inside `OpenBot-Verified-New\OpenBot-Workspace`.
-On POSIX use a mode-preserving extractor such as `unzip` (Python zipfile extraction
-alone does not restore original modes). Keep old files/backups; do not overlay data.
+In a Git clone, run `python tools/verify-git-source.py --ref HEAD` and inspect
+`git status --short` separately. For a clean manifest-only, mode-preserving source
+extraction, use `python tools/verify-source.py --strict`; `.git/` is not part of
+that extraction. Identity verification is not runtime, license or release approval.
 
 ## 1. Try the light interface
 
@@ -63,7 +50,9 @@ is deliberately not proxied through this public planner.
 | Android | `control/releases/OpenBot-Control-Local-android.apk` | Version 0.3.0-local / code 3, aligned, **demo v3 signature**, not a release identity. No emulator/device acceptance or Play/AAB release. Optional test-device sideload only if you trust the source and accept the risk. |
 | iOS/iPadOS | `control/native/ios/OpenBotControl.xcodeproj` | Shared light UI and Swift/Xcode source only. **No `.app` / `.ipa`.** A real Mac/Xcode, simulator, device, provisioning and your signing team are required. |
 
-All three use the same generated UI bytes. Native trusted-server controls and OS
+All three **source payloads** use the same generated UI bytes. The retained EXE/APK
+still embed the previous UI and were not rebuilt; see
+`docs/openbot-os/NATIVE_BUILD_STATUS.md`. Native trusted-server controls and OS
 status/window bars differ. Native test shells intentionally block file pickers and
 downloads; paste permitted local text, or use the browser for file import/export.
 No native bridge, file access or certificate bypass was added to imitate a screenshot.
@@ -95,12 +84,14 @@ python3 -m unittest discover -s tools/tests -p 'test*.py' -v
 node --test studio/tests/*.test.cjs
 ```
 
-The read-only manifest verifier does not install or contact anything. There are
-50 Studio Python cases (Linux 49 passed / 1 Windows-only skip), 25 tools cases (10 handoff + 15 Git-source),
-19 finance and 26 gateway Node unit tests.
-Browser and native package checks have separate prerequisites and evidence. The
-configured kernel run has **1,251 passed, 173 PostgreSQL skips, zero failures/errors**;
-that is not a claim that unconfigured `pytest` passes or that skipped tests ran.
+The read-only manifest verifier does not install or contact anything. The current
+foundation's actual counts/logs are recorded in its handoff receipt and
+`evidence/openbot-os-foundation/VERIFICATION.md`; Windows reports must use actual
+Windows outcomes/skips, not copied Linux counts. New standalone journal tests are
+in `OPENBOT_OS.md`. The older configured whole-kernel result (1,251 passed / 173
+PostgreSQL skips), 27 native static checks and earlier browser receipts remain
+historical, not freshly rerun acceptance. Old-package/new-HTML equality is now
+intentionally false until separately reviewed native rebuilds.
 
 **Kernel tests:** copy this **entire workspace** into a disposable directory, keeping
 `control/` beside `work/`. Read `tools/KERNEL_TEST_PROFILE.md` before preparing NEW
@@ -113,7 +104,7 @@ runs remain historical, not the current no-PostgreSQL result.
 | Path | Purpose |
 |---|---|
 | `PUBLIC_RELEASE_ROADMAP.md` | All R01–R13 requirements, current status, dependencies and human gates |
-| `ANTIGRAVITY_NEXT.md` | Exact next engineering/build/device/security tasks and evidence to return |
+| `docs/openbot-os/WORK_ORDERS.md` | Active OpenBot OS engineering/build/device/security tasks and evidence to return |
 | `YOUR_NEXT_STEPS.md` | Your download, preview, scope and host/account/device decisions |
 | `DESIGN_REFERENCE.md` | Shared light UI implementation and deliberate OS/asset/truth boundaries |
 | `studio/` | Shared UI source, deterministic planning CLI/server, original integration, tests and OpenMuse notices |

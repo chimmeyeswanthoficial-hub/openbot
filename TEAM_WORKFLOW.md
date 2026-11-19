@@ -1,5 +1,14 @@
 # Shared repository workflow — Arena + Antigravity + owner
 
+> **OpenBot OS foundation supersedes the old “publish the eight flag fixes” task.**
+> Start with `OPENBOT_OS.md` and `docs/openbot-os/WORK_ORDERS.md`. Base review is
+> `9f5600d1fd285e79922fbf69a2abce5243cb9291`; historical c3/649/9f work is already
+> incorporated. Do not re-import an old repair bundle or replace the laptop folder.
+> Counts/receipts and role assignments below describe earlier checkpoints unless
+> explicitly revalidated in `evidence/openbot-os-foundation/VERIFICATION.md`.
+> The new journal is standalone, registry unchanged, EXE/APK not rebuilt, release false.
+
+
 ## One shared source, not repeated folder replacement
 
 Repository: https://github.com/chimmeyeswanthoficial-hub/openbot

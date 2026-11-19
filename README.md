@@ -1,48 +1,66 @@
-# OpenBot workspace · light companion interface
+# OpenBot OS
 
-**Shared source:** read `TEAM_WORKFLOW.md` and `PROJECT_INVENTORY.md`. The audited
-main and repair branches were complete at 5a98328; this successor fixes eight Git
-executable flags and adds a committed-tree integrity guard. It does not fix the
-reported Windows startup failure or complete all requested product features.
+**A source-first, governed AI workspace under active development.** Keep the
+owner's light desktop/mobile companion design; build around our independent
+kernel and open protocols, not a mandatory licensed cloud backend.
 
-**Current checkpoint: `shared-repo-audit-1`.** See `result.md`, `TEAM_WORKFLOW.md`
-and `evidence/shared-repo-audit/` for this audit. `REPAIR_REVIEW.md` is the historical
-reconstruction review. No laptop ZIP upload was required; Windows remains blocked.
+Start with **[OPENBOT_OS.md](OPENBOT_OS.md)** for the architecture decision, real
+implementation status, pinned upstream review and Antigravity work orders.
+[START_HERE.md](START_HERE.md) explains the existing local interface and checks.
 
-Start with **[START_HERE.md](START_HERE.md)**. This is one complete current workspace,
-not a patch chain: `studio/` shared UI, `control/` native shells and local test builds,
-`work/` preserved kernel/source/configuration/tests, notices, evidence and roadmap.
-No previous delivery archive must be applied to open this workspace.
+## This foundation
 
-The supplied reference guides a **light three-column desktop** and **mobile
-companion-list → conversation** layout. The same generated HTML is used for the
-browser, Windows, Android and iOS source. OpenBot branding and SVG-letter avatars
-are original; operating-system chrome differs. See `DESIGN_REFERENCE.md`.
+- First-party **MIT** license at the repository root, with retained donor notices
+  and explicit [third-party/service boundaries](THIRD_PARTY_NOTICES.md).
+- A real, application-owned SQLite **conversation journal**: scoped queries,
+  atomic/idempotent ordered appends, bounded replay and quotas; **31 new tests**.
+  Standalone backend library only — not connected to HTTP auth, UI or a live agent.
+- Shared **OpenBot OS** source branding while preserving the light layout, protocol
+  identifiers, pairing controls and lack of a native authority bridge.
+- Opt-in bounded **Windows debug-string capture**, schema 4, with **20 new
+  fake-backend tests**. No Windows native verification or registry changes.
+- [Pinned upstream features/code/frontend review](docs/openbot-os/UPSTREAM_REVIEW.md),
+  [architecture/acceptance targets](docs/openbot-os/ARCHITECTURE.md) and
+  [concrete work orders](docs/openbot-os/WORK_ORDERS.md).
 
-**Genuinely working here:** local human briefs, unvalidated computer/routine
-requests, draft-only social review, an attributed OpenMuse read-only CSV spending
-preview, and a narrow authenticated Studio → HTTPS → kernel → fixed-owned QA →
-artifact read-back path. This is not live AI chat or a general computer executor.
+CopilotKit's MIT frontend SDK and application-server runtime can connect to
+AG-UI agents without Intelligence in the TypeScript OSS mode. Intelligence is
+separately licensed. It is not the whole backend engine and self-hosting alone
+does not make a service open source. The review records exact source pins and
+limits; it does not claim an exhaustive upstream security audit or superiority.
 
-**Native delivery truth:** Windows is an **unsigned local test EXE** plus required
-WebView2 loader; Android is a **demo-key-signed local test APK**; iOS is **source
-only**, with no Mac/Xcode build or IPA. Compilation/static/browser checks are not
-install/launch/device, release-signing or supported-platform acceptance.
+## Existing working scope and hard limits
 
-**Public release is blocked.** No real provider, per-bot VM, authenticated IDE,
-social account or bank is connected. Independent security, real-host/native
-acceptance, witnessed operations, protected independent evaluation, the standing
-1–6-month private pilot including ≥30 consecutive genuinely observed days, and
-human release authorization remain open. Accepted observed pilot days: **0**.
+The earlier local slices remain: human briefs, validated local planning,
+draft-only social review, an attributed OpenMuse read-only CSV preview and a
+narrow authenticated Studio→HTTPS→kernel→fixed-owned QA→artifact read-back path.
+These are **not** general live AI chat, a real virtual PC or social publishing.
 
-- `PUBLIC_RELEASE_ROADMAP.md`: full R01–R13 scope, status and acceptance gates.
-- `ANTIGRAVITY_NEXT.md`: concrete engineering handoff; **not sent to an IDE**.
-- `YOUR_NEXT_STEPS.md`: download, try, verify, and the decisions only you can make.
-- `VERIFICATION.md`: current evidence, initial failures, exclusions and limitations.
-- `SOURCE_MANIFEST.json`: file identities, including explicitly labeled test binaries.
+No provider, per-bot VM, authenticated IDE, social account or bank is connected.
+The old unsigned Windows EXE still has a supplied `0xc000007b` startup failure;
+Android is a demo-key local APK; iOS is source only. **Old EXE/APK embed the prior
+UI, not this newly branded source.** See
+[NATIVE_BUILD_STATUS.md](docs/openbot-os/NATIVE_BUILD_STATUS.md).
 
-Private operating state, owner uploads, signing keys, dependency caches and old
-historical delivery archives are excluded from this export, not deleted from the
-originals. Optional upstream reference source under `work/repos/OpenBot/` is retained
-in full; it is not an installed runtime. SHA-256 establishes file identity, not
-signer identity, safety, platform/account permission or release approval.
+**Public release is blocked. Accepted genuine observed pilot days: 0.** Standing
+[R01–R13](PUBLIC_RELEASE_ROADMAP.md), independent security/operations/evaluation,
+supported native devices/signing/update, the 1–6-month pilot including ≥30
+consecutive genuinely observed days and human release approval remain required.
+A fully OSS core is the design/release requirement, not a completed audit of all
+historic binaries, SDKs or optional third-party services.
+
+## One canonical codebase
+
+`studio/` shared light UI · `control/` native source/labeled old test builds ·
+`work/` preserved kernel/configuration/tests/retained donors · `tools/` source and
+diagnostic guards · `docs/openbot-os/` current architecture/work orders ·
+`evidence/` scoped evidence and source identities.
+
+Base independently reviewed: `9f5600d1fd285e79922fbf69a2abce5243cb9291`. Use
+ordinary reviewed Git commits, preserve local work/backups and never replace or
+delete the laptop folder to sync. No direct Antigravity message, external agent
+team, authenticated Arena push or public release occurred. The private complete
+workspace includes recovery dependencies and owner data: **do not publish it all**.
+
+`SOURCE_MANIFEST.json` verifies selected file identity, not signer identity,
+license compliance, production safety, permissions or release approval.

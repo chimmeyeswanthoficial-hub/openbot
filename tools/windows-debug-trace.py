@@ -20,6 +20,11 @@ Design constraints
 - Both an event-count cap and a monotonic collection deadline bound the event loop.
 - Incomplete sessions explicitly detach only the newly created target; a detached
   target may continue running. This is not a workload kill/reap guarantee.
+- Optional --debug-strings reads only OS-reported debug-string payloads from
+  the newly created target: at most 16 KiB per event and 256 KiB in total.
+  Partial/failed/truncated requested capture is explicit and gives CLI failure.
+  Capture may contain sensitive text. This tool NEVER enables loader snaps,
+  edits registry settings, installs tools or approves host changes.
 - ContinueDebugEvent and all cleanup paths are checked; non-zero exit status
   is returned on collection or setup errors.
 """
@@ -27,6 +32,7 @@ Design constraints
 from __future__ import annotations
 
 import argparse
+import base64
 import ctypes
 import datetime
 import json
@@ -46,6 +52,8 @@ DBG_EXCEPTION_NOT_HANDLED = 0x80010001
 # Exception codes
 STATUS_BREAKPOINT = 0x80000003  # Normal initial debugger breakpoint
 STATUS_INVALID_IMAGE_FORMAT = 0xC000007B
+MAX_DEBUG_STRING_BYTES = 16384
+DEBUG_STRING_BUDGET_BYTES = 262144
 
 EXCEPTION_DEBUG_EVENT = 1
 CREATE_THREAD_DEBUG_EVENT = 2
@@ -249,6 +257,18 @@ def _declare_win32_apis() -> ctypes.WinDLL:
     k32.WaitForDebugEvent.argtypes = [ctypes.POINTER(DEBUG_EVENT), wintypes.DWORD]
     k32.WaitForDebugEvent.restype = wintypes.BOOL
 
+    # Ex opts into Unicode debug-string delivery on the supported Windows 10+ path.
+    k32.WaitForDebugEventEx.argtypes = [ctypes.POINTER(DEBUG_EVENT), wintypes.DWORD]
+    k32.WaitForDebugEventEx.restype = wintypes.BOOL
+    k32.ReadProcessMemory.argtypes = [
+        wintypes.HANDLE,
+        ctypes.c_void_p,
+        ctypes.c_void_p,
+        ctypes.c_size_t,
+        ctypes.POINTER(ctypes.c_size_t),
+    ]
+    k32.ReadProcessMemory.restype = wintypes.BOOL
+
     k32.ContinueDebugEvent.argtypes = [wintypes.DWORD, wintypes.DWORD, wintypes.DWORD]
     k32.ContinueDebugEvent.restype = wintypes.BOOL
 
@@ -296,6 +316,75 @@ def _close_handle(k32: ctypes.WinDLL, h) -> bool:
     return not h or bool(k32.CloseHandle(h))
 
 
+def _capture_debug_string(k32, process_handle, info, remaining_bytes):
+    """Read only this owned target's reported debug string, once and within caps.
+
+    Raw bytes are retained for fidelity. Non-Unicode text is a Latin-1 byte view,
+    not a claim about the target's active ANSI code page. Payloads can contain
+    sensitive paths/data; capture is opt-in and is not a public-log sanitizer.
+    """
+    wide = bool(info.fUnicode)
+    # Microsoft specifies low 16 bits of the BYTE length, including for Unicode.
+    # Do not multiply by two or scan beyond that reported range for a terminator.
+    declared = int(info.nDebugStringLength)
+    result = {
+        "status": "complete",
+        "declared_bytes": declared,
+        "bytes_read": 0,
+        "reported_length_is_lower_16_bits": True,
+        "encoding": "utf-16-le" if wide else "latin-1-byte-view",
+        "text": "",
+        "raw_base64": "",
+    }
+    if declared == 0:
+        return result
+    if not process_handle or not info.lpDebugStringData:
+        result["status"] = "invalid_pointer_or_handle"
+        return result
+    size = min(declared, MAX_DEBUG_STRING_BYTES, max(0, remaining_bytes))
+    if size == 0:
+        result["status"] = "budget_exhausted"
+        return result
+    buffer = ctypes.create_string_buffer(size)
+    count = ctypes.c_size_t()
+    try:
+        ok = bool(
+            k32.ReadProcessMemory(
+                process_handle, info.lpDebugStringData, buffer, size, ctypes.byref(count)
+            )
+        )
+        error = int(k32.GetLastError()) if not ok else None
+    except Exception as exc:
+        result.update(status="reader_exception", error_type=type(exc).__name__)
+        return result
+    if count.value > size:
+        result["status"] = "invalid_read_count"
+        return result
+    data = buffer.raw[: count.value]
+    result["bytes_read"] = len(data)
+    result["raw_base64"] = base64.b64encode(data).decode("ascii")
+    text_bytes = data
+    terminator = b"\x00\x00" if wide else b"\x00"
+    if (not wide or len(text_bytes) % 2 == 0) and text_bytes.endswith(terminator):
+        text_bytes = text_bytes[: -len(terminator)]
+    encoding = "utf-16-le" if wide else "latin-1"
+    try:
+        result["text"] = text_bytes.decode(encoding, errors="strict")
+        result["text_decode_had_errors"] = False
+    except UnicodeDecodeError:
+        result["text"] = text_bytes.decode(encoding, errors="replace")
+        result["text_decode_had_errors"] = True
+    if not ok:
+        result.update(status="read_failed", win32_last_error=error)
+    elif len(data) < size:
+        result["status"] = "partial_read"
+    elif result.get("text_decode_had_errors"):
+        result["status"] = "invalid_encoding"
+    elif size < declared:
+        result["status"] = "truncated"
+    return result
+
+
 def _sanitize_path(p: str | None) -> str | None:
     """Replace USERPROFILE prefix with a placeholder for privacy."""
     if not p:
@@ -317,6 +406,7 @@ def trace_native_launch(
     timeout_ms: int = 10000,
     max_events: int = 500,
     session_timeout_ms: int = 30000,
+    capture_debug_strings: bool = False,
 ) -> dict:
     """Observe debug notifications, never infer unmeasured entry execution.
 
@@ -336,7 +426,10 @@ def trace_native_launch(
         if type(value) is not int or not 1 <= value <= maximum:
             raise ValueError(f"{name} must be an integer between 1 and {maximum}")
 
+    if type(capture_debug_strings) is not bool:
+        raise ValueError("capture_debug_strings must be a Boolean")
     k32 = _declare_win32_apis()
+    wait_for_event = k32.WaitForDebugEventEx if capture_debug_strings else k32.WaitForDebugEvent
     si = STARTUPINFOW()
     si.cb = ctypes.sizeof(STARTUPINFOW)
     pi = PROCESS_INFORMATION()
@@ -357,8 +450,8 @@ def trace_native_launch(
     if not ok:
         err = k32.GetLastError()
         return {
-            "schema": "openbot.windows-debug-trace/3",
-            "harness_version": 3,
+            "schema": "openbot.windows-debug-trace/4",
+            "harness_version": 4,
             "collection_status": "creation_failed",
             "collection_error": f"CreateProcessW failed: error {err} (0x{err:08x})",
             "executable": _sanitize_path(abs_exe),
@@ -368,12 +461,19 @@ def trace_native_launch(
             "entry_point_measured": False,
             "entry_point_reached": None,
             "cleanup_status": "not_needed",
+            "debug_string_capture_requested": capture_debug_strings,
+            "debug_string_capture_status": "not_started"
+            if capture_debug_strings
+            else "not_requested",
+            "debug_string_bytes_captured": 0,
         }
 
     events: list[dict] = []
     loaded_modules: list[dict] = []
     open_image_handles: list = []
     cleanup_errors: list[dict] = []
+    debug_string_bytes = 0
+    debug_string_incomplete = False
     debug_event = DEBUG_EVENT()
     process_exit_code = None
     entry_point_crt_address = None
@@ -394,7 +494,7 @@ def trace_native_launch(
                 collection_status = "deadline"
                 break
             wait_ms = min(timeout_ms, max(1, int(remaining * 1000)))
-            if not k32.WaitForDebugEvent(ctypes.byref(debug_event), wait_ms):
+            if not wait_for_event(ctypes.byref(debug_event), wait_ms):
                 err = k32.GetLastError()
                 record_error("WAIT_TIMEOUT_OR_ERROR", win32_last_error=err)
                 if time.monotonic() >= deadline:
@@ -478,6 +578,19 @@ def trace_native_launch(
                 else:
                     continue_status = DBG_EXCEPTION_NOT_HANDLED
                     rec["exception_disposition"] = "DBG_EXCEPTION_NOT_HANDLED"
+            elif code == OUTPUT_DEBUG_STRING_EVENT:
+                if capture_debug_strings:
+                    captured = _capture_debug_string(
+                        k32,
+                        pi.hProcess,
+                        debug_event.u.DebugString,
+                        DEBUG_STRING_BUDGET_BYTES - debug_string_bytes,
+                    )
+                    debug_string_bytes += captured["bytes_read"]
+                    debug_string_incomplete |= captured["status"] != "complete"
+                    rec["debug_string"] = captured
+                else:
+                    rec["debug_string"] = {"status": "not_requested"}
             elif code == EXIT_THREAD_DEBUG_EVENT:
                 rec["exit_code"] = hex(debug_event.u.ExitThread.dwExitCode)
             elif code == EXIT_PROCESS_DEBUG_EVENT:
@@ -545,14 +658,16 @@ def trace_native_launch(
                 )
 
     event_collection_status = collection_status
+    if debug_string_incomplete and collection_status == "complete":
+        collection_status = "diagnostic_incomplete"
     if cleanup_errors:
         record_error("CLEANUP_FAILED", operations=cleanup_errors)
         if collection_status == "complete":
             collection_status = "cleanup_failed"
     return {
-        "schema": "openbot.windows-debug-trace/3",
+        "schema": "openbot.windows-debug-trace/4",
         "harness": "tools/windows-debug-trace.py",
-        "harness_version": 3,
+        "harness_version": 4,
         "executable": _sanitize_path(abs_exe),
         "target_pid": pi.dwProcessId,
         "start_time": start_time,
@@ -564,6 +679,18 @@ def trace_native_launch(
         "debugger_detached": detached,
         "target_may_continue_after_detach": detached is True,
         "collection_budget_ms": session_timeout_ms,
+        "debug_string_capture_requested": capture_debug_strings,
+        "debug_string_capture_status": (
+            "not_requested"
+            if not capture_debug_strings
+            else "incomplete"
+            if debug_string_incomplete
+            else "complete"
+        ),
+        "debug_string_bytes_captured": debug_string_bytes,
+        "debug_string_per_event_cap": MAX_DEBUG_STRING_BYTES,
+        "debug_string_total_cap": DEBUG_STRING_BUDGET_BYTES,
+        "debug_strings_may_contain_sensitive_data": capture_debug_strings,
         "entry_point_measured": False,
         "entry_point_reached": None,
         "pe_entry_crt_address": entry_point_crt_address,
@@ -580,6 +707,9 @@ def trace_native_launch(
             "The collection deadline bounds waits/event-loop checks, not arbitrary native API blocking. "
             "Target ISA is not independently checked; native validation is limited to the intended x64 workflow. "
             "A successful detach can leave this target running; detach is not a workload stop/reap guarantee. "
+            "Debug-string capture is explicit opt-in, bounded, and can contain unredacted sensitive data. "
+            "ANSI payload text is a Latin-1 byte view; raw_base64 preserves the observed bytes. "
+            "Debug-string lengths are low-16-bit byte counts: complete capture covers that reported range, not necessarily the original full string. "
             "Collection exit zero means successful collection/cleanup, not successful native application launch."
         ),
         "events": events,
@@ -613,8 +743,17 @@ def main() -> int:
         default=30000,
         help="Total event-collection budget in milliseconds (1..120000; default30000)",
     )
+    parser.add_argument(
+        "--debug-strings",
+        action="store_true",
+        help="Opt in to bounded debug-string payload capture from this target; use a PRIVATE new output file",
+    )
     args = parser.parse_args()
     output = Path(args.output) if args.output else None
+    if args.debug_strings and output is None:
+        parser.error(
+            "--debug-strings requires --output in a PRIVATE directory; payloads may contain secrets"
+        )
     if output is not None and (output.exists() or output.is_symlink()):
         parser.error("output must be a NEW filename; existing recordings are never overwritten")
 
@@ -624,6 +763,7 @@ def main() -> int:
             timeout_ms=args.timeout_ms,
             max_events=args.max_events,
             session_timeout_ms=args.session_timeout_ms,
+            capture_debug_strings=args.debug_strings,
         )
     except (RuntimeError, ValueError, OSError) as exc:
         print(f"Error: {exc}", file=sys.stderr)

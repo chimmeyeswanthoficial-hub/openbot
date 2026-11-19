@@ -10,6 +10,8 @@
 /* Neutral light reference palette, stronger reading contrast, original artwork. */
 :root{--muted:#64685f}
 .contact-title{font-size:13px}.contact-title small,.contact-snippet,.list-note,.list-note span,.footer-item small,.account-button small,.thread-heading small,.gateway-badge{color:#686d62}
+/* Selected row #e6e6e2: normal text needs at least 4.5:1, not the old 4.25:1. */
+.contact-row.active .contact-snippet,.contact-row.active .contact-title small{color:#62675c}
 .thread-heading strong{font-size:13px}.message{font-size:13px}.message small,.date-divider{color:#646b5c}
 .eyebrow,.empty-conversation>p,.suggestion,.composer-note,.composer textarea::placeholder{color:#676e5e}
 .computer-caption,.computer-subtitle,.routine-heading,.routine-row small,.routine-footnote,.details-bottom,.details-bottom b,.computer-desktop strong,.computer-desktop small{color:#636d58}

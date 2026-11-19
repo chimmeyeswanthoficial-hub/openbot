@@ -1,0 +1,35 @@
+{
+  "artifacts": {
+    "control/releases/OpenBot-Control-Local-android.apk": {
+      "bytes": 53589,
+      "current_ui_embedded": false,
+      "git_baseline_bytes_unchanged": true,
+      "prior_ui_embedded": true,
+      "sha256": "533ed5b781d4b04dc0420d6f60e7f994799912b60422d7b141f717af14550c56"
+    },
+    "control/releases/windows-x64/OpenBot-Control-Local-x64.exe": {
+      "bytes": 448512,
+      "current_ui_embedded": false,
+      "git_baseline_bytes_unchanged": true,
+      "prior_ui_embedded": true,
+      "sha256": "ebcf4927302840f5b73f85e674590538569a0150703f55393d850f149be7bcdc"
+    },
+    "control/releases/windows-x64/WebView2Loader.dll": {
+      "bytes": 165968,
+      "git_baseline_bytes_unchanged": true,
+      "sha256": "462b36fd1be6ca9f7563466a89e57c41ef4a4def3e0a84fa885d203aea4a3aaf"
+    }
+  },
+  "base": "9f5600d1fd285e79922fbf69a2abce5243cb9291",
+  "current_shared_html": {
+    "bytes": 127581,
+    "sha256": "778ee52cbc2b80d0aeef62e8319fa1ca9f9a93b00e03e48b8b44caa0091290ac"
+  },
+  "native_build_or_launch_performed": false,
+  "public_release": false,
+  "retained_embedded_html": {
+    "bytes": 127185,
+    "sha256": "bb99d979376841815bc5dcfe7c942bed28b36f2b87a0b3b80d8d366e5b8b3c67"
+  },
+  "schema": "openbot.native-artifact-source-boundary/1"
+}

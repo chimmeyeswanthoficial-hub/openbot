@@ -1,0 +1,63 @@
+{
+  "approved_existing_native_toolchain_used": false,
+  "browser_library_debs": [
+    {
+      "bytes": 380896,
+      "filename": "libasound2t64_1.2.14-1+deb13u1_amd64.deb",
+      "sha256": "5495496142d57e5ad6d581ac5456ec3c87f872c109a2bfb815d154b673eebc67",
+      "source": "configured Debian package repository via apt-get download; extracted into cache, not installed system-wide"
+    },
+    {
+      "bytes": 68516,
+      "filename": "libatk-bridge2.0-0t64_2.56.2-1+deb13u2_amd64.deb",
+      "sha256": "c0fe87ea1bdca2f938eaa8286af5ad38ecd15cf18c6cfb5961d7d46ac3192325",
+      "source": "configured Debian package repository via apt-get download; extracted into cache, not installed system-wide"
+    },
+    {
+      "bytes": 51996,
+      "filename": "libatk1.0-0t64_2.56.2-1+deb13u2_amd64.deb",
+      "sha256": "24786bc90e3ff80c4d1d8bdb5ec18bb5f06df9081a5233eb080f3202fcf6a1c3",
+      "source": "configured Debian package repository via apt-get download; extracted into cache, not installed system-wide"
+    },
+    {
+      "bytes": 81056,
+      "filename": "libatspi2.0-0t64_2.56.2-1+deb13u2_amd64.deb",
+      "sha256": "65e9c9ecbd820fba2d04104cddd0bad33d256cbdfe0d1cb5365f10e363df2315",
+      "source": "configured Debian package repository via apt-get download; extracted into cache, not installed system-wide"
+    },
+    {
+      "bytes": 109800,
+      "filename": "libnspr4_2%3a4.36-1_amd64.deb",
+      "sha256": "87fc2039ee89cff2b8010fa9535706b1def40031acfc52bf12197dcb3cb7b064",
+      "source": "configured Debian package repository via apt-get download; extracted into cache, not installed system-wide"
+    },
+    {
+      "bytes": 1392784,
+      "filename": "libnss3_2%3a3.110-1+deb13u5_amd64.deb",
+      "sha256": "7059839165c39e734ff59c712fde83ef5ea01328872819dfbabd1c08e75f3116",
+      "source": "configured Debian package repository via apt-get download; extracted into cache, not installed system-wide"
+    },
+    {
+      "bytes": 15460,
+      "filename": "libxdamage1_1%3a1.1.6-1+b2_amd64.deb",
+      "sha256": "e51e43f23f3befbc1f9408271f4df6773d37caece9ce7e1f38abade382f7fbf7",
+      "source": "configured Debian package repository via apt-get download; extracted into cache, not installed system-wide"
+    },
+    {
+      "bytes": 112700,
+      "filename": "libxkbcommon0_1.7.0-2_amd64.deb",
+      "sha256": "f75ee544f55acc6a271debfab3ea4ae0458afc89d81cfe1a71137e07d4895b86",
+      "source": "configured Debian package repository via apt-get download; extracted into cache, not installed system-wide"
+    }
+  ],
+  "chromium": "141.0.7390.37 (Playwright build 1194)",
+  "git": "git version 2.47.3",
+  "node": "v20.20.2",
+  "os": "Linux-6.1.189+-x86_64-with-glibc2.41",
+  "playwright": "1.56.0",
+  "python": "3.13.18",
+  "ruff": "0.11.13",
+  "schema": "openbot.foundation-tooling/1",
+  "tooling_scope": "Disposable Linux sandbox development tools only; packages/browser/runtime libraries placed under excluded .cache. No system package install, Windows tool install, registry edit, host security change, provider/credentials or production state change. These are optional test tools, not new core runtime dependencies.",
+  "windows_debug_string_native_self_test_performed": false
+}

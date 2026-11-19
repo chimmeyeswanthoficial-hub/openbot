@@ -1,0 +1,23 @@
+{
+  "after": {
+    "background": "rgb(230, 230, 226)",
+    "fontSize": "11.5px",
+    "foreground": "rgb(98, 103, 92)",
+    "sampled_contrast_ratio": 4.644,
+    "selector": ".contact-snippet"
+  },
+  "before": {
+    "background": "rgb(230, 230, 226)",
+    "fontSize": "11.5px",
+    "foreground": "rgb(104, 109, 98)",
+    "sampled_contrast_ratio": 4.246,
+    "sampled_normal_text_contrast_4_5": false,
+    "selector": ".contact-snippet"
+  },
+  "browser_regression": "studio/scripts/smoke-openbot-os.py::sampled_selected_contact_text_contrast_at_least_4_5",
+  "css_change": "Selected active-row snippet and small status foreground #62675c over #e6e6e2; layout unchanged.",
+  "schema": "openbot.selected-contact-contrast/1",
+  "scope": "One selected-row snippet color, normal text; not full WCAG, mobile/native or screen-reader acceptance.",
+  "source_regression": "studio/tests/test_shared_source.py::test_selected_contact_text_color_has_normal_text_contrast",
+  "target_ratio": 4.5
+}

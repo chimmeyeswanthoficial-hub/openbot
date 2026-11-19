@@ -1,8 +1,11 @@
 {
   "archive_manifest_mode": "0644 canonical on every host",
-  "checkpoint": "shared-repo-audit-1",
+  "checkpoint": "openbot-os-foundation-1",
   "contains_labeled_local_test_builds": true,
   "content_scope": "Complete selected engineering workspace: kernel/configuration/tests/retained donor source/shared UI/native source/labeled local test binaries/evidence/notices; not private runtime backup or accepted public release.",
+  "conversation_journal_scope": "Standalone inert SQLite library; no HTTP identity, UI, live AG-UI or provider integration",
+  "current_architecture": "docs/openbot-os/ARCHITECTURE.md",
+  "current_work_orders": "docs/openbot-os/WORK_ORDERS.md",
   "declarative_source_exceptions": [
     ".openbot/routines/health-sweep.md",
     ".openbot/routines/incident-watch.md",
@@ -26,14 +29,14 @@
       "sha256": "cd8687b16b032287a644702b56312d0d7560905229dabc298e3e7e5796e07180"
     },
     "ANTIGRAVITY_NEXT.md": {
-      "bytes": 15231,
+      "bytes": 15818,
       "mode": 420,
-      "sha256": "19574c166093ea63daaadc26b743c91773b16af034cd9c3e69d4134bdb80a66e"
+      "sha256": "781cb3ab2acba4910c21158e18b839d4262ef7f0dbee470a597a021ec1c4dfa4"
     },
     "CHECKPOINT.json": {
-      "bytes": 3324,
+      "bytes": 5218,
       "mode": 420,
-      "sha256": "1170829f8a17aa64e78601eab1171621873df6d2f5910efc327bc505687ee83d"
+      "sha256": "303bfb2e756fd84ed0cfaf31088127242605b636f4930d9ec512027a11732844"
     },
     "COLLECTOR_REPAIR.md": {
       "bytes": 9873,
@@ -45,15 +48,25 @@
       "mode": 420,
       "sha256": "c1c12f77eff941005ca9368aa77b6c5f3ad9f651202d3e1011027460c44da200"
     },
+    "LICENSE": {
+      "bytes": 1080,
+      "mode": 420,
+      "sha256": "833414b924c701927554cf6bba1caeb1154f7281c12c62eeb8b25a729cce794d"
+    },
+    "OPENBOT_OS.md": {
+      "bytes": 7321,
+      "mode": 420,
+      "sha256": "cf7889be80881bdcd02d3aac00caf4dfcbee32cd6c5cec0c8fc82aab4b85af29"
+    },
     "OPENMUSE_ADOPTION.md": {
       "bytes": 6925,
       "mode": 420,
       "sha256": "2603817874cec36ca385a70e610db574386b156e5c4d2dc7f34bd1ee6900bfaf"
     },
     "PROJECT_INVENTORY.md": {
-      "bytes": 5733,
+      "bytes": 6320,
       "mode": 420,
-      "sha256": "d6afc6bed8a154a347eb780d1e2c4dd2f59f0d885256e2fb4c7bb0f54662693e"
+      "sha256": "d6ca15230a5ffea4b358aa968cb565125e54d0fa604c55beb87e512e04268f62"
     },
     "PUBLIC_RELEASE_ROADMAP.md": {
       "bytes": 26761,
@@ -61,9 +74,9 @@
       "sha256": "ba0ff7da685c3f74b770bdd47ca7beb91cdb0c40f278803d80ce1bb7865f798d"
     },
     "README.md": {
-      "bytes": 3139,
+      "bytes": 3861,
       "mode": 420,
-      "sha256": "cee040d7a4c298198fdb0a6bcd2e59e0840e62bb6213382f606acdc6a03fe92d"
+      "sha256": "b5886c6bca0bc02162d06d72f94cf3b7e91afdd758535bab5deda2d64cd8c5c6"
     },
     "REPAIR_REVIEW.md": {
       "bytes": 4130,
@@ -71,14 +84,19 @@
       "sha256": "1e42dbecf35990658e331cd4df0dcbc11db8a53f234308d552f407f113d16df8"
     },
     "START_HERE.md": {
-      "bytes": 8422,
+      "bytes": 8095,
       "mode": 420,
-      "sha256": "4b8ae7a0382a08a3644f5032b6782801b785409a44e34e7b1b1cba4228f2039e"
+      "sha256": "5c843cf4a3519499ad839608707f839e048f181601209cfc18381c6b3fd5ae8e"
     },
     "TEAM_WORKFLOW.md": {
-      "bytes": 5915,
+      "bytes": 6502,
       "mode": 420,
-      "sha256": "9e2407bc0a51821d906f77cd342f1def829d3c7421b519f28735b8dedddfc278"
+      "sha256": "1034f8413817abdac74c2e122599736faff321ef5ac7180a6613ecbf37637046"
+    },
+    "THIRD_PARTY_NOTICES.md": {
+      "bytes": 4746,
+      "mode": 420,
+      "sha256": "4b441b5df6db21d3282af4d1bdf00b9706ff61b4ba4f1c8b4d40f965d18a829d"
     },
     "VERIFICATION.md": {
       "bytes": 16390,
@@ -191,9 +209,9 @@
       "sha256": "c410207533c9e0d23f52fe1da1c22000b093f659d9d469c463efeed89fbea22a"
     },
     "control/native/ios/OpenBotControl/index.html": {
-      "bytes": 127185,
+      "bytes": 127581,
       "mode": 420,
-      "sha256": "bb99d979376841815bc5dcfe7c942bed28b36f2b87a0b3b80d8d366e5b8b3c67"
+      "sha256": "778ee52cbc2b80d0aeef62e8319fa1ca9f9a93b00e03e48b8b44caa0091290ac"
     },
     "control/native/ios/README-iOS.md": {
       "bytes": 1528,
@@ -316,9 +334,39 @@
       "sha256": "e3f444010c7a58c48cea3101476df5d60f042492d6e9c3d5c2c9ea69193d88c3"
     },
     "control/web/index.html": {
-      "bytes": 127185,
+      "bytes": 127581,
       "mode": 420,
-      "sha256": "bb99d979376841815bc5dcfe7c942bed28b36f2b87a0b3b80d8d366e5b8b3c67"
+      "sha256": "778ee52cbc2b80d0aeef62e8319fa1ca9f9a93b00e03e48b8b44caa0091290ac"
+    },
+    "docs/openbot-os/ARCHITECTURE.md": {
+      "bytes": 7642,
+      "mode": 420,
+      "sha256": "86b3c0db94369ee7b98513326dbdbf3c2b6e1f2a44455f59933cfdc26201f038"
+    },
+    "docs/openbot-os/CONVERSATION_JOURNAL.md": {
+      "bytes": 5883,
+      "mode": 420,
+      "sha256": "690eecda35dfcdd89091243d2a0bfcf0f030cdd99b0a41129d92b907f73778a0"
+    },
+    "docs/openbot-os/NATIVE_BUILD_STATUS.md": {
+      "bytes": 2594,
+      "mode": 420,
+      "sha256": "459e559815581286eaf04f3c88fd77abbeed83b91b2c95710076ba719ba394df"
+    },
+    "docs/openbot-os/UPSTREAM_REVIEW.md": {
+      "bytes": 16757,
+      "mode": 420,
+      "sha256": "24a462e03a40e32470ec2fb1428e51e2f4cba250700bc7f6803c8f43c25fccf9"
+    },
+    "docs/openbot-os/WINDOWS_DEBUG_TEXT.md": {
+      "bytes": 8523,
+      "mode": 420,
+      "sha256": "67fc9b2bfd042f3b008aa94b86539f12ed3ad175122cb754dff20e5e7301887d"
+    },
+    "docs/openbot-os/WORK_ORDERS.md": {
+      "bytes": 8467,
+      "mode": 420,
+      "sha256": "09b7f32e6bea7a9e3d8adc232e1c7de3bb80becbf8480e79f2cc5298d173077f"
     },
     "evidence/browser-chromium.json": {
       "bytes": 5748,
@@ -384,6 +432,106 @@
       "bytes": 1535,
       "mode": 420,
       "sha256": "1a07105b5fb3fab4494961e040eeda3727445a92c969530815c8eff1a4bf5da3"
+    },
+    "evidence/openbot-os-foundation/BASE_9f5600d.json": {
+      "bytes": 2478,
+      "mode": 420,
+      "sha256": "0892cdd9c477915a3b6d5595131019f7c8336c6e0183b9852ff0a467818e0d29"
+    },
+    "evidence/openbot-os-foundation/BROWSER_SMOKE.json": {
+      "bytes": 5265,
+      "mode": 420,
+      "sha256": "d3d350e4f685e661ca3cf901dbcd3978cce0db262b191923d142ac0288e9a1ff"
+    },
+    "evidence/openbot-os-foundation/BROWSER_SMOKE_BEFORE_CONTRAST_FIX.json": {
+      "bytes": 4986,
+      "mode": 420,
+      "sha256": "e01858e6a9afde81a4e402b9d912fe8cf61cfa024652cd2679481dc7e49196a7"
+    },
+    "evidence/openbot-os-foundation/BROWSER_SMOKE_FIRST_ATTEMPT.json": {
+      "bytes": 5037,
+      "mode": 420,
+      "sha256": "488ae952ed9b3dacf97d5ef7dae31976384e6564ccd7050b821902f1bac94e3c"
+    },
+    "evidence/openbot-os-foundation/BROWSER_SMOKE_SECOND_ATTEMPT.json": {
+      "bytes": 4198,
+      "mode": 420,
+      "sha256": "4e9966584a43507fd43c345f644fb3477a6fc6e19da7fc7533f2f7759bdfe8ba"
+    },
+    "evidence/openbot-os-foundation/BROWSER_SMOKE_THIRD_ATTEMPT.json": {
+      "bytes": 5608,
+      "mode": 420,
+      "sha256": "cd845286cdc0dc59f62e0cc87c9054da6e7c99547d359ac0b913694fb3175aaa"
+    },
+    "evidence/openbot-os-foundation/CONTRAST_FIX.json": {
+      "bytes": 981,
+      "mode": 420,
+      "sha256": "47fed7b539310111182ea53048d7a226beffa6d586c831932a33269fc552cb34"
+    },
+    "evidence/openbot-os-foundation/NATIVE_IDENTITIES.json": {
+      "bytes": 1271,
+      "mode": 420,
+      "sha256": "1ffb934e750e72f6f6ac1c014e4fc603ba1cff3d5d5caef3c82282dae31ee024"
+    },
+    "evidence/openbot-os-foundation/TOOLING.json": {
+      "bytes": 3192,
+      "mode": 420,
+      "sha256": "fa40b2606d85e603b5e7cd4014ee5dea93c0f5920a8df5092d5a663a31a935df"
+    },
+    "evidence/openbot-os-foundation/UPSTREAM_SOURCES.json": {
+      "bytes": 66894,
+      "mode": 420,
+      "sha256": "bd3af9bbb2809718051894f3c5e5fc8b72552e32fa58e3080e4e6d08e2008d60"
+    },
+    "evidence/openbot-os-foundation/VERIFICATION.md": {
+      "bytes": 8659,
+      "mode": 420,
+      "sha256": "83f2d5e5d06255f7e0fd38098c6a8de6fc6d3dbbe3c759ea68f961d86a3290d1"
+    },
+    "evidence/openbot-os-foundation/conversation-tests.log": {
+      "bytes": 5806,
+      "mode": 420,
+      "sha256": "019a72d2d28f9637981e8251fa7278089155326c8f187749c865fae2ca596144"
+    },
+    "evidence/openbot-os-foundation/desktop.png": {
+      "bytes": 172479,
+      "mode": 420,
+      "sha256": "102b9bd286a5c8690f36bbf63c4a0bb6a4721121717df9a7f56c03b4c3e02fb2"
+    },
+    "evidence/openbot-os-foundation/maintenance-tests.log": {
+      "bytes": 1797,
+      "mode": 420,
+      "sha256": "cd364c291f80e330d600219519aac973dafb6ecaf42f57553f6cf25d1fee72fb"
+    },
+    "evidence/openbot-os-foundation/mobile.png": {
+      "bytes": 59090,
+      "mode": 420,
+      "sha256": "7fbba10b90ae347a75e3557cf1997f96582c745dccbbfda8e504fb54b993759b"
+    },
+    "evidence/openbot-os-foundation/node-tests.log": {
+      "bytes": 12182,
+      "mode": 420,
+      "sha256": "7b21e791d0c09ad0025c4fda5486f5e68053ba696932b7cccce02212cdad1427"
+    },
+    "evidence/openbot-os-foundation/recovery-history-check.json": {
+      "bytes": 221,
+      "mode": 420,
+      "sha256": "03b25d58ec3bc5523d391b4eefb1c96b3b2079d0488046671f544ced6f6278b2"
+    },
+    "evidence/openbot-os-foundation/ruff.log": {
+      "bytes": 45,
+      "mode": 420,
+      "sha256": "0be7adce665690956090205e08186f7efd9939d7fe606e4a0d117c570ab71599"
+    },
+    "evidence/openbot-os-foundation/studio-tests.log": {
+      "bytes": 8603,
+      "mode": 420,
+      "sha256": "60c8b17a52fcda0b111c0554dee67d2296efdb4283d4b8ab5495cf2b8898f651"
+    },
+    "evidence/openbot-os-foundation/tools-tests.log": {
+      "bytes": 11819,
+      "mode": 420,
+      "sha256": "ce3b865dafa6463cbb6c438a93988f210b3490afdb4a372023745eb3745b1377"
     },
     "evidence/openmuse/INDEX.md": {
       "bytes": 2505,
@@ -1485,6 +1633,11 @@
       "mode": 420,
       "sha256": "53eeaea67fde6c8dc18d5b925c87b72eb706e40b00e2d63f7db4c0e94032cc45"
     },
+    "studio/scripts/smoke-openbot-os.py": {
+      "bytes": 10723,
+      "mode": 420,
+      "sha256": "972a5af86ff0c6b137afef6034069d3fc91b81c4f351f7a476a2aaa350c3f9a0"
+    },
     "studio/scripts/test-finance-ui.cjs": {
       "bytes": 16719,
       "mode": 420,
@@ -1526,9 +1679,9 @@
       "sha256": "ee5b16e7357325312177da20af8665eaa8e1a29b0b4280f3a13a0c548a56f368"
     },
     "studio/tests/test_shared_source.py": {
-      "bytes": 7199,
+      "bytes": 8689,
       "mode": 420,
-      "sha256": "5efc9e1989490b569a8c7cff41f9364a4bbc41e9ecdf9fb66bf4b6bf470871ac"
+      "sha256": "723e78c558d42b0652365da45a2cf04d0e264fc368a1e17f1dd623e1faa19348"
     },
     "studio/tests/test_studio_core.py": {
       "bytes": 17715,
@@ -1571,9 +1724,9 @@
       "sha256": "2a6f48f8c2a9cb64f282091a99c5a3ff4cd9a3cb28aea63c45c9695a99a3403b"
     },
     "studio/web/app.js": {
-      "bytes": 56597,
+      "bytes": 56807,
       "mode": 420,
-      "sha256": "78a3ca6692fe4a58dc148992d9b09a137b9e134849dd7ad24413d5954ce45c9b"
+      "sha256": "09ce31638063ee8d868ffd13466399b6b17df1c7bd99ee9e117fc653bfe8feb0"
     },
     "studio/web/finance-preview.js": {
       "bytes": 9852,
@@ -1591,19 +1744,19 @@
       "sha256": "1619ff652f5eb870afb62e084a5bc5eda9118ab28a4c834b39afa09e2490bcf0"
     },
     "studio/web/index.html": {
-      "bytes": 127185,
+      "bytes": 127581,
       "mode": 420,
-      "sha256": "bb99d979376841815bc5dcfe7c942bed28b36f2b87a0b3b80d8d366e5b8b3c67"
+      "sha256": "778ee52cbc2b80d0aeef62e8319fa1ca9f9a93b00e03e48b8b44caa0091290ac"
     },
     "studio/web/styles.css": {
-      "bytes": 28554,
+      "bytes": 28729,
       "mode": 420,
-      "sha256": "7f079e3d8a14358a119e2ec33e03b3f039e23757722ef103e3c102750cfd7d5a"
+      "sha256": "f38ab0859f50c52e7a255a4a62df685542e8e957688ba211a45f443c595fb8ae"
     },
     "studio/web/template.html": {
-      "bytes": 5540,
+      "bytes": 5551,
       "mode": 420,
-      "sha256": "53c5b40885deba0a6f1176dd75fd12fb08a6a65c1e2071e89a33c3a3be8dd955"
+      "sha256": "1a65d5b5423febb6b7f3d1064159bfd0bb29f0c20a5b067a1d7efd6b617b94ce"
     },
     "tools/KERNEL_TEST_PROFILE.md": {
       "bytes": 3575,
@@ -1630,6 +1783,11 @@
       "mode": 420,
       "sha256": "7b77447722cb2c5be2ded6b20c4a02dcc821da18cbeee0d56d1e68a512f3812c"
     },
+    "tools/tests/test_debug_string_capture.py": {
+      "bytes": 11038,
+      "mode": 420,
+      "sha256": "a7936150b7ffbc14de32ce9f78330d6e5eb8b169e0b3d2a63de3f970c5f1e815"
+    },
     "tools/tests/test_git_source.py": {
       "bytes": 8640,
       "mode": 420,
@@ -1641,9 +1799,9 @@
       "sha256": "7c5774a075846364e9cad24933aa3828f582c3a131ec05779629a5d88c8e3d38"
     },
     "tools/tests/test_windows_debug_trace.py": {
-      "bytes": 27190,
+      "bytes": 27556,
       "mode": 420,
-      "sha256": "8bfee057c85e80e4c4b39b810f687f88300dbdd631a2554a2b3f712faa3c7b08"
+      "sha256": "17c8b4a5abbe63acdbfe6aaee828a90fe84c8aafea562b163386253ca170b21d"
     },
     "tools/verify-git-source.py": {
       "bytes": 9724,
@@ -1655,10 +1813,15 @@
       "mode": 420,
       "sha256": "377c7efed1b25505afe170aec814e77c2dbd02dcde9be4f76b9f376bed2a7f14"
     },
-    "tools/windows-debug-trace.py": {
-      "bytes": 24775,
+    "tools/windows-debug-string-probe.c": {
+      "bytes": 541,
       "mode": 420,
-      "sha256": "6ec06816538a42037510de5ac7d7fd99345958dd30f4a121def1bca6ed2d5876"
+      "sha256": "151c74b5392d72306a2ac23f1ac7adbe28580e701f3133b3d2a8efc5b11dca98"
+    },
+    "tools/windows-debug-trace.py": {
+      "bytes": 31136,
+      "mode": 420,
+      "sha256": "b1abea85478252b43b9a8eabdc55eefc0bb4d736e2285007738b41251df7ac28"
     },
     "work/.claude/skills/README.md": {
       "bytes": 3815,
@@ -21990,6 +22153,11 @@
       "mode": 420,
       "sha256": "4638c0d05f067036e997caa1d352aa73ddbfb9b8f78887664c9d9f853c093fdf"
     },
+    "work/services/sentinel/conversation_journal.py": {
+      "bytes": 15024,
+      "mode": 420,
+      "sha256": "c628b587d88e6936e1a13e26bfdd2a9304fd16dc4134dacfc66265ca1bec5fd3"
+    },
     "work/services/sentinel/economic_ingress.py": {
       "bytes": 1829,
       "mode": 420,
@@ -22034,6 +22202,11 @@
       "bytes": 9445,
       "mode": 420,
       "sha256": "336205915425cafbee3ede71c6c3fd587b171d063b5a987b8da5d6b469655a9e"
+    },
+    "work/services/sentinel/tests/test_conversation_journal.py": {
+      "bytes": 19168,
+      "mode": 420,
+      "sha256": "7d591cf205491bcd20b894a9f586cdf343c481a17d74bcfd9782ef90ba015dc5"
     },
     "work/services/sentinel/tests/test_economic_book.py": {
       "bytes": 20954,
@@ -22407,7 +22580,8 @@
     }
   },
   "files_metadata_hash_encoding": "UTF-8 json.dumps(files, sort_keys=True, separators=(',', ':'), ensure_ascii=True), no trailing newline.",
-  "files_metadata_sha256": "4be205d7106992458b885f45b34764598ec85485ab6e48551a07a07ba881789e",
+  "files_metadata_sha256": "f6f8f035b93b787069daa41a0b26695365497232ae87b1d73c73daedcf7022f8",
+  "foundation_guide": "OPENBOT_OS.md",
   "git_identity_verifier": "tools/verify-git-source.py",
   "github_write_status": "Arena authenticated push unavailable. Ordinary local commit supplied for Antigravity to publish; no remote write claimed.",
   "historical_reconstruction_provenance": "evidence/repair-review/SOURCE_PROVENANCE.json",
@@ -22421,8 +22595,10 @@
     "control",
     "studio",
     "tools",
+    "docs",
     "evidence"
   ],
+  "license_boundary": "THIRD_PARTY_NOTICES.md",
   "not_a_runtime_backup": true,
   "openmuse_review": {
     "provenance": "studio/third_party/openmuse/PROVENANCE.json",
@@ -22431,24 +22607,29 @@
   },
   "optional_upstream_files_retained": 3475,
   "originals_deleted_or_repacked": false,
-  "parent_git_commit": "5a98328bbd5a05646de14340a858f4debba24788",
-  "parent_manifest_sha256": "6d45c456770f05f53e00ea8260fb41f578d35e41d8cf0ff273c805039313ea82",
+  "parent_git_commit": "9f5600d1fd285e79922fbf69a2abce5243cb9291",
+  "parent_manifest_sha256": "e74f7453c0d00c5df0c6a4d6ec7f8751c0deeaa0132381b07e82f3c03bca5276",
   "parent_source_identity": "Full pinned Git clone, not a new received ZIP.",
   "prior_delivered_archive_sha256": "c96dbbe947d96fe987658f125cc01a45fcf682b9721dc0d75d52ffd129436e87",
   "private_or_generated_state_excluded": true,
+  "product_name": "OpenBot OS",
   "release_status": {
     "accepted_real_observed_pilot_days": 0,
-    "android": "demo-v3 local test build; not device-launched",
+    "android": "Historical demo-v3 test APK with prior embedded UI; not rebuilt or device-accepted",
     "direct_antigravity_message_sent": false,
     "ios": "source only; no Mac/Xcode/app/IPA",
+    "loader_snaps_permission": "not approved",
     "native_devices_independently_accepted": false,
+    "native_packages_match_current_ui": false,
     "public_release": false,
     "real_per_bot_pcs": 0,
     "real_provider_connections": 0,
+    "registry_changed": false,
     "studio_kernel_connected": true,
-    "studio_kernel_connection_scope": "Actual disposable local HTTPS fixed-owned QA fixtures only; not staging/production or arbitrary AI/PC/social execution.",
-    "windows": "Antigravity-reported 0xc000007b startup failure; root cause unproved; no accepted native UI/device evidence"
+    "studio_kernel_connection_scope": "Earlier disposable local HTTPS fixed-owned QA fixtures only; not newly paired/accepted for this changed client hash, and not staging/production or arbitrary AI/PC/social",
+    "windows": "Historical unchanged unsigned PE and supplied 0xc000007b trace; exact root cause/stage unproved; prior embedded UI, not rebuilt or accepted"
   },
+  "root_first_party_license": "MIT",
   "schema": "openbot.workspace-source/1",
   "scope_note": "Manifest identifies this selected source, not signer identity, account permissions, provider/VM readiness, policy compliance, secret clearance, pilot acceptance or release authority.",
   "shared_workflow": "TEAM_WORKFLOW.md",
@@ -22456,5 +22637,7 @@
   "source_inventory": "PROJECT_INVENTORY.md",
   "source_only": false,
   "source_provenance": "evidence/shared-repo-audit/BASELINE.json",
-  "timestamp_policy": "Original donor/intake/runner timestamp observations retained, not a latest-branch assertion or elapsed pilot time."
+  "timestamp_policy": "Original donor/intake/runner timestamp observations retained, not a latest-branch assertion or elapsed pilot time.",
+  "transitive_license_audit_complete": false,
+  "windows_collector_scope": "Schema 4, opt-in bounded debug-string payloads; fake-backend tested only, no native Windows probe or registry change"
 }

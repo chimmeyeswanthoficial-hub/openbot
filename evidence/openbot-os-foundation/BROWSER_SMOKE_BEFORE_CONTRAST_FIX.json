@@ -1,0 +1,198 @@
+{
+  "browser_version": "141.0.7390.37",
+  "checks": [
+    {
+      "details": null,
+      "name": "desktop_openbot_os_title",
+      "passed": true
+    },
+    {
+      "details": "284px 846px 310px",
+      "name": "desktop_visible_light_three_column_layout",
+      "passed": true
+    },
+    {
+      "details": null,
+      "name": "default_is_unpaired_local_not_live",
+      "passed": true
+    },
+    {
+      "details": null,
+      "name": "blueprints_not_fabricated_chat",
+      "passed": true
+    },
+    {
+      "details": null,
+      "name": "desktop_search_filters_contacts",
+      "passed": true
+    },
+    {
+      "details": null,
+      "name": "keyboard_saves_local_human_brief_only",
+      "passed": true
+    },
+    {
+      "details": null,
+      "name": "computer_requirements_dialog_truthful",
+      "passed": true
+    },
+    {
+      "details": null,
+      "name": "escape_closes_dialog",
+      "passed": true
+    },
+    {
+      "details": null,
+      "name": "csv_requires_explicit_source_currency",
+      "passed": true
+    },
+    {
+      "details": null,
+      "name": "fictional_csv_preview_remains_local_read_only",
+      "passed": true
+    },
+    {
+      "details": null,
+      "name": "settings_labels_stale_packages_and_unwired_journal",
+      "passed": true
+    },
+    {
+      "details": null,
+      "name": "mobile_starts_companion_list_not_thread",
+      "passed": true
+    },
+    {
+      "details": null,
+      "name": "mobile_list_to_conversation_navigation",
+      "passed": true
+    },
+    {
+      "details": null,
+      "name": "mobile_details_disclose_no_real_pc",
+      "passed": true
+    },
+    {
+      "details": null,
+      "name": "mobile_back_restores_list",
+      "passed": true
+    },
+    {
+      "details": null,
+      "name": "320px_list_has_no_horizontal_document_overflow",
+      "passed": true
+    },
+    {
+      "details": [],
+      "name": "no_javascript_page_errors",
+      "passed": true
+    },
+    {
+      "details": [
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4183/"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4183/api/status"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4183/"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4183/api/status"
+        }
+      ],
+      "name": "no_external_application_requests",
+      "passed": true
+    },
+    {
+      "details": [
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4183/"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4183/api/status"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4183/"
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:4183/api/status"
+        }
+      ],
+      "name": "no_privileged_network_writes",
+      "passed": true
+    }
+  ],
+  "console_errors": [],
+  "contrast_scope": "Four computed sRGB text/background samples only, no alpha/compositing/disabled-state/screen-reader/zoom/full WCAG audit; small type usability is not resolved by contrast alone.",
+  "page_errors": [],
+  "passed_checks": 19,
+  "requests": [
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:4183/"
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:4183/api/status"
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:4183/"
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:4183/api/status"
+    }
+  ],
+  "sampled_text_styles": [
+    {
+      "background": "rgb(230, 230, 226)",
+      "fontSize": "11.5px",
+      "foreground": "rgb(104, 109, 98)",
+      "sampled_contrast_ratio": 4.246,
+      "sampled_normal_text_contrast_4_5": false,
+      "selector": ".contact-snippet"
+    },
+    {
+      "background": "rgb(255, 255, 255)",
+      "fontSize": "8px",
+      "foreground": "rgb(103, 110, 94)",
+      "sampled_contrast_ratio": 5.291,
+      "sampled_normal_text_contrast_4_5": true,
+      "selector": ".composer-note"
+    },
+    {
+      "background": "rgb(255, 255, 255)",
+      "fontSize": "12px",
+      "foreground": "rgb(103, 110, 94)",
+      "sampled_contrast_ratio": 5.291,
+      "sampled_normal_text_contrast_4_5": true,
+      "selector": ".empty-conversation > p"
+    },
+    {
+      "background": "rgb(245, 245, 243)",
+      "fontSize": "22px",
+      "foreground": "rgb(32, 33, 36)",
+      "sampled_contrast_ratio": 14.748,
+      "sampled_normal_text_contrast_4_5": true,
+      "selector": ".wordmark"
+    }
+  ],
+  "schema": "openbot.browser-smoke/1",
+  "scope": "Chromium headless in disposable Linux browser contexts against the public stateless planner. No paired gateway, native WebView, live chat, provider/PC/IDE/social account, full accessibility audit or release acceptance.",
+  "screenshots": [
+    "evidence/openbot-os-foundation/desktop.png",
+    "evidence/openbot-os-foundation/mobile.png"
+  ],
+  "status": "passed",
+  "upstream_app_executed": false
+}

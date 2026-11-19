@@ -1,6 +1,7 @@
 """Local source/build contracts. Static checks are not native runtime acceptance."""
 
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -87,7 +88,7 @@ class SharedSourceTests(unittest.TestCase):
             expected = (ROOT / "studio/web/index.html").read_bytes()
             built = (root / "studio/web/index.html").read_bytes()
             self.assertEqual(built, expected)
-            self.assertEqual(len(built), 127185)
+            self.assertEqual(len(built), len(expected))
             self.assertNotIn(b"\r\n", built)
 
     def test_light_mobile_css_and_no_external_assets_in_actual_built_html(self):
@@ -99,6 +100,34 @@ class SharedSourceTests(unittest.TestCase):
         self.assertNotIn('<link rel="stylesheet"', page)
         self.assertNotIn('src="https://', page)
         self.assertNotIn('<script id="recorded-data"', page)
+
+    def test_openbot_os_identity_is_shared_without_changing_protocol_or_light_mode(self):
+        page = (ROOT / "studio/web/index.html").read_text()
+        self.assertIn("<title>OpenBot OS · Your companions</title>", page)
+        self.assertIn('aria-label="OpenBot OS home"', page)
+        self.assertIn('content="light"', page)
+        source = (ROOT / "studio/web/gateway-session.js").read_text()
+        self.assertIn("non-exportable private key in renderer memory only", source)
+
+    def test_selected_contact_text_color_has_normal_text_contrast(self):
+        css = (ROOT / "studio/web/styles.css").read_text()
+        background = re.search(r"\.contact-row\.active\{background:(#[a-f0-9]{6})", css)
+        foreground = re.search(
+            r"\.contact-row\.active \.contact-snippet,\.contact-row\.active \.contact-title small\{color:(#[a-f0-9]{6})",
+            css,
+        )
+        self.assertIsNotNone(background)
+        self.assertIsNotNone(foreground)
+
+        def luminance(value):
+            rgb = [int(value[index : index + 2], 16) / 255 for index in (1, 3, 5)]
+            linear = [n / 12.92 if n <= 0.04045 else ((n + 0.055) / 1.055) ** 2.4 for n in rgb]
+            return sum(
+                n * weight for n, weight in zip(linear, (0.2126, 0.7152, 0.0722), strict=True)
+            )
+
+        a, b = luminance(background.group(1)), luminance(foreground.group(1))
+        self.assertGreaterEqual((max(a, b) + 0.05) / (min(a, b) + 0.05), 4.5)
 
     def test_public_diagnostics_are_read_only_and_do_not_expose_device_keys(self):
         script = (ROOT / "studio/web/app.js").read_text()

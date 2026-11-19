@@ -213,9 +213,9 @@
       "sha256": "c410207533c9e0d23f52fe1da1c22000b093f659d9d469c463efeed89fbea22a"
     },
     "control/native/ios/OpenBotControl/index.html": {
-      "bytes": 127590,
+      "bytes": 150155,
       "mode": 420,
-      "sha256": "cd5345c5ffcd47e015968249bd047c794cc0e8918aea7ef21cbed790fa67198b"
+      "sha256": "9abad30a5cf130c808b9a4547b46a15de5222c76d6f9bb5eb5a6317ee4409249"
     },
     "control/native/ios/README-iOS.md": {
       "bytes": 1528,
@@ -338,9 +338,9 @@
       "sha256": "e3f444010c7a58c48cea3101476df5d60f042492d6e9c3d5c2c9ea69193d88c3"
     },
     "control/web/index.html": {
-      "bytes": 127590,
+      "bytes": 150155,
       "mode": 420,
-      "sha256": "cd5345c5ffcd47e015968249bd047c794cc0e8918aea7ef21cbed790fa67198b"
+      "sha256": "9abad30a5cf130c808b9a4547b46a15de5222c76d6f9bb5eb5a6317ee4409249"
     },
     "docs/openbot-os/ARCHITECTURE.md": {
       "bytes": 7947,
@@ -671,6 +671,51 @@
       "bytes": 11819,
       "mode": 420,
       "sha256": "cd2bfa08e0af9b8db6a5d5e975e37b24e6603f6223b6ce2a23aee96f9bf6fed8"
+    },
+    "evidence/openbot-os-studio-history/REPETITION_STUDIO_HTTP.json": {
+      "bytes": 1551,
+      "mode": 420,
+      "sha256": "3a47df3714e169319362d020dd1eb00cb527a518a56dfdb6236e115a06dc10fc"
+    },
+    "evidence/openbot-os-studio-history/TOOLING.json": {
+      "bytes": 1899,
+      "mode": 420,
+      "sha256": "27a35b08566085ec903bf02d441a64cb1b60a17511764d3f0fb40c88178b8542"
+    },
+    "evidence/openbot-os-studio-history/VERIFICATION.md": {
+      "bytes": 7447,
+      "mode": 420,
+      "sha256": "838dffca230939aa25eae66bbefde0b7bb5d02a5059326cd2cc404aba991275e"
+    },
+    "evidence/openbot-os-studio-history/gateway-history-tests.log": {
+      "bytes": 1537,
+      "mode": 420,
+      "sha256": "c156b7d6be1c4ef1ca7d7821c97e9c60ad4ed40e6dbf7482f7e8fe0d6312fd9d"
+    },
+    "evidence/openbot-os-studio-history/journal-tests.log": {
+      "bytes": 5557,
+      "mode": 420,
+      "sha256": "f03833eb4d763016eb3d906c50423037cf5c2b4ed0d7e2dd6ea4f06b9f0c9c49"
+    },
+    "evidence/openbot-os-studio-history/node-tests.log": {
+      "bytes": 11980,
+      "mode": 420,
+      "sha256": "0e336e71a53979d30d3b69b7a047899a86b3a4a9ccbdf9d6f81a9865d0026772"
+    },
+    "evidence/openbot-os-studio-history/repetition-studio-http-10x.log": {
+      "bytes": 20721,
+      "mode": 420,
+      "sha256": "b9504900371948487637e145e0fdb3050195fe936e555bf9345ac874cbc69744"
+    },
+    "evidence/openbot-os-studio-history/studio-tests.log": {
+      "bytes": 8897,
+      "mode": 420,
+      "sha256": "1178d89902f22c7731d28abae401a1321282845597bfdee0cc4c6bc7cb1d784e"
+    },
+    "evidence/openbot-os-studio-history/tools-tests.log": {
+      "bytes": 11820,
+      "mode": 420,
+      "sha256": "d35b58a369958218d8a2467df6c80469211ebddcbdb43f0751ff95b788bf1ab9"
     },
     "evidence/openmuse/INDEX.md": {
       "bytes": 2505,
@@ -1807,6 +1852,11 @@
       "mode": 420,
       "sha256": "81ee018d1cb5ebe0fe20be9e99327ebbe963bc085f1243b0346945754b7f3cba"
     },
+    "studio/tests/gateway-history.test.cjs": {
+      "bytes": 13480,
+      "mode": 420,
+      "sha256": "a99625a82fa48cde3f6600c32f1e6da18c32176989096aa7422c97eb54261cf3"
+    },
     "studio/tests/gateway-session.test.cjs": {
       "bytes": 13990,
       "mode": 420,
@@ -1863,9 +1913,9 @@
       "sha256": "2a6f48f8c2a9cb64f282091a99c5a3ff4cd9a3cb28aea63c45c9695a99a3403b"
     },
     "studio/web/app.js": {
-      "bytes": 56816,
+      "bytes": 70465,
       "mode": 420,
-      "sha256": "37300a2c28f0e8654eea620594bc2f52d24a04c06a169568cb89a72fc60fcf1e"
+      "sha256": "2cc24dfe61e962104aa7a0e6412f5c718d5940bc5e38f01677fce6c76a6ca932"
     },
     "studio/web/finance-preview.js": {
       "bytes": 9852,
@@ -1878,19 +1928,19 @@
       "sha256": "7841903269258b8b7508fe9f97bf82b94e86f3aff417f8e860c96346ca89cfc0"
     },
     "studio/web/gateway-session.js": {
-      "bytes": 14611,
+      "bytes": 21081,
       "mode": 420,
-      "sha256": "1619ff652f5eb870afb62e084a5bc5eda9118ab28a4c834b39afa09e2490bcf0"
+      "sha256": "0bf3524ec9b85786b7260f0e0ecb5c5d321da94201cfad28edecf3d01f18daef"
     },
     "studio/web/index.html": {
-      "bytes": 127590,
+      "bytes": 150155,
       "mode": 420,
-      "sha256": "cd5345c5ffcd47e015968249bd047c794cc0e8918aea7ef21cbed790fa67198b"
+      "sha256": "9abad30a5cf130c808b9a4547b46a15de5222c76d6f9bb5eb5a6317ee4409249"
     },
     "studio/web/styles.css": {
-      "bytes": 28729,
+      "bytes": 31175,
       "mode": 420,
-      "sha256": "f38ab0859f50c52e7a255a4a62df685542e8e957688ba211a45f443c595fb8ae"
+      "sha256": "563bd6d81e8cb0a7dbb62b8fe55069a2fd8bfa12f191c5030211fee759501e7b"
     },
     "studio/web/template.html": {
       "bytes": 5551,
@@ -22754,7 +22804,7 @@
     }
   },
   "files_metadata_hash_encoding": "UTF-8 json.dumps(files, sort_keys=True, separators=(',', ':'), ensure_ascii=True), no trailing newline.",
-  "files_metadata_sha256": "6f3f4bd6dd8df28d8162be9d0618e6bd3c8d587d125c8d0171ead751583ce7b1",
+  "files_metadata_sha256": "e3bfafe6a7c6db1fc75b35801ba2ff9eb46099e43af1461b64c12e814ed37061",
   "foundation_guide": "OPENBOT_OS.md",
   "git_identity_verifier": "tools/verify-git-source.py",
   "github_write_status": "Arena authenticated push unavailable. Ordinary local commit supplied for Antigravity to publish; no remote write claimed.",

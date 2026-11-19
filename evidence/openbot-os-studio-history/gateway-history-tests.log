@@ -1,0 +1,21 @@
+============================= test session starts =============================
+platform win32 -- Python 3.13.0, pytest-9.0.3, pluggy-1.6.0
+rootdir: C:\Users\CHIMME YESWANTH\Downloads\openbot\OpenBot-Workspace-Light-Complete\OpenBot-Workspace\work
+configfile: pyproject.toml
+plugins: anyio-4.13.0, langsmith-0.11.0
+collected 58 items
+
+services\gateway\tests\test_conversation_api.py ........................ [ 41%]
+..................................                                       [100%]
+
+============================== warnings summary ===============================
+services/gateway/tests/test_conversation_api.py::test_bounded_real_tls_socket_uses_normal_certificate_verification
+  C:\Users\CHIMME YESWANTH\AppData\Roaming\Python\Python313\site-packages\websockets\legacy\__init__.py:6: DeprecationWarning: websockets.legacy is deprecated; see https://websockets.readthedocs.io/en/stable/howto/upgrade.html for upgrade instructions
+    warnings.warn(  # deprecated in 14.0 - 2024-11-09
+
+services/gateway/tests/test_conversation_api.py::test_bounded_real_tls_socket_uses_normal_certificate_verification
+  C:\Users\CHIMME YESWANTH\AppData\Local\Programs\Python\Python313\Lib\site-packages\uvicorn\protocols\websockets\websockets_impl.py:17: DeprecationWarning: websockets.server.WebSocketServerProtocol is deprecated
+    from websockets.server import WebSocketServerProtocol
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================= 58 passed, 2 warnings in 30.41s =======================

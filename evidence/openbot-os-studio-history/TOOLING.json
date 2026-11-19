@@ -1,0 +1,57 @@
+{
+  "platform": "Windows-11-10.0.26300-SP0",
+  "python_version": "3.13.0 (tags/v3.13.0:60403a5, Oct  7 2024, 09:38:07) [MSC v.1941 64 bit (AMD64)]",
+  "node_version": "v24.5.0",
+  "pytest_version": "9.0.3",
+  "test_results": {
+    "tools_tests": {
+      "command": "python -m unittest discover -s tools/tests -p 'test*.py' -v",
+      "ran": 77,
+      "passed": 77,
+      "failed": 0,
+      "skipped": 0,
+      "log": "tools-tests.log"
+    },
+    "node_tests": {
+      "command": "node --test studio/tests/*.test.cjs work/packages/bot-hq-queue/serial-queue.test.mjs work/tools/findrepo/test/*.test.mjs",
+      "ran": 79,
+      "passed": 79,
+      "failed": 0,
+      "cancelled": 0,
+      "log": "node-tests.log"
+    },
+    "studio_tests": {
+      "command": "python -m unittest discover -s studio/tests -p 'test*.py' -v",
+      "ran": 52,
+      "passed": 48,
+      "failed": 0,
+      "skipped": 4,
+      "skip_reason": "POSIX private permissions (0o700) required; Windows CLI boundary fails closed",
+      "log": "studio-tests.log"
+    },
+    "sentinel_journal_tests": {
+      "command": "python -m unittest discover -s services/sentinel/tests -p 'test_conversation_journal.py' -v",
+      "ran": 31,
+      "passed": 31,
+      "failed": 0,
+      "log": "journal-tests.log"
+    },
+    "gateway_history_tests": {
+      "command": "pytest services/gateway/tests/test_conversation_api.py -v",
+      "ran": 58,
+      "passed": 58,
+      "failed": 0,
+      "log": "gateway-history-tests.log"
+    },
+    "repetition_studio_http": {
+      "command": "python -m unittest discover -s studio/tests -p 'test_studio_http.py' -v (10 runs)",
+      "repetitions": 10,
+      "all_exit_code_zero": true,
+      "socket_resets_observed": 0,
+      "log": "repetition-studio-http-10x.log",
+      "summary_json": "REPETITION_STUDIO_HTTP.json"
+    }
+  },
+  "accepted_real_observed_pilot_days": 0,
+  "public_release": false
+}

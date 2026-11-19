@@ -1,0 +1,77 @@
+{
+  "repetitions": 10,
+  "all_passed": true,
+  "zero_socket_resets": true,
+  "runs": [
+    {
+      "iteration": 1,
+      "returncode": 0,
+      "duration_s": 1.7121,
+      "socket_reset_observed": false,
+      "tests_run": 13
+    },
+    {
+      "iteration": 2,
+      "returncode": 0,
+      "duration_s": 1.655,
+      "socket_reset_observed": false,
+      "tests_run": 13
+    },
+    {
+      "iteration": 3,
+      "returncode": 0,
+      "duration_s": 1.6069,
+      "socket_reset_observed": false,
+      "tests_run": 13
+    },
+    {
+      "iteration": 4,
+      "returncode": 0,
+      "duration_s": 1.6072,
+      "socket_reset_observed": false,
+      "tests_run": 13
+    },
+    {
+      "iteration": 5,
+      "returncode": 0,
+      "duration_s": 1.6471,
+      "socket_reset_observed": false,
+      "tests_run": 13
+    },
+    {
+      "iteration": 6,
+      "returncode": 0,
+      "duration_s": 1.5754,
+      "socket_reset_observed": false,
+      "tests_run": 13
+    },
+    {
+      "iteration": 7,
+      "returncode": 0,
+      "duration_s": 1.6192,
+      "socket_reset_observed": false,
+      "tests_run": 13
+    },
+    {
+      "iteration": 8,
+      "returncode": 0,
+      "duration_s": 1.8014,
+      "socket_reset_observed": false,
+      "tests_run": 13
+    },
+    {
+      "iteration": 9,
+      "returncode": 0,
+      "duration_s": 1.5888,
+      "socket_reset_observed": false,
+      "tests_run": 13
+    },
+    {
+      "iteration": 10,
+      "returncode": 0,
+      "duration_s": 1.5628,
+      "socket_reset_observed": false,
+      "tests_run": 13
+    }
+  ]
+}

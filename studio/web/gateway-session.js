@@ -11,7 +11,9 @@
   'use strict';
   const HEX = /^[a-f0-9]{64}$/, DEVICE = /^[A-Za-z0-9_-]{32}$/, TASK = /^w[a-f0-9]{32}$/;
   const UUID = /^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}$/;
-  const scopes = new Set(['read', 'propose', 'approve', 'execute', 'cancel', 'revoke-self']);
+  const THREAD_ID = /^c[a-f0-9]{32}$/, MESSAGE_ID = /^m[a-f0-9]{32}$/;
+  const historyScopes = Object.freeze(new Set(['history-read', 'history-write', 'history-delete']));
+  const scopes = new Set(['read', 'propose', 'approve', 'execute', 'cancel', 'revoke-self', ...historyScopes]);
   const fixtures = Object.freeze(['invoice-good-v1', 'invoice-discount-defect-v1', 'invoice-docs-defect-v1']);
   const empty = () => ({status: {}, tasks: [], audit: [], exact_book: {summary: {}, postings: []}});
   const bytes = text => new TextEncoder().encode(text);
@@ -29,7 +31,7 @@
   }
   function allowed(method, path) {
     return method === 'GET' && /^\/api\/v1\/(snapshot|status|tasks|audit|exact-book|session|tasks\/w[a-f0-9]{32}(?:\/artifact)?)$/.test(path)
-      || method === 'POST' && /^\/api\/v1\/(tasks|session\/revoke|tasks\/w[a-f0-9]{32}\/(?:approve|execute|cancel))$/.test(path);
+      || method === 'POST' && /^\/api\/v1\/(tasks|session\/revoke|tasks\/w[a-f0-9]{32}\/(?:approve|execute|cancel)|conversations\/(?:create|list|c[a-f0-9]{32}\/(?:read|messages|delete)))$/.test(path);
   }
   class Session {
     #keys = null; #transport; #crypto; #now; #online; #notify;
@@ -113,7 +115,7 @@
         const p = r.data;
         if (!p || !DEVICE.test(p.device) || !['owner', 'viewer'].includes(p.role) || typeof p.venture !== 'string'
           || !p.venture || !Array.isArray(p.scopes) || !p.scopes.includes('read') || new Set(p.scopes).size !== p.scopes.length
-          || p.scopes.some(s => !scopes.has(s)) || p.role === 'viewer' && p.scopes.some(s => !['read', 'revoke-self'].includes(s))
+          || p.scopes.some(s => !scopes.has(s)) || p.role === 'viewer' && p.scopes.some(s => !['read', 'revoke-self', 'history-read'].includes(s))
           || !Number.isInteger(p.expires) || p.expires <= r.observed_at) throw Error('Invalid server-derived device scope.');
         this.#keys = keys; this.pairing = {device: p.device, role: p.role, venture: p.venture, scopes: [...p.scopes], expires: p.expires};
         this.error = '';
@@ -194,7 +196,121 @@
       } catch (error) { this.#seen = null; this.error = error.message; throw error; }
       finally { this.busy = false; this.#notify(); }
     }
+    #randomHex(n) {
+      const arr = new Uint8Array(n);
+      const c = (this.#crypto?.getRandomValues && this.#crypto)
+        || (globalThis.crypto?.getRandomValues && globalThis.crypto)
+        || (typeof require === 'function' ? require('node:crypto') : null);
+      if (!c?.getRandomValues) throw Error('Cryptographic random generation unavailable.');
+      c.getRandomValues(arr);
+      return Array.from(arr, b => b.toString(16).padStart(2, '0')).join('');
+    }
+    #validateHistoryResponse(d) {
+      if (!d || d.history_api_version !== '1' || d.history_only !== true
+        || d.agent_executed !== false || d.source !== 'application_sqlite_journal')
+        throw Error('Server history contract mismatch; no authority assumed.');
+      return d;
+    }
+    async historyList(after = '', limit = 50) {
+      if (!this.can('history-read')) throw Error('Fresh history-read scope required.');
+      if (typeof after !== 'string' || (after !== '' && !THREAD_ID.test(after)) || !Number.isInteger(limit) || limit < 1 || limit > 100)
+        throw Error('Invalid history list parameters.');
+      const epoch = this.#epoch; this.busy = true; this.#notify();
+      try {
+        const r = await this.#signed('POST', '/api/v1/conversations/list', {after, limit});
+        if (epoch !== this.#epoch) throw Error('Session changed during history read; response discarded.');
+        const d = r.data;
+        this.#validateHistoryResponse(d);
+        if (!Array.isArray(d.threads)) throw Error('Invalid threads list in history response.');
+        this.#seen = this.#now();
+        return d;
+      } catch (error) { this.#seen = null; this.error = error.message; throw error; }
+      finally { this.busy = false; this.#notify(); }
+    }
+    async historyCreate(title, threadId = undefined) {
+      if (!this.can('history-write') || this.pairing?.role !== 'owner')
+        throw Error('Fresh owner history-write scope required.');
+      const tid = threadId || ('c' + this.#randomHex(16));
+      if (!THREAD_ID.test(tid) || typeof title !== 'string' || !title.trim() || title.length > 200 || /[\x00-\x1f\x7f]/.test(title))
+        throw Error('Invalid thread title or identifier.');
+      this.busy = true; this.#notify();
+      try {
+        const r = await this.#signed('POST', '/api/v1/conversations/create', {thread_id: tid, title: title.trim()});
+        const d = r.data;
+        this.#validateHistoryResponse(d);
+        if (d.thread_id !== tid) throw Error('Thread identity mismatch in response.');
+        this.#seen = this.#now();
+        return d;
+      } catch (error) {
+        this.#seen = null;
+        this.error = 'Unknown/refused outcome; no automatic retry. ' + error.message;
+        throw error;
+      } finally { this.busy = false; this.#notify(); }
+    }
+    async historyRead(threadId, after = 0, limit = 50) {
+      if (!this.can('history-read')) throw Error('Fresh history-read scope required.');
+      if (!THREAD_ID.test(threadId) || !Number.isInteger(after) || after < 0 || !Number.isInteger(limit) || limit < 1 || limit > 100)
+        throw Error('Invalid history read parameters.');
+      const epoch = this.#epoch; this.busy = true; this.#notify();
+      try {
+        const r = await this.#signed('POST', '/api/v1/conversations/' + threadId + '/read', {after, limit});
+        if (epoch !== this.#epoch) throw Error('Session changed during history read; response discarded.');
+        const d = r.data;
+        this.#validateHistoryResponse(d);
+        if (!Array.isArray(d.events)) throw Error('Invalid events in history response.');
+        this.#seen = this.#now();
+        return d;
+      } catch (error) { this.#seen = null; this.error = error.message; throw error; }
+      finally { this.busy = false; this.#notify(); }
+    }
+    async historyMessage(threadId, text, expectedSequence, messageId = undefined) {
+      if (!this.can('history-write') || this.pairing?.role !== 'owner')
+        throw Error('Fresh owner history-write scope required.');
+      if (!THREAD_ID.test(threadId) || typeof text !== 'string' || !text.trim() || !Number.isInteger(expectedSequence) || expectedSequence < 0)
+        throw Error('Invalid message parameters.');
+      if (bytes(text).length > 8192 || /[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]/.test(text))
+        throw Error('Message text exceeds 8192 UTF-8 bytes or contains control characters.');
+      const mid = messageId || ('m' + this.#randomHex(16));
+      if (!MESSAGE_ID.test(mid)) throw Error('Invalid message identifier.');
+      this.busy = true; this.#notify();
+      try {
+        const r = await this.#signed('POST', '/api/v1/conversations/' + threadId + '/messages', {
+          message_id: mid,
+          text: text.trim(),
+          expected_sequence: expectedSequence
+        });
+        const d = r.data;
+        this.#validateHistoryResponse(d);
+        if (d.thread_id !== threadId || d.message_id !== mid || !Number.isInteger(d.sequence))
+          throw Error('Invalid message response structure.');
+        this.#seen = this.#now();
+        return d;
+      } catch (error) {
+        this.#seen = null;
+        this.error = 'Unknown/refused outcome; no automatic retry. ' + error.message;
+        throw error;
+      } finally { this.busy = false; this.#notify(); }
+    }
+    async historyDelete(threadId) {
+      if (!this.can('history-delete') || this.pairing?.role !== 'owner')
+        throw Error('Fresh owner history-delete scope required.');
+      if (!THREAD_ID.test(threadId)) throw Error('Invalid thread identifier.');
+      this.busy = true; this.#notify();
+      try {
+        const r = await this.#signed('POST', '/api/v1/conversations/' + threadId + '/delete', {});
+        const d = r.data;
+        this.#validateHistoryResponse(d);
+        if (d.thread_id !== threadId || d.deleted !== true || d.secure_erasure !== false)
+          throw Error('Invalid deletion response contract.');
+        this.#seen = this.#now();
+        return d;
+      } catch (error) {
+        this.#seen = null;
+        this.error = 'Unknown/refused outcome; no automatic retry. ' + error.message;
+        throw error;
+      } finally { this.busy = false; this.#notify(); }
+    }
     async revoke() { const r = await this.#mutate('revoke-self', '/api/v1/session/revoke', {}); this.forget(); return r; }
   }
-  return Object.freeze({Session, liveLocation, allowed, fixtures});
+  return Object.freeze({Session, liveLocation, allowed, fixtures, historyScopes, THREAD_ID, MESSAGE_ID});
 });

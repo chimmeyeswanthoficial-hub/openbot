@@ -1,0 +1,200 @@
+=== RUN 1/10 (duration: 1.712s, exit: 0, socket_reset: False) ===
+test_cross_origin_and_opaque_origin_requests_are_refused (test_studio_http.HTTPTests.test_cross_origin_and_opaque_origin_requests_are_refused) ... ok
+test_download_is_exactly_the_fixed_public_archive_not_a_url_path (test_studio_http.HTTPTests.test_download_is_exactly_the_fixed_public_archive_not_a_url_path) ... ok
+test_http_body_limit_and_content_type (test_studio_http.HTTPTests.test_http_body_limit_and_content_type) ... ok
+test_json_contract_rejects_duplicate_keys_nan_and_unknown_fields (test_studio_http.HTTPTests.test_json_contract_rejects_duplicate_keys_nan_and_unknown_fields) ... ok
+test_no_execution_install_auth_or_posting_route_exists (test_studio_http.HTTPTests.test_no_execution_install_auth_or_posting_route_exists) ... ok
+test_paths_and_queries_cannot_read_private_files (test_studio_http.HTTPTests.test_paths_and_queries_cannot_read_private_files) ... ok
+test_preview_hostname_is_supported_but_arbitrary_dns_host_is_not (test_studio_http.HTTPTests.test_preview_hostname_is_supported_but_arbitrary_dns_host_is_not) ... ok
+test_preview_is_embed_compatible_and_has_hashed_inline_script_csp (test_studio_http.HTTPTests.test_preview_is_embed_compatible_and_has_hashed_inline_script_csp) ... ok
+test_real_pure_companion_plan_roundtrip (test_studio_http.HTTPTests.test_real_pure_companion_plan_roundtrip) ... ok
+test_real_social_plan_uses_explicit_private_privacy (test_studio_http.HTTPTests.test_real_social_plan_uses_explicit_private_privacy) ... ok
+test_status_never_advertises_a_provider_pc_or_account_as_running (test_studio_http.HTTPTests.test_status_never_advertises_a_provider_pc_or_account_as_running) ... ok
+test_transfer_encoding_and_ambiguous_lengths_are_refused (test_studio_http.HTTPTests.test_transfer_encoding_and_ambiguous_lengths_are_refused) ... ok
+test_unneeded_methods_do_not_mutate_anything (test_studio_http.HTTPTests.test_unneeded_methods_do_not_mutate_anything) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 1.171s
+
+OK
+
+=== RUN 2/10 (duration: 1.655s, exit: 0, socket_reset: False) ===
+test_cross_origin_and_opaque_origin_requests_are_refused (test_studio_http.HTTPTests.test_cross_origin_and_opaque_origin_requests_are_refused) ... ok
+test_download_is_exactly_the_fixed_public_archive_not_a_url_path (test_studio_http.HTTPTests.test_download_is_exactly_the_fixed_public_archive_not_a_url_path) ... ok
+test_http_body_limit_and_content_type (test_studio_http.HTTPTests.test_http_body_limit_and_content_type) ... ok
+test_json_contract_rejects_duplicate_keys_nan_and_unknown_fields (test_studio_http.HTTPTests.test_json_contract_rejects_duplicate_keys_nan_and_unknown_fields) ... ok
+test_no_execution_install_auth_or_posting_route_exists (test_studio_http.HTTPTests.test_no_execution_install_auth_or_posting_route_exists) ... ok
+test_paths_and_queries_cannot_read_private_files (test_studio_http.HTTPTests.test_paths_and_queries_cannot_read_private_files) ... ok
+test_preview_hostname_is_supported_but_arbitrary_dns_host_is_not (test_studio_http.HTTPTests.test_preview_hostname_is_supported_but_arbitrary_dns_host_is_not) ... ok
+test_preview_is_embed_compatible_and_has_hashed_inline_script_csp (test_studio_http.HTTPTests.test_preview_is_embed_compatible_and_has_hashed_inline_script_csp) ... ok
+test_real_pure_companion_plan_roundtrip (test_studio_http.HTTPTests.test_real_pure_companion_plan_roundtrip) ... ok
+test_real_social_plan_uses_explicit_private_privacy (test_studio_http.HTTPTests.test_real_social_plan_uses_explicit_private_privacy) ... ok
+test_status_never_advertises_a_provider_pc_or_account_as_running (test_studio_http.HTTPTests.test_status_never_advertises_a_provider_pc_or_account_as_running) ... ok
+test_transfer_encoding_and_ambiguous_lengths_are_refused (test_studio_http.HTTPTests.test_transfer_encoding_and_ambiguous_lengths_are_refused) ... ok
+test_unneeded_methods_do_not_mutate_anything (test_studio_http.HTTPTests.test_unneeded_methods_do_not_mutate_anything) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 1.152s
+
+OK
+
+=== RUN 3/10 (duration: 1.607s, exit: 0, socket_reset: False) ===
+test_cross_origin_and_opaque_origin_requests_are_refused (test_studio_http.HTTPTests.test_cross_origin_and_opaque_origin_requests_are_refused) ... ok
+test_download_is_exactly_the_fixed_public_archive_not_a_url_path (test_studio_http.HTTPTests.test_download_is_exactly_the_fixed_public_archive_not_a_url_path) ... ok
+test_http_body_limit_and_content_type (test_studio_http.HTTPTests.test_http_body_limit_and_content_type) ... ok
+test_json_contract_rejects_duplicate_keys_nan_and_unknown_fields (test_studio_http.HTTPTests.test_json_contract_rejects_duplicate_keys_nan_and_unknown_fields) ... ok
+test_no_execution_install_auth_or_posting_route_exists (test_studio_http.HTTPTests.test_no_execution_install_auth_or_posting_route_exists) ... ok
+test_paths_and_queries_cannot_read_private_files (test_studio_http.HTTPTests.test_paths_and_queries_cannot_read_private_files) ... ok
+test_preview_hostname_is_supported_but_arbitrary_dns_host_is_not (test_studio_http.HTTPTests.test_preview_hostname_is_supported_but_arbitrary_dns_host_is_not) ... ok
+test_preview_is_embed_compatible_and_has_hashed_inline_script_csp (test_studio_http.HTTPTests.test_preview_is_embed_compatible_and_has_hashed_inline_script_csp) ... ok
+test_real_pure_companion_plan_roundtrip (test_studio_http.HTTPTests.test_real_pure_companion_plan_roundtrip) ... ok
+test_real_social_plan_uses_explicit_private_privacy (test_studio_http.HTTPTests.test_real_social_plan_uses_explicit_private_privacy) ... ok
+test_status_never_advertises_a_provider_pc_or_account_as_running (test_studio_http.HTTPTests.test_status_never_advertises_a_provider_pc_or_account_as_running) ... ok
+test_transfer_encoding_and_ambiguous_lengths_are_refused (test_studio_http.HTTPTests.test_transfer_encoding_and_ambiguous_lengths_are_refused) ... ok
+test_unneeded_methods_do_not_mutate_anything (test_studio_http.HTTPTests.test_unneeded_methods_do_not_mutate_anything) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 1.137s
+
+OK
+
+=== RUN 4/10 (duration: 1.607s, exit: 0, socket_reset: False) ===
+test_cross_origin_and_opaque_origin_requests_are_refused (test_studio_http.HTTPTests.test_cross_origin_and_opaque_origin_requests_are_refused) ... ok
+test_download_is_exactly_the_fixed_public_archive_not_a_url_path (test_studio_http.HTTPTests.test_download_is_exactly_the_fixed_public_archive_not_a_url_path) ... ok
+test_http_body_limit_and_content_type (test_studio_http.HTTPTests.test_http_body_limit_and_content_type) ... ok
+test_json_contract_rejects_duplicate_keys_nan_and_unknown_fields (test_studio_http.HTTPTests.test_json_contract_rejects_duplicate_keys_nan_and_unknown_fields) ... ok
+test_no_execution_install_auth_or_posting_route_exists (test_studio_http.HTTPTests.test_no_execution_install_auth_or_posting_route_exists) ... ok
+test_paths_and_queries_cannot_read_private_files (test_studio_http.HTTPTests.test_paths_and_queries_cannot_read_private_files) ... ok
+test_preview_hostname_is_supported_but_arbitrary_dns_host_is_not (test_studio_http.HTTPTests.test_preview_hostname_is_supported_but_arbitrary_dns_host_is_not) ... ok
+test_preview_is_embed_compatible_and_has_hashed_inline_script_csp (test_studio_http.HTTPTests.test_preview_is_embed_compatible_and_has_hashed_inline_script_csp) ... ok
+test_real_pure_companion_plan_roundtrip (test_studio_http.HTTPTests.test_real_pure_companion_plan_roundtrip) ... ok
+test_real_social_plan_uses_explicit_private_privacy (test_studio_http.HTTPTests.test_real_social_plan_uses_explicit_private_privacy) ... ok
+test_status_never_advertises_a_provider_pc_or_account_as_running (test_studio_http.HTTPTests.test_status_never_advertises_a_provider_pc_or_account_as_running) ... ok
+test_transfer_encoding_and_ambiguous_lengths_are_refused (test_studio_http.HTTPTests.test_transfer_encoding_and_ambiguous_lengths_are_refused) ... ok
+test_unneeded_methods_do_not_mutate_anything (test_studio_http.HTTPTests.test_unneeded_methods_do_not_mutate_anything) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 1.180s
+
+OK
+
+=== RUN 5/10 (duration: 1.647s, exit: 0, socket_reset: False) ===
+test_cross_origin_and_opaque_origin_requests_are_refused (test_studio_http.HTTPTests.test_cross_origin_and_opaque_origin_requests_are_refused) ... ok
+test_download_is_exactly_the_fixed_public_archive_not_a_url_path (test_studio_http.HTTPTests.test_download_is_exactly_the_fixed_public_archive_not_a_url_path) ... ok
+test_http_body_limit_and_content_type (test_studio_http.HTTPTests.test_http_body_limit_and_content_type) ... ok
+test_json_contract_rejects_duplicate_keys_nan_and_unknown_fields (test_studio_http.HTTPTests.test_json_contract_rejects_duplicate_keys_nan_and_unknown_fields) ... ok
+test_no_execution_install_auth_or_posting_route_exists (test_studio_http.HTTPTests.test_no_execution_install_auth_or_posting_route_exists) ... ok
+test_paths_and_queries_cannot_read_private_files (test_studio_http.HTTPTests.test_paths_and_queries_cannot_read_private_files) ... ok
+test_preview_hostname_is_supported_but_arbitrary_dns_host_is_not (test_studio_http.HTTPTests.test_preview_hostname_is_supported_but_arbitrary_dns_host_is_not) ... ok
+test_preview_is_embed_compatible_and_has_hashed_inline_script_csp (test_studio_http.HTTPTests.test_preview_is_embed_compatible_and_has_hashed_inline_script_csp) ... ok
+test_real_pure_companion_plan_roundtrip (test_studio_http.HTTPTests.test_real_pure_companion_plan_roundtrip) ... ok
+test_real_social_plan_uses_explicit_private_privacy (test_studio_http.HTTPTests.test_real_social_plan_uses_explicit_private_privacy) ... ok
+test_status_never_advertises_a_provider_pc_or_account_as_running (test_studio_http.HTTPTests.test_status_never_advertises_a_provider_pc_or_account_as_running) ... ok
+test_transfer_encoding_and_ambiguous_lengths_are_refused (test_studio_http.HTTPTests.test_transfer_encoding_and_ambiguous_lengths_are_refused) ... ok
+test_unneeded_methods_do_not_mutate_anything (test_studio_http.HTTPTests.test_unneeded_methods_do_not_mutate_anything) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 1.215s
+
+OK
+
+=== RUN 6/10 (duration: 1.575s, exit: 0, socket_reset: False) ===
+test_cross_origin_and_opaque_origin_requests_are_refused (test_studio_http.HTTPTests.test_cross_origin_and_opaque_origin_requests_are_refused) ... ok
+test_download_is_exactly_the_fixed_public_archive_not_a_url_path (test_studio_http.HTTPTests.test_download_is_exactly_the_fixed_public_archive_not_a_url_path) ... ok
+test_http_body_limit_and_content_type (test_studio_http.HTTPTests.test_http_body_limit_and_content_type) ... ok
+test_json_contract_rejects_duplicate_keys_nan_and_unknown_fields (test_studio_http.HTTPTests.test_json_contract_rejects_duplicate_keys_nan_and_unknown_fields) ... ok
+test_no_execution_install_auth_or_posting_route_exists (test_studio_http.HTTPTests.test_no_execution_install_auth_or_posting_route_exists) ... ok
+test_paths_and_queries_cannot_read_private_files (test_studio_http.HTTPTests.test_paths_and_queries_cannot_read_private_files) ... ok
+test_preview_hostname_is_supported_but_arbitrary_dns_host_is_not (test_studio_http.HTTPTests.test_preview_hostname_is_supported_but_arbitrary_dns_host_is_not) ... ok
+test_preview_is_embed_compatible_and_has_hashed_inline_script_csp (test_studio_http.HTTPTests.test_preview_is_embed_compatible_and_has_hashed_inline_script_csp) ... ok
+test_real_pure_companion_plan_roundtrip (test_studio_http.HTTPTests.test_real_pure_companion_plan_roundtrip) ... ok
+test_real_social_plan_uses_explicit_private_privacy (test_studio_http.HTTPTests.test_real_social_plan_uses_explicit_private_privacy) ... ok
+test_status_never_advertises_a_provider_pc_or_account_as_running (test_studio_http.HTTPTests.test_status_never_advertises_a_provider_pc_or_account_as_running) ... ok
+test_transfer_encoding_and_ambiguous_lengths_are_refused (test_studio_http.HTTPTests.test_transfer_encoding_and_ambiguous_lengths_are_refused) ... ok
+test_unneeded_methods_do_not_mutate_anything (test_studio_http.HTTPTests.test_unneeded_methods_do_not_mutate_anything) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 1.137s
+
+OK
+
+=== RUN 7/10 (duration: 1.619s, exit: 0, socket_reset: False) ===
+test_cross_origin_and_opaque_origin_requests_are_refused (test_studio_http.HTTPTests.test_cross_origin_and_opaque_origin_requests_are_refused) ... ok
+test_download_is_exactly_the_fixed_public_archive_not_a_url_path (test_studio_http.HTTPTests.test_download_is_exactly_the_fixed_public_archive_not_a_url_path) ... ok
+test_http_body_limit_and_content_type (test_studio_http.HTTPTests.test_http_body_limit_and_content_type) ... ok
+test_json_contract_rejects_duplicate_keys_nan_and_unknown_fields (test_studio_http.HTTPTests.test_json_contract_rejects_duplicate_keys_nan_and_unknown_fields) ... ok
+test_no_execution_install_auth_or_posting_route_exists (test_studio_http.HTTPTests.test_no_execution_install_auth_or_posting_route_exists) ... ok
+test_paths_and_queries_cannot_read_private_files (test_studio_http.HTTPTests.test_paths_and_queries_cannot_read_private_files) ... ok
+test_preview_hostname_is_supported_but_arbitrary_dns_host_is_not (test_studio_http.HTTPTests.test_preview_hostname_is_supported_but_arbitrary_dns_host_is_not) ... ok
+test_preview_is_embed_compatible_and_has_hashed_inline_script_csp (test_studio_http.HTTPTests.test_preview_is_embed_compatible_and_has_hashed_inline_script_csp) ... ok
+test_real_pure_companion_plan_roundtrip (test_studio_http.HTTPTests.test_real_pure_companion_plan_roundtrip) ... ok
+test_real_social_plan_uses_explicit_private_privacy (test_studio_http.HTTPTests.test_real_social_plan_uses_explicit_private_privacy) ... ok
+test_status_never_advertises_a_provider_pc_or_account_as_running (test_studio_http.HTTPTests.test_status_never_advertises_a_provider_pc_or_account_as_running) ... ok
+test_transfer_encoding_and_ambiguous_lengths_are_refused (test_studio_http.HTTPTests.test_transfer_encoding_and_ambiguous_lengths_are_refused) ... ok
+test_unneeded_methods_do_not_mutate_anything (test_studio_http.HTTPTests.test_unneeded_methods_do_not_mutate_anything) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 1.199s
+
+OK
+
+=== RUN 8/10 (duration: 1.801s, exit: 0, socket_reset: False) ===
+test_cross_origin_and_opaque_origin_requests_are_refused (test_studio_http.HTTPTests.test_cross_origin_and_opaque_origin_requests_are_refused) ... ok
+test_download_is_exactly_the_fixed_public_archive_not_a_url_path (test_studio_http.HTTPTests.test_download_is_exactly_the_fixed_public_archive_not_a_url_path) ... ok
+test_http_body_limit_and_content_type (test_studio_http.HTTPTests.test_http_body_limit_and_content_type) ... ok
+test_json_contract_rejects_duplicate_keys_nan_and_unknown_fields (test_studio_http.HTTPTests.test_json_contract_rejects_duplicate_keys_nan_and_unknown_fields) ... ok
+test_no_execution_install_auth_or_posting_route_exists (test_studio_http.HTTPTests.test_no_execution_install_auth_or_posting_route_exists) ... ok
+test_paths_and_queries_cannot_read_private_files (test_studio_http.HTTPTests.test_paths_and_queries_cannot_read_private_files) ... ok
+test_preview_hostname_is_supported_but_arbitrary_dns_host_is_not (test_studio_http.HTTPTests.test_preview_hostname_is_supported_but_arbitrary_dns_host_is_not) ... ok
+test_preview_is_embed_compatible_and_has_hashed_inline_script_csp (test_studio_http.HTTPTests.test_preview_is_embed_compatible_and_has_hashed_inline_script_csp) ... ok
+test_real_pure_companion_plan_roundtrip (test_studio_http.HTTPTests.test_real_pure_companion_plan_roundtrip) ... ok
+test_real_social_plan_uses_explicit_private_privacy (test_studio_http.HTTPTests.test_real_social_plan_uses_explicit_private_privacy) ... ok
+test_status_never_advertises_a_provider_pc_or_account_as_running (test_studio_http.HTTPTests.test_status_never_advertises_a_provider_pc_or_account_as_running) ... ok
+test_transfer_encoding_and_ambiguous_lengths_are_refused (test_studio_http.HTTPTests.test_transfer_encoding_and_ambiguous_lengths_are_refused) ... ok
+test_unneeded_methods_do_not_mutate_anything (test_studio_http.HTTPTests.test_unneeded_methods_do_not_mutate_anything) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 1.223s
+
+OK
+
+=== RUN 9/10 (duration: 1.589s, exit: 0, socket_reset: False) ===
+test_cross_origin_and_opaque_origin_requests_are_refused (test_studio_http.HTTPTests.test_cross_origin_and_opaque_origin_requests_are_refused) ... ok
+test_download_is_exactly_the_fixed_public_archive_not_a_url_path (test_studio_http.HTTPTests.test_download_is_exactly_the_fixed_public_archive_not_a_url_path) ... ok
+test_http_body_limit_and_content_type (test_studio_http.HTTPTests.test_http_body_limit_and_content_type) ... ok
+test_json_contract_rejects_duplicate_keys_nan_and_unknown_fields (test_studio_http.HTTPTests.test_json_contract_rejects_duplicate_keys_nan_and_unknown_fields) ... ok
+test_no_execution_install_auth_or_posting_route_exists (test_studio_http.HTTPTests.test_no_execution_install_auth_or_posting_route_exists) ... ok
+test_paths_and_queries_cannot_read_private_files (test_studio_http.HTTPTests.test_paths_and_queries_cannot_read_private_files) ... ok
+test_preview_hostname_is_supported_but_arbitrary_dns_host_is_not (test_studio_http.HTTPTests.test_preview_hostname_is_supported_but_arbitrary_dns_host_is_not) ... ok
+test_preview_is_embed_compatible_and_has_hashed_inline_script_csp (test_studio_http.HTTPTests.test_preview_is_embed_compatible_and_has_hashed_inline_script_csp) ... ok
+test_real_pure_companion_plan_roundtrip (test_studio_http.HTTPTests.test_real_pure_companion_plan_roundtrip) ... ok
+test_real_social_plan_uses_explicit_private_privacy (test_studio_http.HTTPTests.test_real_social_plan_uses_explicit_private_privacy) ... ok
+test_status_never_advertises_a_provider_pc_or_account_as_running (test_studio_http.HTTPTests.test_status_never_advertises_a_provider_pc_or_account_as_running) ... ok
+test_transfer_encoding_and_ambiguous_lengths_are_refused (test_studio_http.HTTPTests.test_transfer_encoding_and_ambiguous_lengths_are_refused) ... ok
+test_unneeded_methods_do_not_mutate_anything (test_studio_http.HTTPTests.test_unneeded_methods_do_not_mutate_anything) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 1.153s
+
+OK
+
+=== RUN 10/10 (duration: 1.563s, exit: 0, socket_reset: False) ===
+test_cross_origin_and_opaque_origin_requests_are_refused (test_studio_http.HTTPTests.test_cross_origin_and_opaque_origin_requests_are_refused) ... ok
+test_download_is_exactly_the_fixed_public_archive_not_a_url_path (test_studio_http.HTTPTests.test_download_is_exactly_the_fixed_public_archive_not_a_url_path) ... ok
+test_http_body_limit_and_content_type (test_studio_http.HTTPTests.test_http_body_limit_and_content_type) ... ok
+test_json_contract_rejects_duplicate_keys_nan_and_unknown_fields (test_studio_http.HTTPTests.test_json_contract_rejects_duplicate_keys_nan_and_unknown_fields) ... ok
+test_no_execution_install_auth_or_posting_route_exists (test_studio_http.HTTPTests.test_no_execution_install_auth_or_posting_route_exists) ... ok
+test_paths_and_queries_cannot_read_private_files (test_studio_http.HTTPTests.test_paths_and_queries_cannot_read_private_files) ... ok
+test_preview_hostname_is_supported_but_arbitrary_dns_host_is_not (test_studio_http.HTTPTests.test_preview_hostname_is_supported_but_arbitrary_dns_host_is_not) ... ok
+test_preview_is_embed_compatible_and_has_hashed_inline_script_csp (test_studio_http.HTTPTests.test_preview_is_embed_compatible_and_has_hashed_inline_script_csp) ... ok
+test_real_pure_companion_plan_roundtrip (test_studio_http.HTTPTests.test_real_pure_companion_plan_roundtrip) ... ok
+test_real_social_plan_uses_explicit_private_privacy (test_studio_http.HTTPTests.test_real_social_plan_uses_explicit_private_privacy) ... ok
+test_status_never_advertises_a_provider_pc_or_account_as_running (test_studio_http.HTTPTests.test_status_never_advertises_a_provider_pc_or_account_as_running) ... ok
+test_transfer_encoding_and_ambiguous_lengths_are_refused (test_studio_http.HTTPTests.test_transfer_encoding_and_ambiguous_lengths_are_refused) ... ok
+test_unneeded_methods_do_not_mutate_anything (test_studio_http.HTTPTests.test_unneeded_methods_do_not_mutate_anything) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 1.138s
+
+OK
+
